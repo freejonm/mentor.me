@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import Nav from './components/Nav';
 // import LoginForm from './pages/Auth/LoginForm';
 // import SignupForm from './pages/Auth/SignupForm';
 // import NoMatch from "./pages/NoMatch";
@@ -76,7 +77,9 @@ function App() {
   // );
   return (
 <div>
-  
+
+  <Nav />
+
 </div>
   );
 }

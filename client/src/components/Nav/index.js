@@ -4,7 +4,9 @@ import './index.scss';
 const Nav = () => {
   return (
     <div>
-      <h1>mentor me</h1>
+        <nav>
+        <h1>mentor me</h1>
+        </nav>
     </div>
   );
 };

@@ -17,10 +17,11 @@ const userSchema = new Schema({
 		fieldOfInterest: {type: String, unique: false, required: false},
 		desire: {type: String, unique: false, required: false},
 		gradYear: {type: Number, unique: false, required: false},
+		isLookingForMentor: {type: Boolean, unique: false, required: false},
+		education: {type: String, unique: false, required: false},
+		hoursSpentWithMentor: {type: String, unique: false, required: false},
 	},
-
-	
-	
+	meetingsAttended: {type: Number, unique: false, required: false}
 });
 
 // Define schema methods

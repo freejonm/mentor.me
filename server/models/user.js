@@ -13,14 +13,13 @@ const userSchema = new Schema({
 	description: { type: String, unique: false, required: false},
 	location: { type: String, unique: false, required: false},
 	currentPosition: {type: String, unique: false, required: false},
-	mentee: {
-		fieldOfInterest: {type: String, unique: false, required: false},
-		desire: {type: String, unique: false, required: false},
-		gradYear: {type: Number, unique: false, required: false},
-		isLookingForMentor: {type: Boolean, unique: false, required: false},
-		education: {type: String, unique: false, required: false},
-		hoursSpentWithMentor: {type: String, unique: false, required: false},
-	},
+	mentee: {type: Boolean, unique: false, required: true},
+	fieldOfInterest: {type: String, unique: false, required: false},
+	desire: {type: String, unique: false, required: false},
+	gradYear: {type: Number, unique: false, required: false},
+	isLookingForMentor: {type: Boolean, unique: false, required: false},
+	education: {type: String, unique: false, required: false},
+	hoursSpentWithMentor: {type: String, unique: false, required: false},
 	meetingsAttended: {type: Number, unique: false, required: false}
 });
 

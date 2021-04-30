@@ -1,11 +1,22 @@
 const fetch = require('node-fetch');
 const fs = require('fs');
+const inquirer = require('inquirer');
 
-async function call() {
+inquirer.prompt([
+    {
+        type: "input",
+        name: "numUsers",
+        message: "how many random users do you want?"
+    }
+]).then(val => {
+    call(val.numUsers);
+})
+
+async function call(num) {
     
-   let userArr = []
+   let userArr = [];
         
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < num; i++) {
         
         let response = await fetch(`https://randomuser.me/api/`, {
             method: 'GET',
@@ -14,12 +25,11 @@ async function call() {
                 'Content-Type': 'application/json'
             }
         })
-        let user = await response.json()
-        userArr.push(user.results)
+        let user = await response.json();
+        userArr.push(user.results);
     }
 
-    fs.writeFileSync('userApi.json', JSON.stringify(userArr))
-    console.log('success')
-}
+    fs.writeFileSync('userApi.json', JSON.stringify(userArr));
 
-call()
+    setTimeout(()=>console.log('success!'), 1000);
+};

@@ -6,6 +6,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "axios": "^0.19.2",
+    "eslint": "^6.8.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -15,6 +16,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "lint": "eslint . --ext .js --quiet",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
@@ -24,5 +26,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "eslint-plugin-import": "^2.22.1"
+  }
 }

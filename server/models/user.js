@@ -10,6 +10,8 @@ const userSchema = new Schema({
   username: { type: String, unique: false, required: false },
   password: { type: String, unique: false, required: false },
   pronouns: { type: String, unique: false, required: false },
+	description: { type: String, unique: false, required: false},
+	
 	
 });
 

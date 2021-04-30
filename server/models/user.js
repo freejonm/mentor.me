@@ -19,6 +19,7 @@ const userSchema = new Schema({
 	desire: {type: String, unique: false, required: false},
 	gradYear: {type: Number, unique: false, required: false},
 	isLookingForMentor: {type: Boolean, unique: false, required: false},
+	isLookingForMentee: {type: Boolean, unique: false, required: true}, 
 	education: {type: String, unique: false, required: false},
 	hoursSpentWithMentor: {type: String, unique: false, required: false},
 	meetingsAttended: {type: Number, unique: false, required: false}

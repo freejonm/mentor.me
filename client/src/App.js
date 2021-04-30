@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Nav from './components/Nav';
 import ParticleBG from './ParticleBG';
 
-// import LoginForm from './pages/Auth/LoginForm';
+import LoginForm from './pages/Auth/LoginForm';
 // import SignupForm from './pages/Auth/SignupForm';
 // import NoMatch from "./pages/NoMatch";
 // import AUTH from './utils/AUTH';
@@ -81,7 +81,7 @@ function App() {
     <div>
       <Nav />
       <ParticleBG />
-
+      <LoginForm />
     </div>
   );
 }

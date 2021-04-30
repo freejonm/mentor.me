@@ -9,12 +9,12 @@ inquirer.prompt([
         message: "how many random users do you want?"
     }
 ]).then(val => {
-    call(val.numUsers)
+    call(val.numUsers);
 })
 
 async function call(num) {
     
-   let userArr = []
+   let userArr = [];
         
     for (let i = 0; i < num; i++) {
         
@@ -25,11 +25,11 @@ async function call(num) {
                 'Content-Type': 'application/json'
             }
         })
-        let user = await response.json()
-        userArr.push(user.results)
+        let user = await response.json();
+        userArr.push(user.results);
     }
 
-    fs.writeFileSync('userApi.json', JSON.stringify(userArr))
+    fs.writeFileSync('userApi.json', JSON.stringify(userArr));
 
     setTimeout(()=>console.log('success!'), 1000);
 };

@@ -23,7 +23,18 @@ module.exports = {
         'firstName': firstName,
         'lastName': lastName,
         'username': username,
-        'password': password
+        'password': password,
+        'description': description,
+        'location': location,
+        'currentPosition': currentPosition,
+        'mentor': mentor,
+        'fieldOfInterest': fieldOfInterest,
+        'desire': desire,
+        'gradYear': gradYear,
+        'isLookingForMentor': isLookingforMentor,
+        'education': education,
+        'hoursSpentWithMentor': hoursSpentWithMentor,
+        'meetingsAttended': meetingsAttended,
       });
       newUser.save((err, savedUser) => {
         if (err) return res.json(err);

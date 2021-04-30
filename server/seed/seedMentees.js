@@ -18,7 +18,7 @@ mongoose.connect(
 db.Mentees
     .remove({})
     .then(() => {
-        db.Mentor.collection.insertMany(mentees);
+        db.Mentees.collection.insertMany(mentees);
     })
     .then(data => {
         console.log(date.result.n + " mentees inserted");

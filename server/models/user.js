@@ -12,6 +12,12 @@ const userSchema = new Schema({
   pronouns: { type: String, unique: false, required: false },
 	description: { type: String, unique: false, required: false},
 	location: { type: String, unique: false, required: false},
+	currentPosition: {type: String, unique: false, required: false},
+	mentee: {
+		fieldOfInterest: {type: String, unique: false, required: false}
+	},
+	
+	
 	
 });
 

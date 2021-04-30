@@ -11,7 +11,7 @@ const userSchema = new Schema({
   password: { type: String, unique: false, required: false },
   pronouns: { type: String, unique: false, required: false },
 	description: { type: String, unique: false, required: false},
-	
+	location: { type: String, unique: false, required: false},
 	
 });
 

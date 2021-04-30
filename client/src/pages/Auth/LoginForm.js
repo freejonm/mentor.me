@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Redirect, Link } from 'react-router-dom';
-import { Container, Row, Col } from '../../components/Grid';
-import { Card } from '../../components/Card';
-import { Input, FormBtn } from '../../components/Form';
+// import { Container, Row, Col } from '../../components/Grid';
+// import { Card } from '../../components/Card';
+// import { Input, FormBtn } from '../../components/Form';
+import './index.scss';
 
 function LoginForm({login}) {
   const [userObject, setUserObject] = useState({

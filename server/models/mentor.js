@@ -3,6 +3,8 @@ const Schema = mongoose.Schema;
 const bcrypt = require('bcryptjs');
 mongoose.promise = Promise;
 
+let ObjectId = Schema.ObjectId
+
 // Define userSchema
 const mentorSchema = new Schema({
   personId: { type: ObjectId },

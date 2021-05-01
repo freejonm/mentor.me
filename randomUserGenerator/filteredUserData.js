@@ -1,23 +1,32 @@
+// imports users generated from random user API
 const users = require('./userAPI.json');
 const fs = require('fs');
 
+//intialize array for filtered dummy users
 let filtered = [];
 
+// loops through each dummy user
 users.forEach(user => {
     
     let obj = {};
 
+    // function to generate random numbers for several purposes in generating somewhat unique users
     function random(num) {
         return Math.floor(Math.random() * num);
     };
 
-    const rnd = random(100)
-    const years = random(30);
+    //initializes random number from 0 to 100 to determine what details mentee user will have if this user is a mentee
+    const rnd = random(100);
 
+    //initializes a random number from 10 to 30 to to indicate the number of years experience of mentor will have
+    const years = random(20) + 10;
+
+    // starts seeding data from random user API into an empty object
     obj.profilePicture = user[0].picture.thumbnail;
     obj.firstName = user[0].name.first;
     obj.lastName = user[0].name.last;
 
+    // sets pronouns based on gender from random user API
     if (user[0].gender === "female") {
         obj.pronouns = "she/her";
     } else if (user[0].gender === "male") {
@@ -32,8 +41,12 @@ users.forEach(user => {
     obj.meetingsAttended = random(10);
 
 
+    // creates a random number from 0 to 100 and if the number is less than 80 then the user will be a mentee otherwise they will be a mentor
+    //this to try and create about a 5:1 ratio of mentors to mentees
     if (random(100) < 80) {
         obj.mentee = true;
+        // uses the rnd variable initialized earlier in the loop to determine some minor details of a user to give make kind of unique
+        // there is about 1/3 chance of user having one of these descriptions
         if (rnd > 66) {
             obj.description = "Bootcamp Graduate with a background in engineering looking for career guidance to leverage both of these passion";
             obj.desire = "looking for a job";

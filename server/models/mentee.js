@@ -3,8 +3,11 @@ const Schema = mongoose.Schema;
 const bcrypt = require('bcryptjs');
 mongoose.promise = Promise;
 
+let ObjectId = Schema.ObjectId
+
 // Define userSchema
 const menteeSchema = new Schema({
+	personId: { ObjectId }
 	firstName: { type: String, unique: false },
 	lastName: { type: String, unique: false },
   username: { type: String, unique: false, required: false },

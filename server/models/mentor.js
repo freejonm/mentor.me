@@ -5,6 +5,7 @@ mongoose.promise = Promise;
 
 // Define userSchema
 const mentorSchema = new Schema({
+  personId: { type: ObjectId },
 	firstName: { type: String, unique: false },
 	lastName: { type: String, unique: false },
   username: { type: String, unique: false, required: false },

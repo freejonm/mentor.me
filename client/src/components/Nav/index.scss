@@ -1,9 +1,33 @@
 @import "../../styles/variables";
 
 .mentornav {
+    display: inline-flex;
     position: fixed;
     background-color: $pinkorange;
-    padding: 25px;
+    padding: 2px;
     width: 100%;
+    height: fit-content;
+    justify-content: space-between;
 
 }
+
+.brandName{
+    font-size: 60px;
+}
+
+.headLinks {
+    display: inline-flex;
+    text-decoration: none;
+    margin: 18px;
+}
+ .navLink {
+     font-size: 26px;
+     list-style-type: none;
+     margin-right: 20px;
+ }
+
+ .navATag {
+     color: white;
+ }
+
+ 

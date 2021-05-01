@@ -20,7 +20,8 @@ const mentorSchema = new Schema({
 	isLookingForMentee: {type: Boolean, unique: false, required: false},
 	education: {type: String, unique: false, required: false},
 	hoursSpentWithMentee: {type: String, unique: false, required: false},
-	meetingsAttended: {type: Number, unique: false, required: false}
+	meetingsAttended: {type: Number, unique: false, required: false},
+  hasExperienceWith: [{type: String, unique: false, required: true}]
 });
 
 // Define schema methods

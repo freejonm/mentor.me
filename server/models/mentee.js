@@ -15,6 +15,7 @@ const menteeSchema = new Schema({
 	currentPosition: {type: String, unique: false, required: false},
 	mentee: {type: Boolean, unique: false, required: true},
 	fieldOfInterest: {type: String, unique: false, required: false},
+	technologiesInterestedIn: [{ type: String, unique:false, required: false}],
 	desire: {type: String, unique: false, required: false},
 	gradYear: {type: Number, unique: false, required: false},
 	isLookingForMentor: {type: Boolean, unique: false, required: false},

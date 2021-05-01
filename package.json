@@ -7,6 +7,7 @@
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server/server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "lint": "eslint . --ext .js --quiet",
     "client": "cd client && npm run start",
     "install": "cd client && yarn install",
     "build": "cd client && npm run build",
@@ -20,9 +21,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^7.25.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
     "nodemon": "^2.0.4"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.4",
     "axios": "^0.19.2",
     "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",

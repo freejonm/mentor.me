@@ -3,7 +3,7 @@ const bookRoutes = require("./books");
 const mentorRoutes = require("./mentor");
 const menteeRoutes = require("./mentee");
 
-// Book routes
+// routes
 router.use("/books", bookRoutes);
 router.use("/mentor", mentorRoutes);
 router.use("/mentee", menteeRoutes);

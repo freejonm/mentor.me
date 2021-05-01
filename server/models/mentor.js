@@ -11,18 +11,19 @@ const mentorSchema = new Schema({
   password: { type: String, unique: false, required: false },
   pronouns: { type: String, unique: false, required: false },
 	description: { type: String, unique: false, required: false},
-	location: { type: String, unique: false, required: false},
-	currentPosition: {type: String, unique: false, required: false},
-	mentor: {type: Boolean, unique: false, required: true},
-	fieldOfInterest: {type: String, unique: false, required: false},
-	desire: {type: String, unique: false, required: false},
-	gradYear: {type: Number, unique: false, required: false},
-	isLookingForMentee: {type: Boolean, unique: false, required: false},
-	education: {type: String, unique: false, required: false},
-	hoursSpentWithMentee: {type: String, unique: false, required: false},
-	meetingsAttended: {type: Number, unique: false, required: false},
-  hasExperienceWith: [{type: String, unique: false, required: true}],
-  menteesAssigned: [{type: String, unique: false, required: false}]
+	location: { type: String, unique: false, required: false },
+	currentPosition: { type: String, unique: false, required: false },
+	mentor: { type: Boolean, unique: false, required: true},
+	fieldOfInterest: { type: String, unique: false, required: false },
+	desire: { type: String, unique: false, required: false },
+	gradYear: { type: Number, unique: false, required: false },
+	isLookingForMentee: { type: Boolean, unique: false, required: false },
+	education: { type: String, unique: false, required: false },
+	hoursSpentWithMentee: { type: String, unique: false, required: false },
+	meetingsAttended: { type: Number, unique: false, required: false },
+  hasExperienceWith: [{ type: String, unique: false, required: true }],
+  menteesAssigned: [{ type: String, unique: false, required: false }],
+  profilePicture: { data: Buffer, contentType: String }
 });
 
 // Define schema methods

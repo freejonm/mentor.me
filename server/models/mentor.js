@@ -23,7 +23,8 @@ const mentorSchema = new Schema({
 	meetingsAttended: { type: Number, unique: false, required: false },
   hasExperienceWith: [{ type: String, unique: false, required: true }],
   menteesAssigned: [{ type: String, unique: false, required: false }],
-  profilePicture: { data: Buffer, contentType: String }
+  profilePicture: { data: Buffer, contentType: String },
+  email: {type: String, lowercase: true, required: [true, "can't be blank"], match: [/\S+@\S+\.\S+/, 'is invalid'], index: true}
 });
 
 // Define schema methods

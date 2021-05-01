@@ -20,7 +20,8 @@ const menteeSchema = new Schema({
 	isLookingForMentor: {type: Boolean, unique: false, required: false},
 	education: {type: String, unique: false, required: false},
 	hoursSpentWithMentor: {type: String, unique: false, required: false},
-	meetingsAttended: {type: Number, unique: false, required: false}
+	meetingsAttended: {type: Number, unique: false, required: false},
+	profilePicture: { data: Buffer, contentType: String }
 });
 
 // Define schema methods

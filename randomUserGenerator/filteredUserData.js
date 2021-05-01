@@ -11,6 +11,7 @@ users.forEach(user => {
         return Math.floor(Math.random() * num);
     };
 
+    const rnd = random(100)
     const years = random(30);
 
     obj.profilePicture = user[0].picture.thumbnail;
@@ -31,45 +32,52 @@ users.forEach(user => {
     obj.meetingsAttended = random(10);
 
 
-    if (random(100) < 75) {
-        let mentee = {};
-        if (random(100) > 66) {
+    if (random(100) < 80) {
+        obj.mentee = true;
+        if (rnd > 66) {
             obj.description = "Bootcamp Graduate with a background in engineering looking for career guidance to leverage both of these passion";
-            mentee.desire = "looking for a job";
-            mentee.gradyear = 2021;
-            mentee.isLookingForMentor = true;
-            mentee.education = "UNC Coding Bootcamp";
-            mentee.hoursSpentWithMentor = random(15);
-            mentee.lookingForHelpWith = ["Python", "C", "C#", "Java", "Angular", "SEO", "AEM", "ASP.NET", "Data Structures"];
-        } else if (random(100) > 33) {
+            obj.desire = "looking for a job";
+            obj.gradyear = 2021;
+            obj.isLookingForMentor = true;
+            obj.education = "UNC Coding Bootcamp";
+            obj.hoursSpentWithMentor = random(15);
+            obj.lookingForHelpWith = ["Python", "C", "C#", "Java", "Angular", "SEO", "AEM", "ASP.NET", "Data Structures"];
+            obj.currentPosition = "Civil Engineer";
+            obj.fieldOfInterest = "Web Development";
+        } else if (rnd > 33 && rnd < 66 ) {
             obj.description = "Graduated a web development bootcamp and have no experience in the field and am looking for guidance into my new career";
-            mentee.desire = "looking for a job";
-            mentee.gradyear = 2021;
-            mentee.isLookingForMentor = true;
-            mentee.education = "UNC Coding Bootcamp";
-            mentee.hoursSpentWithMentor = random(15);
-            mentee.lookingForHelpWith = [ "JavaScript", "React", "TypeScript", "CSS"];
+            obj.desire = "looking for a job";
+            obj.gradyear = 2021;
+            obj.isLookingForMentor = true;
+            obj.education = "UNC Coding Bootcamp";
+            obj.hoursSpentWithMentor = random(15);
+            obj.lookingForHelpWith = [ "JavaScript", "React", "TypeScript", "CSS"];
+            obj.currentPosition = "Store ";
+            obj.fieldOfInterest = "Web Development";
         } else {
-            obj.description = "Looking to advance my career in the fi eld of web development and need a mentor to help me on this path";
-            mentee.desire = "looking to advance my career";
-            mentee.gradyear = 2019;
-            mentee.isLookingForMentor = true;
-            mentee.education = "UNC Coding Bootcamp";
-            mentee.hoursSpentWithMentor = random(15);
-            mentee.lookingForHelpWith = ["Python", "C", "WordPress", "ASP.NET", "Data Structures", "Alogrithms", "Management"];
+            obj.description = "Looking to advance my career in the field of web development and need a mentor to help me on this path";
+            obj.desire = "looking to advance my career";
+            obj.gradyear = 2019;
+            obj.isLookingForMentor = true;
+            obj.education = "UNC Coding Bootcamp";
+            obj.hoursSpentWithMentor = random(15);
+            obj.lookingForHelpWith = ["Python", "C", "WordPress", "ASP.NET", "Data Structures", "Alogrithms", "Management"];
+            obj.currentPosition = "Developer";
+            obj.fieldOfInterest = "Web Development";
         };
-
-        obj.mentee = mentee;
     } else {
+        obj.mentor = true
         obj.description = `Software Engineer with ${years} years experience in the field`;
-        obj.mentor = {
-            yearsExperience: years,
-            hoursSpentWithMentees: random(50),
-            hoursSpentThisWeek: random(20),
-            menteesAssigned: random(4),
-            hourlyWage: 30,
-            hasExperienceIn: ["JavaScript", "TypeScript", "CSS", "HTML", "SCSS"]
-        }
+        obj.gradYear = 2021 - years;
+        obj.desire = "To help young and old web developers advance in their skill sets and their careers";
+        obj.yearsExperience = years,
+        obj.isLookingForMentee = true;
+        obj.hoursSpentWithMentees = random(50);
+        obj.hoursSpentThisWeek = random(20);
+        obj.menteesAssigned = random(4);
+        obj.hasExperienceIn = ["JavaScript", "TypeScript", "CSS", "HTML", "SCSS"];
+        obj.currentPosition = "Developer";
+        obj.education = "UNC Coding Bootcamp";  
     }
 
     filtered.push(obj);

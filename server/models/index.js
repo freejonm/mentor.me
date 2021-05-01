@@ -1,4 +1,4 @@
 module.exports = {
-  Book: require("./book"),
-  User: require("./user")
+  Mentor: require("./mentor"),
+  Mentee: require("./mentee")
 };

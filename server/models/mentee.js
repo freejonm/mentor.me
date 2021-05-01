@@ -7,7 +7,7 @@ let ObjectId = Schema.ObjectId
 
 // Define userSchema
 const menteeSchema = new Schema({
-	personId: { ObjectId }
+	personId: { type: ObjectId },
 	firstName: { type: String, unique: false },
 	lastName: { type: String, unique: false },
   username: { type: String, unique: false, required: false },

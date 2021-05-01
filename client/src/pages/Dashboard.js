@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import Calendar from '../components/Calendar';
 import UserProfile from '../components/UserProfile';
 import EditProfileButton from '../components/EditProfileButton';
-import ConnectedPeople from '../components/ConnectedPeople';
-import PotentialConnections from '../components/PotentialConnections';
+import Calendar from '../components/Calendar';
+
 
 function Dashboard() {
     return (
@@ -12,13 +11,9 @@ function Dashboard() {
         <UserProfile />
         Jenny Smith 
         Raleigh, NC
-
         <Calendar />
 
-        <ConnectedPeople />
-        <PotentialConnections />
-
-
+    
         </>
     )
 }

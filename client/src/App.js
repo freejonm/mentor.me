@@ -80,7 +80,7 @@ function App() {
   return (
     <div>
       <Nav />
-      <ParticleBG />
+      {/* <ParticleBG /> */}
       <LoginForm />
     </div>
   );

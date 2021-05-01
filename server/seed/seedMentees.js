@@ -5,17 +5,17 @@ const db = require('../models');
 let mentees = [];
 
 users.map(user => {
-    if (user.mentee) {
+    if (user.mentee === true) {
         mentees.push(user);
     }
 });
 
 mongoose.connect(
     process.env.MONGODB_URI ||
-    "mongodb://localhost/mentormeusers"    
+    "mongodb://localhost/mentor-me-auth"    
 );
 
-db.Mentees
+db.Mentee
     .remove({})
     .then(() => {
         db.Mentees.collection.insertMany(mentees);

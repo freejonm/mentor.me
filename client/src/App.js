@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
  
 import Nav from './components/Nav';
-import ParticleBG from './ParticleBG';
+// import ParticleBG from './ParticleBG';
 import LoginForm from './pages/Auth/LoginForm';
 import Landing from './pages/Landing';
 
@@ -89,7 +89,7 @@ function App() {
   return (
     <div>
       <Nav />
-      <ParticleBG />
+      {/* <ParticleBG /> */}
 
       
       {/* <LoginForm /> */}

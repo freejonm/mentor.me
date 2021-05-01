@@ -7,6 +7,7 @@ import Landing from './pages/Landing';
 
 import {BrowserRouter as Router, Route} from "react-router-dom"
 import Register from './pages/Register'; 
+import StickyFooter from './components/StickyFooter';
 
 // import LoginForm from './pages/Auth/LoginForm';
 
@@ -100,6 +101,7 @@ function App() {
           
       </Router>
 
+      <StickyFooter />
           
 
     </div>

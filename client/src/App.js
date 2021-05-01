@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+ 
 import Nav from './components/Nav';
 import ParticleBG from './ParticleBG';
 
 import LoginForm from './pages/Auth/LoginForm';
+import Landing from './pages/Landing';
+
+import {BrowserRouter as Router, Route} from "react-router-dom"
+import Dashboard from './pages/Dashboard';
+
 // import SignupForm from './pages/Auth/SignupForm';
 // import NoMatch from "./pages/NoMatch";
 // import AUTH from './utils/AUTH';
-
 function App() {
   // const [loggedIn, setLoggedIn] = useState(false);
   // const [user, setUser] = useState(null);
@@ -81,7 +85,13 @@ function App() {
     <div>
       <Nav />
       <ParticleBG />
-      <LoginForm />
+      {/* <LoginForm /> */}
+
+      <Router>
+          <Route exact path = "/"  component = {Landing}/>
+          <Route exact path = "/login" component = {LoginForm} />
+          <Route exact path = "/dashboard" component = {Dashboard} />
+      </Router>
     </div>
   );
 }

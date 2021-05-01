@@ -16,19 +16,6 @@ import Container from '@material-ui/core/Container';
 
 import "./LoginForm.scss";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -141,7 +128,7 @@ function LoginForm({login}) {
         </form>
       </div>
       <Box mt={8}>
-        <Copyright />
+        
       </Box>
     </Container>
   );
@@ -149,42 +136,3 @@ function LoginForm({login}) {
 };
 
 export default LoginForm;
-
-
-
-
-
-// 
-//       <section className="container">
-//         <section className="row">
-//           <section className="col-md-3"></section>
-//           <section className="col-md-6">
-//             <section className="card" title="Login to React Reading List">
-//               <form style={{marginTop: 10}}>
-//                 <label htmlFor="username">Username: </label>
-//                 <input
-//                   type="text"
-//                   name="username"
-//                   value={userObject.username}
-//                   onChange={handleChange}
-//                 />
-//                 <label htmlFor="password">Password: </label>
-//                 <input
-//                   type="password"
-//                   name="password"
-//                   value={userObject.password}
-//                   onChange={handleChange}
-//                 />
-//                 <a href="/signup">Register</a>
-//                 <button onClick={handleSubmit}>Login</button>
-//               </form>
-//             </section>
-//           </section>
-//           <section className="col-md-3"></section>
-//         </section>
-//       </section>
-//     )
-//   }
-// }
-
-

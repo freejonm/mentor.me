@@ -2,6 +2,10 @@ const users = require('../../randomUserGenerator/filteredUsers');
 const mongoose = require('mongoose');
 const db = require('../models');
 
+mongoose.connect(
+    process.env.MONGODB_URI ||
+    "mongodb://localhost/mentor-me-auth"    
+);
 let mentors = [];
 
 users.map(user => {
@@ -10,18 +14,12 @@ users.map(user => {
     }
 }); 
 
-mongoose.connect(
-    process.env.MONGODB_URI ||
-    "mongodb://localhost/mentor-me-auth"    
-);
 
 db.Mentor
     .remove({})
-    .then(() => {
-        db.Mentor.collection.insertMany(mentors);
-    })
+    .then(() => db.Mentor.collection.insertMany(mentors))
     .then(data => {
-        console.log(date.result.n + " mentors inserted");
+        console.log(data.result.n + " mentors inserted");
         process.exit(0);
     })
     .catch(err => {

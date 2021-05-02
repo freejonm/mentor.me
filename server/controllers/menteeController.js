@@ -6,14 +6,14 @@ module.exports = {
   findAll: function(req, res) {
     if (req.user) {
       db.Mentee
-        .find({ _id: req.ObjectId })
+        .find({})
         .populate({ path: "mentees", options: { sort: { 'lastName': -1 } } })
         .then(mentee => {
           res.json({ mentee: mentee });
         })
         .catch(err => res.status(422).json(err));
     } else {
-      return res.json({ books: null });
+      return res.json({ Mentees: null });
     }
   },
 

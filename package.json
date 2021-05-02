@@ -11,7 +11,8 @@
     "client": "cd client && npm run start",
     "install": "cd client && yarn install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "seed": "cd server && cd seed && node seedMentees.js && node seedMentors.js"
   },
   "engines": {
     "node": "12.10.0",

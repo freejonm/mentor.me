@@ -6,7 +6,7 @@ import WelcomeDiv from '../components/WelcomeDiv'
 const Landing = () => {
   return ( 
   <div>
-
+  <WelcomeDiv/>
   </div>
   )
 };

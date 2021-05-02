@@ -1,2 +1,11 @@
 @import "../../styles/variables";
 
+.welcomeContainer {
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+.landingLogo {
+    font-size: 80px;
+}

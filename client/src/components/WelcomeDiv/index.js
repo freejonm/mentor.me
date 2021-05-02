@@ -1,16 +1,17 @@
 import React from 'react';
+import './index.scss'
 
 const WelcomeDiv = () => {
   return (
-    <>
+    <div className="land">
       <div className="welcomeContainer">
-      <span className="landingLogo"> mentor me</span>
+      <h1 className="landingLogo">Where mentors and mentees connect and eat salads.
+ </h1>
       <h3 className="descrip">
-        Where mentors and mentees connect and eat salads.
       </h3>
           
       </div>
-    </>
+    </div>
   );
 };
 

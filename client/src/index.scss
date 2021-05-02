@@ -7,3 +7,10 @@ body {
   font-family: 'Ubuntu', sans-serif !important;
   background: linear-gradient(160deg, $darkturq 60%, $turq 60%) !important;
 }
+
+.content {
+  display: flex;
+  padding: 100px;
+  justify-content: flex-start;
+  color: white;
+}

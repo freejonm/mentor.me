@@ -4,7 +4,6 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Ubuntu', sans-serif;
-  background-color: $darkturq;
-  color:white;
+  font-family: 'Ubuntu', sans-serif !important;
+  background-color: $darkturq !important;
 }

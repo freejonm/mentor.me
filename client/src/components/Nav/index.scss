@@ -8,7 +8,8 @@
     width: 100%;
     height: fit-content;
     justify-content: space-between;
-
+    color: white;
+    top: 0%;
 }
 
 .brandName{
@@ -28,6 +29,11 @@
 
  .navATag {
      color: white;
+ }
+
+ .navATag:hover {
+     text-decoration: none;
+     color: $darkturq;
  }
 
  

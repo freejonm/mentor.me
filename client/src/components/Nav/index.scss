@@ -1,39 +1,44 @@
-@import "../../styles/variables";
+@import '../../styles/variables';
 
 .mentornav {
-    display: inline-flex;
-    position: fixed;
-    background-color: $pinkorange;
-    padding: 2px;
-    width: 100%;
-    height: fit-content;
-    justify-content: space-between;
-    color: white;
-    top: 0%;
+  display: inline-flex;
+  position: fixed;
+  background-color: $pinkorange;
+  padding: 2px;
+  width: 100%;
+  height: fit-content;
+  justify-content: space-between;
+  color: white;
+  top: 0%;
 }
 
-.brandName{
-    font-size: 60px;
+.brandName {
+  font-size: 60px;
+  color: white;
 }
 
 .headLinks {
-    display: inline-flex;
-    text-decoration: none;
-    margin: 18px;
+  display: inline-flex;
+  text-decoration: none;
+  margin: 18px;
 }
- .navLink {
-     font-size: 26px;
-     list-style-type: none;
-     margin-right: 20px;
- }
+.navLink {
+  font-size: 26px;
+  list-style-type: none;
+  margin-right: 20px;
+}
 
- .navATag {
-     color: white;
- }
+.navATag,
+.brandATag {
+  color: white;
+}
+.navATag:hover {
+  text-decoration: none;
+  color: $darkturq;
+}
 
- .navATag:hover {
-     text-decoration: none;
-     color: $darkturq;
- }
-
- 
+.brandATag:hover {
+  text-decoration: none;
+  color: $darkturq;
+  
+}

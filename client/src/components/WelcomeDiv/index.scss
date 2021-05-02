@@ -11,3 +11,25 @@
     text-align: center;
     text-shadow: black;
 }
+
+.secondLandingContainer{
+text-align: center;
+}
+
+.landGetStart {
+
+    padding: 20px;
+    background-color: $yelloworange;
+    border-radius: 20px;
+    box-shadow: black;
+    border: $darkturq;
+    font-size: 50px;
+    color: white !important;
+
+}
+
+.landGetStart:hover{
+    text-decoration: none;
+    color: $turq;
+
+}

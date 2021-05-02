@@ -15,7 +15,7 @@ const WelcomeDiv = () => {
             We foster mentoring relationships among career-changers entering the
             tech industry via coding bootcamps. 
           </h3>
-          <button className="landGetStart"><a href="/register">Get Started Here</a></button>
+          <button className="landGetStart"><a className="getStartedLink"href="/register">Get Started Here</a></button>
         </div>
       </div>
     </div>

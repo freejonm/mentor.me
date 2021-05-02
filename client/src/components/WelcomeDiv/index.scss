@@ -24,12 +24,13 @@ text-align: center;
     box-shadow: black;
     border: $darkturq;
     font-size: 50px;
-    color: white !important;
 
 }
 
-.landGetStart:hover{
+.getStartedLink{
+    color:white;
+}
+.getStartedLink:hover{
     text-decoration: none;
     color: $turq;
-
 }

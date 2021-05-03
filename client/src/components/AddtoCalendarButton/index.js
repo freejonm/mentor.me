@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
   
-  export default function EditProfileButton() {
+  export default function AddtoCalendarButton() {
     const classes = useStyles();
   
     return (
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
         
         <div>
           <Button variant="contained" size="small" color="orange" className={classes.margin}>
-            Edit Profile
+            add meeting
           </Button>
     
         </div>

@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 100vh;
+  height: 75vh;
   padding: 3rem calc((100vw - 1300px) / 2);
   @media screen and (max-width: 768px) {
     grid-grid-template-columns: 1fr;
@@ -19,11 +19,11 @@ const Container = styled.div`
 
 const ColumnLeft = styled.div`
   display: flex;
-  color: #fff;
+  color:white;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 5rem 2rem;
+  padding: 4rem 2rem;
   h1 {
     margin-bottom: 0.5rem;
     font-size: 6rem;
@@ -44,7 +44,7 @@ const Button = styled(motion.button)`
   border-radius: 4px;
   outline: none;
   cursor: pointer;
-  background: transparent;
+  background-color: orange;
   color: #fff;
 `;
 
@@ -75,10 +75,10 @@ const WelcomeDiv = () => {
         <Button
         whileHover={{ scale: 1.05 }}
         whileTap={{
-          scale: 0.95,
-          backgroundColor: '#67F6E7',
+          scale: .85,
+          backgroundColor: '#637f7d',
           border: 'none',
-          color: '#000'
+          color: 'white'
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, transition: { duration: 1.5 } }}

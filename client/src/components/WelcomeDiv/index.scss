@@ -1,0 +1,36 @@
+@import "../../styles/variables";
+
+.welcomeContainer {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.landingLogo {
+    font-size: 80px;
+    text-align: center;
+    text-shadow: black;
+}
+
+.secondLandingContainer{
+text-align: center;
+}
+
+.landGetStart {
+
+    padding: 20px;
+    background-color: $yelloworange;
+    border-radius: 20px;
+    box-shadow: black;
+    border: $darkturq;
+    font-size: 50px;
+
+}
+
+.getStartedLink{
+    color:white;
+}
+.getStartedLink:hover{
+    text-decoration: none;
+    color: $turq;
+}

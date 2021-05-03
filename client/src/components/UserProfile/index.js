@@ -1,6 +1,8 @@
 import React from 'react';
 import Badge from '@material-ui/core/Badge';
 import Avatar from '@material-ui/core/Avatar';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import './index.scss';
 
@@ -55,7 +57,8 @@ export default function BadgeAvatars() {
   const classes = useStyles();
 
   return (
-
+    <Card className={classes.root}>
+    <CardContent>
     <div className={classes.root}>
       <StyledBadge
         overlap="circle"
@@ -68,6 +71,8 @@ export default function BadgeAvatars() {
         <Avatar alt="Remy Sharp" src="https://avatars.githubusercontent.com/u/74466180?s=60&v=4" />
       </StyledBadge>
     </div>
+    </CardContent>
+    </Card>
     
 
   );

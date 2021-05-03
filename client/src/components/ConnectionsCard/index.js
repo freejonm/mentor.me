@@ -24,7 +24,7 @@ const useStyles = makeStyles({
     },
   });
 
-  export default function Calendar() {
+  export default function ConnectionsCard() {
     const classes = useStyles();
     const bull = <span className={classes.bullet}>•</span>;
 
@@ -32,16 +32,20 @@ const useStyles = makeStyles({
     <Card className={classes.root}>
       <CardContent>
         <Typography variant="h5" component="h2">
-          Calendar
+          Connections
         </Typography>
         <Typography variant="body2" component="p">
-          I am so busy
+          list of people.
           <br />
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">add meeting</Button>
+        <Button size="small">Contact</Button>
       </CardActions>
     </Card>
   );
 };
+        
+  
+
+

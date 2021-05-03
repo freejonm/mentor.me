@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Calendar from '../components/Calendar';
 import UserProfile from '../components/UserProfile';
 import EditProfileButton from '../components/EditProfileButton';
-import ConnectedPeople from '../components/ConnectedPeople';
+import ConnectionsCard from '../components/ConnectionsCard';
 import PotentialConnections from '../components/PotentialConnections';
 
 function Dashboard() {
@@ -15,7 +15,7 @@ function Dashboard() {
 
         <Calendar />
 
-        <ConnectedPeople />
+        <ConnectionsCard />
         <PotentialConnections />
 
 

@@ -35,8 +35,20 @@ const useStyles = makeStyles({
           Connections
         </Typography>
         <Typography variant="body2" component="p">
-          list of people.
-          <br />
+        <table>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td>
+    <td>jill@gmail.com</td>
+  </tr>
+  </table>
+
+         
         </Typography>
       </CardContent>
       <CardActions>

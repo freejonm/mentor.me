@@ -174,24 +174,6 @@ const WelcomeDiv = () => {
       
       </ColumnRight>
     </Container>
-    // <div className="land">
-    //   <div className="welcomeContainer">
-    //     <h1 className="landingLogo">
-    //       Where mentors and mentees connect and eat salads.
-    //     </h1>
-    //     <div className="secondLandingContainer">
-    //       <h3 className="descrip">
-    //         We foster mentoring relationships among career-changers entering the
-    //         tech industry via coding bootcamps.
-    //       </h3>
-    //       <button className="landGetStart">
-    //         <a className="getStartedLink" href="/register">
-    //           Get Started Here
-    //         </a>
-    //       </button>
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 

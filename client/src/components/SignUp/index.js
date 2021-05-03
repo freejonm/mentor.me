@@ -97,6 +97,8 @@ export default function SignUp() {
             </Grid>
 
           </Grid>
+
+          <CheckboxLabels />
           <Button
             type="submit"
             fullWidth

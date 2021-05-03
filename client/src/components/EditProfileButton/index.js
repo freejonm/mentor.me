@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
        
         
         <div>
-          <Button variant="contained" size="small" color="primary" className={classes.margin}>
+          <Button variant="contained" size="small" color="orange" className={classes.margin}>
             Edit Profile
           </Button>
     

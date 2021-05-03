@@ -1,4 +1,11 @@
 import React from 'react'
+import { Card,
+    CardActionArea,
+    CardMedia,
+    CardContent,
+    Typography,
+    CardActions,
+    Button }     from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 
 const useStyles = makeStyles(theme => ({
@@ -14,14 +21,15 @@ const useStyles = makeStyles(theme => ({
     }
   }))
 
-
-
-
 const Item = () => {
-    const classes = useStyles();
-    
+    const classes = useStyles();    
+
     return (
-        <p>I'm an Item!</p>
+        <div>
+            <Card className={classes.root}>
+                
+            </Card>
+        </div>
     )
 }
 

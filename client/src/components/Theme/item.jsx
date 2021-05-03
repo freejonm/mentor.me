@@ -15,7 +15,11 @@ const useStyles = makeStyles(theme => ({
   }))
 
 
+
+
 const Item = () => {
+    const classes = useStyles();
+    
     return (
         <p>I'm an Item!</p>
     )

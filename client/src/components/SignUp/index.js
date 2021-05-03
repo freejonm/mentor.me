@@ -100,6 +100,17 @@ export default function SignUp() {
 
           </Grid>
 
+          <Grid container spacing={4}>
+            
+            <Grid item xs={12}>
+
+            </Grid>
+            <Grid item xs={12}>
+              
+            </Grid>
+
+          </Grid>
+
           <CheckboxLabels />
           <Button
             type="submit"
@@ -113,7 +124,7 @@ export default function SignUp() {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="/login" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>

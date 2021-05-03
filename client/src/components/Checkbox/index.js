@@ -106,8 +106,10 @@ export default function CheckboxLabels() {
         />
         <FormControlLabel
         control={<GreenCheckbox checked={state.checkedG} onChange={handleChange} name="checkedG" />}
+
         label="Salary Negotiations"
         />      
+
     </FormGroup>
   );
 }

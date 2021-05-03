@@ -1,11 +1,12 @@
 import React from 'react';
 import './index.scss';
-import LandingImage from '../../assets/mentor-landing-image.jpg';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-// import "./styles/_variables.scss";
-
-// const Section = styled.section``;
+import APIImg from '../../assets/icons/icons8-api-100.png'
+import CodeImg from '../../assets/icons/icons8-code-100.png'
+import CLIImg from '../../assets/icons/icons8-command-line-100.png'
+import MergeImg from '../../assets/icons/icons8-merge-git-100.png'
+import RespImg from '../../assets/icons/icons8-responsive-100.png'
 
 const Container = styled.div`
   display: grid;
@@ -14,6 +15,17 @@ const Container = styled.div`
   padding: 3rem calc((100vw - 1300px) / 2);
   @media screen and (max-width: 768px) {
     grid-grid-template-columns: 1fr;
+  }
+`;
+
+const Image = styled(motion.img)`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  max-width: 100px;
+  max-height: 100px;
+  @media screen and (max-width: 768px) {
+  display: none;
   }
 `;
 
@@ -35,17 +47,44 @@ const ColumnLeft = styled.div`
   }
 `;
 
-const ColumnRight = styled.div``;
+const ColumnRight = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  position: relative;
+  ${Image}:nth-child(1) {
+    top: 175px;
+    right: 100px;
+  }
+  ${Image}:nth-child(2) {
+    bottom: 100px;
+    left: 100px;
+  }
+  ${Image}:nth-child(3) {
+    top: 175px;
+    left: 50px;
+  }
+  ${Image}:nth-child(4) {
+    bottom: 100px;
+    right: 145px;
+  }
+  ${Image}:nth-child(5) {
+    top: 200px;
+    right: 300px;
+  }
+
+`;
 
 const Button = styled(motion.button)`
-  padding: 1rem 3rem;
-  font-size: 1rem;
-  border: 2px solid #fff;
-  border-radius: 4px;
+  padding: 2rem 3rem;
+  font-size: 26px;
+  border: 2px solid #637f7d;
+  border-radius: 5px;
   outline: none;
   cursor: pointer;
-  background-color: orange;
-  color: #fff;
+  background-color: #eda320;
+  color: white;
 `;
 
 const WelcomeDiv = () => {
@@ -73,6 +112,8 @@ const WelcomeDiv = () => {
           Where salads are eaten with help.
         </motion.p>
         <Button
+        as='a'
+        href="/register"
         whileHover={{ scale: 1.05 }}
         whileTap={{
           scale: .85,
@@ -84,6 +125,54 @@ const WelcomeDiv = () => {
         animate={{ opacity: 1, transition: { duration: 1.5 } }}
         >Get Started</Button>
       </ColumnLeft>
+      <ColumnRight>
+      <Image
+            src={APIImg}
+            alt='api image'
+            whileTap={{ scale: 0.9 }}
+            drag={true}
+            dragConstraints={{ left: 0, right: 250, top: 0, bottom: 50 }}
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0, transition: { duration: 1 } }}
+          />
+               <Image
+            src={CodeImg}
+            alt='Code image'
+            whileTap={{ scale: 0.9 }}
+            drag={true}
+            dragConstraints={{ left: 0, right: 250, top: 0, bottom: 50 }}
+            initial={{ opacity: 0, y: -100 }}
+            animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
+          />
+               <Image
+            src={CLIImg}
+            alt='cli image'
+            whileTap={{ scale: 0.9 }}
+            drag={true}
+            dragConstraints={{ left: 0, right: 250, top: 0, bottom: 50 }}
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0, transition: { duration: 1 } }}
+          />
+               <Image
+            src={MergeImg}
+            alt='api image'
+            whileTap={{ scale: 0.9 }}
+            drag={true}
+            dragConstraints={{ left: 0, right: 250, top: 0, bottom: 50 }}
+            initial={{ opacity: 0, y: -100 }}
+            animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
+          />
+               <Image
+            src={RespImg}
+            alt='api image'
+            whileTap={{ scale: 0.9 }}
+            drag={true}
+            dragConstraints={{ left: 0, right: 250, top: 0, bottom: 50 }}
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0, transition: { duration: 1 } }}
+          />
+      
+      </ColumnRight>
     </Container>
     // <div className="land">
     //   <div className="welcomeContainer">

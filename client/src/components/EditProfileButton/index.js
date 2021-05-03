@@ -1,32 +1,38 @@
 import React from "react";
-import { makeStyles } from '@material-ui/core/styles';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
 import './index.scss';
 
-const useStyles = makeStyles((theme) => ({
-    margin: {
-      margin: theme.spacing(1),
+const theme = createMuiTheme({
+    overrides: {
+      
+      MuiButton: {
+        
+        text: {
+          // Some CSS
+          background: 'linear-gradient(45deg, #eda320 30%, #db784d 90%)',
+          borderRadius: 3,
+          border: 0,
+          color: 'white',
+          height: 48,
+          padding: '0 30px',
+          boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        },
+      },
     },
-    extendedIcon: {
-      marginRight: theme.spacing(1),
-    },
-  }));
+  });
   
-  export default function EditProfileButton() {
-    const classes = useStyles();
+ function EditProfileButton() {
   
     return (
-      <div>
-       
-        
-        <div>
-          <Button variant="contained" size="small" color="orange" className={classes.margin}>
+      <ThemeProvider theme={theme}>
+          <Button>
             Edit Profile
           </Button>
+          </ThemeProvider>
     
-        </div>
-      </div>
     );
   }
 
+  export default EditProfileButton;

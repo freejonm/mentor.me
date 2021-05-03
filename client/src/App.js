@@ -13,10 +13,16 @@ import StickyFooter from './components/StickyFooter';
 
 import Dashboard from './pages/Dashboard';
 
+import { ThemeProvider } from '@material-ui/core/styles'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import theme from './theme'
+
 // import SignupForm from './pages/Auth/SignupForm';
 // import NoMatch from "./pages/NoMatch";
 // import AUTH from './utils/AUTH';
 function App() {
+
+  
   // const [loggedIn, setLoggedIn] = useState(false);
   // const [user, setUser] = useState(null);
 
@@ -87,6 +93,12 @@ function App() {
   // );
   return (
     <div>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <div>
+          <p>A bare bones application!</p>
+        </div>
+      </ThemeProvider>
       <Nav />
       <div className="content">
         {/* <ParticleBG /> */}

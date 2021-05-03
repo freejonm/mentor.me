@@ -8,10 +8,10 @@ const Nav = () => {
         <h1 className="brandName"><a className="brandATag" href="/">mentor me</a></h1>
         <ul className="headLinks">
           <li className="navLink">
-            <a className="navATag"href="#">Getting Started</a>
+            <a className="navATag"href="/register">Getting Started</a>
           </li>
           <li className="navLink">
-            <a className="navATag" href="#">Login</a>
+            <a className="navATag" href="/login">Login</a>
           </li>
         </ul>
       </nav>

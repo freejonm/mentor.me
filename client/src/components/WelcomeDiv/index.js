@@ -3,6 +3,7 @@ import './index.scss';
 import LandingImage from '../../assets/mentor-landing-image.jpg';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+// import "./styles/_variables.scss";
 
 // const Section = styled.section``;
 
@@ -36,14 +37,52 @@ const ColumnLeft = styled.div`
 
 const ColumnRight = styled.div``;
 
-const Button = styled(motion.button)``;
+const Button = styled(motion.button)`
+  padding: 1rem 3rem;
+  font-size: 1rem;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+  color: #fff;
+`;
 
 const WelcomeDiv = () => {
+  const fadeIn = {
+    hidden: { opacity: 0, x: -100 },
+    visible: { opacity: 1, x: 0 }
+  };
+
   return (
     <Container>
       <ColumnLeft>
-        <h1>mentor me</h1>
-        <p>Where salads are eaten with help.</p>
+        <motion.h1
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 3 }}
+        >
+          mentor me
+        </motion.h1>
+        <motion.p
+          variants={fadeIn}
+          initial="hidden"
+          animate="visible"
+          transition={{ duration: 1 }}
+        >
+          Where salads are eaten with help.
+        </motion.p>
+        <Button
+        whileHover={{ scale: 1.05 }}
+        whileTap={{
+          scale: 0.95,
+          backgroundColor: '#67F6E7',
+          border: 'none',
+          color: '#000'
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: { duration: 1.5 } }}
+        >Get Started</Button>
       </ColumnLeft>
     </Container>
     // <div className="land">

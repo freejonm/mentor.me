@@ -13,10 +13,17 @@ import StickyFooter from './components/StickyFooter';
 
 import Dashboard from './pages/Dashboard';
 
+import { ThemeProvider } from '@material-ui/core/styles'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import theme from './theme'
+import Item from './components/Theme/item'
+
 // import SignupForm from './pages/Auth/SignupForm';
 // import NoMatch from "./pages/NoMatch";
 // import AUTH from './utils/AUTH';
 function App() {
+
+  
   // const [loggedIn, setLoggedIn] = useState(false);
   // const [user, setUser] = useState(null);
 
@@ -87,19 +94,24 @@ function App() {
   // );
   return (
     <div>
-      <Nav />
-      <div className="content">
-        {/* <ParticleBG /> */}
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Item />
+        <Nav />
+          <div className="content">
+            {/* <ParticleBG /> */}
 
-        {/* <LoginForm /> */}
-        <Router>
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/login" component={LoginForm} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/dashboard" component={Dashboard} />
-        </Router>
-      </div>
-      <StickyFooter />
+            {/* <LoginForm /> */}
+            <Router>
+              <Route exact path="/" component={Landing} />
+              <Route exact path="/login" component={LoginForm} />
+              <Route exact path="/register" component={Register} />
+              <Route exact path="/dashboard" component={Dashboard} />
+            </Router>
+          </div>
+          <StickyFooter />
+      </ThemeProvider>
+      
     </div>
   );
 }

@@ -4,11 +4,8 @@ import Button from '@material-ui/core/Button';
 
 const theme = createMuiTheme({
   overrides: {
-    // Style sheet name ⚛️
     MuiButton: {
-      // Name of the rule
       text: {
-        // Some CSS
         background: 'linear-gradient(45deg, #eda320 30%, #db784d 90%)',
         borderRadius: 3,
         border: 0,

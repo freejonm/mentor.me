@@ -2,6 +2,10 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 
+import IconButton from '@material-ui/core/IconButton';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import VideocamIcon from '@material-ui/icons/Videocam';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -29,6 +33,15 @@ export default function SimplePaper() {
             <br></br> 
             Email:
             <br></br> 
+            <IconButton aria-label="message">
+        <MailOutlineIcon /> 
+        </IconButton>
+        <IconButton aria-label="calendar">
+        <CalendarTodayIcon /> 
+        </IconButton>
+        {/* <IconButton aria-label="video-chat">
+        <VideocamIcon /> 
+        </IconButton> */}
         </Paper> 
         <Paper elevation={3}>
             First Name:
@@ -37,6 +50,15 @@ export default function SimplePaper() {
             <br></br> 
             Email:
             <br></br> 
+            <IconButton aria-label="message">
+            <MailOutlineIcon /> 
+            </IconButton>
+            <IconButton aria-label="calendar">
+            <CalendarTodayIcon /> 
+            </IconButton>
+            {/* <IconButton aria-label="video-chat">
+            <VideocamIcon /> 
+            </IconButton> */}
         </Paper> 
         <Paper elevation={3}>
             First Name:
@@ -45,6 +67,15 @@ export default function SimplePaper() {
             <br></br> 
             Email:
             <br></br> 
+            <IconButton aria-label="message">
+            <MailOutlineIcon /> 
+            </IconButton>
+            <IconButton aria-label="calendar">
+            <CalendarTodayIcon /> 
+            </IconButton>
+            {/* <IconButton aria-label="video-chat">
+            <VideocamIcon /> 
+            </IconButton> */}
         </Paper> 
         <Paper elevation={3}>
             First Name:
@@ -53,6 +84,15 @@ export default function SimplePaper() {
             <br></br> 
             Email:
             <br></br> 
+            <IconButton aria-label="message">
+            <MailOutlineIcon /> 
+            </IconButton>
+            <IconButton aria-label="calendar">
+            <CalendarTodayIcon /> 
+            </IconButton>
+            {/* <IconButton aria-label="video-chat">
+            <VideocamIcon /> 
+            </IconButton> */}
         </Paper> 
 
     </div>

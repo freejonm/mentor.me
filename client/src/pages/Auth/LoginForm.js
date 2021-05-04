@@ -13,9 +13,8 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
 import "./LoginForm.scss";
-
+ 
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -55,7 +54,7 @@ function LoginForm({login}) {
   
   	const handleSubmit = (event) => {
   		event.preventDefault();
-  		login(userObject.username, userObject.password);
+  		// login(userObject.username, userObject.password);
   		setRedirectTo('/');
   	};
   

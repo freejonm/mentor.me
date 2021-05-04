@@ -72,8 +72,11 @@ function App() {
   //   <div className="App">
   //     { loggedIn && (
   //       <div>
+
+
   //         <Nav user={user} logout={logout}/>
   //         <div className="main-view">
+
   //           <Switch>
   //             <Route exact path="/" component={Books} />
   //             <Route exact path="/books" component={Books} />
@@ -85,8 +88,10 @@ function App() {
   //     )}
   //     { !loggedIn && (
   //       <div className="auth-wrapper" style={{paddingTop:40}}>
+
   //         <Route exact path="/" component={() => <LoginForm login={login}/>} />
   //         <Route exact path="/books" component={() => <LoginForm user={login} />} />
+
   //         <Route exact path="/signup" component={SignupForm} />
   //       </div>
   //     )}
@@ -99,15 +104,15 @@ function App() {
         <Item />
         <Nav />
           <div className="content">
-            {/* <ParticleBG /> */}
-
-            {/* <LoginForm /> */}
+          { /* loggedIn && */ (
+            
             <Router>
               <Route exact path="/" component={Landing} />
               <Route exact path="/login" component={LoginForm} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/dashboard" component={Dashboard} />
             </Router>
+          )}
           </div>
           <StickyFooter />
       </ThemeProvider>

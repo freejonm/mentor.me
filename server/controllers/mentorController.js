@@ -3,17 +3,18 @@ const db = require("../models");
 
 // Defining methods for the userController
 module.exports = {
+  
   findAll: function(req, res) {
-    if (req.user) {
+    if (true) {
       db.Mentor
-        .find({ _id: req.ObjectId })
+        .find({})
         .populate({ path: "mentors", options: { sort: { 'lastName': -1 } } })
         .then(mentor => {
           res.json({ mentor: mentor });
         })
         .catch(err => res.status(422).json(err));
     } else {
-      return res.json({ books: null });
+      return res.json({ Mentors: null });
     }
   },
 
@@ -110,6 +111,7 @@ module.exports = {
       });
     });
   },
+
   logout: (req, res) => {
     if (req.user) {
       req.session.destroy();

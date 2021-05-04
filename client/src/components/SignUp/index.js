@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CheckboxLabels from '../Checkbox';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -13,6 +13,7 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import AUTH from '../../utils/AUTH'
 
 import "./SignUp.scss"
 
@@ -36,7 +37,47 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUp() {
+function SignupForm() {
+  const [userObject, setUSerObject] = useState({
+    firstName: '',
+    lastName: '',
+    password: '',
+    email: '',
+    mentor: false,
+    mentee: false,
+    fieldOfInterest: ''
+  })
+  const [redirectTo, setRedirectTo] = useState(null)
+
+  const handleChange = (event) => {
+    setUSerObject({...userObject, [event.target.name]: event.target.value})
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    AUTH.signup({
+      firstName: userObject.firstName,
+      lastname: userObject.lastName,
+      email: userObject.email,
+      password: userObject.password,
+      mentor: userObject.mentee,
+      mentee: userObject.mentor,
+      fieldOfInterest: userObject.fieldOfInterest
+    }).then(response => {
+      console.log(response)
+      if(!response.data.errmsg) {
+        setRedirectTo('/')
+      } else {
+        console.log('duplicate')
+      }
+      
+    })
+  }
+
+
+
+
+
   const classes = useStyles();
 
   return (
@@ -61,6 +102,7 @@ export default function SignUp() {
                 id="firstName"
                 label="First Name"
                 autoFocus
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -72,6 +114,7 @@ export default function SignUp() {
                 label="Last Name"
                 name="lastName"
                 autoComplete="lname"
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -83,6 +126,7 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -95,6 +139,7 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={handleChange}
               />
             </Grid>
 
@@ -119,6 +164,7 @@ export default function SignUp() {
             id="signup-button"
             color="primary"
             className={classes.submit}
+            onClick={handleSubmit}
           >
             Sign Up
           </Button>
@@ -136,4 +182,7 @@ export default function SignUp() {
       </Box>
     </Container>
   );
+
 }
+
+export default SignupForm

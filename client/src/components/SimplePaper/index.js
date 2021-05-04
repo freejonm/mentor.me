@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(1),
       width: theme.spacing(16),
-      height: theme.spacing(16),
+      height: theme.spacing(20),
     },
   },
 }));
@@ -34,14 +34,14 @@ export default function SimplePaper() {
             Email:
             <br></br> 
             <IconButton aria-label="message">
-        <MailOutlineIcon /> 
-        </IconButton>
-        <IconButton aria-label="calendar">
-        <CalendarTodayIcon /> 
-        </IconButton>
-        {/* <IconButton aria-label="video-chat">
-        <VideocamIcon /> 
-        </IconButton> */}
+            <MailOutlineIcon /> 
+            </IconButton>
+            <IconButton aria-label="calendar">
+            <CalendarTodayIcon /> 
+            </IconButton>
+            <IconButton aria-label="video-chat">
+            <VideocamIcon /> 
+            </IconButton>
         </Paper> 
         <Paper elevation={3}>
             First Name:
@@ -56,9 +56,9 @@ export default function SimplePaper() {
             <IconButton aria-label="calendar">
             <CalendarTodayIcon /> 
             </IconButton>
-            {/* <IconButton aria-label="video-chat">
+            <IconButton aria-label="video-chat">
             <VideocamIcon /> 
-            </IconButton> */}
+            </IconButton>
         </Paper> 
         <Paper elevation={3}>
             First Name:
@@ -73,9 +73,9 @@ export default function SimplePaper() {
             <IconButton aria-label="calendar">
             <CalendarTodayIcon /> 
             </IconButton>
-            {/* <IconButton aria-label="video-chat">
+            <IconButton aria-label="video-chat">
             <VideocamIcon /> 
-            </IconButton> */}
+            </IconButton>
         </Paper> 
         <Paper elevation={3}>
             First Name:
@@ -90,9 +90,9 @@ export default function SimplePaper() {
             <IconButton aria-label="calendar">
             <CalendarTodayIcon /> 
             </IconButton>
-            {/* <IconButton aria-label="video-chat">
+            <IconButton aria-label="video-chat">
             <VideocamIcon /> 
-            </IconButton> */}
+            </IconButton>
         </Paper> 
 
     </div>

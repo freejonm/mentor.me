@@ -12,7 +12,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { orange } from '@material-ui/core/colors';
 
-import SimplePaper from '../Paper'
+import SimplePaper from '../SimplePaper'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -74,7 +74,7 @@ export default function ConnectionsCard() {
         title="contact"
        
       /> */}
-
+      <SimplePaper />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           send a message, request a meeting, or video chat with your connections here

@@ -1,5 +1,4 @@
 import React from 'react';
-import './index.scss';
 import styled from 'styled-components';
 
 const NavContainer = styled.nav`
@@ -21,49 +20,42 @@ const NavBrand = styled.a`
   font-family: 'Righteous', sans-serif;
 
   &:hover {
-    color:#637f7d;
-    text-decoration:none;
+    color: #637f7d;
+    text-decoration: none;
   }
-
 `;
 
 const NavLinkGroup = styled.ul`
   display: inline-flex;
   text-decoration: none;
   margin: 18px;
-  padding-top:5px;
-
+  padding-top: 5px;
 `;
 
 const NavLink = styled.a`
-display: flex;
-justify-content:space-between;
-color: white;
-font-size: 32px;
-margin-right:15px;
-font-weight:bold;
-&:hover {
-    color:#637f7d;
-    text-decoration:none;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-size: 32px;
+  margin-right: 15px;
+  font-weight: bold;
+  &:hover {
+    color: #637f7d;
+    text-decoration: none;
   }
 `;
 
-
 const Nav = () => {
   return (
-
-  <div>
-    <NavContainer>
-      <NavBrand href="/">
-        mentor me
-      </NavBrand>
-      <NavLinkGroup>
-        <NavLink href="/register"> Getting Started </NavLink>
-        <NavLink href="/login"> Login </NavLink>
-      </NavLinkGroup>
-    </NavContainer>
-  </div>
-
+    <div>
+      <NavContainer>
+        <NavBrand href="/">mentor me</NavBrand>
+        <NavLinkGroup>
+          <NavLink href="/register"> Getting Started </NavLink>
+          <NavLink href="/login"> Login </NavLink>
+        </NavLinkGroup>
+      </NavContainer>
+    </div>
   );
 };
 

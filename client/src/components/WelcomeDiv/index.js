@@ -2,11 +2,11 @@ import React from 'react';
 import './index.scss';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import APIImg from '../../assets/icons/icons8-api-100.png'
-import CodeImg from '../../assets/icons/icons8-code-100.png'
-import CLIImg from '../../assets/icons/icons8-command-line-100.png'
-import MergeImg from '../../assets/icons/icons8-merge-git-100.png'
-import RespImg from '../../assets/icons/icons8-responsive-100.png'
+import APIImg from '../../assets/icons/icons8-api-100.png';
+import CodeImg from '../../assets/icons/icons8-code-100.png';
+import CLIImg from '../../assets/icons/icons8-command-line-100.png';
+import MergeImg from '../../assets/icons/icons8-merge-git-100.png';
+import RespImg from '../../assets/icons/icons8-responsive-100.png';
 
 const Container = styled.div`
   display: grid;
@@ -25,13 +25,13 @@ const Image = styled(motion.img)`
   max-width: 100px;
   max-height: 100px;
   @media screen and (max-width: 768px) {
-  display: none;
+    display: none;
   }
 `;
 
 const ColumnLeft = styled.div`
   display: flex;
-  color:white;
+  color: white;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
@@ -74,7 +74,6 @@ const ColumnRight = styled.div`
     top: 200px;
     right: 300px;
   }
-
 `;
 
 const Button = styled(motion.button)`
@@ -89,7 +88,7 @@ const Button = styled(motion.button)`
   &:hover {
     background-color: #db784d;
     text-decoration: none;
-    color:white;
+    color: white;
   }
 `;
 
@@ -118,71 +117,71 @@ const WelcomeDiv = () => {
           The tinder of mentorships.
         </motion.p>
         <Button
-        as='a'
-        href="/register"
-        whileHover={{ 
-          scale: 1.05,
-          color: '#637f7d',
-          textDecoration: 'none'
-
-         }}
-        whileTap={{
-          scale: .85,
-          backgroundColor: '#637f7d',
-          border: 'none',
-          color: 'white'
-        }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, transition: { duration: 1.5 } }}
-        >Get Started</Button>
+          as="a"
+          href="/register"
+          whileHover={{
+            scale: 1.05,
+            color: '#637f7d',
+            textDecoration: 'none'
+          }}
+          whileTap={{
+            scale: 0.85,
+            backgroundColor: '#637f7d',
+            border: 'none',
+            color: 'white'
+          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 1.5 } }}
+        >
+          Get Started
+        </Button>
       </ColumnLeft>
       <ColumnRight>
-      <Image
-            src={APIImg}
-            alt='api image'
-            whileTap={{ scale: 0.9 }}
-            drag={true}
-            dragConstraints={{ left: 0, right: 250, top: 0, bottom: 50 }}
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0, transition: { duration: 1 } }}
-          />
-               <Image
-            src={CodeImg}
-            alt='Code image'
-            whileTap={{ scale: 0.9 }}
-            drag={true}
-            dragConstraints={{ left: 0, right: 250, top: 0, bottom: 50 }}
-            initial={{ opacity: 0, y: -100 }}
-            animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
-          />
-               <Image
-            src={CLIImg}
-            alt='cli image'
-            whileTap={{ scale: 0.9 }}
-            drag={true}
-            dragConstraints={{ left: 0, right: 250, top: 0, bottom: 50 }}
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0, transition: { duration: 1 } }}
-          />
-               <Image
-            src={MergeImg}
-            alt='api image'
-            whileTap={{ scale: 0.9 }}
-            drag={true}
-            dragConstraints={{ left: 0, right: 250, top: 0, bottom: 50 }}
-            initial={{ opacity: 0, y: -100 }}
-            animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
-          />
-               <Image
-            src={RespImg}
-            alt='api image'
-            whileTap={{ scale: 0.9 }}
-            drag={true}
-            dragConstraints={{ left: 0, right: 250, top: 0, bottom: 50 }}
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0, transition: { duration: 1 } }}
-          />
-      
+        <Image
+          src={APIImg}
+          alt="api image"
+          whileTap={{ scale: 0.9 }}
+          drag={true}
+          dragConstraints={{ left: 0, right: 250, top: 0, bottom: 50 }}
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0, transition: { duration: 1 } }}
+        />
+        <Image
+          src={CodeImg}
+          alt="Code image"
+          whileTap={{ scale: 0.9 }}
+          drag={true}
+          dragConstraints={{ left: 0, right: 250, top: 0, bottom: 50 }}
+          initial={{ opacity: 0, y: -100 }}
+          animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
+        />
+        <Image
+          src={CLIImg}
+          alt="cli image"
+          whileTap={{ scale: 0.9 }}
+          drag={true}
+          dragConstraints={{ left: 0, right: 250, top: 0, bottom: 50 }}
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0, transition: { duration: 1 } }}
+        />
+        <Image
+          src={MergeImg}
+          alt="api image"
+          whileTap={{ scale: 0.9 }}
+          drag={true}
+          dragConstraints={{ left: 0, right: 250, top: 0, bottom: 50 }}
+          initial={{ opacity: 0, y: -100 }}
+          animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
+        />
+        <Image
+          src={RespImg}
+          alt="api image"
+          whileTap={{ scale: 0.9 }}
+          drag={true}
+          dragConstraints={{ left: 0, right: 250, top: 0, bottom: 50 }}
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0, transition: { duration: 1 } }}
+        />
       </ColumnRight>
     </Container>
   );

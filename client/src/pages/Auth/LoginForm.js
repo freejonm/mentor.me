@@ -97,6 +97,7 @@ function LoginForm({login}) {
             value={userObject.password}
             onChange={handleChange}
             autoComplete="current-password"
+            autoFocus
           />
           <FormControlLabel
             control={<Checkbox value="remember" id="remember-me" />}

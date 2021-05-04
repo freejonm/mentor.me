@@ -22,15 +22,39 @@ export default function SimplePaper() {
   return (
     <div className={classes.root}>
      
-      <Paper elevation={3}>
-       
+        <Paper elevation={3}>
+            First Name:
+            <br></br> 
+            Last Name:   
+            <br></br> 
+            Email:
+            <br></br> 
         </Paper> 
-      <Paper elevation={3}>
-      
+        <Paper elevation={3}>
+            First Name:
+            <br></br> 
+            Last Name:   
+            <br></br> 
+            Email:
+            <br></br> 
         </Paper> 
-      <Paper elevation={3}>
-      
+        <Paper elevation={3}>
+            First Name:
+            <br></br> 
+            Last Name:   
+            <br></br> 
+            Email:
+            <br></br> 
         </Paper> 
+        <Paper elevation={3}>
+            First Name:
+            <br></br> 
+            Last Name:   
+            <br></br> 
+            Email:
+            <br></br> 
+        </Paper> 
+
     </div>
   );
 }

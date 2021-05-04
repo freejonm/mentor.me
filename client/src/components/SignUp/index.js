@@ -41,11 +41,9 @@ function SignupForm() {
   const [userObject, setUSerObject] = useState({
     firstName: '',
     lastName: '',
+    username: '',
     password: '',
     email: '',
-    mentor: false,
-    mentee: false,
-    fieldOfInterest: ''
   })
   const [redirectTo, setRedirectTo] = useState(null)
 
@@ -60,13 +58,14 @@ function SignupForm() {
       lastname: userObject.lastName,
       email: userObject.email,
       password: userObject.password,
-      mentor: userObject.mentee,
-      mentee: userObject.mentor,
-      fieldOfInterest: userObject.fieldOfInterest
+      username: userObject.username
+      // mentor: userObject.mentee,
+      // mentee: userObject.mentor,
+      // fieldOfInterest: userObject.fieldOfInterest
     }).then(response => {
       console.log(response)
       if(!response.data.errmsg) {
-        setRedirectTo('/')
+        setRedirectTo('/login')
       } else {
         console.log('duplicate')
       }
@@ -139,6 +138,19 @@ function SignupForm() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="username"
+                label="Username"
+                type="username"
+                id="username"
+                autoComplete="username"
                 onChange={handleChange}
               />
             </Grid>

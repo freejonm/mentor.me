@@ -109,7 +109,7 @@ const WelcomeDiv = () => {
           animate="visible"
           transition={{ duration: 1 }}
         >
-          Where salads are eaten with help.
+          The tinder of mentorships.
         </motion.p>
         <Button
         as='a'

@@ -6,7 +6,7 @@ module.exports = {
   findAll: function(req, res) {
     if (true) {
       db.Mentee
-        .find({})
+        .find({ mentee: { mentee: true } })
         .populate({ path: "mentees", options: { sort: { 'lastName': -1 } } })
         .then(mentee => {
           res.json({ Mentees: mentee });
@@ -21,7 +21,7 @@ module.exports = {
     db.Mentee
       .create(req.body)
       .then(dbMentee => {
-        return db.Mentee.findOneAndUpdate({ _id: req.mentee }, { $push: { mentee: dbMentee.gradYear } }, { new: true });
+        return db.User.findOneAndUpdate({ _id: req.user._id }, { $push: { mentee: dbMentee} }, { new: true });
       })
       .then((dbMentee) => {
         // If the User was updated successfully, send it back to the client
@@ -29,8 +29,6 @@ module.exports = {
       })
       .catch(err => res.status(422).json(err));
   },
-
-  
 
   findById: function(req, res) {
     if (req.user) {
@@ -57,16 +55,6 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  remove: function(req, res) {
-    db.Mentee.findOneAndUpdate({ _id: req.user._id }, { $pull: { mentees: new ObjectId(req.params.id) } }, { new: true })
-      .then(() => {
-        db.Mentee
-          .findOneAndDelete({ _id: req.params.id })
-          .then(dbmentee => res.json(dbmentee))
-          .catch(err => res.status(422).json(err));
-      });
-  },
-
   getmentee: (req, res, next) => {
     // console.log(req.user);
     if (req.user) {
@@ -75,66 +63,14 @@ module.exports = {
       return res.json({ user: null });
     }
   },
-  register: (req, res) => {
-    const { firstName, lastName, username, password } = req.body;
-    // ADD VALIDATION
-    db.Mentee.findOne({ 'username': username }, (err, userMatch) => {
-      if (userMatch) {
-        return res.json({
-          error: `Sorry, already a user with the username: ${username}`
-        });
-      }
 
-      const newmentee = new db.Mentee({
-        'personId': personId,
-        'firstName': firstName,
-        'lastName': lastName,
-        'username': username,
-        'password': password,
-        'pronouns': pronouns,
-        'description': description,
-        'location': location,
-        'currentPosition': currentPosition,
-        'mentee': mentee,
-        'fieldOfInterest': fieldOfInterest,
-        'desire': desire,
-        'gradYear': gradYear,
-        'isLookingForMentee': isLookingformentee,
-        'education': education,
-        'hoursSpentWithMentee': hoursSpentWithmentee,
-        'meetingsAttended': meetingsAttended,
-        'profilePictue': profilePictue,
-        'email': email
+  remove: (req, res) => {
+    db.User.findOneAndUpdate({ _id: req.user._id }, { $pull: { mentee: new ObjectId(req.params.id) } }, { new: true })
+      .then(() => {
+        db.Mentee
+          .findOneAndDelete({ _id: req.params.id })
+          .then(dbMentee => res.json(dbMentee))
+          .catch(err => res.status(422).json(err));
       });
-      newmentee.save((err, savedmentee) => {
-        if (err) return res.json(err);
-        return res.json(savedmentee);
-      });
-    });
-  },
-
-  logout: (req, res) => {
-    if (req.user) {
-      req.session.destroy();
-      res.clearCookie('connect.sid'); // clean up!
-      return res.json({ msg: 'logging you out' });
-    } else {
-      return res.json({ msg: 'no user to log out!' });
-    }
-  },
-
-  auth: function(req, res, next) {
-		// console.log(req.body);
-		next();
-  },
-  
-  authenticate: (req, res) => {
-		const user = JSON.parse(JSON.stringify(req.user)); // hack
-		const cleanUser = Object.assign({}, user);
-		if (cleanUser) {
-			// console.log(`Deleting ${cleanUser.password}`);
-			delete cleanUser.password;
-		}
-		res.json({ user: cleanUser });
-	}
-};
+  }
+}

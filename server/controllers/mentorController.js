@@ -7,7 +7,7 @@ module.exports = {
   findAll: function(req, res) {
     if (true) {
       db.Mentor
-        .find({})
+        .find({ mentor: { mentor: true } })
         .populate({ path: "mentors", options: { sort: { 'lastName': -1 } } })
         .then(mentor => {
           res.json({ mentor: mentor });
@@ -22,7 +22,7 @@ module.exports = {
     db.Mentor
       .create(req.body)
       .then(dbMentor => {
-        return db.Mentor.findOneAndUpdate({ _id: req.mentor }, { $push: { books: dbMentor.gradYear } }, { new: true });
+        return db.User.findOneAndUpdate({ _id: req.mentor }, { $push: { mentor: dbMentor } }, { new: true });
       })
       .then((dbMentor) => {
         // If the User was updated successfully, send it back to the client
@@ -56,16 +56,6 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  remove: function(req, res) {
-    db.Mentor.findOneAndUpdate({ _id: req.user._id }, { $pull: { mentors: new ObjectId(req.params.id) } }, { new: true })
-      .then(() => {
-        db.Mentor
-          .findOneAndDelete({ _id: req.params.id })
-          .then(dbMentor => res.json(dbMentor))
-          .catch(err => res.status(422).json(err));
-      });
-  },
-
   getMentor: (req, res, next) => {
     // console.log(req.user);
     if (req.user) {
@@ -74,64 +64,14 @@ module.exports = {
       return res.json({ user: null });
     }
   },
-  register: (req, res) => {
-    const { firstName, lastName, username, password } = req.body;
-    // ADD VALIDATION
-    db.Mentee.findOne({ 'username': username }, (err, userMatch) => {
-      if (userMatch) {
-        return res.json({
-          error: `Sorry, already a user with the username: ${username}`
-        });
-      }
 
-      const newMentor = new db.Mentor({
-        'personId': personId,
-        'firstName': firstName,
-        'lastName': lastName,
-        'username': username,
-        'password': password,
-        'pronouns': pronouns,
-        'description': description,
-        'location': location,
-        'currentPosition': currentPosition,
-        'mentor': mentor,
-        'fieldOfInterest': fieldOfInterest,
-        'desire': desire,
-        'gradYear': gradYear,
-        'isLookingForMentee': isLookingforMentor,
-        'education': education,
-        'hoursSpentWithMentee': hoursSpentWithMentor,
-        'meetingsAttended': meetingsAttended,
-        'profilePictue': profilePictue,
-        'email': email
+  remove: (req, res) => {
+    db.User.findOneAndUpdate({ _id: req.user._id }, { $pull: { mentor: new ObjectId(req.params.id) } }, { new: true })
+      .then(() => {
+        db.Mentor
+          .findOneAndDelete({ _id: req.params.id })
+          .then(dbMentor => res.json(dbMentor))
+          .catch(err => res.status(422).json(err));
       });
-      newMentor.save((err, savedMentor) => {
-        if (err) return res.json(err);
-        return res.json(savedMentor);
-      });
-    });
-  },
-
-  logout: (req, res) => {
-    if (req.user) {
-      req.session.destroy();
-      res.clearCookie('connect.sid'); // clean up!
-      return res.json({ msg: 'logging you out' });
-    } else {
-      return res.json({ msg: 'no user to log out!' });
-    }
-  },
-  auth: function(req, res, next) {
-		// console.log(req.body);
-		next();
-  },
-  authenticate: (req, res) => {
-		const user = JSON.parse(JSON.stringify(req.user)); // hack
-		const cleanUser = Object.assign({}, user);
-		if (cleanUser) {
-			// console.log(`Deleting ${cleanUser.password}`);
-			delete cleanUser.password;
-		}
-		res.json({ user: cleanUser });
-	}
+  }
 };

@@ -9,8 +9,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Register from './pages/Auth/Register';
 import StickyFooter from './components/StickyFooter';
 
-// import LoginForm from './pages/Auth/LoginForm';
-
 import Dashboard from './pages/Dashboard';
 
 import { ThemeProvider } from '@material-ui/core/styles'
@@ -20,53 +18,53 @@ import Item from './components/Theme/item'
 
 // import SignupForm from './pages/Auth/SignupForm';
 // import NoMatch from "./pages/NoMatch";
-// import AUTH from './utils/AUTH';
+import AUTH from './utils/AUTH';
 function App() {
 
   
-  // const [loggedIn, setLoggedIn] = useState(false);
-  // const [user, setUser] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
 
-  // useEffect(() => {
-  //   AUTH.getUser().then(response => {
-  //       // console.log(response.data);
-  //       if (!!response.data.user) {
-  //         setLoggedIn(true);
-  //         setUser(response.data.user);
-  //       } else {
-  //         setLoggedIn(false);
-  //         setUser(null);
-  //       }
-  //     });
+  useEffect(() => {
+    AUTH.getUser().then(response => {
+        // console.log(response.data);
+        if (!!response.data.user) {
+          setLoggedIn(true);
+          setUser(response.data.user);
+        } else {
+          setLoggedIn(false);
+          setUser(null);
+        }
+      });
 
-  //     return () => {
-  //       setLoggedIn(false);
-  //       setUser(null);
-  //     };
-  // }, []);
+      return () => {
+        setLoggedIn(false);
+        setUser(null);
+      };
+  }, []);
 
-  // const logout = (event) => {
-  //   event.preventDefault();
+  const logout = (event) => {
+    event.preventDefault();
 
-  // 	AUTH.logout().then(response => {
-  // 		// console.log(response.data);
-  // 		if (response.status === 200) {
-  // 			setLoggedIn(false);
-  //       setUser(null);
-  // 		}
-  // 	});
-  // };
+  	AUTH.logout().then(response => {
+  		// console.log(response.data);
+  		if (response.status === 200) {
+  			setLoggedIn(false);
+        setUser(null);
+  		}
+  	});
+  };
 
-  // const login = (username, password) => {
-  // 	AUTH.login(username, password).then(response => {
-  //     console.log(response.data);
-  //     if (response.status === 200) {
-  //       // update the state
-  //       setLoggedIn(true);
-  //       setUser(response.data.user);
-  //     }
-  //   });
-  // };
+  const login = (username, password) => {
+  	AUTH.login(username, password).then(response => {
+      console.log(response.data);
+      if (response.status === 200) {
+        // update the state
+        setLoggedIn(true);
+        setUser(response.data.user);
+      }
+    });
+  };
 
   // return (
   //   <div className="App">
@@ -104,13 +102,17 @@ function App() {
         <Item />
         <Nav />
           <div className="content">
-          { /* loggedIn && */ (
+          { loggedIn &&  (
             
             <Router>
+              <Route exact path="/" component={Dashboard} />
+            </Router>
+          )}
+          { !loggedIn && (
+            <Router>
               <Route exact path="/" component={Landing} />
-              <Route exact path="/login" component={LoginForm} />
+              <Route exact path="/login" component={() => <LoginForm login={login} />} />
               <Route exact path="/register" component={Register} />
-              <Route exact path="/dashboard" component={Dashboard} />
             </Router>
           )}
           </div>

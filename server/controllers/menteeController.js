@@ -4,12 +4,12 @@ const db = require("../models");
 // Defining methods for the userController
 module.exports = {
   findAll: function(req, res) {
-    if (req.user) {
+    if (true) {
       db.Mentee
         .find({})
         .populate({ path: "mentees", options: { sort: { 'lastName': -1 } } })
         .then(mentee => {
-          res.json({ mentee: mentee });
+          res.json({ Mentees: mentee });
         })
         .catch(err => res.status(422).json(err));
     } else {
@@ -21,14 +21,16 @@ module.exports = {
     db.Mentee
       .create(req.body)
       .then(dbMentee => {
-        return db.Mentee.findOneAndUpdate({ _id: req.mentee }, { $push: { books: dbMentee.gradYear } }, { new: true });
+        return db.Mentee.findOneAndUpdate({ _id: req.mentee }, { $push: { mentee: dbMentee.gradYear } }, { new: true });
       })
-      .then((dbmentee) => {
+      .then((dbMentee) => {
         // If the User was updated successfully, send it back to the client
-        res.json(dbmentee);
+        res.json(dbMentee);
       })
       .catch(err => res.status(422).json(err));
   },
+
+  
 
   findById: function(req, res) {
     if (req.user) {
@@ -110,6 +112,7 @@ module.exports = {
       });
     });
   },
+
   logout: (req, res) => {
     if (req.user) {
       req.session.destroy();
@@ -119,10 +122,12 @@ module.exports = {
       return res.json({ msg: 'no user to log out!' });
     }
   },
+
   auth: function(req, res, next) {
 		// console.log(req.body);
 		next();
   },
+  
   authenticate: (req, res) => {
 		const user = JSON.parse(JSON.stringify(req.user)); // hack
 		const cleanUser = Object.assign({}, user);

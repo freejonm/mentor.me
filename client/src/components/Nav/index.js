@@ -14,9 +14,15 @@ const NavContainer = styled.nav`
   top: 0%;
 `;
 
-const NavBrand = styled.h1`
+const NavBrand = styled.a`
   font-size: 60px;
   color: white;
+  font-family: 'Righteous', sans-serif;
+
+  &:hover {
+    color:#637f7d;
+    text-decoration:none;
+  }
 
 `;
 
@@ -24,6 +30,7 @@ const NavLinkGroup = styled.ul`
   display: inline-flex;
   text-decoration: none;
   margin: 18px;
+  padding-top:5px;
 
 `;
 
@@ -31,14 +38,14 @@ const NavLink = styled.a`
 display: flex;
 justify-content:space-between;
 color: white;
-font-size: 24px;
+font-size: 32px;
 margin-right:15px;
+font-weight:bold;
+&:hover {
+    color:#637f7d;
+    text-decoration:none;
+  }
 `;
-
-
-
-
-
 
 
 const Nav = () => {
@@ -46,7 +53,7 @@ const Nav = () => {
 
   <div>
     <NavContainer>
-      <NavBrand>
+      <NavBrand href="/">
         mentor me
       </NavBrand>
       <NavLinkGroup>
@@ -56,21 +63,6 @@ const Nav = () => {
     </NavContainer>
   </div>
 
-    
-
-//     <div>
-//       <nav className="mentornav">
-//         <h1 className="brandName"><a className="brandATag" href="/">mentor me</a></h1>
-//         <ul className="headLinks">
-//           <li className="navLink">
-//             <a className="navATag"href="/register">Getting Started</a>
-//           </li>
-//           <li className="navLink">
-//             <a className="navATag" href="/login">Login</a>
-//           </li>
-//         </ul>
-//       </nav>
-//     </div>
   );
 };
 

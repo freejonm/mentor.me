@@ -39,6 +39,7 @@ const ColumnLeft = styled.div`
   h1 {
     margin-bottom: 0.5rem;
     font-size: 6rem;
+    font-family: 'Righteous', sans-serif;
   }
   p {
     margin: 2rem 0;
@@ -85,6 +86,11 @@ const Button = styled(motion.button)`
   cursor: pointer;
   background-color: #eda320;
   color: white;
+  &:hover {
+    background-color: #db784d;
+    text-decoration: none;
+    color:white;
+  }
 `;
 
 const WelcomeDiv = () => {
@@ -114,7 +120,12 @@ const WelcomeDiv = () => {
         <Button
         as='a'
         href="/register"
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ 
+          scale: 1.05,
+          color: '#637f7d',
+          textDecoration: 'none'
+
+         }}
         whileTap={{
           scale: .85,
           backgroundColor: '#637f7d',

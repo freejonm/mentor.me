@@ -12,6 +12,7 @@ const NavContainer = styled.nav`
   justify-content: space-between;
   color: white;
   top: 0%;
+  z-index: 100;
 `;
 
 const NavBrand = styled.a`

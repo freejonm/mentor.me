@@ -111,7 +111,7 @@ function SignupForm() {
                 required
                 fullWidth
                 id="lastName"
-                label="Last Name"
+                // label="Last Name"
                 name="lastName"
                 autoComplete="lname"
                 onChange={handleChange}

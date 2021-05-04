@@ -13,12 +13,14 @@ module.exports = {
   },
 
   register: (req, res) => {
-    const { firstName, lastName, username, password } = req.body;
+    console.log(req.body)
+    const { firstName, lastName, username, password, /*pronouns, description, location, currentPosition, desire, gradYear, education, profilePicture,*/ email } = req.body;
+
     // ADD VALIDATION
-    db.User.findOne({ 'firstName': firstName }, (err, userMatch) => {
+    db.User.findOne({ 'username': username }, (err, userMatch) => {
       if (userMatch) {
         return res.json({
-          error: `Sorry, already a user with the username: ${firstName}`
+          error: `Sorry, already a user with the username: ${username}`
         });
       }
 
@@ -32,20 +34,21 @@ module.exports = {
         // 'description': description,
         // 'location': location,
         // 'currentPosition': currentPosition,
-        // 'fieldOfInterest': fieldOfInterest,
         // 'desire': desire,
         // 'gradYear': gradYear,
         // 'education': education,
-        // 'meetingsAttended': meetingsAttended,
+        // 'meetingsAttended': 0,
         // 'profilePicture': profilePicture,
-        // 'email': email
+        'email': email
       });
       newUser.save((err, savedUser) => {
         if (err) return res.json(err);
+        console.log('success!')
         return res.json(savedUser);
       });
     });
   },
+
   logout: (req, res) => {
     if (req.user) {
       req.session.destroy();

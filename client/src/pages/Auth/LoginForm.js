@@ -63,7 +63,7 @@ function LoginForm({login}) {
       return <Redirect to={{ pathname: redirectTo }} />
     } else {
       return (
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="xs" id="login-form">
           <CssBaseline />
           <div className={classes.paper}>
           <Avatar id="login-avatar" className={classes.avatar}>
@@ -100,7 +100,7 @@ function LoginForm({login}) {
             autoComplete="current-password"
           />
           <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
+            control={<Checkbox value="remember" id="remember-me" />}
             label="Remember me"
           />
           <Button

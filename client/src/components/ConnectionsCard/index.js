@@ -12,6 +12,8 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { orange } from '@material-ui/core/colors';
 
+import SimplePaper from '../Paper'
+
 const useStyles = makeStyles((theme) => ({
   root: {
     minWidth: 275,

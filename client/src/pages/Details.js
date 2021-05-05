@@ -13,9 +13,79 @@ import Container from '@material-ui/core/Container';
 
 function Details() {
     return (
-        <div>
-           
-        </div>
+        <FormGroup row>
+            <h4>Please check all areas of interest:</h4>
+
+            <FormControlLabel
+            control={<GreenCheckbox checked={state.checkedG} onChange={handleChange} name="checkedG" />}
+            label="JavaScript"
+            />
+            <FormControlLabel
+            control={<GreenCheckbox checked={state.checkedG} onChange={handleChange} name="checkedG" />}
+            label="Node.js"
+            />
+            <FormControlLabel
+            control={<GreenCheckbox checked={state.checkedG} onChange={handleChange} name="checkedG" />}
+            label="SQL"
+                />
+            <FormControlLabel
+            control={<GreenCheckbox checked={state.checkedG} onChange={handleChange} name="checkedG" />}
+            label="MongoDB"
+            />
+            <FormControlLabel
+            control={<GreenCheckbox checked={state.checkedG} onChange={handleChange} name="checkedG" />}
+            label="Ruby"
+            />
+            <FormControlLabel
+            control={<GreenCheckbox checked={state.checkedG} onChange={handleChange} name="checkedG" />}
+            label="Python"
+            />
+            <FormControlLabel
+            control={<GreenCheckbox checked={state.checkedG} onChange={handleChange} name="checkedG" />}
+            label="Bash/Shell/Powershell"
+            />
+            <FormControlLabel
+            control={<GreenCheckbox checked={state.checkedG} onChange={handleChange} name="checkedG" />}
+            label="TypeScript"
+            />
+            <FormControlLabel
+            control={<GreenCheckbox checked={state.checkedG} onChange={handleChange} name="checkedG" />}
+            label="C#"
+            />
+            <FormControlLabel
+            control={<GreenCheckbox checked={state.checkedG} onChange={handleChange} name="checkedG" />}
+            label="Java"
+            />
+            <FormControlLabel
+            control={<GreenCheckbox checked={state.checkedG} onChange={handleChange} name="checkedG" />}
+            label="UI/UX"
+            />
+            <FormControlLabel
+            control={<GreenCheckbox checked={state.checkedG} onChange={handleChange} name="checkedG" />}
+            label="HTML/CSS"
+            />
+            <FormControlLabel
+            control={<GreenCheckbox checked={state.checkedG} onChange={handleChange} name="checkedG" />}
+            label="React/Angular/Vue"
+            />
+            <FormControlLabel
+            control={<GreenCheckbox checked={state.checkedG} onChange={handleChange} name="checkedG" />}
+            label="SASS/LESS"
+            />
+            <FormControlLabel
+            control={<GreenCheckbox checked={state.checkedG} onChange={handleChange} name="checkedG" />}
+            label="Career Advice"
+            />
+            <FormControlLabel
+            control={<GreenCheckbox checked={state.checkedG} onChange={handleChange} name="checkedG" />}
+
+            label="Salary Negotiations"
+/>      
+
+</FormGroup>
+);
+
+        </FormGroup>
     )
 }
 

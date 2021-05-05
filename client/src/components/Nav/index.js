@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Auth from '../../utils/AUTH'
 
 const NavContainer = styled.nav`
   display: inline-flex;
@@ -45,16 +46,29 @@ const NavLink = styled.a`
   }
 `;
 
-const Nav = () => {
+const Nav = ({loggedIn}) => {
+   const handleSubmit = () =>{
+     Auth.logout().then(res => {
+       window.location.href='/';
+       console.log(res)
+     });
+
+   };
   return (
     <div>
       <NavContainer>
+
         <NavBrand href="/">mentor me</NavBrand>
         <NavLinkGroup>
-          <NavLink href="/register"> Getting Started </NavLink>
+          {loggedIn ? <>
+            <NavLink href="/dashboard"> Dashboard </NavLink>
+            <NavLink onClick={handleSubmit}> Logout </NavLink>
+          </> : (<>
+            <NavLink href="/register"> Getting Started </NavLink>
           <NavLink href="/login"> Login </NavLink>
-          <NavLink href="/dashboard"> Dashboard </NavLink>
-          {/* <NavLink href="/"> Logout </NavLink> */}
+          
+          </>)}
+                    
         </NavLinkGroup>
       </NavContainer>
     </div>

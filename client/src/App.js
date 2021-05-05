@@ -11,55 +11,54 @@ import StickyFooter from './components/StickyFooter';
 
 import Dashboard from './pages/Dashboard';
 
-import { ThemeProvider } from '@material-ui/core/styles'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import theme from './theme'
-import Item from './components/Theme/item'
+import { ThemeProvider } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import theme from './theme';
+import Item from './components/Theme/item';
 
 // import SignupForm from './pages/Auth/SignupForm';
 // import NoMatch from "./pages/NoMatch";
 import AUTH from './utils/AUTH';
 function App() {
-
-  
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    AUTH.getUser().then(response => {
-        // console.log(response.data);
-        if (!!response.data.user) {
-          setLoggedIn(true);
-          setUser(response.data.user);
-        } else {
-          setLoggedIn(false);
-          setUser(null);
-        }
-      });
-
-      return () => {
+    AUTH.getUser().then((response) => {
+      // console.log(response.data);
+      if (!!response.data.user) {
+        setLoggedIn(true);
+        setUser(response.data.user);
+      } else {
         setLoggedIn(false);
         setUser(null);
-      };
+      }
+    });
+
+    return () => {
+      setLoggedIn(false);
+      setUser(null);
+    };
   }, []);
 
   const logout = (event) => {
     event.preventDefault();
 
-  	AUTH.logout().then(response => {
-  		// console.log(response.data);
-  		if (response.status === 200) {
-  			setLoggedIn(false);
+    AUTH.logout().then((response) => {
+      // console.log(response.data);
+      if (response.status === 200) {
+        setLoggedIn(false);
         setUser(null);
-  		}
-  	});
+      }
+    });
   };
 
   const login = (username, password) => {
-  	AUTH.login(username, password).then(response => {
+    AUTH.login(username, password).then((response) => {
       console.log(response.data);
       if (response.status === 200) {
         // update the state
+        window.location.href = '/dashboard';
         setLoggedIn(true);
         setUser(response.data.user);
       }
@@ -70,7 +69,6 @@ function App() {
   //   <div className="App">
   //     { loggedIn && (
   //       <div>
-
 
   //         <Nav user={user} logout={logout}/>
   //         <div className="main-view">
@@ -100,25 +98,28 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Item />
-        <Nav />
-          <div className="content">
-          { loggedIn &&  (
-            
+        <Nav loggedIn={loggedIn} />
+        <div className="content">
+          <Route exact path="/" component={Landing} />
+
+          {loggedIn && (
             <Router>
-              <Route exact path="/" component={Dashboard} />
+              <Route exact path="/dashboard" component={Dashboard} />
             </Router>
           )}
-          { !loggedIn && (
+          {!loggedIn && (
             <Router>
-              <Route exact path="/" component={Landing} />
-              <Route exact path="/login" component={() => <LoginForm login={login} />} />
+              <Route
+                exact
+                path="/login"
+                component={() => <LoginForm login={login} />}
+              />
               <Route exact path="/register" component={Register} />
             </Router>
           )}
-          </div>
-          <StickyFooter />
+        </div>
+        <StickyFooter />
       </ThemeProvider>
-      
     </div>
   );
 }

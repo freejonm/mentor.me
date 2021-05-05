@@ -102,7 +102,6 @@ function App() {
         <Nav loggedIn={loggedIn} />
         <div className="content">
           <Route exact path="/" component={Landing} />
-
           {loggedIn && (
             <Router>
               <Route exact path="/" component={Dashboard} />

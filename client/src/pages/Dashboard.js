@@ -41,30 +41,7 @@ const useStyles = makeStyles((theme) => ({
         <Grid item xs={6}>
           <Paper className={classes.paper}><PotentialConnections /></Paper>
         </Grid>
-        
-        
       </Grid>
     </div>
   );
 }
-
-{/* function Dashboard() {
-    return (
-        <>
-        
-        <EditProfileButton />
-        <UserProfile />
-        Jenny Smith 
-        Raleigh, NC
-
-        <Calendar />
-
-        <ConnectionsCard />
-        <PotentialConnections />
-
-
-        </>
-    )
-}
-
-export default Dashboard;  */}

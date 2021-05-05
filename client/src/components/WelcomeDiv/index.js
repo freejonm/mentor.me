@@ -7,6 +7,7 @@ import CodeImg from '../../assets/icons/icons8-code-100.png';
 import CLIImg from '../../assets/icons/icons8-command-line-100.png';
 import MergeImg from '../../assets/icons/icons8-merge-git-100.png';
 import RespImg from '../../assets/icons/icons8-responsive-100.png';
+import LandingCircles from '../LandingCircles';
 
 const Container = styled.div`
   display: grid;
@@ -183,6 +184,9 @@ const WelcomeDiv = () => {
           animate={{ opacity: 1, x: 0, transition: { duration: 1 } }}
         />
       </ColumnRight>
+      <LandingCircles>
+        
+      </LandingCircles>
     </Container>
   );
 };

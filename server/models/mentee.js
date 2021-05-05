@@ -10,7 +10,6 @@ let ObjectId = Schema.ObjectId
 const menteeSchema = new Schema({
     mentee: {type: Boolean, unique: false, required: true},
     technologiesInterestedIn: [{ type: String, unique:false, required: false}],
-    gradYear: {type: Number, unique: false, required: false},
     isLookingForMentor: {type: Boolean, unique: false, required: false},
     hoursSpentWithMentor: {type: String, unique: false, required: false},
     meetingsAttended: {type: Number, unique: false, required: false},

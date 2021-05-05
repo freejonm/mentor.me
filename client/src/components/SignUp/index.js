@@ -80,7 +80,7 @@ function SignupForm() {
   const classes = useStyles();
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" id="signUpForm">
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar id="signup-avatar" className={classes.avatar}>

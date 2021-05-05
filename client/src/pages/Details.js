@@ -56,10 +56,11 @@ function Details() {
         <Container component="main" maxWidth="xs" id="login-form">
             <CssBaseline />
             <div className={classes.paper}>
-            <h3>Let us know more about what you're looking for.</h3>
+            <h2>Let us know more about what you're looking for.</h2>
             <p>*Please check all that apply</p>
                 <FormGroup row>
                     <h3>I want to connect . . .  </h3>
+                    <div>
                     <FormControlLabel
                     control={<GreenCheckbox   name="checkedG" />}
                     label="Weekly"
@@ -74,6 +75,10 @@ function Details() {
                     />
                     <FormControlLabel
                     control={<GreenCheckbox   name="checkedG" />}
+                    label="Quarterly"
+                    />
+                    <FormControlLabel
+                    control={<GreenCheckbox   name="checkedG" />}
                     label="On demand"
                     />
                     <FormControlLabel
@@ -82,10 +87,11 @@ function Details() {
                     />
                     <FormControlLabel
                     control={<GreenCheckbox   name="checkedG" />}
-                    label="Via text or email only"
+                    label="Via text messaging only"
                     />
-
+                    </div>
                     <h3>With someone who can help me . . . </h3>
+                    <div>
                     <FormControlLabel
                     control={<GreenCheckbox   name="checkedG" />}
                     label="With coding problems"
@@ -98,9 +104,10 @@ function Details() {
                     control={<GreenCheckbox   name="checkedG" />}
                     label="Network more effectively"
                     />
+                    </div>
 
-                    <h3>I want to learn more about . . . </h3>
-
+                    <h3>So I can learn more about . . . </h3>
+                    <div>
                     <FormControlLabel
                     control={<GreenCheckbox   name="checkedG" />}
                     label="JavaScript"
@@ -166,7 +173,7 @@ function Details() {
 
                     label="Salary Negotiations"
                     />      
-
+                </div>
                 </FormGroup>
             </div>
         </Container>

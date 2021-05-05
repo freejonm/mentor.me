@@ -10,6 +10,7 @@ import Register from './pages/Auth/Register';
 import StickyFooter from './components/StickyFooter';
 
 import Dashboard from './pages/Dashboard';
+import Details from './pages/Details'
 
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -104,7 +105,9 @@ function App() {
 
           {loggedIn && (
             <Router>
-              <Route exact path="/dashboard" component={Dashboard} />
+              <Route exact path="/" component={Dashboard} />
+              <Route exact path="/details" component={Details} />
+
             </Router>
           )}
           {!loggedIn && (

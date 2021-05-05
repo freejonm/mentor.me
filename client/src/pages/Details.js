@@ -59,7 +59,7 @@ function Details() {
             <h3>Let us know more about what you're looking for.</h3>
             <p>*Please check all that apply</p>
                 <FormGroup row>
-                    <h3>I want to connect </h3>
+                    <h3>I want to connect . . .  </h3>
                     <FormControlLabel
                     control={<GreenCheckbox   name="checkedG" />}
                     label="Weekly"
@@ -85,7 +85,7 @@ function Details() {
                     label="Via text or email only"
                     />
 
-                    <h3>With someone who can help me</h3>
+                    <h3>With someone who can help me . . . </h3>
                     <FormControlLabel
                     control={<GreenCheckbox   name="checkedG" />}
                     label="With coding problems"
@@ -99,7 +99,7 @@ function Details() {
                     label="Network more effectively"
                     />
 
-                    <h3>I want to learn more about</h3>
+                    <h3>I want to learn more about . . . </h3>
 
                     <FormControlLabel
                     control={<GreenCheckbox   name="checkedG" />}

@@ -62,12 +62,43 @@ function Details() {
                     <h3>I want to connect </h3>
                     <FormControlLabel
                     control={<GreenCheckbox   name="checkedG" />}
-                    label="For regular in-person or virtual check-ins"
+                    label="Weekly"
+                    />
+                    <FormControlLabel
+                    control={<GreenCheckbox   name="checkedG" />}
+                    label="Biweekly"
+                    />
+                    <FormControlLabel
+                    control={<GreenCheckbox   name="checkedG" />}
+                    label="Monthly"
+                    />
+                    <FormControlLabel
+                    control={<GreenCheckbox   name="checkedG" />}
+                    label="On demand"
+                    />
+                    <FormControlLabel
+                    control={<GreenCheckbox   name="checkedG" />}
+                    label="For in-person or virtual check-ins"
                     />
                     <FormControlLabel
                     control={<GreenCheckbox   name="checkedG" />}
                     label="Via text or email only"
                     />
+
+                    <h3>With someone who can help me</h3>
+                    <FormControlLabel
+                    control={<GreenCheckbox   name="checkedG" />}
+                    label="With coding problems"
+                    />
+                    <FormControlLabel
+                    control={<GreenCheckbox   name="checkedG" />}
+                    label="Set and achieve goals"
+                    />
+                    <FormControlLabel
+                    control={<GreenCheckbox   name="checkedG" />}
+                    label="Network more effectively"
+                    />
+
                     <h3>I want to learn more about</h3>
 
                     <FormControlLabel

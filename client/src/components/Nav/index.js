@@ -53,6 +53,8 @@ const Nav = () => {
         <NavLinkGroup>
           <NavLink href="/register"> Getting Started </NavLink>
           <NavLink href="/login"> Login </NavLink>
+          <NavLink href="/dashboard"> Dashboard </NavLink>
+          {/* <NavLink href="/"> Logout </NavLink> */}
         </NavLinkGroup>
       </NavContainer>
     </div>

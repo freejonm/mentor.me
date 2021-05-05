@@ -14,7 +14,7 @@ import Container from '@material-ui/core/Container';
 function Details() {
     return (
         <div>
-            <Detail />
+           
         </div>
     )
 }

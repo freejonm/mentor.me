@@ -6,7 +6,7 @@ module.exports = {
   findAll: function(req, res) {
     if (true) {
       db.Mentee
-        .find({ mentee: { mentee: true } })
+        .find({ mentor: { mentor: false } })
         .populate({ path: "mentees", options: { sort: { 'lastName': -1 } } })
         .then(mentee => {
           res.json({ Mentees: mentee });

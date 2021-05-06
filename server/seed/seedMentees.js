@@ -13,9 +13,9 @@ users.map(user => {
         userArray.push(user);
 });
 
-db.Mentee
+db.User
     .remove({})
-    .then(() => db.Mentee.collection.insertMany(userArray))
+    .then(() => db.User.collection.insertMany(userArray))
     .then(data => {
         console.log(data.result.n + " users inserted");
         process.exit(0);

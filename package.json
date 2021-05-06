@@ -12,7 +12,7 @@
     "install": "cd client && yarn install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build",
-    "seed": "cd server && cd seed && node seedMentees.js && node seedMentors.js"
+    "seed": "cd server && cd seed && node seedMentees.js"
   },
   "engines": {
     "node": "14.15.4",

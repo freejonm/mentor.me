@@ -7,19 +7,17 @@ mongoose.connect(
     "mongodb://localhost/mentor-me-auth"    
 );
 
-let mentees = [];
+let userArray = [];
 
 users.map(user => {
-    if (user.mentee === true) {
-        mentees.push(user);
-    }
+        userArray.push(user);
 });
 
-db.Mentee
+db.User
     .remove({})
-    .then(() => db.Mentee.collection.insertMany(mentees))
+    .then(() => db.User.collection.insertMany(userArray))
     .then(data => {
-        console.log(data.result.n + " mentees inserted");
+        console.log(data.result.n + " users inserted");
         process.exit(0);
     })
     .catch(err => {

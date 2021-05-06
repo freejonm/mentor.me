@@ -8,15 +8,15 @@ const users = [
     email: "marlis.perrin@example.com",
     password: "master",
     meetingsAttended: 3,
-    mentee: true,
+    mentor: false,
     description:
       "Graduated a web development bootcamp and have no experience in the field and am looking for guidance into my new career",
-    desire: "looking for a job",
+    // desire: "looking for a job",
     gradyear: 2021,
-    isLookingForMentor: true,
+    // isLookingForMentor: true,
     education: "UNC Coding Bootcamp",
     hoursSpentWithMentor: 7,
-    lookingForHelpWith: ["JavaScript", "React", "TypeScript", "CSS"],
+    details: ["JavaScript", "React", "TypeScript", "CSS"],
     currentPosition: "Store ",
     fieldOfInterest: "Web Development",
   },
@@ -37,7 +37,7 @@ const users = [
     isLookingForMentor: true,
     education: "UNC Coding Bootcamp",
     hoursSpentWithMentor: 13,
-    lookingForHelpWith: [
+    details: [
       "Python",
       "C",
       "C#",
@@ -91,7 +91,7 @@ const users = [
     isLookingForMentor: true,
     education: "UNC Coding Bootcamp",
     hoursSpentWithMentor: 8,
-    lookingForHelpWith: ["JavaScript", "React", "TypeScript", "CSS"],
+    details: ["JavaScript", "React", "TypeScript", "CSS"],
     currentPosition: "Store ",
     fieldOfInterest: "Web Development",
   },
@@ -112,7 +112,7 @@ const users = [
     isLookingForMentor: true,
     education: "UNC Coding Bootcamp",
     hoursSpentWithMentor: 6,
-    lookingForHelpWith: [
+    details: [
       "Python",
       "C",
       "WordPress",
@@ -141,7 +141,7 @@ const users = [
     isLookingForMentor: true,
     education: "UNC Coding Bootcamp",
     hoursSpentWithMentor: 2,
-    lookingForHelpWith: [
+    details: [
       "Python",
       "C",
       "C#",
@@ -172,7 +172,7 @@ const users = [
     isLookingForMentor: true,
     education: "UNC Coding Bootcamp",
     hoursSpentWithMentor: 6,
-    lookingForHelpWith: ["JavaScript", "React", "TypeScript", "CSS"],
+    details: ["JavaScript", "React", "TypeScript", "CSS"],
     currentPosition: "Store ",
     fieldOfInterest: "Web Development",
   },
@@ -216,7 +216,7 @@ const users = [
     isLookingForMentor: true,
     education: "UNC Coding Bootcamp",
     hoursSpentWithMentor: 0,
-    lookingForHelpWith: ["JavaScript", "React", "TypeScript", "CSS"],
+    details: ["JavaScript", "React", "TypeScript", "CSS"],
     currentPosition: "Store ",
     fieldOfInterest: "Web Development",
   },
@@ -260,7 +260,7 @@ const users = [
     isLookingForMentor: true,
     education: "UNC Coding Bootcamp",
     hoursSpentWithMentor: 6,
-    lookingForHelpWith: [
+    details: [
       "Python",
       "C",
       "WordPress",
@@ -289,7 +289,7 @@ const users = [
     isLookingForMentor: true,
     education: "UNC Coding Bootcamp",
     hoursSpentWithMentor: 11,
-    lookingForHelpWith: [
+    details: [
       "Python",
       "C",
       "WordPress",
@@ -318,7 +318,7 @@ const users = [
     isLookingForMentor: true,
     education: "UNC Coding Bootcamp",
     hoursSpentWithMentor: 7,
-    lookingForHelpWith: [
+    details: [
       "Python",
       "C",
       "C#",
@@ -349,7 +349,7 @@ const users = [
     isLookingForMentor: true,
     education: "UNC Coding Bootcamp",
     hoursSpentWithMentor: 14,
-    lookingForHelpWith: [
+    details: [
       "Python",
       "C",
       "C#",
@@ -426,7 +426,7 @@ const users = [
     isLookingForMentor: true,
     education: "UNC Coding Bootcamp",
     hoursSpentWithMentor: 14,
-    lookingForHelpWith: [
+    details: [
       "Python",
       "C",
       "WordPress",
@@ -455,7 +455,7 @@ const users = [
     isLookingForMentor: true,
     education: "UNC Coding Bootcamp",
     hoursSpentWithMentor: 12,
-    lookingForHelpWith: [
+    details: [
       "Python",
       "C",
       "C#",
@@ -486,7 +486,7 @@ const users = [
     isLookingForMentor: true,
     education: "UNC Coding Bootcamp",
     hoursSpentWithMentor: 5,
-    lookingForHelpWith: [
+    details: [
       "Python",
       "C",
       "WordPress",
@@ -515,7 +515,7 @@ const users = [
     isLookingForMentor: true,
     education: "UNC Coding Bootcamp",
     hoursSpentWithMentor: 14,
-    lookingForHelpWith: [
+    details: [
       "Python",
       "C",
       "C#",

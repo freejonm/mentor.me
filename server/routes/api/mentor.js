@@ -11,7 +11,6 @@ router.route("/")
 // Matches with "/api/mentors/:id"
 router
   .route("/:id")
-  .get(mentorController.findById)
   .put(mentorController.update)
   .delete(mentorController.remove);
 

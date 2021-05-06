@@ -30,21 +30,6 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  findById: function(req, res) {
-    if (req.user) {
-      db.Mentee
-        .find({ _id: req.user._id })
-        .populate("mentees")
-        .then(mentees /*users*/ => {
-          const mentee = /*users*/mentees[0].mentee.filter(b => b._id.toString() === req.params.id);
-          res.json({ mentees: mentee[0] });
-        })
-        .catch(err => res.status(422).json(err));
-    } else {
-      return res.json({ mentee: null });
-    }
-  },
-
   update: function(req, res) {
     db.Mentee
       .findOneAndUpdate({ _id: req.params.id }, req.body)

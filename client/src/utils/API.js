@@ -8,6 +8,6 @@ export default {
     return axios.post('api/mentee', userData);
   },
   getAllUsers: function() {
-    return axios.get('api/mentor');
+    return axios.get('api/users');
   }
 };

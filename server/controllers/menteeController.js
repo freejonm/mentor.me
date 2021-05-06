@@ -5,7 +5,7 @@ const db = require("../models");
 module.exports = {
   findAll: function(req, res) {
     if (true) {
-      db.Mentee
+      db.User
         .find({ mentor: { mentor: false } })
         .populate({ path: "mentees", options: { sort: { 'lastName': -1 } } })
         .then(mentee => {

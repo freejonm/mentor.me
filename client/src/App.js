@@ -106,7 +106,7 @@ function App() {
           {loggedIn && (
             <Router>
               <Route exact path="/dashboard" component={Dashboard} />
-              {/* <Route exact path="/details" component={Details} /> */}
+              <Route exact path="/details" component={Details} />
             </Router>
           )}
           {!loggedIn && (

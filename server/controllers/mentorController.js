@@ -31,21 +31,6 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  findById: function(req, res) {
-    if (req.user) {
-      db.Mentor
-        .find({ _id: req.user._id })
-        .populate("mentors")
-        .then(mentors /*users*/ => {
-          const mentor = /*users*/mentors[0].mentee.filter(b => b._id.toString() === req.params.id);
-          res.json({ mentors: mentor[0] });
-        })
-        .catch(err => res.status(422).json(err));
-    } else {
-      return res.json({ mentor: null });
-    }
-  },
-
   update: function(req, res) {
     db.Mentor
       .findOneAndUpdate({ _id: req.params.id }, req.body)

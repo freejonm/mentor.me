@@ -12,6 +12,16 @@ module.exports = {
     }
   },
 
+  getAll: (req, res) => {
+    db.User
+      .find({})
+      .populate({ path: "users", options: { sort: { 'lastName': -1 } }})
+      .then(user => {
+        res.json({ users: user});
+      })
+      .catch(err => res.status(422).json(err));
+  },
+
   register: (req, res) => {
     console.log(req.body)
     const { firstName, lastName, username, password, /*pronouns, description, location, currentPosition, desire, gradYear, education, profilePicture,*/ email } = req.body;

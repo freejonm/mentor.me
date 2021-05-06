@@ -9,8 +9,6 @@ router.route("/")
 // Matches with "/api/books/:id"
 router
   .route("/:id")
-  .get(menteeController.findById)
   .put(menteeController.update)
-  .delete(menteeController.remove);
 
 module.exports = router;

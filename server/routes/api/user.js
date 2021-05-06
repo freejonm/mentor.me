@@ -3,6 +3,7 @@ const router = express.Router();
 const passport = require('../../passport');
 const userController = require("../../controllers/userController");
 
-router.get('/users', userController.getAll);
-router.get('/users/:id', userController.findById);
+router.get('/', userController.getAll);
+router.get('/:id', userController.findById);
 
+module.exports = router;

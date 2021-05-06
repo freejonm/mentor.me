@@ -18,6 +18,7 @@ const userSchema = new Schema({
   currentPosition: { type: String, unique: false, required: false },
   desire: { type: String, unique: false, required: false },
   education: { type: String, unique: false, required: false },
+  meetingsAttended: { type: Number, unique: false, required: false },
   profilePicture: { data: Buffer, contentType: String },
   email: {
     type: String,
@@ -38,6 +39,18 @@ const userSchema = new Schema({
       ref: "Mentee",
     },
   ],
+  sendRequest:[{
+    username: { type: String, default: '' }
+  }],
+  request: [{
+    userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    username: { type: String, default: '' }
+  }],
+  friendsList: [{ 
+    friendId: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    friendName: {type: String, default: ''}
+  }],
+  totalRequest: { type: Number, default: 0}
 });
 
 // Define schema methods

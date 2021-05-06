@@ -4,3 +4,5 @@ const passport = require('../../passport');
 const userController = require("../../controllers/userController");
 
 router.get('/users', userController.getAll);
+router.get('/users/:id', userController.findById);
+

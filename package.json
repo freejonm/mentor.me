@@ -15,8 +15,8 @@
     "seed": "cd server && cd seed && node seedMentees.js && node seedMentors.js"
   },
   "engines": {
-    "node": "12.10.0",
-    "npm": "6.11.3",
+    "node": "14.15.4",
+    "npm": "7.5.4",
     "yarn": "1.19.1"
   },
   "author": "",

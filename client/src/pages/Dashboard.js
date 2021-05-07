@@ -31,6 +31,15 @@ function Users() {
     loadUsers();
   }, []);
 
+  unction loadUsers() {
+    API.getUsers()
+      .then(res => {
+        // console.log(res.data.books);
+        setUsers(res.data.users);
+      })
+      .catch(err => console.log(err));
+  };
+
 }
   
   export default function Dashboard() {

@@ -39,7 +39,21 @@ module.exports = {
 
   register: (req, res) => {
     console.log(req.body)
-    const { firstName, lastName, username, password, /*pronouns, description, location, currentPosition, desire, gradYear, education, profilePicture,*/ email } = req.body;
+    const { 
+      profilePicture, 
+      firstName, 
+      lastName, 
+      pronouns, 
+      username, 
+      password, 
+      email, 
+      currentPosition,
+      yearsExperience,
+      education,
+      location,
+      description,
+      meetingsAttended
+    } = req.body;
 
     // ADD VALIDATION
     db.User.findOne({ 'username': username }, (err, userMatch) => {
@@ -51,20 +65,20 @@ module.exports = {
 
       const newUser = new db.User({
         
+        'profilePicture': profilePicture,
         'firstName': firstName,
         'lastName': lastName,
+        'pronouns': pronouns,
         'username': username,
         'password': password,
-        // 'pronouns': pronouns,
-        // 'description': description,
-        // 'location': location,
-        // 'currentPosition': currentPosition,
-        // 'desire': desire,
-        // 'gradYear': gradYear,
-        // 'education': education,
-        // 'meetingsAttended': 0,
-        // 'profilePicture': profilePicture,
-        'email': email
+        'email': email,
+        'currentPosition': currentPosition,
+        'yearsExperience': yearsExperience,
+        'education': education,
+        'location': location,
+        'description': description,
+        'meetingsAttended': meetingsAttended
+
       });
       newUser.save((err, savedUser) => {
         if (err) return res.json(err);

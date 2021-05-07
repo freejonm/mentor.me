@@ -8,19 +8,12 @@ let ObjectId = Schema.ObjectId;
 // Define userSchema
 const userSchema = new Schema({
   personId: { type: ObjectId },
+  profilePicture: { data: Buffer, contentType: String },
   firstName: { type: String, unique: false },
   lastName: { type: String, unique: false },
+  pronouns: { type: String, unique: false, required: false },
   username: { type: String, unique: false, required: false },
   password: { type: String, unique: false, required: false },
-  pronouns: { type: String, unique: false, required: false },
-  description: { type: String, unique: false, required: false },
-  location: { type: String, unique: false, required: false },
-  currentPosition: { type: String, unique: false, required: false },
-  desire: { type: String, unique: false, required: false },
-  education: { type: String, unique: false, required: false },
-  meetingsAttended: { type: Number, unique: false, required: false },
-  profilePicture: { data: Buffer, contentType: String },
-  mentor: { type: Boolean, unique: false, required: false, default: false },
   email: {
     type: String,
     lowercase: true,
@@ -28,40 +21,35 @@ const userSchema = new Schema({
     match: [/\S+@\S+\.\S+/, "is invalid"],
     index: true,
   },
-  mentor: {
-    type: Schema.Types.ObjectId,
-    ref: "Mentor",
-  },
-  technologiesInterestedIn: [{ type: String, unique: false, required: false }],
-  isLookingForMentor: {
-    type: Boolean,
-    unique: false,
-    required: false,
-    default: true,
-  },
-  hoursSpentWithMentor: {
-    type: Number,
-    unique: false,
-    required: false,
-    default: 0,
-  },
-  meetingsAttendedAsMentee: {
-    type: Number,
-    unique: false,
-    required: false,
-    default: 0,
-  },
-  sendRequest: [
-    {
-      username: { type: String, default: "" },
-    },
-  ],
-  request: [
+  currentPosition: { type: String, unique: false, required: false },
+  yearsExperience: {type: String, unique: false, required: false },
+  education: { type: String, unique: false, required: false },
+  location: { type: String, unique: false, required: false },
+  description: { type: String, unique: false, required: false },
+  meetingsAttended: { type: Number, unique: false, required: false },
+  
+  // What's the best way to save meetings made with calendar?
+  // calendar/meetings?: { type: ?, unique: false, required: false },
+  
+  mentor: [
     {
       userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
       username: { type: String, default: "" },
     },
   ],
+  mentee: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Mentee",
+    },
+  ],
+  sendRequest:[{
+    username: { type: String, default: '' }
+  }],
+  request: [{
+    userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    username: { type: String, default: '' }
+  }],
   friendsList: [
     {
       friendId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },

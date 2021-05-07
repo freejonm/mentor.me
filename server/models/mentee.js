@@ -6,10 +6,11 @@ mongoose.promise = Promise;
 
 // Define userSchema
 const menteeSchema = new Schema({
-    technologiesInterestedIn: [{ type: String, unique:false, required: false}],
-    isLookingForMentor: {type: Boolean, unique: false, required: false, default: true},
-    hoursSpentWithMentor: {type: Number, unique: false, required: false, default: 0},
-    meetingsAttended: {type: Number, unique: false, required: false, default: 0}
+
+    isLookingForMentor: {type: Boolean, unique: false, required:false},
+    timeCommitment: [{ type: String, unique:false, required:false}],
+	commPrefs: [{ type: String, unique:false, required:false}],
+    learningAbout: [{type: String, unique:false, required:false}],
 });
 
 // Create reference to User & export

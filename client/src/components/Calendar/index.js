@@ -6,6 +6,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import FullCalendar from '../FullCalendar';
 
 const useStyles = makeStyles({
     root: {
@@ -32,12 +33,10 @@ const useStyles = makeStyles({
     <Card className={classes.root}>
       <CardContent>
         <Typography variant="h5" component="h2">
-          Calendar
+         Calendar
         </Typography>
-        <Typography variant="body2" component="p">
-          I am so busy
-          <br />
-        </Typography>
+        <FullCalendar />
+       
       </CardContent>
       <CardActions>
         <Button size="small">add meeting</Button>

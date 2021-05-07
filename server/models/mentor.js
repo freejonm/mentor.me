@@ -9,11 +9,11 @@ let ObjectId = Schema.ObjectId
 const mentorSchema = new Schema({
 
 
-    mentor: {type: Boolean, unique: false, required: true},
+    mentor: {type: Boolean, unique: false, default: false},
     hasExperienceIn: [{ type: String, unique:false, required: false}],
     isLookingForMentee: {type: Boolean, unique: false, required: false},
-    hoursSpentWithMentee: {type: String, unique: false, required: false},
-    meetingsAttended: {type: Number, unique: false, required: false},
+    hoursSpentWithMentee: {type: Number, unique: false, required: false},
+    meetingsAttended: {type: Number, unique: false, required: false}
 
   
 });

@@ -1,6 +1,6 @@
 import React from "react";
 
-export const ConnectionsItem = props => (
+export const PotentialConnectionsItem = props => (
   <li className="list-group-item">
     {props.children}
   </li>

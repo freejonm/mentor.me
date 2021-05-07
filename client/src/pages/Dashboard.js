@@ -5,6 +5,7 @@ import UserProfile from '../components/UserProfile';
 import EditProfileButton from '../components/EditProfileButton';
 // import ConnectionsCard from '../components/ConnectionsCard';
 import { Connections, ConnectionsItem } from "../components/ConnectionsCard";
+import { PotentialConnections, PotentialConnectionsItem } from "../components/PotentialConnections";
 import PotentialConnections from '../components/PotentialConnections';
 import AddtoCalendarButton from '../components/AddtoCalendarButton';
 import Paper from '@material-ui/core/Paper';
@@ -78,7 +79,21 @@ const useStyles = makeStyles((theme) => ({
           <Paper className={classes.paper}><Calendar /><AddtoCalendarButton /></Paper>
         </Grid>
         <Grid item xs={6}>
-          <Paper className={classes.paper}><PotentialConnections /></Paper>
+          <Paper className={classes.paper}>
+            
+            {users.length ? (
+                <PotentialConnections>
+                  {users.map(users => (
+                    <ConnectionsItem key={users._id}>
+                      <Link to={"/users/" + users._id}>
+                        <strong>
+                          {users.firstName} {users.lastName}
+                        </strong>
+                      </Link>
+                    </ConnectionsItem>
+                  ))}
+                </PotentialConnections>
+              )</Paper>
         </Grid>
       </Grid>
     </div>

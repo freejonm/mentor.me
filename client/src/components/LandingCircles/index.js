@@ -14,7 +14,7 @@ const Circles = styled(motion.div)`
   width: 350px;
   background: transparent;
   border-radius: 50%;
-  background-color: white;
+  background-color: #637f7d;
   white-space: normal;
   overflow-wrap: normal;
   -webkit-box-shadow: 3px 3px 5px 5px black; /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
@@ -27,6 +27,7 @@ const InnerText = styled(motion.h3)`
   vertical-align: middle;
   color: black;
   margin-top: 60px;
+  color: #eda320;
 `;
 
 const LandingCircles = () => {

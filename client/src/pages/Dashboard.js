@@ -60,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
                   {users.map(users => (
                     <ConnectionsItem key={users._id}>
                       <Link to={"/users/" + users._id}>
+                      <img src={users.profilePicture}/>
                         <strong>
                           {users.firstName} {users.lastName}
                         </strong>

@@ -28,7 +28,7 @@ const userSchema = new Schema({
   description: { type: String, unique: false, required: false },
   meetingsAttended: { type: Number, unique: false, required: false, default: 0},
 
-  mentor: {type: Boolean, unique: false, required: true, default: false},
+  mentorStatus: {type: Boolean, unique: false, required: true, default: false},
 
   // from mentee schema
   isLookingForMentor: {type: Boolean, unique: false, required:false, default: true},

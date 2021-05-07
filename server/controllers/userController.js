@@ -12,6 +12,10 @@ module.exports = {
     }
   },
 
+  getConnections: () => {
+
+  },
+
   getAll: (req, res) => {
     db.User
       .find({})

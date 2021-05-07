@@ -20,7 +20,7 @@ export default {
     return axios.get('/api/users/:id')
   },
   getConnections: () => {
-
+    
   },
   getMatches: () => {
 

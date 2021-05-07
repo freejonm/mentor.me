@@ -1,5 +1,5 @@
 .list-overflow-container {
-  max-height: 672px;
+  max-height: 400px;
   border: 1px #dddddd solid;
   border-radius: 4px;
   overflow-y: scroll;
@@ -30,4 +30,8 @@
 
 .list-overflow-container li:last-child {
   border-bottom: none;
+}
+
+.list-group-item {
+  align-items: left;
 }

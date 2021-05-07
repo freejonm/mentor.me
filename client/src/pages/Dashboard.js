@@ -6,7 +6,7 @@ import EditProfileButton from '../components/EditProfileButton';
 // import ConnectionsCard from '../components/ConnectionsCard';
 import { Connections, ConnectionsItem } from "../components/ConnectionsCard";
 import { PotentialConnections, PotentialConnectionsItem } from "../components/PotentialConnections";
-import PotentialConnections from '../components/PotentialConnections';
+// import PotentialConnections from '../components/PotentialConnections';
 import AddtoCalendarButton from '../components/AddtoCalendarButton';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -24,8 +24,6 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.text.secondary,
     },
   }));
-
-
 
 
   
@@ -93,7 +91,10 @@ const useStyles = makeStyles((theme) => ({
                     </PotentialConnectionsItem>
                   ))}
                   </PotentialConnections>
-              )</Paper>
+                  ) : (
+                    <h3>No Results to Display</h3>
+                  )}
+              </Paper>
         </Grid>
       </Grid>
     </div>

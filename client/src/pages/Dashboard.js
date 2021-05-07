@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 import Calendar from '../components/Calendar';
 import UserProfile from '../components/UserProfile';
 import EditProfileButton from '../components/EditProfileButton';
@@ -8,6 +8,7 @@ import AddtoCalendarButton from '../components/AddtoCalendarButton';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
+import API from '../utils/API';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -20,6 +21,17 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.text.secondary,
     },
   }));
+
+function Users() {
+ const [users, setUsers] = useState([]);
+ const [formObject, setFormObject] = useState({});
+  const formEl = useRef(null);
+
+  useEffect(() => {
+    loadUsers();
+  }, []);
+
+}
   
   export default function Dashboard() {
     const classes = useStyles();

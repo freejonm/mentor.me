@@ -84,15 +84,15 @@ const useStyles = makeStyles((theme) => ({
             {users.length ? (
                 <PotentialConnections>
                   {users.map(users => (
-                    <ConnectionsItem key={users._id}>
+                    <PotentialConnectionsItem key={users._id}>
                       <Link to={"/users/" + users._id}>
                         <strong>
                           {users.firstName} {users.lastName}
                         </strong>
                       </Link>
-                    </ConnectionsItem>
+                    </PotentialConnectionsItem>
                   ))}
-                </PotentialConnections>
+                  </PotentialConnections>
               )</Paper>
         </Grid>
       </Grid>

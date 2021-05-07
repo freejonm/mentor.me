@@ -20,9 +20,10 @@ import Item from './components/Theme/item';
 // import SignupForm from './pages/Auth/SignupForm';
 // import NoMatch from "./pages/NoMatch";
 import AUTH from './utils/AUTH';
+
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     AUTH.getUser().then((response) => {
@@ -105,7 +106,7 @@ function App() {
           <Route exact path="/" component={Landing} />
           {loggedIn && (
             <Router>
-              <Route exact path="/dashboard" component={Dashboard} />
+              <Route exact path="/dashboard" component={() => <Dashboard user={user}></Dashboard>}/>
               <Route exact path="/details" component={Details} />
             </Router>
           )}

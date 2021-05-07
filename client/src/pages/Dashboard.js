@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-// function Users() {
+function Users() {
 const [users, setUsers] = useState([]);
  const [formObject, setFormObject] = useState({});
  const formEl = useRef(null);
@@ -41,6 +41,7 @@ const [users, setUsers] = useState([]);
       })
       .catch(err => console.log(err));
   };
+}
 
 
   
@@ -56,7 +57,7 @@ const [users, setUsers] = useState([]);
           </Grid>
           <Grid item xs={6}>
           <Paper className={classes.paper}>
-          {users.length ? (
+          {/* {users.length ? (
                 <Connections>
                   {users.map(users => (
                     <ConnectionsItem key={users._id}>
@@ -70,7 +71,7 @@ const [users, setUsers] = useState([]);
                 </Connections>
               ) : (
                 <h3>No Results to Display</h3>
-              )}
+              )} */}
           </Paper>
         </Grid>
         

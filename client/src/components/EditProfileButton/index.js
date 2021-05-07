@@ -11,8 +11,8 @@ const theme = createMuiTheme({
         
         text: {
           // Some CSS
-          fontFamily: 'Ubuntu',
-          background: 'linear-gradient(45deg, #637f7d 30%, #01444c 90%)',
+          fontFamily: 'primary',
+          background: '#db784d',
           borderRadius: 3,
           border: 0,
           color: 'white',

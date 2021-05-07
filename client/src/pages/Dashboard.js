@@ -23,12 +23,14 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(2),
       textAlign: 'center',
       color: theme.palette.text.secondary,
+      
     },
   }));
 
   const ConnectionsName = styled.strong`
   font-size: 22px;
-  margin-left: 10px;
+  margin-left: 10px; 
+  background-color: #012a2f, 
   
   `;
   

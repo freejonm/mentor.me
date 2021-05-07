@@ -12,8 +12,17 @@ module.exports = {
     }
   },
 
-  getConnections: () => {
-
+  getConnections: (req, res) => {
+    console.log(req.body);
+    db.User
+      .find({ _id: req.user._id })
+      .populate("friendsList")
+      .then(user => {
+        const connections = user[0].friendsList;
+        res.json({ connections: connections})
+      })
+      .catch(err => res.status(422).json(err));
+    
   },
 
   getAll: (req, res) => {
@@ -81,7 +90,11 @@ module.exports = {
         'education': education,
         'location': location,
         'description': description,
-        'meetingsAttended': meetingsAttended
+        'meetingsAttended': meetingsAttended,
+        'friendsList': [{
+          'friendID': '6095aee05516bd0f04679db3',
+          'friendName': 'Erik'
+        }]
 
       });
       newUser.save((err, savedUser) => {

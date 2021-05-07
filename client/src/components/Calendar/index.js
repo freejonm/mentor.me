@@ -33,13 +33,13 @@ const useStyles = makeStyles({
     <Card className={classes.root}>
       <CardContent>
         <Typography variant="h5" component="h2">
-         Calendar
+         <h3>Calendar</h3>
         </Typography>
         <FullCalendar />
        
       </CardContent>
       <CardActions>
-        <Button size="small">add meeting</Button>
+        <Button size="small"></Button>
       </CardActions>
     </Card>
   );

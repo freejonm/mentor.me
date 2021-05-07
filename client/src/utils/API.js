@@ -16,11 +16,11 @@ export default {
   getMentees: function() {
     return axios.get('api/mentee')
   },
-  getUserByID: function() {
-    return axios.get('/api/users/:id')
+  getUserByID: function(id) {
+    return axios.get('/api/users/' + id)
   },
-  getConnections: () => {
-    
+  getConnections: (id) => {
+    return axios.get('/api/users/connections/' + id)
   },
   getMatches: () => {
 

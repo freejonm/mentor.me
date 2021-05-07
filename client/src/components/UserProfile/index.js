@@ -57,9 +57,12 @@ export default function BadgeAvatars() {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
+    <Card>
+      <h3>Profile</h3>
+      <br></br>
     <CardContent>
     <div className={classes.root}>
+      
       <StyledBadge
         overlap="circle"
         anchorOrigin={{

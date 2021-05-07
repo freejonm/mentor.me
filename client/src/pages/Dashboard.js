@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
         <Grid container spacing={3}>
           
           <Grid item xs={6}>
-            <Paper className={classes.paper}><EditProfileButton /> <UserProfile /></Paper>
+            <Paper className={classes.paper}><UserProfile /> <EditProfileButton /></Paper>
           </Grid>
           <Grid item xs={6}>
           <Paper className={classes.paper}>

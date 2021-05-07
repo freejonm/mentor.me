@@ -34,15 +34,24 @@ const useStyles = makeStyles((theme) => ({
   
   `;
   
-  export default function Dashboard() {
+  export default function Dashboard({user}) {
     const classes = useStyles();
     const [users, setUsers] = useState([]);
+    const [connections, setConnections] = userState([])
 //  const [formObject, setFormObject] = useState({});
 //  const formEl = useRef(null);
 
   useEffect(() => {
     loadUsers();
+    getConnections();
   }, []);
+
+  const getConnections = () => {
+    API.getConnections(user._id).then(res => {
+      console.log(res.data.connections);
+      setConnections(res.data.connections);
+    })
+  }
 
   function loadUsers() {
     API.getAllUsers()

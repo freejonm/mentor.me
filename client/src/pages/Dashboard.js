@@ -12,6 +12,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import API from '../utils/API';
+import styled from 'styled-components';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -22,10 +23,16 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(2),
       textAlign: 'center',
       color: theme.palette.text.secondary,
+      
     },
   }));
 
-
+  const ConnectionsName = styled.strong`
+  font-size: 22px;
+  margin-left: 10px; 
+  background-color: #012a2f, 
+  
+  `;
   
   export default function Dashboard() {
     const classes = useStyles();
@@ -60,9 +67,10 @@ const useStyles = makeStyles((theme) => ({
                   {users.map(users => (
                     <ConnectionsItem key={users._id}>
                       <Link to={"/users/" + users._id}>
-                        <strong>
+                      <img src={users.profilePicture}/> 
+                        <ConnectionsName>
                           {users.firstName} {users.lastName}
-                        </strong>
+                        </ConnectionsName>
                       </Link>
                     </ConnectionsItem>
                   ))}
@@ -84,6 +92,7 @@ const useStyles = makeStyles((theme) => ({
                   {users.map(users => (
                     <PotentialConnectionsItem key={users._id}>
                       <Link to={"/users/" + users._id}>
+                      
                         <strong>
                           {users.firstName} {users.lastName}
                         </strong>

@@ -3,24 +3,26 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 const Wrapper = styled.div`
-display: flex;
-justify-content: space-evenly;
-margin-bottom: 40px;
-
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 40px;
 `;
 
 const Circles = styled(motion.div)`
   position: relative;
-  height: 200px;
-  width: 200px;
+  height: 350px;
+  width: 350px;
   background: transparent;
   border-radius: 50%;
   background-color: white;
   white-space: normal;
   overflow-wrap: normal;
+  -webkit-box-shadow: 3px 3px 5px 5px black; /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow: 3px 3px 5px 5px black; /* Firefox 3.5 - 3.6 */
+  box-shadow: 3px 3px 5px 5px black;
 `;
 
-const InnerText = styled.h3`
+const InnerText = styled(motion.h3)`
   text-align: center;
   vertical-align: middle;
   color: black;
@@ -33,7 +35,6 @@ const LandingCircles = () => {
       <Circles
         initial={{ opacity: 0, x: -100 }}
         animate={{
-          scale: [1, 1.4, 1.4, 1, 1],
           rotate: [0, 0, 270, 270, 0],
           borderRadius: ['20%', '20%', '50%', '50%'],
           opacity: 1,
@@ -47,12 +48,17 @@ const LandingCircles = () => {
           repeatDelay: 1
         }}
       >
-        <InnerText>Step 1</InnerText>
+        <InnerText
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 10 }}
+        >
+          Step 2
+        </InnerText>{' '}
       </Circles>
       <Circles
         initial={{ opacity: 0, x: -100 }}
         animate={{
-          scale: [1, 1.4, 1.4, 1, 1],
           rotate: [0, 0, 270, 270, 0],
           borderRadius: ['20%', '20%', '50%', '50%'],
           opacity: 1,
@@ -66,12 +72,17 @@ const LandingCircles = () => {
           repeatDelay: 1
         }}
       >
-        <InnerText>Step 2</InnerText>
+        <InnerText
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 10 }}
+        >
+          Step 2
+        </InnerText>
       </Circles>
       <Circles
         initial={{ opacity: 0, x: -100 }}
         animate={{
-          scale: [1, 1.4, 1.4, 1, 1],
           rotate: [0, 0, 270, 270, 0],
           borderRadius: ['20%', '20%', '50%', '50%'],
           opacity: 1,
@@ -85,7 +96,13 @@ const LandingCircles = () => {
           repeatDelay: 1
         }}
       >
-        <InnerText>Step 3</InnerText>
+        <InnerText
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 10 }}
+        >
+          Step 3
+        </InnerText>
       </Circles>
     </Wrapper>
   );

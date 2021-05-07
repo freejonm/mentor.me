@@ -24,29 +24,28 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-function Users() {
-const [users, setUsers] = useState([]);
- const [formObject, setFormObject] = useState({});
- const formEl = useRef(null);
+
+
+
+  
+  export default function Dashboard() {
+    const classes = useStyles();
+    const [users, setUsers] = useState([]);
+//  const [formObject, setFormObject] = useState({});
+//  const formEl = useRef(null);
 
   useEffect(() => {
     loadUsers();
   }, []);
 
   function loadUsers() {
-    API.getUsers()
+    API.getAllUsers()
       .then(res => {
         console.log(res.data.users);
         setUsers(res.data.users);
       })
       .catch(err => console.log(err));
   };
-}
-
-
-  
-  export default function Dashboard() {
-    const classes = useStyles();
   
     return (
       <div className={classes.root}>
@@ -57,13 +56,13 @@ const [users, setUsers] = useState([]);
           </Grid>
           <Grid item xs={6}>
           <Paper className={classes.paper}>
-          {/* {users.length ? (
+          {users.length ? (
                 <Connections>
                   {users.map(users => (
                     <ConnectionsItem key={users._id}>
                       <Link to={"/users/" + users._id}>
                         <strong>
-                          {users.firstName} by {users.lastName}
+                          {users.firstName} {users.lastName}
                         </strong>
                       </Link>
                     </ConnectionsItem>
@@ -71,7 +70,7 @@ const [users, setUsers] = useState([]);
                 </Connections>
               ) : (
                 <h3>No Results to Display</h3>
-              )} */}
+              )}
           </Paper>
         </Grid>
         
@@ -83,5 +82,5 @@ const [users, setUsers] = useState([]);
         </Grid>
       </Grid>
     </div>
-  );
-}
+    );
+};

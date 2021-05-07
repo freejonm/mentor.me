@@ -12,6 +12,31 @@ module.exports = {
     }
   },
 
+  getAll: (req, res) => {
+    db.User
+      .find({})
+      .populate({ path: "users", options: { sort: { 'lastName': -1 } }})
+      .then(user => {
+        res.json({ users: user});
+      })
+      .catch(err => res.status(422).json(err));
+  },
+
+  findById: function(req, res) {
+    if (req.user) {
+      db.Mentor
+        .find({ _id: req.params._id })
+        .populate("mentors")
+        .then(mentors /*users*/ => {
+          const mentor = /*users*/mentors[0].mentee.filter(b => b._id.toString() === req.params.id);
+          res.json({ mentors: mentor[0] });
+        })
+        .catch(err => res.status(422).json(err));
+    } else {
+      return res.json({ mentor: null });
+    }
+  },
+
   register: (req, res) => {
     console.log(req.body)
     const { firstName, lastName, username, password, /*pronouns, description, location, currentPosition, desire, gradYear, education, profilePicture,*/ email } = req.body;

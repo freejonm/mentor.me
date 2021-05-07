@@ -7,7 +7,7 @@ module.exports = {
   findAll: function(req, res) {
     if (true) {
       db.User
-        .find({  })
+        .find({ mentor: { mentor: true } })
         .populate({ path: "mentors", options: { sort: { 'lastName': -1 } } })
         .then(mentor => {
           res.json({ mentor: mentor });
@@ -29,21 +29,6 @@ module.exports = {
         res.json(dbMentor);
       })
       .catch(err => res.status(422).json(err));
-  },
-
-  findById: function(req, res) {
-    if (req.user) {
-      db.Mentor
-        .find({ _id: req.user._id })
-        .populate("mentors")
-        .then(mentors /*users*/ => {
-          const mentor = /*users*/mentors[0].mentee.filter(b => b._id.toString() === req.params.id);
-          res.json({ mentors: mentor[0] });
-        })
-        .catch(err => res.status(422).json(err));
-    } else {
-      return res.json({ mentor: null });
-    }
   },
 
   update: function(req, res) {

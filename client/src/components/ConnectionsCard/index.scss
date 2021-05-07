@@ -1,9 +1,20 @@
 @import "../../styles/variables";
 
+
 .people {
     position: fixed;
     background-color: $pinkorange;
     padding: 25px;
     width: 100%;
 
+}
+
+h3 {
+    // background: linear-gradient(45deg, $pinkorange 30%, $yelloworange 90%);
+    background-color: $pinkorange;
+    color: white;  
+    font-family: 'Righteous', sans-serif;
+    // font: Ubuntu;
+    margin-bottom: 0px;
+   
 }

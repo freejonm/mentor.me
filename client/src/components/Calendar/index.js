@@ -19,6 +19,7 @@ const useStyles = makeStyles({
     },
     title: {
       fontSize: 14,
+      font: 'Ubuntu',
     },
     pos: {
       marginBottom: 12,
@@ -33,13 +34,13 @@ const useStyles = makeStyles({
     <Card className={classes.root}>
       <CardContent>
         <Typography variant="h5" component="h2">
-         Calendar
+         <h3>Calendar</h3>
         </Typography>
         <FullCalendar />
        
       </CardContent>
       <CardActions>
-        <Button size="small">add meeting</Button>
+        <Button size="small"></Button>
       </CardActions>
     </Card>
   );

@@ -1,13 +1,15 @@
-
-import React from "react";
-import WelcomeDiv from '../components/WelcomeDiv'
+import React from 'react';
+import WelcomeDiv from '../components/WelcomeDiv';
+import LandingCircles from '../components/LandingCircles';
+import styled from 'styled-components';
 
 const Landing = () => {
-  return ( 
-  <div>
-  <WelcomeDiv/>
-  </div>
-  )
+  return (
+    <div>
+      <WelcomeDiv />
+      <LandingCircles />
+    </div>
+  );
 };
 
 export default Landing;

@@ -19,9 +19,6 @@ export default {
   getUserByID: function() {
     return axios.get('/api/users/:id')
   },
-  getOneUser: () => {
-
-  },
   getConnections: () => {
 
   },

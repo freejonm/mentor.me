@@ -9,13 +9,12 @@ let ObjectId = Schema.ObjectId
 const mentorSchema = new Schema({
 
 
-    mentor: {type: Boolean, unique: false, required: true},
-    hasExperienceIn: [{ type: String, unique:false, required: false}],
-    isLookingForMentee: {type: Boolean, unique: false, required: false},
-    hoursSpentWithMentee: {type: String, unique: false, required: false},
-    meetingsAttended: {type: Number, unique: false, required: false},
-
-  
+	mentor: {type: Boolean, unique: false, required: true},
+	acceptingMentees: {type: Boolean, unique: false, required: false},
+	timeCommitment: [{ type: String, unique:false, required: false}],
+	commPrefs: [{ type: String, unique:false, required: false}],
+	hasExperienceIn: [{ type: String, unique:false, required: false}],
+	
 });
 
 // Define schema methods

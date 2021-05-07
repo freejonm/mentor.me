@@ -8,18 +8,12 @@ let ObjectId = Schema.ObjectId
 // Define userSchema
 const userSchema = new Schema({
   personId: { type: ObjectId },
+  profilePicture: { data: Buffer, contentType: String },
   firstName: { type: String, unique: false },
   lastName: { type: String, unique: false },
+  pronouns: { type: String, unique: false, required: false },
   username: { type: String, unique: false, required: false },
   password: { type: String, unique: false, required: false },
-  pronouns: { type: String, unique: false, required: false },
-  description: { type: String, unique: false, required: false },
-  location: { type: String, unique: false, required: false },
-  currentPosition: { type: String, unique: false, required: false },
-  desire: { type: String, unique: false, required: false },
-  education: { type: String, unique: false, required: false },
-  meetingsAttended: { type: Number, unique: false, required: false },
-  profilePicture: { data: Buffer, contentType: String },
   email: {
     type: String,
     lowercase: true,
@@ -27,6 +21,16 @@ const userSchema = new Schema({
     match: [/\S+@\S+\.\S+/, "is invalid"],
     index: true,
   },
+  currentPosition: { type: String, unique: false, required: false },
+  yearsExperience: {type: String, unique: false, required: false },
+  education: { type: String, unique: false, required: false },
+  location: { type: String, unique: false, required: false },
+  description: { type: String, unique: false, required: false },
+  meetingsAttended: { type: Number, unique: false, required: false },
+  
+  // What's the best way to save meetings made with calendar?
+  // calendar/meetings?: { type: ?, unique: false, required: false },
+  
   mentor: [
     {
       type: Schema.Types.ObjectId,

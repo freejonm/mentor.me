@@ -14,6 +14,7 @@
   border-radius: 0px;
   border-left: none;
   border-right: none;
+  display: flex;
 }
 
 .list-overflow-container li * {
@@ -24,14 +25,15 @@
   color: #2a878c;
 }
 
-.list-overflow-container li:first-child {
+/* .list-overflow-container li:first-child {
   border-top: none;
-}
+} */
 
 .list-overflow-container li:last-child {
   border-bottom: none;
 }
 
 .list-group-item {
-  align-items: left;
+  align-content: left;
+  justify-content: space-between;
 }

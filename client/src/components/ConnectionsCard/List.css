@@ -33,7 +33,13 @@
   border-bottom: none;
 }
 
+.list-group{
+    justify-content: space-between;
+}
+
+
 .list-group-item {
   align-content: left;
   justify-content: space-between;
+  font-size: 22px;
 }

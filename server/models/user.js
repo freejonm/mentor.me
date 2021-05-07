@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const bcrypt = require("bcryptjs");
 mongoose.promise = Promise;
 
-let ObjectId = Schema.ObjectId
+let ObjectId = Schema.ObjectId;
 
 // Define userSchema
 const userSchema = new Schema({
@@ -26,23 +26,26 @@ const userSchema = new Schema({
   education: { type: String, unique: false, required: false },
   location: { type: String, unique: false, required: false },
   description: { type: String, unique: false, required: false },
-  meetingsAttended: { type: Number, unique: false, required: false },
+  meetingsAttended: { type: Number, unique: false, required: false, default: 0},
+
+  mentorStatus: {type: Boolean, unique: false, required: true, default: false},
+
+  // from mentee schema
+  isLookingForMentor: {type: Boolean, unique: false, required:false, default: true},
+  timeCommitment: [{ type: String, unique:false, required:false}],
+  commPrefs: [{ type: String, unique:false, required:false}],
+  learningAbout: [{type: String, unique:false, required:false}],
   
   // What's the best way to save meetings made with calendar?
   // calendar/meetings?: { type: ?, unique: false, required: false },
   
   mentor: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "Mentor",
+      userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+      username: { type: String, default: "" },
     },
   ],
-  mentee: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Mentee",
-    },
-  ],
+ 
   sendRequest:[{
     username: { type: String, default: '' }
   }],
@@ -50,11 +53,13 @@ const userSchema = new Schema({
     userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
     username: { type: String, default: '' }
   }],
-  friendsList: [{ 
-    friendId: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-    friendName: {type: String, default: ''}
-  }],
-  totalRequest: { type: Number, default: 0}
+  friendsList: [
+    {
+      friendId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+      friendName: { type: String, default: "" },
+    },
+  ],
+  totalRequest: { type: Number, default: 0 },
 });
 
 // Define schema methods

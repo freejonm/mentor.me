@@ -19,6 +19,7 @@ const useStyles = makeStyles({
     },
     title: {
       fontSize: 14,
+      font: 'Ubuntu',
     },
     pos: {
       marginBottom: 12,

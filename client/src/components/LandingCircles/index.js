@@ -2,7 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-const Container = styled(motion.div)`
+const Wrapper = styled.div`
+display: flex;
+justify-content: space-evenly;
+margin-bottom: 40px;
+
+`;
+
+const Circles = styled(motion.div)`
   position: relative;
   height: 200px;
   width: 200px;
@@ -22,8 +29,8 @@ const InnerText = styled.h3`
 
 const LandingCircles = () => {
   return (
-    <>
-      <Container
+    <Wrapper>
+      <Circles
         initial={{ opacity: 0, x: -100 }}
         animate={{
           scale: [1, 1.4, 1.4, 1, 1],
@@ -41,8 +48,8 @@ const LandingCircles = () => {
         }}
       >
         <InnerText>Step 1</InnerText>
-      </Container>
-      <Container
+      </Circles>
+      <Circles
         initial={{ opacity: 0, x: -100 }}
         animate={{
           scale: [1, 1.4, 1.4, 1, 1],
@@ -60,8 +67,8 @@ const LandingCircles = () => {
         }}
       >
         <InnerText>Step 2</InnerText>
-      </Container>
-      <Container
+      </Circles>
+      <Circles
         initial={{ opacity: 0, x: -100 }}
         animate={{
           scale: [1, 1.4, 1.4, 1, 1],
@@ -79,8 +86,8 @@ const LandingCircles = () => {
         }}
       >
         <InnerText>Step 3</InnerText>
-      </Container>
-    </>
+      </Circles>
+    </Wrapper>
   );
 };
 

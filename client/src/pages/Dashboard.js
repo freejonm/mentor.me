@@ -84,6 +84,7 @@ const useStyles = makeStyles((theme) => ({
                   {users.map(users => (
                     <PotentialConnectionsItem key={users._id}>
                       <Link to={"/users/" + users._id}>
+                      
                         <strong>
                           {users.firstName} {users.lastName}
                         </strong>

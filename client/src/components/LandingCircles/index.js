@@ -22,7 +22,7 @@ const Circles = styled(motion.div)`
   box-shadow: 3px 3px 5px 5px black;
 `;
 
-const InnerText = styled(motion.h3)`
+const InnerText = styled(motion.h2)`
   text-align: center;
   vertical-align: middle;
   color: black;

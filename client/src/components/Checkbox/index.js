@@ -14,42 +14,39 @@ const GreenCheckbox = withStyles({
     },
   },
   checked: {},
-})((props) => <Checkbox color="default" {...props} />);
+})((props) => {
+  console.log("Green Checkbox props", props)
+  return <Checkbox color="default" {...props} />});
 
-export default function CheckboxLabels() {
-  const [state, setState] = React.useState({
-    // checkedA: true,
-    // checkedB: true,
-    // checkedF: true,
-    isChecked: false,
+export default function CheckboxLabels(props) {
+  const [isChecked, setIsChecked] = React.useState(false)
 
-  });
+  React.useEffect(() => {
+    const name = props.name 
+    props.handleUpdateUser({[name]: isChecked})
+  }, [isChecked])
 
-  const handleChange = (event) => {
-    // console.log(state.isChecked)
-    setState({ ...state, isChecked: true});
-    if(state.isChecked === true) {
-      setState({...state, isChecked: false})
-    }
-    
-  };
+  const handleOnChange = () => setIsChecked(!isChecked) 
+  
 
   return (
     <FormGroup row>
 
         <h4>Let us know if you would like to be a mentor:</h4>
 
-        {/* 
+         
         <FormControlLabel
-        control={<GreenCheckbox checked={state.checkedG} onChange={handleChange} name="checkedG" />}
+        control={<GreenCheckbox checked={isChecked} onChange={handleOnChange}/>}
         label="I am looking for a Mentor!"
         />
-        */}
+        
 
+        {/*
         <FormControlLabel
-        control={<GreenCheckbox checked={state.isChecked} onChange={handleChange} name="checkedG"/>}
+        control={<GreenCheckbox checked={props.isChecked} onChange={props.handleCheckboxChange} name={props.name} />}
         label="Yes! I want to  be a Mentor"
         />
+      */} 
 
     </FormGroup>
   )

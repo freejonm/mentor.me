@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   export default function Dashboard({user}) {
     const classes = useStyles();
     const [users, setUsers] = useState([]);
-    const [connections, setConnections] = userState([])
+    const [connections, setConnections] = useState([])
 //  const [formObject, setFormObject] = useState({});
 //  const formEl = useRef(null);
 

@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 const ConnectionsName = styled.strong`
   font-size: 22px;
   margin-left: 10px;
-  background-color: #012a2f;
+  /* background-color: #012a2f; */
 `;
 
 export default function Dashboard({ user }) {

@@ -44,21 +44,36 @@ function SignupForm() {
     username: '',
     password: '',
     email: '',
+    mentorStatus: false
   })
   const [redirectTo, setRedirectTo] = useState(null)
 
   const handleChange = (event) => {
+    console.log(event.target.checked)
     setUSerObject({...userObject, [event.target.name]: event.target.value})
+  }
+
+  const handleCheckboxChange = (event) => {
+    console.log(event.target.checked)
+    setUSerObject({...userObject, [event.target.name]: event.target.checked})
+  }
+
+  const updateUser = (updatedValue) => {
+    console.log('UpdatedValue ', updatedValue)
+    setUSerObject({...userObject, ...updatedValue})
+
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(userObject)
     AUTH.signup({
       firstName: userObject.firstName,
       lastname: userObject.lastName,
       email: userObject.email,
       password: userObject.password,
-      username: userObject.username
+      username: userObject.username,
+      mentorStatus: userObject.mentorStatus
       // mentor: userObject.mentee,
       // mentee: userObject.mentor,
       // fieldOfInterest: userObject.fieldOfInterest
@@ -168,7 +183,19 @@ function SignupForm() {
 
           </Grid>
 
-          <CheckboxLabels />
+          {/*
+          <CheckboxLabels 
+          name="mentorStatus"
+          isChecked={userObject.mentorStatus}
+          handleCheckboxChange={handleCheckboxChange}
+          />
+          */}
+
+          <CheckboxLabels 
+          name='mentorStatus'
+          handleUpdateUser={updateUser}
+          />
+          
           <Button
             type="submit"
             fullWidth

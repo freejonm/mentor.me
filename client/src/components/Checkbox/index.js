@@ -26,7 +26,7 @@ export default function CheckboxLabels() {
   });
 
   const handleChange = (event) => {
-    console.log(state.isChecked)
+    // console.log(state.isChecked)
     setState({ ...state, isChecked: true});
     if(state.isChecked === true) {
       setState({...state, isChecked: false})

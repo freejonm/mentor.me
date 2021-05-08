@@ -21,16 +21,17 @@ export default function CheckboxLabels() {
     // checkedA: true,
     // checkedB: true,
     // checkedF: true,
-    checkedG: false,
+    isChecked: false,
 
   });
 
   const handleChange = (event) => {
-    console.log(state.checkedG)
-    setState({ ...state, checkedG: true});
-    if(state.checkedG === true) {
-      setState({...state, checkedG: false})
+    console.log(state.isChecked)
+    setState({ ...state, isChecked: true});
+    if(state.isChecked === true) {
+      setState({...state, isChecked: false})
     }
+    
   };
 
   return (
@@ -46,7 +47,7 @@ export default function CheckboxLabels() {
         */}
 
         <FormControlLabel
-        control={<GreenCheckbox checked={state.checkedG} onChange={handleChange} name="checkedG"/>}
+        control={<GreenCheckbox checked={state.isChecked} onChange={handleChange} name="checkedG"/>}
         label="Yes! I want to  be a Mentor"
         />
 

@@ -65,7 +65,8 @@ module.exports = {
       education,
       location,
       description,
-      meetingsAttended
+      meetingsAttended,
+      mentorStatus
     } = req.body;
 
     // ADD VALIDATION
@@ -91,6 +92,7 @@ module.exports = {
         'location': location,
         'description': description,
         'meetingsAttended': meetingsAttended,
+        'mentorStatus': mentorStatus,
         'friendsList': [{
           'friendID': '6095aee05516bd0f04679db3',
           'friendName': 'Erik'

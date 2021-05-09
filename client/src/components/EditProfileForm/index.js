@@ -32,11 +32,19 @@ const useStyles = makeStyles((theme) => ({
 export default function InputAdornments() {
   const classes = useStyles();
   const [values, setValues] = React.useState({
-    amount: '',
+    firstName: '',
+    lastName: '',
     password: '',
-    weight: '',
-    weightRange: '',
+    pronouns: '',
+    username: '',
     showPassword: false,
+    email: '',
+    currentPosition: '',
+    yearsExperience: '',
+    education: '',
+    location: '',
+
+
   });
 
   const handleChange = (prop) => (event) => {
@@ -59,9 +67,10 @@ export default function InputAdornments() {
           id="standard-start-adornment"
           className={clsx(classes.margin, classes.textField)}
           InputProps={{
-            startAdornment: <InputAdornment position="start">Kg</InputAdornment>,
+            startAdornment: <InputAdornment position="start">First Name</InputAdornment>,
           }}
         />
+        
         <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
           <Input
             id="standard-adornment-weight"

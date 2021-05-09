@@ -1,18 +1,15 @@
 @import "./styles/_variables.scss";
 
-
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Ubuntu', sans-serif !important;
+  font-family: "Ubuntu", sans-serif !important;
   background: linear-gradient(10deg, $darkturq 60%, $turq 60%) !important;
-
 }
 
 .content {
   color: white;
 }
-
 
 .makeStyles-paper-8 {
   padding: 16px;
@@ -24,4 +21,5 @@ body {
   display: flex;
   flex-wrap: wrap;
   background-color: white !important;
+  margin-top: 10%;
 }

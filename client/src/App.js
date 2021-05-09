@@ -20,6 +20,7 @@ import Item from './components/Theme/item';
 // import SignupForm from './pages/Auth/SignupForm';
 // import NoMatch from "./pages/NoMatch";
 import AUTH from './utils/AUTH';
+import EditProfile from './pages/EditProfile'
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -108,6 +109,7 @@ function App() {
             <Router>
               <Route exact path="/dashboard" component={() => <Dashboard user={user}></Dashboard>}/>
               <Route exact path="/details" component={Details} />
+              <Route exact path="/editprofile" component={EditProfile} />
             </Router>
           )}
           {!loggedIn && (

@@ -1,10 +1,12 @@
 import React from 'react';
 import EditProfileForm from '../components/EditProfileForm';
+import FormUpdateButton from '../components/FormUpdateButton';
 
 function EditProfile() {
 return (
     <>
     <EditProfileForm />
+    <FormUpdateButton />
 
       {/* firstName: { type: String, unique: false },
   lastName: { type: String, unique: false },

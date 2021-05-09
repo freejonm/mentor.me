@@ -1,9 +1,11 @@
 import React from 'react';
+import EditProfileForm from '../components/EditProfileForm';
 
 function EditProfile() {
 return (
     <>
-    
+    <EditProfileForm />
+
       {/* firstName: { type: String, unique: false },
   lastName: { type: String, unique: false },
   pronouns: { type: String, unique: false, required: false },

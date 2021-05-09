@@ -29,7 +29,7 @@ const theme = createMuiTheme({
   
     return (
       <ThemeProvider theme={theme}>
-          <Button>
+          <Button onClick={()=>window.location.href="/editprofile"}>
             Edit Profile
           </Button>
           </ThemeProvider>

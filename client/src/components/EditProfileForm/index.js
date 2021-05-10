@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
+    backgroundColor: 'white !important',
   },
   margin: {
     margin: theme.spacing(1),

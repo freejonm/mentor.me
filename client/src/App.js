@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 import Nav from './components/Nav';
-// import ParticleBG from './ParticleBG';
 import LoginForm from './pages/Auth/LoginForm';
 import Landing from './pages/Landing';
 
@@ -97,6 +96,7 @@ function App() {
   //     )}
   //   </div>
   // );
+  console.log('user in appjs', user);
 
   return (
     <div>

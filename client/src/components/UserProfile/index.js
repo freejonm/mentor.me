@@ -174,10 +174,10 @@ export default function BadgeAvatars({
           </ColRight>
           <ColRight>
             <ListGroup>
-              <li>{email}</li>
-              <li>{location}</li>
-              <li>{currentPosition}</li>
-              <li>{yearsExp}</li>
+              <li>{email} jar@weav.com</li>
+              <li>{location}ddddd</li>
+              <li>{currentPosition}ddddd</li>
+              <li>{yearsExp}ddddddd</li>
             </ListGroup>
           </ColRight>
         </UserContainer>

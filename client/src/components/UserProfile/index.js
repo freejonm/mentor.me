@@ -5,6 +5,8 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import './index.scss';
+import styled from 'styled-components';
+
 
 const StyledBadge = withStyles((theme) => ({
   badge: {
@@ -53,7 +55,32 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function BadgeAvatars() {
+const UserContainer = styled.div`
+display: grid;
+grid-template-columns: 1fr 1fr;
+height:400px;
+width: 100%;
+`;
+
+const ColLeft = styled.div`
+
+
+`;
+
+const ColRight =styled.div`
+
+`;
+
+
+const UserProfileTitle = styled.h1`
+display:flex;
+justify-content: flex-start;
+font-family: 'Righteous', sans-serif;
+font-size: 50px;
+`;
+
+
+export default function BadgeAvatars({ ProfilePic, Username  }) {
   const classes = useStyles();
 
   return (
@@ -61,19 +88,11 @@ export default function BadgeAvatars() {
       <h3>Profile</h3>
       <br></br>
     <CardContent>
-    {/* <div className={classes.root}> */}
-      <StyledBadge
-        overlap="circle"
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'right',
-        }}
-        variant="dot"
-      >
-        <Avatar alt="Remy Sharp" src="https://avatars.githubusercontent.com/u/74466180?s=60&v=4" />
-      </StyledBadge>
-    {/* </div> */}
-
+      <UserContainer>
+        <UserProfileTitle>
+          Jared's Profile
+        </UserProfileTitle>
+      </UserContainer>
     </CardContent>
     </Card>
     

@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import { orange } from '@material-ui/core/colors';
+
+import Checkbox from '@material-ui/core/Checkbox';
 import CheckboxLabels from '../Checkbox';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+import FormGroup from '@material-ui/core/FormGroup';
+
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -45,6 +50,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const GreenCheckbox = withStyles({
+  root: {
+    color: orange[400],
+    '&$checked': {
+      color: orange[600],
+    },
+  },
+  checked: {},
+})((props) => <Checkbox color="default" {...props} />);
+
+
+// const handleChange = (event) => {
+//     setState({ ...state, [event.target.name]: event.target.checked });
+// };
+
 function UserInfo() {
   const [userObject, setUSerObject] = useState({
     firstName: '',
@@ -57,6 +77,13 @@ function UserInfo() {
   const [redirectTo, setRedirectTo] = useState(null)
 
 
+  const [state, setState] = React.useState({
+      checkedA: true,
+      checkedB: true,
+      checkedF: true,
+      checkedG: true,
+  });
+  
   const handleChange = (event) => {
     console.log(event.target.checked)
     setUSerObject({...userObject, [event.target.name]: event.target.value})
@@ -180,7 +207,6 @@ function UserInfo() {
            
             </Grid>
            
-
           </Grid>
 
           <Button

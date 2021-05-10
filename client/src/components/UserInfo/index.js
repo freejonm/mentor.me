@@ -16,6 +16,13 @@ import Container from '@material-ui/core/Container';
 import AUTH from '../../utils/AUTH'
 
 
+// importing material-ui drop-down box selection
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -93,9 +100,6 @@ function UserInfo() {
     <Container component="main" maxWidth="xs" id="signUpForm">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar id="signup-avatar" className={classes.avatar}>
-          {/* <LockOutlinedIcon /> */}
-        </Avatar>
         <Typography component="h1" variant="h5">
           Tell us more about you.
         </Typography>

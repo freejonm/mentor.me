@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
 
 const UserContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   height: 254px;
   margin: 0;
   padding: 0;
@@ -67,7 +67,6 @@ const ColLeft = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 33%;
   img {
     height: 220px;
     width: 200px;
@@ -80,7 +79,7 @@ const ColRight = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  position: relative;
+  /* position: relative; */
   width: auto;
 `;
 
@@ -93,10 +92,11 @@ const UserProfileTitle = styled.h1`
 
 const UserInfoContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-auto-columns: 1fr;
   height: auto;
-  margin: 0;
-  padding: 0;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
 `;
 
 const ListGroup = styled.ul`
@@ -106,6 +106,7 @@ const ListGroup = styled.ul`
   justify-content: flex-start;
   /* justify-content:space-evenly; */
   list-style-type: none;
+  width: 100%;
 
   li {
     border: 2px solid #01444c;
@@ -117,31 +118,45 @@ const ListGroup = styled.ul`
   }
 `;
 
-export default function BadgeAvatars({ ProfilePic, userName }) {
+export default function BadgeAvatars({
+  avatar,
+  userName,
+  fullName,
+  pronouns,
+  email,
+  currentPosition,
+  yearsExp,
+  education,
+  location
+}) {
   const classes = useStyles();
 
   return (
     <Card>
-      <h3>Profile</h3>
+      <h3>{userName}'s Profile</h3>
       <br></br>
       <CardContent>
         <UserContainer>
           <ColLeft>
-            <UserProfileTitle>{userName}</UserProfileTitle>
+            <UserProfileTitle>{(fullName, pronouns)}</UserProfileTitle>
             <img src="https://randomuser.me/api/portraits/women/75.jpg" />
           </ColLeft>
 
           <ColRight>
-            <UserInfoContainer>
-              <ListGroup>
-                <li>Email</li>
-                <li>Location</li>
-                <li>Skills</li>
-                <li>Years Experience</li>
-                <li>Technical Skills</li>
-              </ListGroup>
-              <ListGroup></ListGroup>
-            </UserInfoContainer>
+            <ListGroup>
+              <li>Email</li>
+              <li>Location</li>
+              <li>Current Position</li>
+              <li>Years Experience</li>
+            </ListGroup>
+          </ColRight>
+          <ColRight>
+            <ListGroup>
+              <li>{email}</li>
+              <li>{location}</li>
+              <li>{currentPosition}</li>
+              <li>{yearsExp}</li>
+            </ListGroup>
           </ColRight>
         </UserContainer>
       </CardContent>

@@ -16,7 +16,6 @@ body {
   text-align: center;
   background-color: $lightturq !important;
   box-shadow: 1px 1px 2px 2px black !important;
-
 }
 
 .makeStyles-root-7 {
@@ -24,4 +23,12 @@ body {
   flex-wrap: wrap;
   // background-color:white !important;
   margin-top: 10%;
+}
+
+// Button {
+//   font-family: "Ubuntu", sans-serif !important;
+// }
+
+.MuiButton {
+  font: "Righteous" !important;
 }

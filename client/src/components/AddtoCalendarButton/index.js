@@ -22,10 +22,10 @@ const theme = createMuiTheme({
   },
 });
 
-function AddtoCalendarButton({dashButtonTitle}) {
+function AddtoCalendarButton() {
   return (
     <ThemeProvider theme={theme}>
-      <Button>{dashButtonTitle}</Button>
+      <Button>Add to Calendar</Button>
     </ThemeProvider>
   );
 }

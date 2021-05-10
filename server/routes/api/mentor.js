@@ -8,9 +8,12 @@ router.route("/")
   // .post(mentorController.register);
 
 
+router.route("/")
+
 // Matches with "/api/mentors/:id"
 router
   .route("/:id")
+  .get(mentorController.getRankedMentors)
   .put(mentorController.update)
   .delete(mentorController.remove);
 

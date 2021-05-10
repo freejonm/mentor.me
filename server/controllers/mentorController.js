@@ -1,5 +1,6 @@
 const ObjectId = require("mongoose").Types.ObjectId;
 const db = require("../models");
+const algo = require('../../algorithms/match')
 
 // Defining methods for the userController
 module.exports = {
@@ -42,7 +43,23 @@ module.exports = {
   },
 
   getRankedMentors: (req, res, next) => {
-    
+    let currentUser;
+    let currentMentors;
+    db.User
+      .find({ _id: req.user._id })
+      .then(user => {
+        currentUser = user;
+        db.User
+        .find({ mentor: { mentor: true } })
+        .then(mentors => {
+          currentMentors = mentors;
+          const ranked = algo(currentUser, currentMentors);
+          console.log('ranked list:  ---------' + ranked);
+          res.json(ranked)
+        })
+        .catch(err => res.status(422).json(err))
+      })
+      .catch(err => res.status(422).json(err));
   },
 
   remove: (req, res) => {

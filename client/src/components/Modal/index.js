@@ -65,8 +65,6 @@ const EditAvatar = styled.button`
     border: 2px solid #db784d;
   border-radius: 5px;
   box-shadow: 1px 1px 2px 2px black;
-
-
   `;
 
 
@@ -80,27 +78,30 @@ function EditModal() {
   return (
     <div>
       <ThemeProvider theme={theme}>
-      <Button onClick={toggleModal}>Edit Profile</Button></ThemeProvider>
+      <Button onClick={toggleModal}>Edit Profile</Button>
+      </ThemeProvider>
       <StyledModal
         isOpen={isOpen}
         onBackgroundClick={toggleModal}
         onEscapeKeydown={toggleModal}
       >
-          <ModalHead >
-              Edit Profile
-          </ModalHead>
+          <ModalHead>Edit Profile</ModalHead>
         <EditProfileForm />
         <img src="https://randomuser.me/api/portraits/women/75.jpg" />
         <ThemeProvider theme={theme}>
-      <Button>
-        <EditAvatar>Change Picture</EditAvatar>
-        </Button>
-      </ThemeProvider>
+          <Button>
+            <EditAvatar>Change Picture</EditAvatar>
+          </Button>
+       </ThemeProvider>
+
+       <ThemeProvider theme={theme}>
+          <Button onClick={toggleModal}>Save Changes</Button>
+       </ThemeProvider>
 
 
 
         
-        <button onClick={toggleModal}>Close me</button>
+        
       </StyledModal>
     </div>
   );

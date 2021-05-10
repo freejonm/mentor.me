@@ -41,14 +41,8 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  getMentor: (req, res, next) => {
-    // console.log(req.user);
-    if (req.user) {
-      return
-       res.json({ user: req.user });
-    } else {
-      return res.json({ user: null });
-    }
+  getRankedMentors: (req, res, next) => {
+    
   },
 
   remove: (req, res) => {

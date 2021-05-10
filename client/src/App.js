@@ -10,7 +10,7 @@ import Register from './pages/Auth/Register';
 import StickyFooter from './components/StickyFooter';
 
 import Dashboard from './pages/Dashboard';
-import Details from './pages/Details';
+import Details from './pages/Auth/Details';
 
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';

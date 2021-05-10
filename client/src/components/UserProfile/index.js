@@ -57,6 +57,8 @@ const UserContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   height: 254px;
+  margin:0;
+  padding:0;
 
 `;
 
@@ -66,9 +68,10 @@ const ColLeft = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  width: 33%;
   img {
-    height: 200px;
-    width: 180px;
+    height: 220px;
+    width: 200px;
     border-radius: 5%;
     box-shadow: 1px 1px 2px 2px black;
   }
@@ -78,10 +81,10 @@ const ColLeft = styled.div`
 
 const ColRight = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
+  justify-content: flex-start;
+  align-items: flex-start;
   position: relative;
+  width: auto;
 `;
 
 const UserProfileTitle = styled.h1`
@@ -89,14 +92,41 @@ const UserProfileTitle = styled.h1`
   justify-content: flex-start;
   font-family: 'Righteous', sans-serif;
   font-size: 32px;
+
   
 `;
 
-const ListGroup = styled.ul``;
-
-const ListItem = styled.li`
+const UserInfoContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: auto;
+  margin:0;
+  padding:0;
 
 `;
+
+
+const ListGroup = styled.ul`
+display:flex;
+
+flex-direction:column;
+justify-content:flex-start;
+/* justify-content:space-evenly; */
+list-style-type: none;
+
+li {
+  border: 2px solid #01444c;
+  font-size: 16px;
+  padding: 10px;
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+
+
+}
+`;
+
+
 
 export default function BadgeAvatars({ ProfilePic, Username }) {
   const classes = useStyles();
@@ -111,8 +141,26 @@ export default function BadgeAvatars({ ProfilePic, Username }) {
             <UserProfileTitle>Username</UserProfileTitle>
             <img src="https://randomuser.me/api/portraits/women/75.jpg"/>
           </ColLeft>
+
           <ColRight>
+          <UserInfoContainer>
+          <ListGroup>
+            <li>Email</li>
+            <li>Location</li>
+            <li>Skills</li>
+            <li>Years Experience</li>
+            <li>Technical Skills</li>
+            
+          </ListGroup>
+          <ListGroup>
+     
+   
+            
+          </ListGroup>
           
+
+
+          </UserInfoContainer>
           
           </ColRight>
         </UserContainer>

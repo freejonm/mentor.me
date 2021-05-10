@@ -15,6 +15,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import AUTH from '../../utils/AUTH'
 
+import Divider from '@material-ui/core/Divider';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
@@ -66,7 +67,7 @@ function SignupForm() {
 
   const handleCheckboxChange = (event) => {
     console.log(event.target.checked)
-    setUSerObject({...userObject, [event.target.name]: event.target.checked})
+    setUSerObject({...userObject, [event.target.name]: event.target.value})
   }
 
   const updateUser = (updatedValue) => {
@@ -148,6 +149,18 @@ function SignupForm() {
                 onChange={handleChange}
               />
             </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                onChange={handleChange}
+              />
+            </Grid>
           <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -174,6 +187,37 @@ function SignupForm() {
                 onChange={handleChange}
               />
             </Grid>
+            <CheckboxLabels 
+          name='mentorStatus'
+          handleUpdateUser={updateUser}
+          />
+            <Grid item xs={12}>
+              <Divider variant="middle" />
+            </Grid>
+
+            <Grid item xs={12}>
+              <Divider variant="middle" />
+            </Grid>
+
+            <Grid item xs={12}>
+              <Divider variant="middle" />
+            </Grid>
+
+             {/* not-required info below  */}
+            <Typography component="p" fontStyle="italic" variant="p">
+              Let us know a little more about you before you set up your account. You will be able to edit these settings at any time.
+            </Typography>
+            <Grid item xs={12}>
+              <Divider variant="middle" />
+            </Grid>
+
+            <Grid item xs={12}>
+              <Divider variant="middle" />
+            </Grid>
+
+            <Grid item xs={12}>
+              <Divider variant="middle" />
+            </Grid>
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -190,20 +234,7 @@ function SignupForm() {
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                onChange={handleChange}
-              />
-            </Grid>
-            
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
+                // required
                 fullWidth
                 name="currentPosition"
                 label="Current Position"
@@ -216,7 +247,7 @@ function SignupForm() {
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
-                required
+                // required
                 fullWidth
                 name="yearsExperience"
                 label="Years of experience in the tech industry"
@@ -229,7 +260,7 @@ function SignupForm() {
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
-                required
+                // required
                 fullWidth
                 name="location"
                 label="Zip code"
@@ -242,7 +273,7 @@ function SignupForm() {
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
-                required
+                // required
                 fullWidth
                 name="education"
                 label="Bootcamp attended (year of graduation)"
@@ -252,10 +283,7 @@ function SignupForm() {
                 onChange={handleChange}
               />
             </Grid>
-            <CheckboxLabels 
-          name='mentorStatus'
-          handleUpdateUser={updateUser}
-          />
+            
 
           </Grid>
 
@@ -270,14 +298,7 @@ function SignupForm() {
 
           </Grid>
 
-          {/*
-          <CheckboxLabels 
-          name="mentorStatus"
-          isChecked={userObject.mentorStatus}
-          handleCheckboxChange={handleCheckboxChange}
-          />
-          */}
-
+        
          
           
           <Button

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-
 import Modal from 'styled-react-modal';
 import EditProfileForm from '../EditProfileForm';
 import styled from 'styled-components';
@@ -31,7 +30,7 @@ const theme = createMuiTheme({
 const StyledModal = Modal.styled`
     display: grid;
     grid-template-columns: fr;  
-    width: 60%;
+    width: 80%;
     height: auto;
     overflow-y: scroll;
     overflow-x: hidden;

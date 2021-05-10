@@ -11,6 +11,7 @@ const StyledModal = Modal.styled`
     height: auto;
     overflow-y: scroll;
     overflow-x: hidden;
+    background-color: #637f7d;
   
 `;
 
@@ -32,7 +33,20 @@ const EditAvatar = styled.button`
     text-decoration: none;
     color: white;
   }
-`;
+  `;
+
+  const ModalHead = styled.h3`
+  background-color: #01444c;
+    color: white;  
+    font-family: 'Righteous', sans-serif;
+    margin-bottom: 0px;
+    border: 2px solid #db784d;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px 2px black;
+
+
+  `;
+
 
 function EditModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,6 +63,9 @@ function EditModal() {
         onBackgroundClick={toggleModal}
         onEscapeKeydown={toggleModal}
       >
+          <ModalHead>
+              Edit Profile
+          </ModalHead>
         <EditProfileForm />
         <img src="https://randomuser.me/api/portraits/women/75.jpg" />
         <EditAvatar>Change Picture</EditAvatar>

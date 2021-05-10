@@ -23,6 +23,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
+import "./UserInfo.scss"
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -54,6 +55,7 @@ function UserInfo() {
     mentorStatus: false
   })
   const [redirectTo, setRedirectTo] = useState(null)
+
 
   const handleChange = (event) => {
     console.log(event.target.checked)
@@ -105,31 +107,60 @@ function UserInfo() {
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
+          <InputLabel id="pronouns">Which pronouns do you prefer to use?</InputLabel>
             <Grid item xs={12} sm={6}>
+              <FormControl>
+              <Select labelID="pronouns"
+              value="pronouns"
+              onChange={handleChange}>
+                <MenuItem value="they/them">they/them</MenuItem>
+                <MenuItem value="she/her">she/her</MenuItem>
+                <MenuItem value="she/her">he/him</MenuItem>
+              </Select>
+              </FormControl>
+              <Grid item xs={12}>
+              <InputLabel id="current-position">What is your current position?</InputLabel>
               <TextField
-                autoComplete="fname"
-                name="firstName"
                 variant="outlined"
-                required
                 fullWidth
-                id="firstName"
-                label="First Name"
-                autoFocus
+                id="current-position"
+                
+                name="current-position"
+                autoComplete="current-position"
+                onChange={handleChange}
+              />
+               <InputLabel id="years-of-experience">How many years of experience do you have in the tech industry?</InputLabel>
+              <TextField
+                variant="outlined"
+                fullWidth
+                id="years-of-experience"
+                name="years-of-experience"
+                autoComplete="years-of-experience"
+                onChange={handleChange}
+              />
+              <InputLabel id="education">Which coding bootcamp did you attend?</InputLabel>
+              <FormControl>
+              <Select labelID="education"
+              value="education"
+              onChange={handleChange}>
+                <MenuItem value="Triology">Triology</MenuItem>
+                <MenuItem value="The Iron Yard">The Iron Yard</MenuItem>
+                <MenuItem value="Momentum">Momentum</MenuItem>
+              </Select>
+              </FormControl>
+              <InputLabel id="year-of-graduation">What year did you graduate?</InputLabel>
+              <TextField
+                variant="outlined"
+                fullWidth
+                id="year-of-graduation"
+                name="year-of-graduation"
+                autoComplete="year-of-graduation"
                 onChange={handleChange}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
-                onChange={handleChange}
-              />
             </Grid>
+           
+         
             <Grid item xs={12}>
               <TextField
                 variant="outlined"

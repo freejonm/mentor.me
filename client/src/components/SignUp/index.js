@@ -82,18 +82,19 @@ function SignupForm() {
     AUTH.signup({
       firstName: userObject.firstName,
       lastname: userObject.lastName,
-      email: userObject.email,
-      password: userObject.password,
-      username: userObject.username,
-      mentorStatus: userObject.mentorStatus,
-      currentPosition: userObject.currentPosition,
       pronouns: userObject.pronouns,
+      username: userObject.username,
+      password: userObject.password,
+      email: userObject.email,
+      currentPosition: userObject.currentPosition,
       yearsExperience: userObject.yearsExperience,
+      education: userObject.education,
+      mentorStatus: userObject.mentorStatus,
       location: userObject.location,
-      education: userObject.education
-      // mentor: userObject.mentee,
-      // mentee: userObject.mentor,
-      // fieldOfInterest: userObject.fieldOfInterest
+      description: userObject.description,
+      timeCommitment: userObject.timeCommitment,
+      commPrefs: userObject.commPrefs,
+      learningAbout: userObject.learningAbout,
     }).then(response => {
       console.log(response)
       if(!response.data.errmsg) {

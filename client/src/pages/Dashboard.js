@@ -106,7 +106,7 @@ export default function Dashboard({ user }) {
                   <PotentialConnectionsItem key={users._id}>
                     <Link to={'/users/' + users._id}>
                       <img src={users.profilePicture} />
-                      <ConnectionsName>
+                      <ConnectionsName onClick={()=>window.location.href="/memberprofile"}>
                         {users.firstName} {users.lastName}
                       </ConnectionsName>
                     </Link>

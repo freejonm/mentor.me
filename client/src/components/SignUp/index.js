@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { withStyles } from '@material-ui/core/styles';
 import CheckboxLabels from '../Checkbox';
+import { green } from '@material-ui/core/colors';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -44,7 +46,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const GreenCheckbox = withStyles({
+  root: {
+    color: green[400],
+    '&$checked': {
+      color: green[600],
+    },
+  },
+  checked: {},
+})((props) => <Checkbox color="default" {...props} />);
+
 function SignupForm() {
+
+  const [state, setState] = React.useState({
+    checkedA: true,
+    checkedB: true,
+    checkedF: true,
+    checkedG: true,
+  });
+
   const [userObject, setUSerObject] = useState({
     firstName: '',
     lastName: '',
@@ -56,7 +76,8 @@ function SignupForm() {
     yearsExperience: '',
     pronouns: '',
     location: '',
-    education: ''
+    education: '',
+    timeCommitment: []
   })
   const [redirectTo, setRedirectTo] = useState(null)
 
@@ -105,10 +126,6 @@ function SignupForm() {
       
     })
   }
-
-
-
-
 
   const classes = useStyles();
 
@@ -284,7 +301,13 @@ function SignupForm() {
                 onChange={handleChange}
               />
             </Grid>
-            
+            <Typography component="p" fontStyle="italic" variant="p">
+              How often would you like to meet with your mentor?
+            </Typography>
+            <FormControlLabel
+              control={<GreenCheckbox checked="false" onChange={handleCheckboxChange}  name="timeCommitment" value="weekly" />}
+              label="Weekly"
+            />
 
           </Grid>
 

@@ -8,6 +8,8 @@ import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 
+import "./UserDetails.scss"
+
 const GreenCheckbox = withStyles({
     root: {
       color: green[400],

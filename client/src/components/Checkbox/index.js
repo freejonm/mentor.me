@@ -32,12 +32,12 @@ export default function CheckboxLabels(props) {
   return (
     <FormGroup row>
 
-        <h4>Let us know if you would like to be a mentor:</h4>
+        <h5>Would you like to register as a mentor?</h5>
 
          
         <FormControlLabel
         control={<GreenCheckbox checked={isChecked} onChange={handleOnChange}/>}
-        label="I would like to be a Mentor!"
+        label="Yes, please register me as a mentor!"
         />
         
 

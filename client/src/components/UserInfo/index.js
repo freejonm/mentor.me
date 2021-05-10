@@ -61,37 +61,22 @@ const GreenCheckbox = withStyles({
 })((props) => <Checkbox color="default" {...props} />);
 
 
-// const handleChange = (event) => {
-//     setState({ ...state, [event.target.name]: event.target.checked });
-// };
-
 function UserInfo() {
   const [userObject, setUSerObject] = useState({
-    firstName: '',
-    lastName: '',
-    username: '',
-    password: '',
-    email: '',
-    mentorStatus: false
+    description: '',
+    location: '',
+    pronouns: '',
+    currentPostion: '',
+    experience: '',
+    education: '',
   })
   const [redirectTo, setRedirectTo] = useState(null)
 
 
-  const [state, setState] = React.useState({
-      checkedA: true,
-      checkedB: true,
-      checkedF: true,
-      checkedG: true,
-  });
-  
+ 
   const handleChange = (event) => {
     console.log(event.target.checked)
     setUSerObject({...userObject, [event.target.name]: event.target.value})
-  }
-
-  const handleCheckboxChange = (event) => {
-    console.log(event.target.checked)
-    setUSerObject({...userObject, [event.target.name]: event.target.checked})
   }
 
   const updateUser = (updatedValue) => {
@@ -170,10 +155,10 @@ function UserInfo() {
               <TextField
                 variant="outlined"
                 fullWidth
-                id="current-position"
+                id="currentPosition"
                 
-                name="current-position"
-                autoComplete="current-position"
+                name="currentPosition"
+                autoComplete="currentPosition"
                 onChange={handleChange}
               />
                <InputLabel id="years-of-experience">How many years of experience do you have in the tech industry?</InputLabel>
@@ -216,7 +201,7 @@ function UserInfo() {
             id="signup-button"
             color="primary"
             className={classes.submit}
-            onClick={handleSubmit}
+            onClick={updateUser}
           >
             Submit
           </Button>

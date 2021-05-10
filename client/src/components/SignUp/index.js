@@ -122,10 +122,32 @@ function SignupForm() {
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
-          <CheckboxLabels 
-          name='mentorStatus'
-          handleUpdateUser={updateUser}
-          />
+         
+          <Grid item xs={12} sm={6}>
+              <TextField
+                autoComplete="fname"
+                name="firstName"
+                variant="outlined"
+                required
+                fullWidth
+                id="firstName"
+                label="First Name"
+                autoFocus
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="lastName"
+                label="Last Name"
+                name="lastName"
+                autoComplete="lname"
+                onChange={handleChange}
+              />
+            </Grid>
           <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -149,32 +171,6 @@ function SignupForm() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-                onChange={handleChange}
-              />
-            </Grid>
-            
-            <Grid item xs={12} sm={6}>
-              <TextField
-                autoComplete="fname"
-                name="firstName"
-                variant="outlined"
-                required
-                fullWidth
-                id="firstName"
-                label="First Name"
-                autoFocus
-                onChange={handleChange}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
                 onChange={handleChange}
               />
             </Grid>
@@ -256,7 +252,10 @@ function SignupForm() {
                 onChange={handleChange}
               />
             </Grid>
-            
+            <CheckboxLabels 
+          name='mentorStatus'
+          handleUpdateUser={updateUser}
+          />
 
           </Grid>
 

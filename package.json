@@ -43,6 +43,7 @@
     "mongoose": "^5.9.14",
     "morgan": "^1.10.0",
     "passport": "^0.4.1",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "styled-react-modal": "^2.1.0"
   }
 }

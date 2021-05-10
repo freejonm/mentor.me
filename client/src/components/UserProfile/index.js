@@ -118,26 +118,9 @@ const ListGroup = styled.ul`
   }
 `;
 
-const EditAvatar = styled.button `
-display: flex;
-justify-content: center;
-align-items: center;
-padding: 5px;
-font-size: 16px;
-border: 2px solid #db784d;
-border-radius: 5px;
-outline: none;
-cursor: pointer;
-background-color: #637f7d;
-color: white;
-margin-top: 5px;
-&:hover {
-  background-color: #db784d;
-  text-decoration: none;
-  color: white;
-}
 
-`;
+
+
 
 export default function BadgeAvatars({
   avatar,
@@ -161,7 +144,7 @@ export default function BadgeAvatars({
           <ColLeft>
             <UserProfileTitle>{(fullName, pronouns)}</UserProfileTitle>
             <img src="https://randomuser.me/api/portraits/women/75.jpg" />
-            <EditAvatar>Change Picture</EditAvatar>
+            {/* <EditAvatar>Change Picture</EditAvatar> */}
           </ColLeft>
 
           <ColRight>

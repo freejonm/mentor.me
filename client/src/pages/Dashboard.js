@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Calendar from '../components/Calendar';
 import UserProfile from '../components/UserProfile';
-import EditProfileButton from '../components/EditProfileButton';
+// import EditProfileButton from '../components/EditProfileButton';
 // import ConnectionsCard from '../components/ConnectionsCard';
 import { Connections, ConnectionsItem } from '../components/ConnectionsCard';
 import {
@@ -16,6 +16,8 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import API from '../utils/API';
 import styled from 'styled-components';
+import { ModalProvider } from 'styled-react-modal';
+import EditModal from '../components/Modal';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,6 +36,15 @@ const ConnectionsName = styled.strong`
   margin-left: 10px;
   /* background-color: #012a2f; */
 `;
+
+// const StyledModal = Modal.styled`
+//   width: 20rem;
+//   height: 20rem;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   background-color: white;
+// `;
 
 export default function Dashboard({ user }) {
   const classes = useStyles();
@@ -62,17 +73,18 @@ export default function Dashboard({ user }) {
       })
       .catch((err) => console.log(err));
   }
-  console.log('user dash', user)
+  console.log('user dash', user);
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
-            <UserProfile userName={user.username} /> 
-              
-            
-        
-            <EditProfileButton/> 
+            <UserProfile userName={user.username} />
+            <ModalProvider>
+              <EditModal />
+            </ModalProvider>
+
+            {/* <EditProfileButton/>  */}
           </Paper>
         </Grid>
         <Grid item xs={6}>
@@ -83,8 +95,12 @@ export default function Dashboard({ user }) {
                   <ConnectionsItem key={users._id}>
                     <Link to={'/users/' + users._id}>
                       <img src={users.profilePicture} />
-                      <ConnectionsName onClick={()=>window.location.href="/memberprofile"}>
-                        {users.firstName} {users.lastName} 
+                      <ConnectionsName
+                        onClick={() =>
+                          (window.location.href = '/memberprofile')
+                        }
+                      >
+                        {users.firstName} {users.lastName}
                       </ConnectionsName>
                     </Link>
                   </ConnectionsItem>
@@ -110,7 +126,11 @@ export default function Dashboard({ user }) {
                   <PotentialConnectionsItem key={users._id}>
                     <Link to={'/users/' + users._id}>
                       <img src={users.profilePicture} />
-                      <ConnectionsName onClick={()=>window.location.href="/memberprofile"}>
+                      <ConnectionsName
+                        onClick={() =>
+                          (window.location.href = '/memberprofile')
+                        }
+                      >
                         {users.firstName} {users.lastName}
                       </ConnectionsName>
                     </Link>

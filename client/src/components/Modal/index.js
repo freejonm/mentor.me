@@ -90,18 +90,14 @@ function EditModal() {
         <img src="https://randomuser.me/api/portraits/women/75.jpg" />
         <ThemeProvider theme={theme}>
           <Button>
-            <EditAvatar>Change Picture</EditAvatar>
+            Change Picture
           </Button>
        </ThemeProvider>
 
        <ThemeProvider theme={theme}>
           <Button onClick={toggleModal}>Save Changes</Button>
        </ThemeProvider>
-
-
-
-        
-        
+              
       </StyledModal>
     </div>
   );

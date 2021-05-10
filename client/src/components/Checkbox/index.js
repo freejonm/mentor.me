@@ -37,7 +37,7 @@ export default function CheckboxLabels(props) {
          
         <FormControlLabel
         control={<GreenCheckbox checked={isChecked} onChange={handleOnChange}/>}
-        label="I am looking for a Mentor!"
+        label="I would like to be a Mentor!"
         />
         
 

@@ -107,8 +107,28 @@ function UserInfo() {
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
+          <InputLabel id="location">How would you describe yourself to a new colleague?</InputLabel>
+              <TextField
+                variant="outlined"
+                fullWidth
+                id="description"
+                
+                name="description"
+                autoComplete="description"
+                onChange={handleChange}
+              />
+          <InputLabel id="location">What is your zip code?</InputLabel>
+              <TextField
+                variant="outlined"
+                fullWidth
+                id="location"
+                
+                name="location"
+                autoComplete="location"
+                onChange={handleChange}
+              />
           <InputLabel id="pronouns">Which pronouns do you prefer to use?</InputLabel>
-            <Grid item xs={12} sm={6}>
+            
               <FormControl>
               <Select labelID="pronouns"
               value="pronouns"
@@ -157,75 +177,12 @@ function UserInfo() {
                 autoComplete="year-of-graduation"
                 onChange={handleChange}
               />
-            </Grid>
+           
             </Grid>
            
-         
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                onChange={handleChange}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                onChange={handleChange}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="username"
-                label="Username"
-                type="username"
-                id="username"
-                autoComplete="username"
-                onChange={handleChange}
-              />
-            </Grid>
 
           </Grid>
 
-          <Grid container spacing={4}>
-            
-            <Grid item xs={12}>
-
-            </Grid>
-            <Grid item xs={12}>
-              
-            </Grid>
-
-          </Grid>
-
-          {/*
-          <CheckboxLabels 
-          name="mentorStatus"
-          isChecked={userObject.mentorStatus}
-          handleCheckboxChange={handleCheckboxChange}
-          />
-          */}
-
-          <CheckboxLabels 
-          name='mentorStatus'
-          handleUpdateUser={updateUser}
-          />
-          
           <Button
             type="submit"
             fullWidth

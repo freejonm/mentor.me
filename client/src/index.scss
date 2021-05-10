@@ -14,7 +14,8 @@ body {
 .makeStyles-paper-8 {
   padding: 16px;
   text-align: center;
-  background-color: #eda320 !important;
+  background-color: $lightturq !important;
+  box-shadow: 1px 1px 2px 2px black !important;
 }
 
 .makeStyles-root-7 {
@@ -22,4 +23,9 @@ body {
   flex-wrap: wrap;
   // background-color:white !important;
   margin-top: 10%;
+}
+
+button {
+  font-family: 'Righteous', sans-serif !important;
+  box-shadow: 1px 1px 2px 2px black !important;
 }

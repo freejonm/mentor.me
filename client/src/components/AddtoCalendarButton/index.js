@@ -2,6 +2,7 @@ import React from 'react';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
+
 const theme = createMuiTheme({
   overrides: {
     MuiButton: {
@@ -24,7 +25,7 @@ const theme = createMuiTheme({
 function AddtoCalendarButton() {
   return (
     <ThemeProvider theme={theme}>
-      <Button>add a meeting</Button>
+      <Button>Add to Calendar</Button>
     </ThemeProvider>
   );
 }

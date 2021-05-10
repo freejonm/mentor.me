@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 import Nav from './components/Nav';
-// import ParticleBG from './ParticleBG';
 import LoginForm from './pages/Auth/LoginForm';
 import Landing from './pages/Landing';
 
@@ -10,7 +9,7 @@ import Register from './pages/Auth/Register';
 import StickyFooter from './components/StickyFooter';
 
 import Dashboard from './pages/Dashboard';
-import Details from './pages/Details';
+import Details from './pages/Auth/Details';
 
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -97,6 +96,8 @@ function App() {
   //     )}
   //   </div>
   // );
+  console.log('user in appjs', user);
+
   return (
     <div>
       <ThemeProvider theme={theme}>

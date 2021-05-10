@@ -15,6 +15,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import AUTH from '../../utils/AUTH'
 
+import Divider from '@material-ui/core/Divider';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+
 import "./SignUp.scss"
 
 const useStyles = makeStyles((theme) => ({
@@ -44,7 +51,12 @@ function SignupForm() {
     username: '',
     password: '',
     email: '',
-    mentorStatus: false
+    mentorStatus: false,
+    currentPosition: '',
+    yearsExperience: '',
+    pronouns: '',
+    location: '',
+    education: ''
   })
   const [redirectTo, setRedirectTo] = useState(null)
 
@@ -55,7 +67,7 @@ function SignupForm() {
 
   const handleCheckboxChange = (event) => {
     console.log(event.target.checked)
-    setUSerObject({...userObject, [event.target.name]: event.target.checked})
+    setUSerObject({...userObject, [event.target.name]: event.target.value})
   }
 
   const updateUser = (updatedValue) => {
@@ -73,7 +85,12 @@ function SignupForm() {
       email: userObject.email,
       password: userObject.password,
       username: userObject.username,
-      mentorStatus: userObject.mentorStatus
+      mentorStatus: userObject.mentorStatus,
+      currentPosition: userObject.currentPosition,
+      pronouns: userObject.pronouns,
+      yearsExperience: userObject.yearsExperience,
+      location: userObject.location,
+      education: userObject.education
       // mentor: userObject.mentee,
       // mentee: userObject.mentor,
       // fieldOfInterest: userObject.fieldOfInterest
@@ -106,7 +123,8 @@ function SignupForm() {
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+         
+          <Grid item xs={12} sm={6}>
               <TextField
                 autoComplete="fname"
                 name="firstName"
@@ -143,6 +161,19 @@ function SignupForm() {
                 onChange={handleChange}
               />
             </Grid>
+          <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="username"
+                label="Username"
+                type="username"
+                id="username"
+                autoComplete="username"
+                onChange={handleChange}
+              />
+            </Grid>
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -156,19 +187,103 @@ function SignupForm() {
                 onChange={handleChange}
               />
             </Grid>
+            <CheckboxLabels 
+          name='mentorStatus'
+          handleUpdateUser={updateUser}
+          />
+            <Grid item xs={12}>
+              <Divider variant="middle" />
+            </Grid>
+
+            <Grid item xs={12}>
+              <Divider variant="middle" />
+            </Grid>
+
+            <Grid item xs={12}>
+              <Divider variant="middle" />
+            </Grid>
+
+             {/* not-required info below  */}
+            <Typography component="p" fontStyle="italic" variant="p">
+              Let us know a little more about you before you set up your account. You will be able to edit these settings at any time.
+            </Typography>
+            <Grid item xs={12}>
+              <Divider variant="middle" />
+            </Grid>
+
+            <Grid item xs={12}>
+              <Divider variant="middle" />
+            </Grid>
+
+            <Grid item xs={12}>
+              <Divider variant="middle" />
+            </Grid>
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
                 fullWidth
-                name="username"
-                label="Username"
-                type="username"
-                id="username"
-                autoComplete="username"
+                name="pronouns"
+                label="Preferred pronouns"
+                type="pronouns"
+                id="pronouns"
+                autoComplete="pronouns"
                 onChange={handleChange}
               />
             </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                // required
+                fullWidth
+                name="currentPosition"
+                label="Current Position"
+                type="currentPosition"
+                id="currentPosition"
+                autoComplete="currentPosition"
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                // required
+                fullWidth
+                name="yearsExperience"
+                label="Years of experience in the tech industry"
+                type="yearsExperience"
+                id="yearsExperience"
+                autoComplete="yearsExperience"
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                // required
+                fullWidth
+                name="location"
+                label="Zip code"
+                type="location"
+                id="location"
+                autoComplete="location"
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                // required
+                fullWidth
+                name="education"
+                label="Bootcamp attended (year of graduation)"
+                type="education"
+                id="education"
+                autoComplete="education"
+                onChange={handleChange}
+              />
+            </Grid>
+            
 
           </Grid>
 
@@ -183,18 +298,8 @@ function SignupForm() {
 
           </Grid>
 
-          {/*
-          <CheckboxLabels 
-          name="mentorStatus"
-          isChecked={userObject.mentorStatus}
-          handleCheckboxChange={handleCheckboxChange}
-          />
-          */}
-
-          <CheckboxLabels 
-          name='mentorStatus'
-          handleUpdateUser={updateUser}
-          />
+        
+         
           
           <Button
             type="submit"

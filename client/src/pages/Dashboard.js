@@ -62,13 +62,17 @@ export default function Dashboard({ user }) {
       })
       .catch((err) => console.log(err));
   }
-
+console.log('dash', user);
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
-            <UserProfile /> <EditProfileButton />
+            <UserProfile userName={user.username} /> 
+              
+            
+        
+            <EditProfileButton/> 
           </Paper>
         </Grid>
         <Grid item xs={6}>

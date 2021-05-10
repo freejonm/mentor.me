@@ -62,7 +62,6 @@ export default function Dashboard({ user }) {
       })
       .catch((err) => console.log(err));
   }
-console.log('dash', user);
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>

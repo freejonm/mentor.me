@@ -97,7 +97,6 @@ function App() {
   //     )}
   //   </div>
   // );
-  console.log('user in appjs', user);
 
   return (
     <div>

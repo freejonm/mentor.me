@@ -15,7 +15,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import AUTH from '../../utils/AUTH'
 
-import "./SignUp.scss"
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function UserInfoForm() {
+function UserInfo() {
   const [userObject, setUSerObject] = useState({
     firstName: '',
     lastName: '',
@@ -213,4 +213,4 @@ function UserInfoForm() {
 
 }
 
-export default UserInfoForm
+export default UserInfo

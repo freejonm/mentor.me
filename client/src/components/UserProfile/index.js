@@ -61,8 +61,7 @@ export default function BadgeAvatars() {
       <h3>Profile</h3>
       <br></br>
     <CardContent>
-    <div className={classes.root}>
-      
+    {/* <div className={classes.root}> */}
       <StyledBadge
         overlap="circle"
         anchorOrigin={{
@@ -73,7 +72,8 @@ export default function BadgeAvatars() {
       >
         <Avatar alt="Remy Sharp" src="https://avatars.githubusercontent.com/u/74466180?s=60&v=4" />
       </StyledBadge>
-    </div>
+    {/* </div> */}
+
     </CardContent>
     </Card>
     

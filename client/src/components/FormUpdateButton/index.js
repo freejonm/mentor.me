@@ -25,16 +25,16 @@ const theme = createMuiTheme({
     },
   });
   
- function EditProfileButton() {
+ function FormUpdateButton() {
   
     return (
       <ThemeProvider theme={theme}>
-          <Button onClick={()=>window.location.href="/editprofile"}>
-            Edit Profile
+          <Button>
+            Save Changes
           </Button>
           </ThemeProvider>
     
     );
   }
 
-  export default EditProfileButton;
+  export default FormUpdateButton;

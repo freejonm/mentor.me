@@ -1,6 +1,7 @@
 const fetch = require('node-fetch');
 const fs = require('fs');
 const inquirer = require('inquirer');
+const bcrypt = require('bcryptjs')
 
 inquirer.prompt([
     {
@@ -10,7 +11,11 @@ inquirer.prompt([
     }
 ]).then(val => {
     call(val.numUsers);
-})
+});
+
+const hashPassword = (plainTextPassword) => {
+    return bcrypt.hashSync(plainTextPassword, 10);
+}
 
 async function call(num) {
     
@@ -25,7 +30,14 @@ async function call(num) {
                 'Content-Type': 'application/json'
             }
         })
+
         let user = await response.json();
+        // console.log(user)
+        let unHashedPassword = user.results[0].login.password
+        let hashedPassword = hashPassword(user.results[0].login.password);
+        user.results[0].login.password = hashedPassword;
+        user.results[0].login.unhashedPassword = unHashedPassword;
+
         userArr.push(user.results);
     }
 

@@ -43,23 +43,33 @@ module.exports = {
   },
 
   getRankedMentors: (req, res, next) => {
+    console.log(req.user);
     let currentUser;
-    let currentMentors;
+    // let currentMentors;
     db.User
       .find({ _id: req.user._id })
       .then(user => {
         currentUser = user;
+
         db.User
-        .find({ mentor: { mentor: true } })
+        .find({ mentorStatus: true })
         .then(mentors => {
-          currentMentors = mentors;
-          const ranked = algo(currentUser, currentMentors);
-          console.log('ranked list:  ---------' + ranked);
-          res.json(ranked)
+
+          const ranked = algo(currentUser[0], mentors);
+
+          console.log('ranked list: '+ ranked);
+
+          res.json({rankedMentors: ranked});
         })
-        .catch(err => res.status(422).json(err))
+        .catch(err => {
+          console.log('mentor error')
+          res.status(422).json(err)
+        })
       })
-      .catch(err => res.status(422).json(err));
+      .catch(err => {
+        console.log('user error')
+        res.status(422).json(err);
+      })
   },
 
   remove: (req, res) => {

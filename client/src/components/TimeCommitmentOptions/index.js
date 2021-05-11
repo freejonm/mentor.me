@@ -18,7 +18,7 @@ const GreenCheckbox = withStyles({
   console.log("Green Checkbox props", props)
   return <Checkbox color="default" {...props} />});
 
-export default function CheckboxLabels(props) {
+export default function TimeCommitmentOptions(props) {
   const [isChecked, setIsChecked] = React.useState(false)
 
   React.useEffect(() => {
@@ -30,16 +30,25 @@ export default function CheckboxLabels(props) {
   
 
   return (
-    <FormGroup row>
-
-        <h5>Would you like to register as a mentor?</h5>
-
-         
+    <FormGroup row>        
         <FormControlLabel
         control={<GreenCheckbox checked={isChecked} onChange={handleOnChange}/>}
-        label="Yes, please register me as a Mentor!"
+        label="Weekly" name="weekly" value="weekly"
+        />
+         <FormControlLabel
+        control={<GreenCheckbox checked={isChecked} onChange={handleOnChange}/>}
+        label="Monthly" name="monthly" value="monthly"
         />
         
+        <FormControlLabel
+        control={<GreenCheckbox checked={isChecked} onChange={handleOnChange}/>}
+        label="Quarterly" name="quarterly" value="quarterly"
+        />
+
+        <FormControlLabel
+        control={<GreenCheckbox checked={isChecked} onChange={handleOnChange}/>}
+        label="On Demand" name="on-demand" value="on-demand"
+        />
 
         {/*
         <FormControlLabel

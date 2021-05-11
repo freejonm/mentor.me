@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import CheckboxLabels from '../Checkbox';
+import TimeCommitmentOptions from '../TimeCommitmentOptions'
 import { green } from '@material-ui/core/colors';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -46,24 +47,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const GreenCheckbox = withStyles({
-  root: {
-    color: green[400],
-    '&$checked': {
-      color: green[600],
-    },
-  },
-  checked: {},
-})((props) => <Checkbox color="default" {...props} />);
 
 function SignupForm() {
-
-  const [state, setState] = React.useState({
-    checkedA: true,
-    checkedB: true,
-    checkedF: true,
-    checkedG: true,
-  });
 
   const [userObject, setUSerObject] = useState({
     firstName: '',
@@ -87,8 +72,9 @@ function SignupForm() {
   }
 
   const handleCheckboxChange = (event) => {
-    console.log(event.target.checked)
-    setUSerObject({...userObject, [event.target.name]: event.target.value})
+    // console.log(event.target.checked);
+    // setUSerObject({...userObject, [timeCommitment.push(event.target.value)]:console.log(timeCommitment)
+    // })
   }
 
   const updateUser = (updatedValue) => {
@@ -304,10 +290,11 @@ function SignupForm() {
             <Typography component="p" fontStyle="italic" variant="p">
               How often would you like to meet with your mentor?
             </Typography>
-            <FormControlLabel
-              control={<GreenCheckbox checked="false" onChange={handleCheckboxChange}  name="timeCommitment" value="weekly" />}
-              label="Weekly"
-            />
+            <TimeCommitmentOptions 
+              name='timeCommitmentOptions'
+              handleUpdateUser={updateUser}
+              onClick={handleCheckboxChange}
+          />
 
           </Grid>
 

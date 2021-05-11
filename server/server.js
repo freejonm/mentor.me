@@ -14,8 +14,10 @@ const routes = require("./routes");
 const passport = require('./passport');
 const app = express();
 const PORT = process.env.PORT || 3001;
+const cors = require('cors')
 
 // Middlewares
+app.use(cors())
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());

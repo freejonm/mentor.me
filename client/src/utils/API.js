@@ -22,8 +22,8 @@ export default {
   getConnections: (id) => {
     return axios.get('/api/users/connections/' + id)
   },
-  getMatches: () => {
-
+  getMatches: (id) => {
+    return axios.get('/api/mentor/' + id)
   },
    
 };

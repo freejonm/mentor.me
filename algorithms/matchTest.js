@@ -4,14 +4,14 @@ const rankAndSort = require('./match')
 const mentee = users[0];
 let mentors = [];
 
-console.log(mentee)
 
 for (let i = 0; i < users.length; i++) {
-  if (users[i].mentor === true) {
+  if (users[i].mentorStatus === true) {
     mentors.push(users[i]);
   } 
 };
 
+console.log(mentors)
 rankAndSort(mentee, mentors)
 
 mentors.map((mentor, i) => {

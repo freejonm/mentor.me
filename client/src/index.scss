@@ -25,10 +25,7 @@ body {
   margin-top: 10%;
 }
 
-// Button {
-//   font-family: "Ubuntu", sans-serif !important;
-// }
-
-.MuiButton {
-  font: "Righteous" !important;
+button {
+  font-family: 'Righteous', sans-serif !important;
+  box-shadow: 1px 1px 2px 2px black !important;
 }

@@ -14,7 +14,11 @@ const routes = require("./routes");
 const passport = require('./passport');
 const app = express();
 const PORT = process.env.PORT || 3001;
+
 const cors = require('cors')
+const socket = require('socket.io')
+
+
 
 // Middlewares
 app.use(cors())
@@ -54,6 +58,27 @@ app.use(function(err, req, res, next) {
 });
 
 // Starting Server
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
+
+const io = socket(server, {
+	cors: {
+		origin: 'http://localhost:3000'
+	}
+})
+
+io.on('connection', (socket) => {
+	console.log(socket.id)
+
+	socket.on('join_room', (data) => {
+		socket.join(data)
+		console.log('User Joined Room: ' + data)
+	})
+
+
+
+	socket.on('disconnect', () => {
+		console.log('User disconnected')
+	})
+})

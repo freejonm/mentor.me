@@ -1,5 +1,6 @@
 const ObjectId = require("mongoose").Types.ObjectId;
 const db = require("../models");
+const algo = require('../../algorithms/match')
 
 // Defining methods for the userController
 module.exports = {
@@ -41,14 +42,34 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  getMentor: (req, res, next) => {
-    // console.log(req.user);
-    if (req.user) {
-      return
-       res.json({ user: req.user });
-    } else {
-      return res.json({ user: null });
-    }
+  getRankedMentors: (req, res, next) => {
+    console.log(req.user);
+    let currentUser;
+    // let currentMentors;
+    db.User
+      .find({ _id: req.user._id })
+      .then(user => {
+        currentUser = user;
+
+        db.User
+        .find({ mentorStatus: true })
+        .then(mentors => {
+
+          const ranked = algo(currentUser[0], mentors);
+
+          console.log('ranked list: '+ ranked);
+
+          res.json({rankedMentors: ranked});
+        })
+        .catch(err => {
+          console.log('mentor error')
+          res.status(422).json(err)
+        })
+      })
+      .catch(err => {
+        console.log('user error')
+        res.status(422).json(err);
+      })
   },
 
   remove: (req, res) => {

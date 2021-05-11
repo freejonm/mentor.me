@@ -50,12 +50,14 @@ export default function Dashboard({ user }) {
   const classes = useStyles();
   const [users, setUsers] = useState([]);
   const [connections, setConnections] = useState([]);
+  const [potentialMentors, setPotentialMentors] = useState([]);
   //  const [formObject, setFormObject] = useState({});
   //  const formEl = useRef(null);
 
   useEffect(() => {
     loadUsers();
     getConnections();
+    getMatches();
   }, []);
 
   const getConnections = () => {
@@ -65,6 +67,13 @@ export default function Dashboard({ user }) {
     });
   };
 
+  const getMatches = () => {
+    API.getMatches(user._id).then((res) => {
+      console.log(res.data.rankedMentors)
+      setPotentialMentors(res.data.rankedMentors);
+    })
+  }
+
   function loadUsers() {
     API.getAllUsers()
       .then((res) => {
@@ -73,6 +82,7 @@ export default function Dashboard({ user }) {
       })
       .catch((err) => console.log(err));
   }
+  
   console.log('user dash', user);
   return (
     <div className={classes.root}>

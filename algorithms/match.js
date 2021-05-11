@@ -1,8 +1,8 @@
-const rankAndSort = (mentee, mentors) => {
+const rankAndSort = (currentUser, mentors) => {
+    
     mentors.map((mentor) => {
         let score = 0
-        
-        mentee.details.map((detail) => {
+        currentUser.details.map((detail) => {
             if (mentor.details.includes(detail)) {
                 score++
             }
@@ -11,8 +11,6 @@ const rankAndSort = (mentee, mentors) => {
     });
     
     mentors.sort((a, b) => (a.score > b.score) ? -1 : 1);
-    
-    
     return mentors
 }
 

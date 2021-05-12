@@ -1,3 +1,4 @@
+import { CalendarContent } from '@fullcalendar/common'
 import React, {useState, useEffect} from 'react'
 import clsx from 'clsx';
 import io from 'socket.io-client'
@@ -16,37 +17,30 @@ import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-
 let socket
 const CONNECTION_PORT = 'localhost:3001/'
-
 const Chat = () => {
   // console.log('chat')
   //Before Login
   const [loggedIn, setLoggedIn] = useState(false)
   const [room, setRoom] = useState('')
   const [userName, setUserName] = useState('')
-
   //After Login
   const [message, setMessage] = useState('')
   const [messageList, setMessageList] = useState([])
-
   useEffect(() => {
     socket = io(CONNECTION_PORT)
   }, [CONNECTION_PORT])
-
   useEffect(() => {
     socket.on('receive_message', (data) => {
       console.log(data)
       setMessageList([...messageList, data])
     })
   })
-
   const connectToRoom = () => {
     setLoggedIn(true)
     socket.emit('join_room', room)
   }
-
   const sendMessage = async () => {
     let messageContent = {
       room: room,
@@ -55,13 +49,10 @@ const Chat = () => {
         message: message
       }
     }
-
     socket.emit('send_message', messageContent)
     setMessageList([...messageList, messageContent.content])
     setMessage('')
   }
-
-  
   // const useStyles = makeStyles((theme) => ({
   //   root: {
   //     display: 'flex',
@@ -80,7 +71,6 @@ const Chat = () => {
   //     width: '25ch',
   //   },
   // }));
-
 const theme = createMuiTheme({
   overrides: {
     MuiButton: {
@@ -99,22 +89,54 @@ const theme = createMuiTheme({
     },
   },
 });
-
  return (
-   <div className='chat-application'>
+    <div className='chat-application' 
+    // style={{ 
+    //   borderRadius: '5px', 
+    //   margin: '6%', 
+    //   height: '50rem', 
+    //   display: 'grid', 
+    //   placeItems: 'center'}}
+    >
    {!loggedIn ? (
     <div className='chat-login'>
-          <h1 
+          <h3 
             style={{
               color: 'white', 
               backgroundColor: '#db784d',
               marginTop: '10px !important',
               marginBottom: '10px',
             }}>
-            You are now in the chat application
-          </h1>
-        <div className='chat-inputs'>
-
+            Chat Application
+          </h3>
+        <div>
+        <TextField
+          label="Username"
+          id="outlined-start-adornment"
+          // className={clsx(classes.margin, classes.textField)}
+          InputProps={{
+            startAdornment: <InputAdornment position="start"></InputAdornment>,
+          }}
+          variant="outlined"
+          onChange={(e) => {setUserName(e.target.value)}}
+        />
+          <br></br>
+          {/* <input type='text' placeholder='Username...' style={{
+            borderRadius: '10px',
+            width: '200px',
+            height: '50px',
+            marginTop: '30px',
+            marginBottom: '20px'
+            }} onChange={(e) => {setUserName(e.target.value)}}/>
+          <br></br>
+          <input type='room' placeholder='Room...' style={{
+            borderRadius: '10px',
+            width: '200px',
+            height: '50px',
+            marginTop: '50px !important',
+            marginBottom: '30px'
+            }} onChange={(e) => {setRoom(e.target.value)}}/> */}
+          <br></br>
           <TextField
           label="room"
           id="outlined-start-adornment"
@@ -124,11 +146,6 @@ const theme = createMuiTheme({
           }}
           variant="outlined"
           onChange={(e) => {setRoom(e.target.value)}}></TextField>
-
-          <button onClick={connectToRoom}>
-              Enter Chat
-          </button>
-
         </div>
         <ThemeProvider>
           <Button onClick={connectToRoom}>
@@ -137,16 +154,50 @@ const theme = createMuiTheme({
           </ThemeProvider>
     </div>
     ) : ( 
-      <div className='chat-container'>
-
-        <div className='messages'>
+      <div className='chat-container' 
+        style={{
+          // width:'600px', 
+          // height: '350px', 
+          // border: '5px solid #0091ff', 
+          // borderRadius: '10px', 
+          // display: 'flex', 
+          // flexDirection:'column', 
+          // margin: '10px', 
+          // flex: '90%', 
+          // width: '100%'
+        }}>
+        <div className='messages' 
+         style={{
+          //  flex: '80%', 
+          //  width: '100%', 
+          //  backgroundColor: 'white',
+          //  paddingLeft: '20px'
+          }}>
             {
               console.log(messageList),
               messageList.map((val, key) => {
               return ( 
-                <div className='message-container' 
+                <div className='message-container'  
+                  style={{
+                    // color: 'black', 
+                    // display: 'flex', 
+                    // flexDirection: 'row', 
+                    // alignItems: 'center'
+                  }} 
                   id={val.author == userName ? 'You' : 'Other'}>
-                <div className='message-individual'>
+                <div className='message-individual'  
+                  style={{
+                    // color: 'black', 
+                    // width: '200px', 
+                    // height: '60px', 
+                    // backgroundColor: '#0091ff', 
+                    // margin: '20px', 
+                    // borderRadius: '10px', 
+                    // display: 'grid', 
+                    // placeItems: 'center', 
+                    // marginRight: '10px', 
+                    // marginTop: '20px'
+                  }}>
                   {' '} {val.message}
                 </div> 
                 <h1 
@@ -157,20 +208,32 @@ const theme = createMuiTheme({
                   {val.author}
                   </h1>
                 </div>
-                
               )
             })}
         </div>
-
-        <div className='message-inputs'>
-
-          <input onChange={(e) => setMessage(e.target.value)} type='text' placeholder='Message...'></input>
-
-          <button 
+        <div className='message-inputs' 
+          style={{
+            // flex: '20%', 
+            // width: '100%', 
+            // display: 'flex', 
+            // flexDirection: 'row'
+          }}>
+          <input onChange={(e) => setMessage(e.target.value)} type='text' placeholder='Message...' 
+            style={{ 
+              // flex: '80%', 
+              // height: 'calc(100% -5px)', 
+              // border: 'none', 
+              // borderTop: '5px solid #0091ff', 
+              // backgroundColor: 'lightgray', 
+              // paddingLeft: '20px', 
+              // fontSize: '20px'
+            }}></input>
+        <ThemeProvider>
+          <Button 
             onClick={sendMessage}>
             Send
-          </button>
-          
+          </Button>
+          </ThemeProvider>
         </div>
       </div>
     )}

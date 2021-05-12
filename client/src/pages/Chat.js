@@ -69,13 +69,13 @@ const Chat = () => {
         // flexDirection:'column', 
         // margin: '10px'
         }}>
-          <h1 
+          <h3 
             style={{
               color: 'white', 
               backgroundColor: '#db784d'
             }}>
             You are now in the chat application
-          </h1>
+          </h3>
         <div className='chat-inputs' 
           style={{
             // margin: '10px', 
@@ -95,7 +95,8 @@ const Chat = () => {
               // border: 'none', 
               // backgroundColor: '#db784d', 
               // color: 'white', 
-              // marginTop: '10%' 
+              // marginTop: '10%'
+              borderRadius: '5px' 
             }}>
               Enter Chat
           </button>

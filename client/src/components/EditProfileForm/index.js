@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function EditProfileForm({user, handleInputChange, updatedUser}) {
+export default function EditProfileForm({user, handleInputChange, handleSave, updatedUser}) {
   const classes = useStyles();
   const [values, setValues] = React.useState({
     firstName: '',
@@ -234,6 +234,7 @@ export default function EditProfileForm({user, handleInputChange, updatedUser}) 
           value={ updatedUser.location.length === 0 ? user.location : updatedUser.location}
           onChange={handleInputChange}
         />
+          <Button onClick={handleSave}>Save Changes</Button>
 
 
       </div>

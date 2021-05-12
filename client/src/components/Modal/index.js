@@ -105,7 +105,6 @@ function EditModal({user, handleInputChange, handleSave, updatedUser}) {
         </ModalPicContainer>
         <EditProfileForm user={user} handleInputChange={handleInputChange}  updatedUser={updatedUser}/>
         <ThemeProvider theme={theme}>
-          <Button onClick={handleSave}>Save Changes</Button>
           <Button onClick={toggleModal}>Finish</Button>
 
         </ThemeProvider>

@@ -77,7 +77,7 @@ const Nav = ({loggedIn}) => {
           {loggedIn ? <>
             <NavLink href="/dashboard"> Dashboard </NavLink>
             <NavLink href="/chat"> Chat </NavLink>
-            <NavLink onClick={handleSubmit}> Logout </NavLink>
+            <NavLink href="/" onClick={handleSubmit}> <NavP>Logout</NavP></NavLink>
           </> : (<>
             <NavLink href="/register"> Getting Started </NavLink>
           <NavLink href="/login"> Login </NavLink>

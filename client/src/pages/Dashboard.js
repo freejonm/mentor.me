@@ -51,6 +51,9 @@ export default function Dashboard({ user }) {
   const [users, setUsers] = useState([]);
   const [connections, setConnections] = useState([]);
   const [potentialMentors, setPotentialMentors] = useState([]);
+  const [updatedUser, setUpdatedUser] = useState({
+    firstName: ''
+  })
   //  const [formObject, setFormObject] = useState({});
   //  const formEl = useRef(null);
 
@@ -59,6 +62,15 @@ export default function Dashboard({ user }) {
     getConnections();
     getMatches();
   }, []);
+
+  const handleInputChange = e => {
+    const {name,value} = e.target;
+    setUpdatedUser({...updatedUser, [name]:value})
+    console.log('value',value)
+  };
+  const handleSave = e => {
+    console.log('updatedUser',updatedUser)
+  }
 
   const getConnections = () => {
     API.getConnections(user._id).then((res) => {
@@ -93,7 +105,7 @@ export default function Dashboard({ user }) {
           <Paper className={classes.paper}>
             <UserProfile userName={user.username} />
             <ModalProvider>
-              <EditModal />
+              <EditModal handleInputChange={handleInputChange} handleSave= {handleSave} updatedUser={updatedUser} user={user} />
             </ModalProvider>
 
             {/* <EditProfileButton/>  */}

@@ -79,7 +79,7 @@ const ModalPicContainer = styled.div`
   }
 `;
 
-function EditModal() {
+function EditModal({user, handleInputChange, handleSave, updatedUser}) {
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleModal(e) {
@@ -103,7 +103,7 @@ function EditModal() {
             <Button>Change Picture</Button>
           </ThemeProvider>
         </ModalPicContainer>
-        <EditProfileForm />
+        <EditProfileForm user={user} handleInputChange={handleInputChange} handleSave= {handleSave} updatedUser={updatedUser}/>
         <ThemeProvider theme={theme}>
           <Button onClick={toggleModal}>Save Changes</Button>
         </ThemeProvider>

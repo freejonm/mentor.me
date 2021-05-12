@@ -6,49 +6,69 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
 
-const GreenCheckbox = withStyles({
-  root: {
-    color: orange[400],
-    '&$checked': {
-      color: orange[600],
-    },
-  },
-  checked: {},
-})((props) => {
-  console.log("Green Checkbox props", props)
-  return <Checkbox color="default" {...props} />});
+
 
 export default function TimeCommitmentOptions(props) {
   const [isChecked, setIsChecked] = React.useState(false)
 
-  React.useEffect(() => {
-    const name = props.name 
-    props.handleUpdateUser({[name]: isChecked})
-  }, [isChecked])
+  const [state, setState] = React.useState({
+    checkedA: false,
+    checkedB: false,
+    checkedC: false,
+    checkedD: false,
+  });
 
-  const handleOnChange = () => setIsChecked(!isChecked) 
+  const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+  };
+
   
-
   return (
     <FormGroup row>        
         <FormControlLabel
-        control={<GreenCheckbox checked={isChecked} onChange={handleOnChange}/>}
-        label="Weekly" name="weekly" value="weekly"
-        />
+        control={
+          <Checkbox
+            checked={state.checkedA}
+            onChange={handleChange}
+            name="checkedA"
+            color="primary"
+          />
+        }
+        label="Weekly"
+      />
          <FormControlLabel
-        control={<GreenCheckbox checked={isChecked} onChange={handleOnChange}/>}
-        label="Monthly" name="monthly" value="monthly"
-        />
-        
+        control={
+          <Checkbox
+            checked={state.checkedB}
+            onChange={handleChange}
+            name="checkedB"
+            color="primary"
+          />
+        }
+        label="Monthly"
+      />
         <FormControlLabel
-        control={<GreenCheckbox checked={isChecked} onChange={handleOnChange}/>}
-        label="Quarterly" name="quarterly" value="quarterly"
-        />
-
+        control={
+          <Checkbox
+            checked={state.checkedC}
+            onChange={handleChange}
+            name="checkedC"
+            color="primary"
+          />
+        }
+        label="Quarterly"
+      />
         <FormControlLabel
-        control={<GreenCheckbox checked={isChecked} onChange={handleOnChange}/>}
-        label="On Demand" name="on-demand" value="on-demand"
-        />
+        control={
+          <Checkbox
+            checked={state.checkedD}
+            onChange={handleChange}
+            name="checkedD"
+            color="primary"
+          />
+        }
+        label="On Demand"
+      />
 
         {/*
         <FormControlLabel

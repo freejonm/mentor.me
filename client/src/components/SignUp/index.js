@@ -362,7 +362,17 @@ function SignupForm() {
               How would you like to communicate with your mentors?
             </Typography>
             <FormGroup row>
-              
+            <FormControlLabel
+            control={
+              <Checkbox
+                checked={isOnDemand}
+                onChange={updateOnDemand}
+                name="isOnDemand"
+                color="primary"
+              />
+            }
+            label="In Person"
+          /> 
 
             </FormGroup>
           </Grid>

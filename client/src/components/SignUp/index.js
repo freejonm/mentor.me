@@ -111,6 +111,11 @@ function SignupForm() {
     userObject.commPrefs.push("Text Chat");
   };
 
+  const updateMessageBoards = () => {
+    setIsMessageBoards(!isMessageBoards);
+    userObject.commPrefs.push("Message Boards");
+  };
+
   // functions for textbox change, updating user, and submitting
 
   const handleChange = (event) => {

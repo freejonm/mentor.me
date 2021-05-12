@@ -16,7 +16,7 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import API from '../utils/API';
 import styled from 'styled-components';
-import { ModalProvider } from 'styled-react-modal';
+import { ModalProvider, BaseModalBackground } from 'styled-react-modal';
 import EditModal from '../components/Modal';
 
 const useStyles = makeStyles((theme) => ({
@@ -51,6 +51,9 @@ export default function Dashboard({ user }) {
   const [users, setUsers] = useState([]);
   const [connections, setConnections] = useState([]);
   const [potentialMentors, setPotentialMentors] = useState([]);
+  const [updatedUser, setUpdatedUser] = useState({
+    firstName: ''
+  })
   //  const [formObject, setFormObject] = useState({});
   //  const formEl = useRef(null);
 
@@ -59,6 +62,15 @@ export default function Dashboard({ user }) {
     getConnections();
     getMatches();
   }, []);
+
+  const handleInputChange = e => {
+    const {name,value} = e.target;
+    setUpdatedUser({...updatedUser, [name]:value})
+    console.log('value',value)
+  };
+  const handleSave = e => {
+    console.log('updatedUser',updatedUser)
+  }
 
   const getConnections = () => {
     API.getConnections(user._id).then((res) => {
@@ -83,6 +95,8 @@ export default function Dashboard({ user }) {
       .catch((err) => console.log(err));
   }
   
+
+
   console.log('user dash', user);
   return (
     <div className={classes.root}>
@@ -91,7 +105,7 @@ export default function Dashboard({ user }) {
           <Paper className={classes.paper}>
             <UserProfile userName={user.username} />
             <ModalProvider>
-              <EditModal />
+              <EditModal handleInputChange={handleInputChange} handleSave= {handleSave} updatedUser={updatedUser} user={user} />
             </ModalProvider>
 
             {/* <EditProfileButton/>  */}
@@ -103,13 +117,9 @@ export default function Dashboard({ user }) {
               <Connections>
                 {users.map((users) => (
                   <ConnectionsItem key={users._id}>
-                    <Link to={'/users/' + users._id}>
+                    <Link to={'/memberprofile/' + users._id}>
                       <img src={users.profilePicture} />
-                      <ConnectionsName
-                        onClick={() =>
-                          (window.location.href = '/memberprofile')
-                        }
-                      >
+                      <ConnectionsName>
                         {users.firstName} {users.lastName}
                       </ConnectionsName>
                     </Link>

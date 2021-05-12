@@ -43,7 +43,21 @@ const NavLink = styled.a`
   &:hover {
     color: #637f7d;
     text-decoration: none;
+    cursor: pointer;
   }
+`;
+
+const NavP = styled.a`
+color: white;
+  font-size: 32px;
+  margin-right: 15px;
+  font-weight: bold;
+
+&:hover {
+    color: #637f7d;
+    text-decoration: none;
+    cursor: pointer;
+}
 `;
 
 const Nav = ({loggedIn}) => {
@@ -62,7 +76,8 @@ const Nav = ({loggedIn}) => {
         <NavLinkGroup>
           {loggedIn ? <>
             <NavLink href="/dashboard"> Dashboard </NavLink>
-            <NavLink onClick={handleSubmit}> Logout </NavLink>
+            <NavLink href="/chat"> Chat </NavLink>
+            <NavLink href="/" onClick={handleSubmit}> <NavP>Logout</NavP></NavLink>
           </> : (<>
             <NavLink href="/register"> Getting Started </NavLink>
           <NavLink href="/login"> Login </NavLink>

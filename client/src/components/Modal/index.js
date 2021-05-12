@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Modal from 'styled-react-modal';
+import Modal from "styled-react-modal";
 import EditProfileForm from '../EditProfileForm';
 import styled from 'styled-components';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
@@ -26,14 +26,14 @@ const theme = createMuiTheme({
 });
 
 const StyledModal = Modal.styled`
-    display: grid;
-    grid-template-columns: fr;  
-    width: 40%;
-    height: auto;
-    background-color: #637f7d;
-    padding: 50px;
-    
-  
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 50%;
+background-color: #01444c;
+border: 3px solid #000;
+border-radius: 5px;
 `;
 
 const EditAvatar = styled.button`
@@ -57,13 +57,12 @@ const EditAvatar = styled.button`
 `;
 
 const ModalHead = styled.h3`
-  background-color: #01444c;
+  background-color: #637f7d;
   color: white;
   font-family: 'Righteous', sans-serif;
   margin-bottom: 0px;
-  border: 2px solid #db784d;
   border-radius: 5px;
-  box-shadow: 1px 1px 2px 2px black !important;
+  padding: 20px;
 `;
 
 const ModalPicContainer = styled.div`
@@ -72,16 +71,15 @@ const ModalPicContainer = styled.div`
   align-items: center;
   flex-direction: column;
   margin: 10px;
-  img{
+  img {
     height: 130px;
     width: 110px;
     border-radius: 5%;
     box-shadow: 1px 1px 2px 2px black;
   }
-
 `;
 
-function EditModal() {
+function EditModal({user, handleInputChange, handleSave, updatedUser}) {
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleModal(e) {
@@ -105,7 +103,7 @@ function EditModal() {
             <Button>Change Picture</Button>
           </ThemeProvider>
         </ModalPicContainer>
-        <EditProfileForm />
+        <EditProfileForm user={user} handleInputChange={handleInputChange} handleSave= {handleSave} updatedUser={updatedUser}/>
         <ThemeProvider theme={theme}>
           <Button onClick={toggleModal}>Save Changes</Button>
         </ThemeProvider>

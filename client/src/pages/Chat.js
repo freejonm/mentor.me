@@ -1,7 +1,22 @@
 import { CalendarContent } from '@fullcalendar/common'
 import React, {useState, useEffect} from 'react'
+import clsx from 'clsx';
 import io from 'socket.io-client'
 import '../styles/Chat.css'
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+import Input from '@material-ui/core/Input';
+import FilledInput from '@material-ui/core/FilledInput';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import InputLabel from '@material-ui/core/InputLabel';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import TextField from '@material-ui/core/TextField';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
 let socket
 const CONNECTION_PORT = 'localhost:3001/'
@@ -47,8 +62,47 @@ const Chat = () => {
     setMessage('')
   }
 
+  
+  // const useStyles = makeStyles((theme) => ({
+  //   root: {
+  //     display: 'flex',
+  //     flexWrap: 'wrap',
+  //     backgroundColor: 'white !important',
+  //     borderRadius: 5,
+  //     border: '3px solid #012a2f'
+  //   },
+  //   margin: {
+  //     margin: theme.spacing(1),
+  //   },
+  //   withoutLabel: {
+  //     marginTop: theme.spacing(3),
+  //   },
+  //   textField: {
+  //     width: '25ch',
+  //   },
+  // }));
+
+const theme = createMuiTheme({
+  overrides: {
+    MuiButton: {
+      text: {
+        // background: 'linear-gradient(45deg, #db784d 30%, #eda320 90%)',
+        background: '#db784d',
+        borderRadius: 3,
+        font: 'Righteous', 
+        border: 0,
+        color: 'white',
+        height: 36,
+        padding: '0 20px',
+        margin: '10px',
+        boxShadow: '0 3px 5px 2px rgba((219,120,77, .3)',
+      },
+    },
+  },
+});
+
  return (
-   <div className='chat-application' 
+    <div className='chat-application' 
     // style={{ 
     //   borderRadius: '5px', 
     //   margin: '6%', 
@@ -57,50 +111,65 @@ const Chat = () => {
     //   placeItems: 'center'}}
     >
    {!loggedIn ? (
-    <div className='chat-login' 
-      style={{
-        // width:'600px', 
-        // height: '350px', 
-        // border: '5px solid #0091ff', 
-        // borderRadius: '10px', 
-        // display: 'flex', 
-        // justifyContent: 'center', 
-        // alignItems: 'center', 
-        // flexDirection:'column', 
-        // margin: '10px'
-        }}>
-          <h1 
+    <div className='chat-login'>
+          <h3 
             style={{
               color: 'white', 
-              backgroundColor: '#db784d'
+              backgroundColor: '#db784d',
+              marginTop: '10px !important',
+              marginBottom: '10px',
             }}>
-            You are now in the chat application
-          </h1>
-        <div className='chat-inputs' 
-          style={{
-            // margin: '10px', 
-            // width: '200px', 
-            // height: '40px', 
-            // backgroundColor: 'transparent', 
-            // paddingLeft: '10px'
-          }}>
+            Chat Application
+          </h3>
+        <div>
+        <TextField
+          label="Username"
+          id="outlined-start-adornment"
+          // className={clsx(classes.margin, classes.textField)}
+          InputProps={{
+            startAdornment: <InputAdornment position="start"></InputAdornment>,
+          }}
+          variant="outlined"
+          onChange={(e) => {setUserName(e.target.value)}}
+        />
+          <br></br>
+          {/* <input type='text' placeholder='Username...' style={{
+            borderRadius: '10px',
+            width: '200px',
+            height: '50px',
+            marginTop: '30px',
+            marginBottom: '20px'
+            }} onChange={(e) => {setUserName(e.target.value)}}/>
+          <br></br>
+          <input type='room' placeholder='Room...' style={{
+            borderRadius: '10px',
+            width: '200px',
+            height: '50px',
+            marginTop: '50px !important',
+            marginBottom: '30px'
+            }} onChange={(e) => {setRoom(e.target.value)}}/> */}
+          <br></br>
 
-          <input type='text' placeholder='Username...' onChange={(e) => {setUserName(e.target.value)}}/>
-          <input type='room' placeholder='room...' onChange={(e) => {setRoom(e.target.value)}}/>
+          <TextField
+          label="room"
+          id="outlined-start-adornment"
+          // className={clsx(classes.margin, classes.textField)}
+          InputProps={{
+            startAdornment: <InputAdornment position="start"></InputAdornment>,
+          }}
+          variant="outlined"
+          onChange={(e) => {setRoom(e.target.value)}}></TextField>
 
-          <button onClick={connectToRoom} 
-            style={{
-              // width: '200px', 
-              // height: '50px', 
-              // border: 'none', 
-              // backgroundColor: '#db784d', 
-              // color: 'white', 
-              // marginTop: '10%' 
-            }}>
-              Enter Chat
-          </button>
+         
+
+          
 
         </div>
+        <ThemeProvider>
+          <Button onClick={connectToRoom}>
+              Enter Chat
+          </Button>
+          </ThemeProvider>
     </div>
     ) : ( 
       <div className='chat-container' 
@@ -181,19 +250,12 @@ const Chat = () => {
               // paddingLeft: '20px', 
               // fontSize: '20px'
             }}></input>
-
-          <button 
-            onClick={sendMessage}
-            style={{ 
-              // backgroundColor: '#db784d', 
-              // color: 'white', 
-              // flex: '20%', 
-              // height: '100%', 
-              // border: 'none', 
-              // fontSize: '18px'
-            }}>
+        <ThemeProvider>
+          <Button 
+            onClick={sendMessage}>
             Send
-          </button>
+          </Button>
+          </ThemeProvider>
           
         </div>
       </div>

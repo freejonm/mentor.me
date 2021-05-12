@@ -310,55 +310,61 @@ function SignupForm() {
               />
             </Grid>
             <Typography component="p" fontStyle="italic" variant="p">
-              How often would you like to meet with your mentor?
+              How often would you like to meet with your mentors?
             </Typography>
             <FormGroup row>        
-        <FormControlLabel
-        control={
-          <Checkbox
-            checked={isWeekly}
-            onChange={updateWeekly}
-            name="isWeekly"
-            color="primary"
+              <FormControlLabel
+                control={
+              <Checkbox
+                checked={isWeekly}
+                onChange={updateWeekly}
+                name="isWeekly"
+                color="primary"
+              />
+            }
+            label="Weekly"
           />
-        }
-        label="Weekly"
-      />
-        <FormControlLabel
-        control={
-          <Checkbox
-            checked={isMonthly}
-            onChange={updateMonthly}
-            name="isMonthly"
-            color="primary"
+            <FormControlLabel
+            control={
+              <Checkbox
+                checked={isMonthly}
+                onChange={updateMonthly}
+                name="isMonthly"
+                color="primary"
+              />
+            }
+            label="Monthly"
           />
-        }
-        label="Monthly"
-      />
-        <FormControlLabel
-        control={
-          <Checkbox
-            checked={isQuarterly}
-            onChange={updateQuarterly}
-            name="isQuarterly"
-            color="primary"
+            <FormControlLabel
+            control={
+              <Checkbox
+                checked={isQuarterly}
+                onChange={updateQuarterly}
+                name="isQuarterly"
+                color="primary"
+              />
+            }
+            label="Quarterly"
           />
-        }
-        label="Quarterly"
-      />
-        <FormControlLabel
-        control={
-          <Checkbox
-            checked={isOnDemand}
-            onChange={updateOnDemand}
-            name="isOnDemand"
-            color="primary"
-          />
-        }
-        label="On Demand"
-      /> 
-    </FormGroup>
+            <FormControlLabel
+            control={
+              <Checkbox
+                checked={isOnDemand}
+                onChange={updateOnDemand}
+                name="isOnDemand"
+                color="primary"
+              />
+            }
+            label="On Demand"
+          /> 
+        </FormGroup>
+        <Typography component="p" fontStyle="italic" variant="p">
+              How would you like to communicate with your mentors?
+            </Typography>
+            <FormGroup row>
+              
 
+            </FormGroup>
           </Grid>
 
           <Grid container spacing={4}>

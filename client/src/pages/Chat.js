@@ -1,4 +1,3 @@
-import { CalendarContent } from '@fullcalendar/common'
 import React, {useState, useEffect} from 'react'
 import io from 'socket.io-client'
 import '../styles/Chat.css'
@@ -48,27 +47,9 @@ const Chat = () => {
   }
 
  return (
-   <div className='chat-application' 
-    // style={{ 
-    //   borderRadius: '5px', 
-    //   margin: '6%', 
-    //   height: '50rem', 
-    //   display: 'grid', 
-    //   placeItems: 'center'}}
-    >
+   <div className='chat-application'>
    {!loggedIn ? (
-    <div className='chat-login' 
-      style={{
-        // width:'600px', 
-        // height: '350px', 
-        // border: '5px solid #0091ff', 
-        // borderRadius: '10px', 
-        // display: 'flex', 
-        // justifyContent: 'center', 
-        // alignItems: 'center', 
-        // flexDirection:'column', 
-        // margin: '10px'
-        }}>
+    <div className='chat-login'>
           <h1 
             style={{
               color: 'white', 
@@ -76,78 +57,28 @@ const Chat = () => {
             }}>
             You are now in the chat application
           </h1>
-        <div className='chat-inputs' 
-          style={{
-            // margin: '10px', 
-            // width: '200px', 
-            // height: '40px', 
-            // backgroundColor: 'transparent', 
-            // paddingLeft: '10px'
-          }}>
+        <div className='chat-inputs'>
 
           <input type='text' placeholder='Username...' onChange={(e) => {setUserName(e.target.value)}}/>
           <input type='room' placeholder='room...' onChange={(e) => {setRoom(e.target.value)}}/>
 
-          <button onClick={connectToRoom} 
-            style={{
-              // width: '200px', 
-              // height: '50px', 
-              // border: 'none', 
-              // backgroundColor: '#db784d', 
-              // color: 'white', 
-              // marginTop: '10%' 
-            }}>
+          <button onClick={connectToRoom}>
               Enter Chat
           </button>
 
         </div>
     </div>
     ) : ( 
-      <div className='chat-container' 
-        style={{
-          // width:'600px', 
-          // height: '350px', 
-          // border: '5px solid #0091ff', 
-          // borderRadius: '10px', 
-          // display: 'flex', 
-          // flexDirection:'column', 
-          // margin: '10px', 
-          // flex: '90%', 
-          // width: '100%'
-        }}>
+      <div className='chat-container'>
 
-        <div className='messages' 
-         style={{
-          //  flex: '80%', 
-          //  width: '100%', 
-          //  backgroundColor: 'white',
-          //  paddingLeft: '20px'
-          }}>
+        <div className='messages'>
             {
               console.log(messageList),
               messageList.map((val, key) => {
               return ( 
-                <div className='message-container'  
-                  style={{
-                    // color: 'black', 
-                    // display: 'flex', 
-                    // flexDirection: 'row', 
-                    // alignItems: 'center'
-                  }} 
+                <div className='message-container' 
                   id={val.author == userName ? 'You' : 'Other'}>
-                <div className='message-individual'  
-                  style={{
-                    // color: 'black', 
-                    // width: '200px', 
-                    // height: '60px', 
-                    // backgroundColor: '#0091ff', 
-                    // margin: '20px', 
-                    // borderRadius: '10px', 
-                    // display: 'grid', 
-                    // placeItems: 'center', 
-                    // marginRight: '10px', 
-                    // marginTop: '20px'
-                  }}>
+                <div className='message-individual'>
                   {' '} {val.message}
                 </div> 
                 <h1 
@@ -163,35 +94,12 @@ const Chat = () => {
             })}
         </div>
 
-        <div className='message-inputs' 
-          style={{
-            // flex: '20%', 
-            // width: '100%', 
-            // display: 'flex', 
-            // flexDirection: 'row'
-          }}>
+        <div className='message-inputs'>
 
-          <input onChange={(e) => setMessage(e.target.value)} type='text' placeholder='Message...' 
-            style={{ 
-              // flex: '80%', 
-              // height: 'calc(100% -5px)', 
-              // border: 'none', 
-              // borderTop: '5px solid #0091ff', 
-              // backgroundColor: 'lightgray', 
-              // paddingLeft: '20px', 
-              // fontSize: '20px'
-            }}></input>
+          <input onChange={(e) => setMessage(e.target.value)} type='text' placeholder='Message...'></input>
 
           <button 
-            onClick={sendMessage}
-            style={{ 
-              // backgroundColor: '#db784d', 
-              // color: 'white', 
-              // flex: '20%', 
-              // height: '100%', 
-              // border: 'none', 
-              // fontSize: '18px'
-            }}>
+            onClick={sendMessage}>
             Send
           </button>
           

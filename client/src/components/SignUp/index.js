@@ -57,7 +57,8 @@ function SignupForm() {
     pronouns: '',
     location: '',
     education: '',
-    timeCommitment: []
+    timeCommitment: [],
+    commPrefs: [],
   })
 
   const [redirectTo, setRedirectTo] = useState(null)

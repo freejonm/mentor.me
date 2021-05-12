@@ -12,6 +12,9 @@ import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import Button from '@material-ui/core/Button';
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,10 +32,27 @@ const useStyles = makeStyles((theme) => ({
   },
   textField: {
     width: '25ch',
+  },
+  overrides: {
+    MuiButton: {
+      text: {
+        // background: 'linear-gradient(45deg, #db784d 30%, #eda320 90%)',
+        background: '#db784d',
+        borderRadius: 3,
+        font: 'Righteous',
+        border: 0,
+        color: 'white',
+        height: 36,
+        padding: '0 20px',
+        margin: '10px',
+        boxShadow: '0 3px 5px 2px rgba((219,120,77, .3)'
+        // width: 100
+      }
+    }
   }
 }));
 
-export default function EditProfileForm({user, handleInputChange, handleSave, updatedUser}) {
+export default function EditProfileForm({user, handleInputChange, updatedUser}) {
   const classes = useStyles();
   const [values, setValues] = React.useState({
     firstName: '',

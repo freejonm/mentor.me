@@ -23,7 +23,7 @@ module.exports = {
   },
 
   updateUser: ( req, res ) => {
-    db.User.findOneAndUpdate({ _id: req.params.id }, req.body)
+    db.User.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
       .then(user => {
         res.json(user)
       })

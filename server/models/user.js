@@ -27,7 +27,7 @@ const userSchema = new Schema({
   location: { type: String, unique: false, required: false },
   description: { type: String, unique: false, required: false },
   meetingsAttended: { type: Number, unique: false, required: false, default: 0},
-  gradYear: { type: Number, unique: false, required: false},
+  gradyear: { type: Number, unique: false, required: false},
   details: [{ type: String, unique: false, required: false }],
 
   mentorStatus: {type: Boolean, unique: false, required: true, default: false},

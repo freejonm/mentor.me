@@ -43,7 +43,21 @@ const NavLink = styled.a`
   &:hover {
     color: #637f7d;
     text-decoration: none;
+    cursor: pointer;
   }
+`;
+
+const NavP = styled.a`
+color: white;
+  font-size: 32px;
+  margin-right: 15px;
+  font-weight: bold;
+
+&:hover {
+    color: #637f7d;
+    text-decoration: none;
+    cursor: pointer;
+}
 `;
 
 const Nav = ({loggedIn}) => {

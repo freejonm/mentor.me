@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { withStyles } from '@material-ui/core/styles';
 import CheckboxLabels from '../Checkbox';
+import TimeCommitmentOptions from '../TimeCommitmentOptions'
+import { green } from '@material-ui/core/colors';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -44,7 +47,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 function SignupForm() {
+
   const [userObject, setUSerObject] = useState({
     firstName: '',
     lastName: '',
@@ -56,7 +61,8 @@ function SignupForm() {
     yearsExperience: '',
     pronouns: '',
     location: '',
-    education: ''
+    education: '',
+    timeCommitment: []
   })
   const [redirectTo, setRedirectTo] = useState(null)
 
@@ -66,8 +72,9 @@ function SignupForm() {
   }
 
   const handleCheckboxChange = (event) => {
-    console.log(event.target.checked)
-    setUSerObject({...userObject, [event.target.name]: event.target.value})
+    // console.log(event.target.checked);
+    // setUSerObject({...userObject, [timeCommitment.push(event.target.value)]:console.log(timeCommitment)
+    // })
   }
 
   const updateUser = (updatedValue) => {
@@ -82,18 +89,19 @@ function SignupForm() {
     AUTH.signup({
       firstName: userObject.firstName,
       lastname: userObject.lastName,
-      email: userObject.email,
-      password: userObject.password,
-      username: userObject.username,
-      mentorStatus: userObject.mentorStatus,
-      currentPosition: userObject.currentPosition,
       pronouns: userObject.pronouns,
+      username: userObject.username,
+      password: userObject.password,
+      email: userObject.email,
+      currentPosition: userObject.currentPosition,
       yearsExperience: userObject.yearsExperience,
+      education: userObject.education,
+      mentorStatus: userObject.mentorStatus,
       location: userObject.location,
-      education: userObject.education
-      // mentor: userObject.mentee,
-      // mentee: userObject.mentor,
-      // fieldOfInterest: userObject.fieldOfInterest
+      description: userObject.description,
+      timeCommitment: userObject.timeCommitment,
+      commPrefs: userObject.commPrefs,
+      learningAbout: userObject.learningAbout,
     }).then(response => {
       console.log(response)
       if(!response.data.errmsg) {
@@ -104,10 +112,6 @@ function SignupForm() {
       
     })
   }
-
-
-
-
 
   const classes = useStyles();
 
@@ -283,7 +287,14 @@ function SignupForm() {
                 onChange={handleChange}
               />
             </Grid>
-            
+            <Typography component="p" fontStyle="italic" variant="p">
+              How often would you like to meet with your mentor?
+            </Typography>
+            <TimeCommitmentOptions 
+              name='timeCommitmentOptions'
+              handleUpdateUser={updateUser}
+              onClick={handleCheckboxChange}
+          />
 
           </Grid>
 

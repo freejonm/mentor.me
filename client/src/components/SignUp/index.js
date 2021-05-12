@@ -1,29 +1,23 @@
 import React, { useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import CheckboxLabels from '../Checkbox';
-import TimeCommitmentOptions from '../TimeCommitmentOptions'
-import { green } from '@material-ui/core/colors';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormGroup from '@material-ui/core/FormGroup';
 import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-// import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import AUTH from '../../utils/AUTH'
 
 import Divider from '@material-ui/core/Divider';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+
 
 import "./SignUp.scss"
 
@@ -47,7 +41,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
 function SignupForm() {
 
   const [userObject, setUSerObject] = useState({
@@ -62,19 +55,71 @@ function SignupForm() {
     pronouns: '',
     location: '',
     education: '',
-    timeCommitment: []
+    timeCommitment: [],
+    commPrefs: [],
   })
+
   const [redirectTo, setRedirectTo] = useState(null)
+
+  // states for time commitment checkboxes
+  const [isWeekly, setIsWeekly] = useState(false);
+  const [isMonthly, setIsMonthly] = useState(false);
+  const [isQuarterly, setIsQuarterly] = useState(false);
+  const [isOnDemand, setIsOnDemand] = useState(false);
+
+  // states for comm preferences checkboxes
+  const [isInPerson, setIsInPerson] = useState(false);
+  const [isVideoChat, setIsVideoChat] = useState(false);
+  const [isTextChat, setIsTextChat] = useState(false);
+  const [isMessageBoards, setIsMessageBoards] = useState(false);
+
+  // update functions for time commitment checkboxes
+  const updateWeekly = () => {
+    setIsWeekly(!isWeekly);
+    userObject.timeCommitment.push("Weekly");
+  };
+
+  const updateMonthly = () => {
+    setIsMonthly(!isMonthly);
+    userObject.timeCommitment.push("Monthly");
+    
+  };
+
+  const updateQuarterly = () => {
+    setIsQuarterly(!isQuarterly);
+    userObject.timeCommitment.push("Quarterly");
+  };
+
+  const updateOnDemand= () => {
+    setIsOnDemand(!isOnDemand);
+    userObject.timeCommitment.push("On Demand");
+  };
+
+  // update functions for comm preferences checkboxes
+  const updateInPerson = () => {
+    setIsInPerson(!isInPerson);
+    userObject.commPrefs.push("In Person");
+  };
+
+  const updateVideoChat = () => {
+    setIsVideoChat(!isVideoChat);
+    userObject.commPrefs.push("Video Chat");
+  };
+  const updateTextChat = () => {
+    setIsVideoChat(!isTextChat);
+    userObject.commPrefs.push("Text Chat");
+  };
+
+  const updateMessageBoards = () => {
+    setIsMessageBoards(!isMessageBoards);
+    userObject.commPrefs.push("Message Boards");
+  };
+
+  // functions for textbox change, updating user, and submitting
 
   const handleChange = (event) => {
     console.log(event.target.checked)
     setUSerObject({...userObject, [event.target.name]: event.target.value})
-  }
-
-  const handleCheckboxChange = (event) => {
-    // console.log(event.target.checked);
-    // setUSerObject({...userObject, [timeCommitment.push(event.target.value)]:console.log(timeCommitment)
-    // })
   }
 
   const updateUser = (updatedValue) => {
@@ -86,6 +131,7 @@ function SignupForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(userObject)
+  
     AUTH.signup({
       firstName: userObject.firstName,
       lastname: userObject.lastName,
@@ -288,14 +334,103 @@ function SignupForm() {
               />
             </Grid>
             <Typography component="p" fontStyle="italic" variant="p">
-              How often would you like to meet with your mentor?
+              How often would you like to meet with your mentors?
             </Typography>
-            <TimeCommitmentOptions 
-              name='timeCommitmentOptions'
-              handleUpdateUser={updateUser}
-              onClick={handleCheckboxChange}
+            <FormGroup row>        
+              <FormControlLabel
+                control={
+              <Checkbox
+                checked={isWeekly}
+                onChange={updateWeekly}
+                name="isWeekly"
+                color="primary"
+              />
+            }
+            label="Weekly"
           />
-
+            <FormControlLabel
+            control={
+              <Checkbox
+                checked={isMonthly}
+                onChange={updateMonthly}
+                name="isMonthly"
+                color="primary"
+              />
+            }
+            label="Monthly"
+          />
+            <FormControlLabel
+            control={
+              <Checkbox
+                checked={isQuarterly}
+                onChange={updateQuarterly}
+                name="isQuarterly"
+                color="primary"
+              />
+            }
+            label="Quarterly"
+          />
+            <FormControlLabel
+            control={
+              <Checkbox
+                checked={isOnDemand}
+                onChange={updateOnDemand}
+                name="isOnDemand"
+                color="primary"
+              />
+            }
+            label="On Demand"
+          /> 
+        </FormGroup>
+        <Typography component="p" fontStyle="italic" variant="p">
+              How would you like to communicate with your mentors?
+            </Typography>
+            <FormGroup row>
+              <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isInPerson}
+                  onChange={updateInPerson}
+                  name="isInPerson"
+                  color="primary"
+                />
+              }
+              label="In Person"
+              /> 
+              <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isVideoChat}
+                  onChange={updateVideoChat}
+                  name="isVideoChat"
+                  color="primary"
+                />
+              }
+              label="Video Chat"
+              /> 
+              <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isTextChat}
+                  onChange={updateTextChat}
+                  name="isTextChat"
+                  color="primary"
+                />
+              }
+              label="Text Chat"
+              /> 
+              <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isMessageBoards}
+                  onChange={updateMessageBoards}
+                  name="isMessageBoards"
+                  color="primary"
+                />
+              }
+              label="Message Boards"
+              /> 
+            </FormGroup>
           </Grid>
 
           <Grid container spacing={4}>

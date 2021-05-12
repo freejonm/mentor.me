@@ -85,15 +85,16 @@ h3 {
 }
 
 #Other .message-individual{
-  background-color: rgb(124, 226, 90);
-  /* background-color: antiquewhite; */
+  /* background-color: rgb(124, 226, 90); */
+  background-color:#012a2f;
+  color: white;
 }
 
 .message-individual {
   color: black;
   width: 200px;
   height: 60px;
-  background-color: #0091ff;
+  background-color:#eda320;
   margin: 20px;
   border-radius: 10px;
   display: grid;
@@ -128,7 +129,7 @@ h3 {
   flex: 80%;
   height: calc(100%);
   border: none;
-  border-top: 5px solid #0091ff;
+  border-top: 2px solid black;
   background-color: lightgray;
   padding-left: 20px;
   font-size: 20px;

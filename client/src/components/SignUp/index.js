@@ -68,6 +68,12 @@ function SignupForm() {
   const [isQuarterly, setIsQuarterly] = useState(false);
   const [isOnDemand, setIsOnDemand] = useState(false);
 
+  // states for comm preferences checkboxes
+  const [isInPerson, setIsInPerson] = useState(false);
+  const [isVideoChat, setIsVideoChat] = useState(false);
+  const [isTextChat, setIsTextChat] = useState(false);
+  const [isMessageBoards, setIsMessageBoards] = useState(false);
+
   // update functions for time commitment checkboxes
   const updateWeekly = () => {
     setIsWeekly(!isWeekly);

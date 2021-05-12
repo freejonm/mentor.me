@@ -118,6 +118,7 @@ const LandingCircles = () => {
           // loop: Infinity,
           repeatDelay: 1
         }}
+        url={imagethree}
       >
         <InnerText
           initial={{ opacity: 0 }}

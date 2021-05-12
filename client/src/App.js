@@ -113,7 +113,7 @@ function App() {
               <Route exact path="/dashboard" component={() => <Dashboard user={user}></Dashboard>}/>
               <Route exact path="/details" component={Details} />
               <Route exact path="/editprofile" component={EditProfile} />
-              <Route exact path="/memberprofile" component={MemberProfile} />
+              <Route exact path="/memberprofile/:userId" component={MemberProfile} />
               <Route exact path="/chat" component={Chat} />
             </Router>
           )}

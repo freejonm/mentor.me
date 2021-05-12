@@ -41,8 +41,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const timeCommitmentArray = [];
-
 function SignupForm() {
 
   const [userObject, setUSerObject] = useState({
@@ -57,7 +55,8 @@ function SignupForm() {
     pronouns: '',
     location: '',
     education: '',
-    timeCommitment: []
+    timeCommitment: [],
+    commPrefs: [],
   })
 
   const [redirectTo, setRedirectTo] = useState(null)
@@ -67,6 +66,12 @@ function SignupForm() {
   const [isMonthly, setIsMonthly] = useState(false);
   const [isQuarterly, setIsQuarterly] = useState(false);
   const [isOnDemand, setIsOnDemand] = useState(false);
+
+  // states for comm preferences checkboxes
+  const [isInPerson, setIsInPerson] = useState(false);
+  const [isVideoChat, setIsVideoChat] = useState(false);
+  const [isTextChat, setIsTextChat] = useState(false);
+  const [isMessageBoards, setIsMessageBoards] = useState(false);
 
   // update functions for time commitment checkboxes
   const updateWeekly = () => {
@@ -90,6 +95,26 @@ function SignupForm() {
     userObject.timeCommitment.push("On Demand");
   };
 
+  // update functions for comm preferences checkboxes
+  const updateInPerson = () => {
+    setIsInPerson(!isInPerson);
+    userObject.commPrefs.push("In Person");
+  };
+
+  const updateVideoChat = () => {
+    setIsVideoChat(!isVideoChat);
+    userObject.commPrefs.push("Video Chat");
+  };
+  const updateTextChat = () => {
+    setIsVideoChat(!isTextChat);
+    userObject.commPrefs.push("Text Chat");
+  };
+
+  const updateMessageBoards = () => {
+    setIsMessageBoards(!isMessageBoards);
+    userObject.commPrefs.push("Message Boards");
+  };
+
   // functions for textbox change, updating user, and submitting
 
   const handleChange = (event) => {
@@ -106,7 +131,6 @@ function SignupForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(userObject)
-    console.log(timeCommitmentArray);
   
     AUTH.signup({
       firstName: userObject.firstName,
@@ -310,55 +334,103 @@ function SignupForm() {
               />
             </Grid>
             <Typography component="p" fontStyle="italic" variant="p">
-              How often would you like to meet with your mentor?
+              How often would you like to meet with your mentors?
             </Typography>
             <FormGroup row>        
-        <FormControlLabel
-        control={
-          <Checkbox
-            checked={isWeekly}
-            onChange={updateWeekly}
-            name="isWeekly"
-            color="primary"
+              <FormControlLabel
+                control={
+              <Checkbox
+                checked={isWeekly}
+                onChange={updateWeekly}
+                name="isWeekly"
+                color="primary"
+              />
+            }
+            label="Weekly"
           />
-        }
-        label="Weekly"
-      />
-        <FormControlLabel
-        control={
-          <Checkbox
-            checked={isMonthly}
-            onChange={updateMonthly}
-            name="isMonthly"
-            color="primary"
+            <FormControlLabel
+            control={
+              <Checkbox
+                checked={isMonthly}
+                onChange={updateMonthly}
+                name="isMonthly"
+                color="primary"
+              />
+            }
+            label="Monthly"
           />
-        }
-        label="Monthly"
-      />
-        <FormControlLabel
-        control={
-          <Checkbox
-            checked={isQuarterly}
-            onChange={updateQuarterly}
-            name="isQuarterly"
-            color="primary"
+            <FormControlLabel
+            control={
+              <Checkbox
+                checked={isQuarterly}
+                onChange={updateQuarterly}
+                name="isQuarterly"
+                color="primary"
+              />
+            }
+            label="Quarterly"
           />
-        }
-        label="Quarterly"
-      />
-        <FormControlLabel
-        control={
-          <Checkbox
-            checked={isOnDemand}
-            onChange={updateOnDemand}
-            name="isOnDemand"
-            color="primary"
-          />
-        }
-        label="On Demand"
-      /> 
-    </FormGroup>
-
+            <FormControlLabel
+            control={
+              <Checkbox
+                checked={isOnDemand}
+                onChange={updateOnDemand}
+                name="isOnDemand"
+                color="primary"
+              />
+            }
+            label="On Demand"
+          /> 
+        </FormGroup>
+        <Typography component="p" fontStyle="italic" variant="p">
+              How would you like to communicate with your mentors?
+            </Typography>
+            <FormGroup row>
+              <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isInPerson}
+                  onChange={updateInPerson}
+                  name="isInPerson"
+                  color="primary"
+                />
+              }
+              label="In Person"
+              /> 
+              <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isVideoChat}
+                  onChange={updateVideoChat}
+                  name="isVideoChat"
+                  color="primary"
+                />
+              }
+              label="Video Chat"
+              /> 
+              <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isTextChat}
+                  onChange={updateTextChat}
+                  name="isTextChat"
+                  color="primary"
+                />
+              }
+              label="Text Chat"
+              /> 
+              <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isMessageBoards}
+                  onChange={updateMessageBoards}
+                  name="isMessageBoards"
+                  color="primary"
+                />
+              }
+              label="Message Boards"
+              /> 
+            </FormGroup>
           </Grid>
 
           <Grid container spacing={4}>

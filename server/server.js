@@ -76,6 +76,11 @@ io.on('connection', (socket) => {
 		console.log('User Joined Room: ' + data)
 	})
 
+	socket.on('send_message', (data) => {
+		console.log(data)
+		socket.to(data.room).emit('receive_message', data.content)
+	})
+
 
 
 	socket.on('disconnect', () => {

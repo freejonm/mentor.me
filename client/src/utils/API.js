@@ -25,5 +25,8 @@ export default {
   getMatches: (id) => {
     return axios.get('/api/mentor/' + id)
   },
+  updateUser: (id) => {
+    return axios.put('/api/users/' + id)
+  }
    
 };

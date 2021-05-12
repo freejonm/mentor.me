@@ -22,6 +22,14 @@ module.exports = {
     }
   },
 
+  updateUser: ( req, res ) => {
+    db.User.findOneAndUpdate({ _id: req.params.id }, req.body)
+      .then(user => {
+        res.json(user)
+      })
+      .catch(err => res.status(422).json(err));
+  },
+
   getConnections: (req, res) => {
     console.log(req.body);
     db.User.find({ _id: req.user._id })
@@ -43,7 +51,7 @@ module.exports = {
   },
 
   findById: function (req, res) {
-    db.User.find({ _id: req.params.id })
+    db.User.findOne({ _id: req.params.id })
       .then(user => {
           res.json({users: user})
       })

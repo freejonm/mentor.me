@@ -20,6 +20,13 @@ const Chat = () => {
     socket = io(CONNECTION_PORT)
   }, [CONNECTION_PORT])
 
+  useEffect(() => {
+    socket.on('receive_message', (data) => {
+      console.log(data)
+      setMessageList([...messageList, data])
+    })
+  })
+
   const connectToRoom = () => {
     setLoggedIn(true)
     socket.emit('join_room', room)
@@ -139,7 +146,7 @@ const Chat = () => {
               backgroundColor: 'lightgray', 
               paddingLeft: '20px', 
               fontSize: '20px'
-            }}/>
+            }}></input>
 
           <button 
             onClick={sendMessage}

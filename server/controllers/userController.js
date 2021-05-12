@@ -6,7 +6,17 @@ module.exports = {
   getUser: (req, res, next) => {
     // console.log(req.user);
     if (req.user) {
-      return res.json({ user: req.user });
+     
+      console.log(req.body);
+      db.User
+        .findOne({ _id: req.user._id })
+        .populate("friendsList")
+        .then(user => {
+          const connections = user.friendsList;
+          res.json({user: user, connections: connections})
+        })
+        .catch(err => res.status(422).json(err));
+      
     } else {
       return res.json({ user: null });
     }

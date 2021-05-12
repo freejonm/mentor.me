@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function InputAdornments() {
+export default function EditProfileForm({user, handleInputChange, handleSave, updatedUser}) {
   const classes = useStyles();
   const [values, setValues] = React.useState({
     firstName: '',
@@ -75,7 +75,11 @@ export default function InputAdornments() {
           InputProps={{
             startAdornment: <InputAdornment position="start"></InputAdornment>,
           }}
+          name='firstName'
           variant="outlined"
+          value={ updatedUser.firstName.length === 0 ? user.firstName : updatedUser.firstName}
+          onChange={handleInputChange}
+
         />
         <TextField
           label="Last Name"
@@ -85,6 +89,7 @@ export default function InputAdornments() {
             startAdornment: <InputAdornment position="start"></InputAdornment>,
           }}
           variant="outlined"
+          
         />
         <TextField
           label="Pronouns"

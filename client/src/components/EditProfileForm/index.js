@@ -47,7 +47,6 @@ export default function EditProfileForm({user, handleInputChange, handleSave, up
     education: '',
     location: '',
 
-
   });
 
   const handleChange = (prop) => (event) => {

@@ -41,8 +41,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const timeCommitmentArray = [];
-
 function SignupForm() {
 
   const [userObject, setUSerObject] = useState({
@@ -100,7 +98,7 @@ function SignupForm() {
   // update functions for comm preferences checkboxes
   const updateInPerson = () => {
     setIsInPerson(!isInPerson);
-    userObject. commPrefs.push("In Person");
+    userObject.commPrefs.push("In Person");
   };
 
   const updateVideoChat = () => {
@@ -133,7 +131,6 @@ function SignupForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(userObject)
-    console.log(timeCommitmentArray);
   
     AUTH.signup({
       firstName: userObject.firstName,

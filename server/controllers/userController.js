@@ -75,6 +75,9 @@ module.exports = {
       description,
       meetingsAttended,
       mentorStatus,
+      timeCommitment,
+      commPrefs
+
     } = req.body;
 
     // ADD VALIDATION
@@ -100,6 +103,9 @@ module.exports = {
         description: description,
         meetingsAttended: meetingsAttended,
         mentorStatus: mentorStatus,
+        timeCommitment: timeCommitment,
+        commPrefs: commPrefs,
+
         friendsList: [
           {
             friendID: "6095aee05516bd0f04679db3",

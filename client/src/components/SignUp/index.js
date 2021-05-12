@@ -399,7 +399,7 @@ function SignupForm() {
                 />
               }
               label="In Person"
-            /> 
+              /> 
               <FormControlLabel
               control={
                 <Checkbox
@@ -410,8 +410,29 @@ function SignupForm() {
                 />
               }
               label="Video Chat"
-            /> 
-
+              /> 
+              <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isTextChat}
+                  onChange={updateTextChat}
+                  name="isTextChat"
+                  color="primary"
+                />
+              }
+              label="Text Chat"
+              /> 
+              <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isMessageBoards}
+                  onChange={updateMessageBoards}
+                  name="isMessageBoards"
+                  color="primary"
+                />
+              }
+              label="Message Boards"
+              /> 
             </FormGroup>
           </Grid>
 

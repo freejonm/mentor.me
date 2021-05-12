@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState }from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { orange } from '@material-ui/core/colors';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -6,42 +6,62 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
 
+const timeCommitmentArray = [];
+
+export default function TimeCommitmentOptions() {
 
 
-export default function TimeCommitmentOptions(props) {
-  const [isChecked, setIsChecked] = React.useState(false)
-
-  const [state, setState] = React.useState({
-    checkedA: false,
-    checkedB: false,
-    checkedC: false,
-    checkedD: false,
-  });
-
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
-
+  const [isWeekly, setIsWeekly] = useState(false);
   
+  const updateWeekly = () => {
+    setIsWeekly(!isWeekly);
+    timeCommitmentArray.push("Weekly");
+  }
+  ;
+
+  const [isMonthly, setIsMonthly] = useState(false);
+  const updateMonthly = () => {
+    setIsMonthly(!isMonthly);
+    timeCommitmentArray.push("Monthly");
+    
+  }
+  ;
+
+  const [isQuarterly, setIsQuarterly] = useState(false);
+  const updateQuarterly = () => {
+    setIsQuarterly(!isQuarterly);
+    timeCommitmentArray.push("Quarterly");
+  }
+  ;
+
+  const [isOnDemand, setIsOnDemand] = useState(false);
+  const updateOnDemand= () => {
+    setIsOnDemand(!isOnDemand);
+    timeCommitmentArray.push("On Demand");
+  }
+  ;
+
+  console.log(timeCommitmentArray);
+
   return (
     <FormGroup row>        
         <FormControlLabel
         control={
           <Checkbox
-            checked={state.checkedA}
-            onChange={handleChange}
-            name="checkedA"
+            checked={isWeekly}
+            onChange={updateWeekly}
+            name="isWeekly"
             color="primary"
           />
         }
         label="Weekly"
       />
-         <FormControlLabel
+        <FormControlLabel
         control={
           <Checkbox
-            checked={state.checkedB}
-            onChange={handleChange}
-            name="checkedB"
+            checked={isMonthly}
+            onChange={updateMonthly}
+            name="isMonthly"
             color="primary"
           />
         }
@@ -50,9 +70,9 @@ export default function TimeCommitmentOptions(props) {
         <FormControlLabel
         control={
           <Checkbox
-            checked={state.checkedC}
-            onChange={handleChange}
-            name="checkedC"
+            checked={isQuarterly}
+            onChange={updateQuarterly}
+            name="isQuarterly"
             color="primary"
           />
         }
@@ -61,22 +81,14 @@ export default function TimeCommitmentOptions(props) {
         <FormControlLabel
         control={
           <Checkbox
-            checked={state.checkedD}
-            onChange={handleChange}
-            name="checkedD"
+            checked={isOnDemand}
+            onChange={updateOnDemand}
+            name="isOnDemand"
             color="primary"
           />
         }
         label="On Demand"
-      />
-
-        {/*
-        <FormControlLabel
-        control={<GreenCheckbox checked={props.isChecked} onChange={props.handleCheckboxChange} name={props.name} />}
-        label="Yes! I want to  be a Mentor"
-        />
-      */} 
-
+      /> 
     </FormGroup>
   )
 }

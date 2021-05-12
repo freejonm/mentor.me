@@ -86,6 +86,10 @@ function SignupForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(userObject)
+    
+
+    
+
     AUTH.signup({
       firstName: userObject.firstName,
       lastname: userObject.lastName,
@@ -99,7 +103,7 @@ function SignupForm() {
       mentorStatus: userObject.mentorStatus,
       location: userObject.location,
       description: userObject.description,
-      timeCommitment: userObject.timeCommitment,
+      timeCommitmentArray: userObject.timeCommitment,
       commPrefs: userObject.commPrefs,
       learningAbout: userObject.learningAbout,
     }).then(response => {

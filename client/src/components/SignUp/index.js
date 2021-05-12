@@ -99,16 +99,16 @@ function SignupForm() {
   // update functions for comm preferences checkboxes
   const updateInPerson = () => {
     setIsInPerson(!isInPerson);
-    userObject.timeCommitment.push("In Person");
+    userObject. commPrefs.push("In Person");
   };
 
   const updateVideoChat = () => {
     setIsVideoChat(!isVideoChat);
-    userObject.timeCommitment.push("Video Chat");
+    userObject.commPrefs.push("Video Chat");
   };
-  const updateVideoChat = () => {
-    setIsVideoChat(!isVideoChat);
-    userObject.timeCommitment.push("In Person");
+  const updateTextChat = () => {
+    setIsVideoChat(!isTextChat);
+    userObject.commPrefs.push("Text Chat");
   };
 
   // functions for textbox change, updating user, and submitting

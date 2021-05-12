@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import imageone from './images/mentor1.jpg'
+import imagetwo from './images/mentor2.jpg'
+import imagethree from './images/mentor3.jpg'
 
 const Wrapper = styled.div`
   display: flex;

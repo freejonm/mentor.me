@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
   textField: {
     width: '25ch',
-  },
+  }
 }));
 
 export default function EditProfileForm({user, handleInputChange, handleSave, updatedUser}) {
@@ -87,7 +87,10 @@ export default function EditProfileForm({user, handleInputChange, handleSave, up
           InputProps={{
             startAdornment: <InputAdornment position="start"></InputAdornment>,
           }}
+          name='lastName'
           variant="outlined"
+          value={ updatedUser.lastName.length === 0 ? user.lastName : updatedUser.lastName}
+          onChange={handleInputChange}
           
         />
         <TextField
@@ -97,7 +100,10 @@ export default function EditProfileForm({user, handleInputChange, handleSave, up
           InputProps={{
             startAdornment: <InputAdornment position="start"></InputAdornment>,
           }}
+          name='pronouns'
           variant="outlined"
+          value={ updatedUser.pronouns.length === 0 ? user.pronouns : updatedUser.pronouns}
+          onChange={handleInputChange}
         />
         <TextField
           label="Username"
@@ -106,7 +112,10 @@ export default function EditProfileForm({user, handleInputChange, handleSave, up
           InputProps={{
             startAdornment: <InputAdornment position="start"></InputAdornment>,
           }}
+          name='username'
           variant="outlined"
+          value={ updatedUser.username.length === 0 ? user.username : updatedUser.username}
+          onChange={handleInputChange}
         />
         
         {/* <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
@@ -152,7 +161,10 @@ export default function EditProfileForm({user, handleInputChange, handleSave, up
           InputProps={{
             startAdornment: <InputAdornment position="start"></InputAdornment>,
           }}
+          name='email'
           variant="outlined"
+          value={ updatedUser.email.length === 0 ? user.email : updatedUser.email}
+          onChange={handleInputChange}
         />
         <TextField
           label="Current Position"
@@ -161,7 +173,10 @@ export default function EditProfileForm({user, handleInputChange, handleSave, up
           InputProps={{
             startAdornment: <InputAdornment position="start"></InputAdornment>,
           }}
+          name='currentPosition'
           variant="outlined"
+          value={ updatedUser.currentPosition.length === 0 ? user.currentPosition : updatedUser.currentPosition}
+          onChange={handleInputChange}
         />
         <TextField
           label="Years Expierence"
@@ -170,7 +185,10 @@ export default function EditProfileForm({user, handleInputChange, handleSave, up
           InputProps={{
             startAdornment: <InputAdornment position="start"></InputAdornment>,
           }}
+          name='yearsExperience'
           variant="outlined"
+          value={ updatedUser.yearsExperience.length === 0 ? user.yearsExperience : updatedUser.yearsExperience}
+          onChange={handleInputChange}
         />
         <TextField
           label="Education"
@@ -179,7 +197,10 @@ export default function EditProfileForm({user, handleInputChange, handleSave, up
           InputProps={{
             startAdornment: <InputAdornment position="start"></InputAdornment>,
           }}
+          name='education'
           variant="outlined"
+          value={ updatedUser.education.length === 0 ? user.education : updatedUser.education}
+          onChange={handleInputChange}
         />
         <TextField
           label="Location"
@@ -188,7 +209,10 @@ export default function EditProfileForm({user, handleInputChange, handleSave, up
           InputProps={{
             startAdornment: <InputAdornment position="start"></InputAdornment>,
           }}
+          name='location'
           variant="outlined"
+          value={ updatedUser.location.length === 0 ? user.location : updatedUser.location}
+          onChange={handleInputChange}
         />
 
 

@@ -52,8 +52,17 @@ export default function Dashboard({ user }) {
   const [connections, setConnections] = useState([]);
   const [potentialMentors, setPotentialMentors] = useState([]);
   const [updatedUser, setUpdatedUser] = useState({
-    firstName: ''
-  })
+    firstName: '',
+    lastName: '',
+    pronouns: '',
+    username: '',
+    email: '',
+    showPassword: '',
+    currentPosition: '',
+    yearsExperience: '',
+    education: '',
+    location: ''
+  });
   //  const [formObject, setFormObject] = useState({});
   //  const formEl = useRef(null);
 
@@ -63,14 +72,17 @@ export default function Dashboard({ user }) {
     getMatches();
   }, []);
 
-  const handleInputChange = e => {
-    const {name,value} = e.target;
-    setUpdatedUser({...updatedUser, [name]:value})
-    console.log('value',value)
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUpdatedUser({ ...updatedUser, [name]: value });
+    console.log('value', value);
   };
-  const handleSave = e => {
-    console.log('updatedUser',updatedUser)
-  }
+  const handleSave = (e) => {
+    e.preventDefault();
+    API.updateUser(updatedUser).then((res) => {
+      console.log(res.data.user);
+    });
+  };
 
   const getConnections = () => {
     API.getConnections(user._id).then((res) => {
@@ -81,10 +93,10 @@ export default function Dashboard({ user }) {
 
   const getMatches = () => {
     API.getMatches(user._id).then((res) => {
-      console.log(res.data.rankedMentors)
+      console.log(res.data.rankedMentors);
       setPotentialMentors(res.data.rankedMentors);
-    })
-  }
+    });
+  };
 
   function loadUsers() {
     API.getAllUsers()
@@ -94,8 +106,6 @@ export default function Dashboard({ user }) {
       })
       .catch((err) => console.log(err));
   }
-  
-
 
   console.log('user dash', user);
   return (
@@ -103,9 +113,14 @@ export default function Dashboard({ user }) {
       <Grid container spacing={3}>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
-            <UserProfile userName={user.username} />
+            <UserProfile userName={user.username} email={user.email} location={user.location} currentPosition={user.currentPosition} yearsExp={user.yearsExperience}  />
             <ModalProvider>
-              <EditModal handleInputChange={handleInputChange} handleSave= {handleSave} updatedUser={updatedUser} user={user} />
+              <EditModal
+                handleInputChange={handleInputChange}
+                handleSave={handleSave}
+                updatedUser={updatedUser}
+                user={user}
+              />
             </ModalProvider>
 
             {/* <EditProfileButton/>  */}

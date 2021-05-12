@@ -32,8 +32,7 @@ left: 50%;
 transform: translate(-50%, -50%);
 width: 50%;
 background-color: #01444c;
-padding: 50px;
-border: 1px solid #000;
+border: 3px solid #000;
 border-radius: 5px;
 `;
 

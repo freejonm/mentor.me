@@ -389,17 +389,28 @@ function SignupForm() {
               How would you like to communicate with your mentors?
             </Typography>
             <FormGroup row>
-            <FormControlLabel
-            control={
-              <Checkbox
-                checked={isInPerson}
-                onChange={updateInPerson}
-                name="isInPerson"
-                color="primary"
-              />
-            }
-            label="In Person"
-          /> 
+              <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isInPerson}
+                  onChange={updateInPerson}
+                  name="isInPerson"
+                  color="primary"
+                />
+              }
+              label="In Person"
+            /> 
+              <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isVideoChat}
+                  onChange={updateVideoChat}
+                  name="isVideoChat"
+                  color="primary"
+                />
+              }
+              label="Video Chat"
+            /> 
 
             </FormGroup>
           </Grid>

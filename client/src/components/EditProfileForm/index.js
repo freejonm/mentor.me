@@ -18,6 +18,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexWrap: 'wrap',
     backgroundColor: 'white !important',
+    borderRadius: 5,
+    border: '3px solid #012a2f'
   },
   margin: {
     margin: theme.spacing(1),

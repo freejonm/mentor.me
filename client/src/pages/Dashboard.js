@@ -16,7 +16,7 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import API from '../utils/API';
 import styled from 'styled-components';
-import { ModalProvider } from 'styled-react-modal';
+import { ModalProvider, BaseModalBackground } from 'styled-react-modal';
 import EditModal from '../components/Modal';
 
 const useStyles = makeStyles((theme) => ({
@@ -83,6 +83,8 @@ export default function Dashboard({ user }) {
       .catch((err) => console.log(err));
   }
   
+
+
   console.log('user dash', user);
   return (
     <div className={classes.root}>

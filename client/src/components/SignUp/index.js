@@ -392,9 +392,9 @@ function SignupForm() {
             <FormControlLabel
             control={
               <Checkbox
-                checked={isOnDemand}
-                onChange={updateOnDemand}
-                name="isOnDemand"
+                checked={isInPerson}
+                onChange={updateInPerson}
+                name="isInPerson"
                 color="primary"
               />
             }

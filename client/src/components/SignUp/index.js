@@ -96,6 +96,21 @@ function SignupForm() {
     userObject.timeCommitment.push("On Demand");
   };
 
+  // update functions for comm preferences checkboxes
+  const updateInPerson = () => {
+    setIsInPerson(!isInPerson);
+    userObject.timeCommitment.push("In Person");
+  };
+
+  const updateVideoChat = () => {
+    setIsVideoChat(!isVideoChat);
+    userObject.timeCommitment.push("Video Chat");
+  };
+  const updateVideoChat = () => {
+    setIsVideoChat(!isVideoChat);
+    userObject.timeCommitment.push("In Person");
+  };
+
   // functions for textbox change, updating user, and submitting
 
   const handleChange = (event) => {

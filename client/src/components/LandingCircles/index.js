@@ -24,6 +24,7 @@ const Circles = styled(motion.div)`
   -moz-box-shadow: 3px 3px 5px 5px black; /* Firefox 3.5 - 3.6 */
   box-shadow: 3px 3px 5px 5px black;
   background-image: url(${props => props.url});
+  background-size: 350px 350px;
 `;
 
 const InnerText = styled(motion.h2)`

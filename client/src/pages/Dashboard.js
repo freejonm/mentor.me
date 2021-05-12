@@ -51,18 +51,17 @@ export default function Dashboard({ user }) {
   const [users, setUsers] = useState([]);
   const [connections, setConnections] = useState([]);
   const [potentialMentors, setPotentialMentors] = useState([]);
-  const [updatedUser, setUpdatedUser] = useState({
-    firstName: '',
-    lastName: '',
-    pronouns: '',
-    username: '',
-    email: '',
-    showPassword: '',
-    currentPosition: '',
-    yearsExperience: '',
-    education: '',
-    location: ''
-  });
+  const [updatedUser, setUpdatedUser] = useState(user
+    // lastName: '',
+    // pronouns: '',
+    // username: '',
+    // email: '',
+    // showPassword: '',
+    // currentPosition: '',
+    // yearsExperience: '',
+    // education: '',
+    // location: ''
+  );
   //  const [formObject, setFormObject] = useState({});
   //  const formEl = useRef(null);
 
@@ -106,14 +105,13 @@ export default function Dashboard({ user }) {
       })
       .catch((err) => console.log(err));
   }
-
-  console.log('user dash', user);
+console.log('updated arr', updatedUser)
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
-            <UserProfile userName={user.username} email={user.email} location={user.location} currentPosition={user.currentPosition} yearsExp={user.yearsExperience}  />
+            <UserProfile userName={updatedUser.username} email={updatedUser.email} location={updatedUser.location} currentPosition={updatedUser.currentPosition} yearsExp={updatedUser.yearsExperience}  />
             <ModalProvider>
               <EditModal
                 handleInputChange={handleInputChange}

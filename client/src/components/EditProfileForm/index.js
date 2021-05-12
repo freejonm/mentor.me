@@ -14,8 +14,6 @@ import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import Button from '@material-ui/core/Button';
 
-
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -25,13 +23,13 @@ const useStyles = makeStyles((theme) => ({
     border: '3px solid #012a2f'
   },
   margin: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(1)
   },
   withoutLabel: {
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(3)
   },
   textField: {
-    width: '25ch',
+    width: '25ch'
   },
   overrides: {
     MuiButton: {
@@ -52,7 +50,12 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function EditProfileForm({user, handleInputChange, handleSave, updatedUser}) {
+export default function EditProfileForm({
+  user,
+  handleInputChange,
+  handleSave,
+  updatedUser
+}) {
   const classes = useStyles();
   const [values, setValues] = React.useState({
     firstName: '',
@@ -65,8 +68,7 @@ export default function EditProfileForm({user, handleInputChange, handleSave, up
     currentPosition: '',
     yearsExperience: '',
     education: '',
-    location: '',
-
+    location: ''
   });
 
   const handleChange = (prop) => (event) => {
@@ -83,46 +85,51 @@ export default function EditProfileForm({user, handleInputChange, handleSave, up
 
   return (
     <div className={classes.root}>
- 
-      
-      
       <div>
         <TextField
           label="First Name"
           id="outlined-start-adornment"
           className={clsx(classes.margin, classes.textField)}
           InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
+            startAdornment: <InputAdornment position="start"></InputAdornment>
           }}
-          name='firstName'
+          name="firstName"
           variant="outlined"
-          value={ updatedUser.firstName.length === 0 ? user.firstName : updatedUser.firstName}
+          value={
+            updatedUser.firstName.length < 0 ? user.firstName : user.firstName
+          }
           onChange={handleInputChange}
-
         />
-        <TextField
+        {/* <TextField
           label="Last Name"
           id="outlined-start-adornment"
           className={clsx(classes.margin, classes.textField)}
           InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
+            startAdornment: <InputAdornment position="start"></InputAdornment>
           }}
-          name='lastName'
+          name="lastName"
           variant="outlined"
-          value={ updatedUser.lastName.length === 0 ? user.lastName : updatedUser.lastName}
+          value={
+            updatedUser.lastName.length === 0
+              ? user.lastName
+              : updatedUser.lastName
+          }
           onChange={handleInputChange}
-          
-        />
+        /> */}
         <TextField
           label="Pronouns"
           id="outlined-start-adornment"
           className={clsx(classes.margin, classes.textField)}
           InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
+            startAdornment: <InputAdornment position="start"></InputAdornment>
           }}
-          name='pronouns'
+          name="pronouns"
           variant="outlined"
-          value={ updatedUser.pronouns.length === 0 ? user.pronouns : updatedUser.pronouns}
+          value={
+            updatedUser.pronouns.length === 0
+              ? user.pronouns
+              : updatedUser.pronouns
+          }
           onChange={handleInputChange}
         />
         <TextField
@@ -130,15 +137,22 @@ export default function EditProfileForm({user, handleInputChange, handleSave, up
           id="outlined-start-adornment"
           className={clsx(classes.margin, classes.textField)}
           InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
+            startAdornment: <InputAdornment position="start"></InputAdornment>
           }}
-          name='username'
+          name="username"
           variant="outlined"
-          value={ updatedUser.username.length === 0 ? user.username : updatedUser.username}
+          value={
+            updatedUser.username.length === 0
+              ? user.username
+              : updatedUser.username
+          }
           onChange={handleInputChange}
         />
-        
-        {/* <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
+
+        <FormControl
+          className={clsx(classes.margin, classes.textField)}
+          variant="outlined"
+        >
           <OutlinedInput
             id="outlined-adornment-weight"
             value={values.weight}
@@ -146,14 +160,21 @@ export default function EditProfileForm({user, handleInputChange, handleSave, up
             endAdornment={<InputAdornment position="end">Kg</InputAdornment>}
             aria-describedby="outlined-weight-helper-text"
             inputProps={{
-              'aria-label': 'weight',
+              'aria-label': 'weight'
             }}
             labelWidth={0}
           />
-          <FormHelperText id="outlined-weight-helper-text">Weight</FormHelperText>
-        </FormControl> */}
-        <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+          <FormHelperText id="outlined-weight-helper-text">
+            Weight
+          </FormHelperText>
+        </FormControl>
+        <FormControl
+          className={clsx(classes.margin, classes.textField)}
+          variant="outlined"
+        >
+          <InputLabel htmlFor="outlined-adornment-password">
+            Password
+          </InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
             type={values.showPassword ? 'text' : 'password'}
@@ -179,11 +200,13 @@ export default function EditProfileForm({user, handleInputChange, handleSave, up
           id="outlined-start-adornment"
           className={clsx(classes.margin, classes.textField)}
           InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
+            startAdornment: <InputAdornment position="start"></InputAdornment>
           }}
-          name='email'
+          name="email"
           variant="outlined"
-          value={ updatedUser.email.length === 0 ? user.email : updatedUser.email}
+          value={
+            updatedUser.email.length === 0 ? user.email : updatedUser.email
+          }
           onChange={handleInputChange}
         />
         <TextField
@@ -191,11 +214,15 @@ export default function EditProfileForm({user, handleInputChange, handleSave, up
           id="outlined-start-adornment"
           className={clsx(classes.margin, classes.textField)}
           InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
+            startAdornment: <InputAdornment position="start"></InputAdornment>
           }}
-          name='currentPosition'
+          name="currentPosition"
           variant="outlined"
-          value={ updatedUser.currentPosition.length === 0 ? user.currentPosition : updatedUser.currentPosition}
+          value={
+            updatedUser.currentPosition.length === 0
+              ? user.currentPosition
+              : updatedUser.currentPosition
+          }
           onChange={handleInputChange}
         />
         <TextField
@@ -203,11 +230,15 @@ export default function EditProfileForm({user, handleInputChange, handleSave, up
           id="outlined-start-adornment"
           className={clsx(classes.margin, classes.textField)}
           InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
+            startAdornment: <InputAdornment position="start"></InputAdornment>
           }}
-          name='yearsExperience'
+          name="yearsExperience"
           variant="outlined"
-          value={ updatedUser.yearsExperience.length === 0 ? user.yearsExperience : updatedUser.yearsExperience}
+          value={
+            updatedUser.yearsExperience.length === 0
+              ? user.yearsExperience
+              : updatedUser.yearsExperience
+          }
           onChange={handleInputChange}
         />
         <TextField
@@ -215,11 +246,15 @@ export default function EditProfileForm({user, handleInputChange, handleSave, up
           id="outlined-start-adornment"
           className={clsx(classes.margin, classes.textField)}
           InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
+            startAdornment: <InputAdornment position="start"></InputAdornment>
           }}
-          name='education'
+          name="education"
           variant="outlined"
-          value={ updatedUser.education.length === 0 ? user.education : updatedUser.education}
+          value={
+            updatedUser.education.length === 0
+              ? user.education
+              : updatedUser.education
+          }
           onChange={handleInputChange}
         />
         <TextField
@@ -227,16 +262,18 @@ export default function EditProfileForm({user, handleInputChange, handleSave, up
           id="outlined-start-adornment"
           className={clsx(classes.margin, classes.textField)}
           InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
+            startAdornment: <InputAdornment position="start"></InputAdornment>
           }}
-          name='location'
+          name="location"
           variant="outlined"
-          value={ updatedUser.location.length === 0 ? user.location : updatedUser.location}
+          value={
+            updatedUser.location.length === 0
+              ? user.location
+              : updatedUser.location
+          }
           onChange={handleInputChange}
         />
-          <Button onClick={handleSave}>Save Changes</Button>
-
-
+        <Button onClick={handleSave}>Save Changes</Button>
       </div>
     </div>
   );

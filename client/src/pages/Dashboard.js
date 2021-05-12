@@ -105,13 +105,9 @@ export default function Dashboard({ user }) {
               <Connections>
                 {users.map((users) => (
                   <ConnectionsItem key={users._id}>
-                    <Link to={'/users/' + users._id}>
+                    <Link to={'/memberprofile/' + users._id}>
                       <img src={users.profilePicture} />
-                      <ConnectionsName
-                        onClick={() =>
-                          (window.location.href = '/memberprofile')
-                        }
-                      >
+                      <ConnectionsName>
                         {users.firstName} {users.lastName}
                       </ConnectionsName>
                     </Link>

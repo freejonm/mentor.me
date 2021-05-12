@@ -52,6 +52,7 @@ const LandingCircles = () => {
           // loop: Infinity,
           repeatDelay: 1
         }}
+        url={imageone}
       >
         <InnerText
           initial={{ opacity: 0 }}

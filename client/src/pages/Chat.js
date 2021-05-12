@@ -10,7 +10,7 @@ const Chat = () => {
   // console.log('chat')
   //Before Login
   const [loggedIn, setLoggedIn] = useState(false)
-  const [room, setRoom] = useState('Class of 2021')
+  const [room, setRoom] = useState('')
   const [userName, setUserName] = useState('')
 
   //After Login
@@ -173,24 +173,24 @@ const Chat = () => {
 
           <input onChange={(e) => setMessage(e.target.value)} type='text' placeholder='Message...' 
             style={{ 
-              flex: '80%', 
-              height: 'calc(100% -5px)', 
-              border: 'none', 
-              borderTop: '5px solid #0091ff', 
-              backgroundColor: 'lightgray', 
-              paddingLeft: '20px', 
-              fontSize: '20px'
+              // flex: '80%', 
+              // height: 'calc(100% -5px)', 
+              // border: 'none', 
+              // borderTop: '5px solid #0091ff', 
+              // backgroundColor: 'lightgray', 
+              // paddingLeft: '20px', 
+              // fontSize: '20px'
             }}></input>
 
           <button 
             onClick={sendMessage}
             style={{ 
-              backgroundColor: '#db784d', 
-              color: 'white', 
-              flex: '20%', 
-              height: '100%', 
-              border: 'none', 
-              fontSize: '18px'
+              // backgroundColor: '#db784d', 
+              // color: 'white', 
+              // flex: '20%', 
+              // height: '100%', 
+              // border: 'none', 
+              // fontSize: '18px'
             }}>
             Send
           </button>

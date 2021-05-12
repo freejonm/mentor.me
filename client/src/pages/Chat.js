@@ -8,31 +8,31 @@ const CONNECTION_PORT = 'localhost:3001/'
 const Chat = () => {
   // console.log('chat')
   //Before Login
-  const [loggedIn, setLoggedIn] = useState(false)
+  const [loggedIn, setLoggedIn] = useState(true)
   const [room, setRoom] = useState('Class of 2021')
   const [userName, setUserName] = useState('')
 
   //After Login
   const [message, setMessage] = useState('')
-  const [messageList, setMessageList] = useState([])
+  const [messageList, setMessageList] = useState([{author: 'Pedro', message: 'Hello World'}])
 
-  useEffect(() => {
-    socket = io(CONNECTION_PORT)
-  }, [CONNECTION_PORT])
+  // useEffect(() => {
+  //   socket = io(CONNECTION_PORT)
+  // }, [CONNECTION_PORT])
 
-  useEffect(() => {
-    socket.on('receive_message', (data) => {
-      console.log(data)
-      setMessageList([...messageList, data])
-    })
-  })
+  // useEffect(() => {
+  //   socket.on('receive_message', (data) => {
+  //     console.log(data)
+  //     setMessageList([...messageList, data])
+  //   })
+  // })
 
   const connectToRoom = () => {
     setLoggedIn(true)
     socket.emit('join_room', room)
   }
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
     let messageContent = {
       room: room,
       content: {
@@ -123,8 +123,13 @@ const Chat = () => {
               console.log(messageList),
               messageList.map((val, key) => {
               return ( 
-                <h1 style={{color: 'black'}}>
-                  {' '} {val.author} {val.message}</h1> 
+                <div className='message-container'  style={{color: 'black', display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                <div className='message-individual'  style={{color: 'black', width: '200px', height: '60px', backgroundColor: '#0091ff', margin: '20px', borderRadius: '10px', display: 'grid', placeItems: 'center', marginRight: '10px'}}>
+                  {' '} {val.message}
+                </div> 
+                <h1 style={{fontWeight: '300', fontSize: '17px'}}>{val.author}</h1>
+                </div>
+                
               )
             })}
         </div>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import CheckboxLabels from '../Checkbox';
-import TimeCommitmentOptions from '../TimeCommitmentOptions'
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,18 +11,13 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-// import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import AUTH from '../../utils/AUTH'
 
 import Divider from '@material-ui/core/Divider';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+
 
 import "./SignUp.scss"
 
@@ -96,15 +90,11 @@ function SignupForm() {
     userObject.timeCommitment.push("On Demand");
   };
 
+  // functions for textbox change, updating user, and submitting
+
   const handleChange = (event) => {
     console.log(event.target.checked)
     setUSerObject({...userObject, [event.target.name]: event.target.value})
-  }
-
-  const handleCheckboxChange = (event) => {
-    // console.log(event.target.checked);
-    // setUSerObject({...userObject, [timeCommitment.push(event.target.value)]:console.log(timeCommitment)
-    // })
   }
 
   const updateUser = (updatedValue) => {

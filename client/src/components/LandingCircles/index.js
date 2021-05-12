@@ -23,6 +23,7 @@ const Circles = styled(motion.div)`
   -webkit-box-shadow: 3px 3px 5px 5px black; /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
   -moz-box-shadow: 3px 3px 5px 5px black; /* Firefox 3.5 - 3.6 */
   box-shadow: 3px 3px 5px 5px black;
+  background-image: url(${props => props.url});
 `;
 
 const InnerText = styled(motion.h2)`

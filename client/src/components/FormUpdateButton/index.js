@@ -25,7 +25,7 @@ const theme = createMuiTheme({
     },
   });
   
- function FormUpdateButton() {
+ function FormUpdateButton({handleSave}) {
   
     return (
       <ThemeProvider theme={theme}>

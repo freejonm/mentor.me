@@ -2,6 +2,8 @@ import { CalendarContent } from '@fullcalendar/common'
 import React, {useState, useEffect} from 'react'
 import io from 'socket.io-client'
 import '../styles/Chat.css'
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 let socket
 const CONNECTION_PORT = 'localhost:3001/'
@@ -47,6 +49,28 @@ const Chat = () => {
     setMessage('')
   }
 
+  
+
+
+const theme = createMuiTheme({
+  overrides: {
+    MuiButton: {
+      text: {
+        // background: 'linear-gradient(45deg, #db784d 30%, #eda320 90%)',
+        background: '#db784d',
+        borderRadius: 3,
+        font: 'Righteous', 
+        border: 0,
+        color: 'white',
+        height: 36,
+        padding: '0 20px',
+        margin: '10px',
+        boxShadow: '0 3px 5px 2px rgba((219,120,77, .3)',
+      },
+    },
+  },
+});
+
  return (
    <div className='chat-application' 
     // style={{ 
@@ -87,19 +111,11 @@ const Chat = () => {
 
           <input type='text' placeholder='Username...' onChange={(e) => {setUserName(e.target.value)}}/>
           <input type='room' placeholder='room...' onChange={(e) => {setRoom(e.target.value)}}/>
-
-          <button onClick={connectToRoom} 
-            style={{
-              // width: '200px', 
-              // height: '50px', 
-              // border: 'none', 
-              // backgroundColor: '#db784d', 
-              // color: 'white', 
-              // marginTop: '10%'
-              borderRadius: '5px' 
-            }}>
+          <ThemeProvider>
+          <Button onClick={connectToRoom}>
               Enter Chat
-          </button>
+          </Button>
+          </ThemeProvider>
 
         </div>
     </div>
@@ -182,19 +198,12 @@ const Chat = () => {
               // paddingLeft: '20px', 
               // fontSize: '20px'
             }}></input>
-
-          <button 
-            onClick={sendMessage}
-            style={{ 
-              // backgroundColor: '#db784d', 
-              // color: 'white', 
-              // flex: '20%', 
-              // height: '100%', 
-              // border: 'none', 
-              // fontSize: '18px'
-            }}>
+        <ThemeProvider>
+          <Button 
+            onClick={sendMessage}>
             Send
-          </button>
+          </Button>
+          </ThemeProvider>
           
         </div>
       </div>

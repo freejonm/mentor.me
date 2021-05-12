@@ -77,23 +77,23 @@ function SignupForm() {
   // update functions for time commitment checkboxes
   const updateWeekly = () => {
     setIsWeekly(!isWeekly);
-    timeCommitmentArray.push("Weekly");
+    userObject.timeCommitment.push("Weekly");
   };
 
   const updateMonthly = () => {
     setIsMonthly(!isMonthly);
-    timeCommitmentArray.push("Monthly");
+    userObject.timeCommitment.push("Monthly");
     
   };
 
   const updateQuarterly = () => {
     setIsQuarterly(!isQuarterly);
-    timeCommitmentArray.push("Quarterly");
+    userObject.timeCommitment.push("Quarterly");
   };
 
   const updateOnDemand= () => {
     setIsOnDemand(!isOnDemand);
-    timeCommitmentArray.push("On Demand");
+    userObject.timeCommitment.push("On Demand");
   };
 
   const handleChange = (event) => {

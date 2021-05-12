@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import imageone from './images/mentor1.jpg'
+import imagetwo from './images/mentor2.jpg'
+import imagethree from './images/mentor3.jpg'
 
 const Wrapper = styled.div`
   display: flex;
@@ -20,6 +23,8 @@ const Circles = styled(motion.div)`
   -webkit-box-shadow: 3px 3px 5px 5px black; /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
   -moz-box-shadow: 3px 3px 5px 5px black; /* Firefox 3.5 - 3.6 */
   box-shadow: 3px 3px 5px 5px black;
+  background-image: url(${props => props.url});
+  background-size: 350px 350px;
 `;
 
 const InnerText = styled(motion.h2)`
@@ -48,6 +53,7 @@ const LandingCircles = () => {
           // loop: Infinity,
           repeatDelay: 1
         }}
+        url={imageone}
       >
         <InnerText
           initial={{ opacity: 0 }}
@@ -81,6 +87,7 @@ const LandingCircles = () => {
           // loop: Infinity,
           repeatDelay: 1
         }}
+        url={imagetwo}
       >
         <InnerText
           initial={{ opacity: 0 }}
@@ -112,6 +119,7 @@ const LandingCircles = () => {
           // loop: Infinity,
           repeatDelay: 1
         }}
+        url={imagethree}
       >
         <InnerText
           initial={{ opacity: 0 }}

@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import CheckboxLabels from '../Checkbox';
 import TimeCommitmentOptions from '../TimeCommitmentOptions'
-import { green } from '@material-ui/core/colors';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormGroup from '@material-ui/core/FormGroup';
 import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
@@ -47,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const timeCommitmentArray = [];
 
 function SignupForm() {
 
@@ -64,7 +65,36 @@ function SignupForm() {
     education: '',
     timeCommitment: []
   })
+
   const [redirectTo, setRedirectTo] = useState(null)
+
+  // states for time commitment checkboxes
+  const [isWeekly, setIsWeekly] = useState(false);
+  const [isMonthly, setIsMonthly] = useState(false);
+  const [isQuarterly, setIsQuarterly] = useState(false);
+  const [isOnDemand, setIsOnDemand] = useState(false);
+
+  // update functions for time commitment checkboxes
+  const updateWeekly = () => {
+    setIsWeekly(!isWeekly);
+    timeCommitmentArray.push("Weekly");
+  };
+
+  const updateMonthly = () => {
+    setIsMonthly(!isMonthly);
+    timeCommitmentArray.push("Monthly");
+    
+  };
+
+  const updateQuarterly = () => {
+    setIsQuarterly(!isQuarterly);
+    timeCommitmentArray.push("Quarterly");
+  };
+
+  const updateOnDemand= () => {
+    setIsOnDemand(!isOnDemand);
+    timeCommitmentArray.push("On Demand");
+  };
 
   const handleChange = (event) => {
     console.log(event.target.checked)
@@ -86,10 +116,8 @@ function SignupForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(userObject)
-    
-
-    
-
+    console.log(timeCommitmentArray);
+  
     AUTH.signup({
       firstName: userObject.firstName,
       lastname: userObject.lastName,
@@ -103,7 +131,7 @@ function SignupForm() {
       mentorStatus: userObject.mentorStatus,
       location: userObject.location,
       description: userObject.description,
-      timeCommitmentArray: userObject.timeCommitment,
+      timeCommitment: userObject.timeCommitment,
       commPrefs: userObject.commPrefs,
       learningAbout: userObject.learningAbout,
     }).then(response => {
@@ -294,11 +322,52 @@ function SignupForm() {
             <Typography component="p" fontStyle="italic" variant="p">
               How often would you like to meet with your mentor?
             </Typography>
-            <TimeCommitmentOptions 
-              name='timeCommitmentOptions'
-              handleUpdateUser={updateUser}
-              onClick={handleCheckboxChange}
+            <FormGroup row>        
+        <FormControlLabel
+        control={
+          <Checkbox
+            checked={isWeekly}
+            onChange={updateWeekly}
+            name="isWeekly"
+            color="primary"
           />
+        }
+        label="Weekly"
+      />
+        <FormControlLabel
+        control={
+          <Checkbox
+            checked={isMonthly}
+            onChange={updateMonthly}
+            name="isMonthly"
+            color="primary"
+          />
+        }
+        label="Monthly"
+      />
+        <FormControlLabel
+        control={
+          <Checkbox
+            checked={isQuarterly}
+            onChange={updateQuarterly}
+            name="isQuarterly"
+            color="primary"
+          />
+        }
+        label="Quarterly"
+      />
+        <FormControlLabel
+        control={
+          <Checkbox
+            checked={isOnDemand}
+            onChange={updateOnDemand}
+            name="isOnDemand"
+            color="primary"
+          />
+        }
+        label="On Demand"
+      /> 
+    </FormGroup>
 
           </Grid>
 

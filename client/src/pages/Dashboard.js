@@ -111,7 +111,11 @@ console.log('updated arr', updatedUser)
       <Grid container spacing={3}>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
-            <UserProfile userName={updatedUser.username} email={updatedUser.email} location={updatedUser.location} currentPosition={updatedUser.currentPosition} yearsExp={updatedUser.yearsExperience}  />
+            <UserProfile 
+            userName={updatedUser.username} 
+            email={updatedUser.email} 
+            location={updatedUser.location} currentPosition={updatedUser.currentPosition} 
+            yearsExp={updatedUser.yearsExperience}  />
             <ModalProvider>
               <EditModal
                 handleInputChange={handleInputChange}

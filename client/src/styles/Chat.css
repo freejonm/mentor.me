@@ -16,7 +16,6 @@
   align-items: center;
   flex-direction: column;
   margin: 10px;
-
   padding: 16px;
   text-align: center;
   background-color: #637f7d;
@@ -99,6 +98,7 @@ h3 {
   background-color: #012a2f;
   color: white;
 }
+.button:hover input { color:#fff }
 
 .message-individual {
   color: black;
@@ -143,6 +143,7 @@ h3 {
   background-color: lightgray;
   padding-left: 20px;
   font-size: 20px;
+  hover-color:#ffffff;
 }
 
 .message-inputs button {

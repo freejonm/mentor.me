@@ -22,6 +22,9 @@ const PostCard = styled.div`
   width: 100%;
   background: transparent;
   opacity: 1;
+  h4{
+      text-align:center;
+  }
 `;
 
 const WritePost = styled.textarea`
@@ -52,7 +55,6 @@ color: white;
   color: white;
 }
 `;
-
 
 const ResourceFeed = () => {
   return (

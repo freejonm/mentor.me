@@ -6,7 +6,7 @@ const UserContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 80vh;
+  height: auto;
   width: 70%;
   align-items: center;
   margin: auto;
@@ -18,21 +18,37 @@ const UserContainer = styled.div`
 
 `;
 
-const UserProfileTitle = styled.h1`
+const UserProfileTitle = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  width: 100%;
   font-family: 'Righteous', sans-serif;
   font-size: 32px;
+  background-color: #db784d;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  
+
 `;
 
 const Body = styled.div`
 display: flex;
+flex-direction: row;
 justify-content: flex-start;
 font-family: 'Ubuntu';
-font-size: 20px;
-color: 'black';
+width: 100%;
+font-size: 16px;
 ul{
-    color: 'black';
+    list-style-type: none;
+    h5 {
+        font-weight: 'bold';
+        font-size: 22px;
+        font-family: 'Righteous', sans-serif;
+    }
+    li {
+        margin-bottom: 5px;
+        flex-direction: row;
+    }
 }
 `;
  
@@ -58,23 +74,26 @@ export default function MemberProfile({
     
     <div>
         <UserContainer>
-        <h3>{userName}'s Profile</h3>
-            <UserProfileTitle>{(fullName, pronouns)}</UserProfileTitle>
+        <UserProfileTitle>{userName}'s Profile</UserProfileTitle>
+            {(fullName, pronouns)}
             <img src="https://randomuser.me/api/portraits/women/75.jpg" />
             {/* <EditAvatar>Change Picture</EditAvatar> */}
           
             <Body>
                 <ul>
-              <li>Email</li>
-              <li>Location</li>
-              <li>Current Position</li>
-              <li>Years Experience</li>
-            
-          
-              <li>{email}</li>
-              <li>{location}</li>
-              <li>{currentPosition}</li>
-              <li>{yearsExp}</li>
+                    <li><h5>Name: </h5>{fullName}</li>
+                    <br></br>
+                    <li><h5>Pronouns: </h5>{pronouns}</li>
+                    <br></br>
+                    <li><h5>Email: </h5> {email}</li>
+                    <br></br>
+                    <li><h5>Location: </h5>{location}</li>
+                    <br></br>
+                    <li><h5>Current Position: </h5> {currentPosition} </li>
+                    <br></br>
+                    <li><h5>Years Experience: </h5>{yearsExp}</li>
+                    <br></br>
+                    <li><h5>Education: </h5>{education}</li>        
               </ul>
               </Body>
            

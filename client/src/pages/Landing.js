@@ -8,6 +8,7 @@ const Landing = () => {
     <div>
       <WelcomeDiv />
       <LandingCircles />
+      <LandingSteps />
     </div>
   );
 };

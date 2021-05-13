@@ -70,7 +70,7 @@ const UserPostContainer = styled.div`
 
 const UserPostHeader = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   flex-direction: row;
   align-items: left;
   border-top: none;
@@ -157,6 +157,7 @@ const ResourceFeed = ({ userName, datePosted }) => {
         <UserPostContainer>
           <UserPostHeader>
             <h2>Posted By: jarweav on 01/21/21</h2>
+            <h2>Nice's: 455</h2>
           </UserPostHeader>
           <UserPostBody>
             <span>

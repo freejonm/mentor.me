@@ -34,8 +34,8 @@ function MemberProfile({ match }) {
   useEffect(() => {
     API.getUserByID(userId).then(res => {
       console.log(res.data)
-      setUserData(res.data);
-      console.log(userData);
+      setUserData(res.data.users);
+      // console.log(userData);
     })
     
   }, [userId])

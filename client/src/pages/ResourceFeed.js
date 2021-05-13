@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-
+import API from '../utils/API';
 
 const FeedContainer = styled.div`
   display: flex;
@@ -16,14 +16,14 @@ const FeedContainer = styled.div`
   color: white;
 `;
 
-const PostCard = styled.div`
+const PostCard = styled.form`
   display: flex;
   flex-direction: column;
   width: 100%;
   background: transparent;
   opacity: 1;
-  h4{
-      text-align:center;
+  h4 {
+    text-align: center;
   }
 `;
 
@@ -41,20 +41,35 @@ const WritePost = styled.textarea`
 `;
 
 const Button = styled(motion.button)`
-padding: 1rem 2rem;
-font-size: 22px;
-border: 2px solid #637f7d;
-border-radius: 5px;
-outline: none;
-cursor: pointer;
-background-color: #eda320;
-color: white;
-&:hover {
-  background-color: #db784d;
-  text-decoration: none;
+  padding: 1rem 2rem;
+  font-size: 22px;
+  border: 2px solid #637f7d;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  background-color: #eda320;
   color: white;
-}
+  &:hover {
+    background-color: #db784d;
+    text-decoration: none;
+    color: white;
+  }
 `;
+
+const UserPostContainer = styled.div`
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  background: transparent;
+  opacity: 1;
+  border: 2px solid #637f7d;
+  border-radius: 5px;
+  margin-top: 10px;
+  height: 20vh;
+`;
+
+// const UserPost
 
 const ResourceFeed = () => {
   return (
@@ -71,23 +86,24 @@ const ResourceFeed = () => {
             {' '}
           </WritePost>
           <Button
-          whileHover={{
-            scale: 1.05,
-            color: '#637f7d',
-            textDecoration: 'none'
-          }}
-          whileTap={{
-            scale: 0.85,
-            backgroundColor: '#637f7d',
-            border: 'none',
-            color: 'white'
-          }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { duration: 1.5 } }}
-        > 
-          Create Post
-        </Button>
+            whileHover={{
+              scale: 1.05,
+              color: '#637f7d',
+              textDecoration: 'none'
+            }}
+            whileTap={{
+              scale: 0.85,
+              backgroundColor: '#637f7d',
+              border: 'none',
+              color: 'white'
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 1.5 } }}
+          >
+            Create Post
+          </Button>
         </PostCard>
+        <UserPostContainer></UserPostContainer>
       </FeedContainer>
     </div>
   );

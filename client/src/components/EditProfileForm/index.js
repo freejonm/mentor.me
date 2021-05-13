@@ -96,8 +96,7 @@ export default function EditProfileForm({
           name="firstName"
           variant="outlined"
           value={
-            updatedUser.firstName.length < 0 ? user.firstName : user.firstName
-          }
+            updatedUser.firstName}
           onChange={handleInputChange}
         />
         {/* <TextField
@@ -205,7 +204,7 @@ export default function EditProfileForm({
           name="email"
           variant="outlined"
           value={
-            updatedUser.email.length === 0 ? user.email : updatedUser.email
+            updatedUser.email
           }
           onChange={handleInputChange}
         />

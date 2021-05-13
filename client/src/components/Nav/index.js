@@ -41,22 +41,20 @@ const NavLink = styled.a`
   font-size: 30px;
   margin-right: 15px;
   padding: 8px;
-  border-radius:5px;
+  border-radius: 5px;
   /* border-left: 5px solid #01444c; */
   border: 5px solid #01444c;
-  background-color:#eda320;
+  background-color: #eda320;
 
   &:hover {
     color: #012a2f;
     text-decoration: none;
     cursor: pointer;
-    background-color:#637f7d;
+    background-color: #637f7d;
     /* border-right:none; */
-  /* border-left:none; */
+    /* border-left:none; */
   }
 `;
-
-
 
 const NavP = styled.a`
   color: white;

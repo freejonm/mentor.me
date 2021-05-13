@@ -112,7 +112,7 @@ const Chat = () => {
     >
       {!loggedIn ? (
         <div className="chat-login">
-          <h3
+          <h4
             style={{
               color: 'white',
               backgroundColor: '#db784d',
@@ -121,7 +121,7 @@ const Chat = () => {
             }}
           >
             Chat Application
-          </h3>
+          </h4>
           <div>
             <TextField
               label="Username"

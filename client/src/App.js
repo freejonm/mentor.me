@@ -19,9 +19,10 @@ import Item from './components/Theme/item';
 // import SignupForm from './pages/Auth/SignupForm';
 // import NoMatch from "./pages/NoMatch";
 import AUTH from './utils/AUTH';
-import EditProfile from './pages/EditProfile'
-import MemberProfile from './pages/MemberProfile'
-import Chat from './pages/Chat'
+import EditProfile from './pages/EditProfile';
+import MemberProfile from './pages/MemberProfile';
+import Chat from './pages/Chat';
+import ResourceFeed from './pages/ResourceFeed';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -69,36 +70,6 @@ function App() {
     });
   };
 
-  // return (
-  //   <div className="App">
-  //     { loggedIn && (
-  //       <div>
-
-  //         <Nav user={user} logout={logout}/>
-  //         <div className="main-view">
-
-  //           <Switch>
-  //             <Route exact path="/" component={Books} />
-  //             <Route exact path="/books" component={Books} />
-  //             <Route exact path="/books/:id" component={Detail} />
-  //             <Route component={NoMatch} />
-  //           </Switch>
-  //         </div>
-  //       </div>
-  //     )}
-  //     { !loggedIn && (
-  //       <div className="auth-wrapper" style={{paddingTop:40}}>
-
-  //         <Route exact path="/" component={() => <LoginForm login={login}/>} />
-  //         <Route exact path="/books" component={() => <LoginForm user={login} />} />
-
-  //         <Route exact path="/signup" component={SignupForm} />
-  //       </div>
-  //     )}
-  //   </div>
-  // );
-  console.log('user in appjs', user);
-
   return (
     <div>
       <ThemeProvider theme={theme}>
@@ -110,11 +81,20 @@ function App() {
           <Route exact path="/" component={Landing} />
           {loggedIn && (
             <Router>
-              <Route exact path="/dashboard" component={() => <Dashboard user={user}></Dashboard>}/>
+              <Route
+                exact
+                path="/dashboard"
+                component={() => <Dashboard user={user}></Dashboard>}
+              />
               <Route exact path="/details" component={Details} />
               <Route exact path="/editprofile" component={EditProfile} />
-              <Route exact path="/memberprofile/:userId" component={MemberProfile} />
+              <Route
+                exact
+                path="/memberprofile/:userId"
+                component={MemberProfile}
+              />
               <Route exact path="/chat" component={Chat} />
+              <Route exact path='/resourcefeed' component={ResourceFeed}/>
             </Router>
           )}
           {!loggedIn && (

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import { Redirect } from 'react-router-dom';
 import CheckboxLabels from '../Checkbox';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -150,17 +151,15 @@ function SignupForm() {
       learningAbout: userObject.learningAbout,
     }).then(response => {
       console.log(response)
-      if(!response.data.errmsg) {
-        setRedirectTo('/login')
-      } else {
-        console.log('duplicate')
-      }
-      
+      setRedirectTo('/login')
     })
   }
 
   const classes = useStyles();
 
+  if(redirectTo) {
+    return <Redirect to={{ pathname: redirectTo }} />
+  } else {
   return (
     <Container component="main" maxWidth="xs" id="signUpForm">
       <CssBaseline />
@@ -472,7 +471,7 @@ function SignupForm() {
       </Box>
     </Container>
   );
-
+            }
 }
 
 export default SignupForm

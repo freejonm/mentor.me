@@ -108,19 +108,21 @@ const UserPostFooter = styled.div`
   width: 100%;
   a {
     font-size: 20px;
-    color: #eda320;
+    color: white;
     margin-right: 5px;
+    :hover{
+      text-decoration: none;
+      cursor: pointer;
+      color: #eda320;
+
+    }
   }
   i {
     font-size: 20px;
     color: #eda320;
     margin-right: 5px;
   }
-  p {
-    font-size: 20px;
-    color: #eda320;
-    margin-right: 5px;
-  }
+
 `;
 
 const ResourceFeed = ({ userName, datePosted }) => {
@@ -131,10 +133,10 @@ const [count,setCount] = useState(0);
     <div>
       <FeedContainer>
         <h1>Feed</h1>
-        <h4>
+        <h5>
           This is a place to post, share, comment, and create all things coding.
           Please follow the rules and guidelines or face the consequences...
-        </h4>
+        </h5>
         <PostCard>
           <h2> What would you like to share with your fellow coders? </h2>
           <WritePost placeholder="Remember, be nice!" cols="30" rows="5">
@@ -177,7 +179,7 @@ const [count,setCount] = useState(0);
             <a href="#">
               <i class="far fa-comments"></i>Comments
             </a>
-            <a  onClick={() => setCount(count + 1)}>
+            <a onClick={() => setCount(count + 1)}>
               <i class="fas fa-arrow-circle-up"></i>Nice
             </a>
           </UserPostFooter>

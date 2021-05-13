@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import API from '../utils/API';
@@ -82,7 +82,8 @@ const UserPostHeader = styled.div`
   background-color: #637f7d;
   h2 {
     font-size: 21px;
-    font-style: italic;
+    font-style: italic
+    margin-right 10px;
   }
 `;
 
@@ -123,6 +124,9 @@ const UserPostFooter = styled.div`
 `;
 
 const ResourceFeed = ({ userName, datePosted }) => {
+
+const [count,setCount] = useState(0);
+
   return (
     <div>
       <FeedContainer>
@@ -157,7 +161,7 @@ const ResourceFeed = ({ userName, datePosted }) => {
         <UserPostContainer>
           <UserPostHeader>
             <h2>Posted By: jarweav on 01/21/21</h2>
-            <h2>Nice's: 455</h2>
+            <h2>Nice's: {count}</h2>
           </UserPostHeader>
           <UserPostBody>
             <span>
@@ -173,80 +177,12 @@ const ResourceFeed = ({ userName, datePosted }) => {
             <a href="#">
               <i class="far fa-comments"></i>Comments
             </a>
-            <a href="#" id="counter">
+            <a  onClick={() => setCount(count + 1)}>
               <i class="fas fa-arrow-circle-up"></i>Nice
             </a>
           </UserPostFooter>
         </UserPostContainer>
-        <UserPostContainer>
-          <UserPostHeader>
-            <h2>Posted By: jarweav on 01/21/21</h2>
-          </UserPostHeader>
-          <UserPostBody>
-            <span>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-              eleifend urna dolor, blandit interdum elit vehicula quis. Morbi
-              quis pharetra felis. Maecenas a consectetur tellus, vitae pharetra
-              lacus. Duis eu est vel massa luctus rutrum. Vestibulum tristique
-              dui vel arcu vestibulum interdum. Donec laoreet lectus id bibendum
-              mattis.
-            </span>
-          </UserPostBody>
-          <UserPostFooter>
-            <a href="#">
-              <i class="far fa-comments"></i>Comments
-            </a>
-            <a href="#" id="counter">
-              <i class="fas fa-arrow-circle-up"></i>Nice
-            </a>
-          </UserPostFooter>
-        </UserPostContainer>
-        <UserPostContainer>
-          <UserPostHeader>
-            <h2>Posted By: jarweav on 01/21/21</h2>
-          </UserPostHeader>
-          <UserPostBody>
-            <span>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-              eleifend urna dolor, blandit interdum elit vehicula quis. Morbi
-              quis pharetra felis. Maecenas a consectetur tellus, vitae pharetra
-              lacus. Duis eu est vel massa luctus rutrum. Vestibulum tristique
-              dui vel arcu vestibulum interdum. Donec laoreet lectus id bibendum
-              mattis.
-            </span>
-          </UserPostBody>
-          <UserPostFooter>
-            <a href="#">
-              <i class="far fa-comments"></i>Comments
-            </a>
-            <a href="#" id="counter">
-              <i class="fas fa-arrow-circle-up"></i>Nice
-            </a>
-          </UserPostFooter>
-        </UserPostContainer>
-        <UserPostContainer>
-          <UserPostHeader>
-            <h2>Posted By: jarweav on 01/21/21</h2>
-          </UserPostHeader>
-          <UserPostBody>
-            <span>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-              eleifend urna dolor, blandit interdum elit vehicula quis. Morbi
-              quis pharetra felis. Maecenas a consectetur tellus, vitae pharetra
-              lacus. Duis eu est vel massa luctus rutrum. Vestibulum tristique
-              dui vel arcu vestibulum interdum. Donec laoreet lectus id bibendum
-              mattis.
-            </span>
-          </UserPostBody>
-          <UserPostFooter>
-            <a href="#">
-              <i class="far fa-comments"></i>Comments
-            </a>
-            <a href="#" id="counter">
-              <i class="fas fa-arrow-circle-up"></i>Nice
-            </a>
-          </UserPostFooter>
-        </UserPostContainer>
+        
       </FeedContainer>
     </div>
   );

@@ -41,10 +41,12 @@ const NavLink = styled.a`
   font-size: 30px;
   margin-right: 15px;
   padding: 8px;
+  padding-right: 10px;
+  padding-left: 10px;
   border-radius: 5px;
   /* border-left: 5px solid #01444c; */
-  border: 5px solid #01444c;
-  background-color: #eda320;
+  border: 2px solid #01444c;
+  background-color: #012a2f;
 
   &:hover {
     color: #012a2f;

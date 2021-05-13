@@ -1,31 +1,20 @@
 import React from 'react';
-import Badge from '@material-ui/core/Badge';
-// import Avatar from '@material-ui/core/Avatar';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-
 import styled from 'styled-components';
 
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    '& > *': {
-      margin: theme.spacing(1)
-    }
-  }
-}));
 
 const UserContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 60vh;
-  width: 50%;
+  height: 80vh;
+  width: 70%;
   align-items: center;
   margin: auto;
-  padding-top: 400px;
+  margin-top: 150px; 
+  background-color: #012a2f;
+  border-radius: 5px;
+  border: 4px solid #637f7d;
+  box-shadow: 3px 3px 5px 5px black;
 
 `;
 
@@ -36,6 +25,16 @@ const UserProfileTitle = styled.h1`
   font-size: 32px;
 `;
 
+const Body = styled.div`
+display: flex;
+justify-content: flex-start;
+font-family: 'Ubuntu';
+font-size: 20px;
+color: 'black';
+ul{
+    color: 'black';
+}
+`;
  
 
 
@@ -53,22 +52,20 @@ export default function MemberProfile({
   education,
   location
 }) {
-  const classes = useStyles();
+//   const classes = useStyles();
 
   return (
     
-    <Card>
-      <h3>{userName}'s Profile</h3>
-      <br></br>
-      <CardContent>
+    <div>
         <UserContainer>
-          
+        <h3>{userName}'s Profile</h3>
             <UserProfileTitle>{(fullName, pronouns)}</UserProfileTitle>
             <img src="https://randomuser.me/api/portraits/women/75.jpg" />
             {/* <EditAvatar>Change Picture</EditAvatar> */}
           
-            
-              {/* <li>Email</li>
+            <Body>
+                <ul>
+              <li>Email</li>
               <li>Location</li>
               <li>Current Position</li>
               <li>Years Experience</li>
@@ -77,11 +74,12 @@ export default function MemberProfile({
               <li>{email}</li>
               <li>{location}</li>
               <li>{currentPosition}</li>
-              <li>{yearsExp}</li> */}
+              <li>{yearsExp}</li>
+              </ul>
+              </Body>
            
         </UserContainer>
-      </CardContent>
-    </Card>
+        </div>
   );
 }
 

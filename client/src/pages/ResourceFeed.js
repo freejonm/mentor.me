@@ -12,7 +12,6 @@ const FeedContainer = styled.div`
   margin: auto;
   align-items: center;
   height: auto;
-  width: 60%;
   color: white;
 `;
 
@@ -66,12 +65,64 @@ const UserPostContainer = styled.div`
   border: 2px solid #637f7d;
   border-radius: 5px;
   margin-top: 10px;
-  height: 20vh;
+  height: auto;
 `;
 
-// const UserPost
+const UserPostHeader = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: left;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid #637f7d;
+  height: 24px;
+  width: 100%;
+  background-color: #637f7d;
+  h2 {
+    font-size: 21px;
+    font-style: italic;
+  }
+`;
 
-const ResourceFeed = () => {
+const UserPostBody = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: left;
+  border-top: none;
+  width: 100%;
+  font-size: 20px;
+  padding: 20px;
+`;
+
+const UserPostFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: left;
+  border-top: 2px solid #637f7d;
+  background-color: #637f7d;
+  width: 100%;
+  a {
+    font-size: 20px;
+    color: #eda320;
+    margin-right: 5px;
+  }
+  i {
+    font-size: 20px;
+    color: #eda320;
+    margin-right: 5px;
+  }
+  p {
+    font-size: 20px;
+    color: #eda320;
+    margin-right: 5px;
+  }
+`;
+
+const ResourceFeed = ({ userName, datePosted }) => {
   return (
     <div>
       <FeedContainer>
@@ -103,7 +154,98 @@ const ResourceFeed = () => {
             Create Post
           </Button>
         </PostCard>
-        <UserPostContainer></UserPostContainer>
+        <UserPostContainer>
+          <UserPostHeader>
+            <h2>Posted By: jarweav on 01/21/21</h2>
+          </UserPostHeader>
+          <UserPostBody>
+            <span>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+              eleifend urna dolor, blandit interdum elit vehicula quis. Morbi
+              quis pharetra felis. Maecenas a consectetur tellus, vitae pharetra
+              lacus. Duis eu est vel massa luctus rutrum. Vestibulum tristique
+              dui vel arcu vestibulum interdum. Donec laoreet lectus id bibendum
+              mattis.
+            </span>
+          </UserPostBody>
+          <UserPostFooter>
+            <a href="#">
+              <i class="far fa-comments"></i>Comments
+            </a>
+            <a href="#" id="counter">
+              <i class="fas fa-arrow-circle-up"></i>Nice
+            </a>
+          </UserPostFooter>
+        </UserPostContainer>
+        <UserPostContainer>
+          <UserPostHeader>
+            <h2>Posted By: jarweav on 01/21/21</h2>
+          </UserPostHeader>
+          <UserPostBody>
+            <span>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+              eleifend urna dolor, blandit interdum elit vehicula quis. Morbi
+              quis pharetra felis. Maecenas a consectetur tellus, vitae pharetra
+              lacus. Duis eu est vel massa luctus rutrum. Vestibulum tristique
+              dui vel arcu vestibulum interdum. Donec laoreet lectus id bibendum
+              mattis.
+            </span>
+          </UserPostBody>
+          <UserPostFooter>
+            <a href="#">
+              <i class="far fa-comments"></i>Comments
+            </a>
+            <a href="#" id="counter">
+              <i class="fas fa-arrow-circle-up"></i>Nice
+            </a>
+          </UserPostFooter>
+        </UserPostContainer>
+        <UserPostContainer>
+          <UserPostHeader>
+            <h2>Posted By: jarweav on 01/21/21</h2>
+          </UserPostHeader>
+          <UserPostBody>
+            <span>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+              eleifend urna dolor, blandit interdum elit vehicula quis. Morbi
+              quis pharetra felis. Maecenas a consectetur tellus, vitae pharetra
+              lacus. Duis eu est vel massa luctus rutrum. Vestibulum tristique
+              dui vel arcu vestibulum interdum. Donec laoreet lectus id bibendum
+              mattis.
+            </span>
+          </UserPostBody>
+          <UserPostFooter>
+            <a href="#">
+              <i class="far fa-comments"></i>Comments
+            </a>
+            <a href="#" id="counter">
+              <i class="fas fa-arrow-circle-up"></i>Nice
+            </a>
+          </UserPostFooter>
+        </UserPostContainer>
+        <UserPostContainer>
+          <UserPostHeader>
+            <h2>Posted By: jarweav on 01/21/21</h2>
+          </UserPostHeader>
+          <UserPostBody>
+            <span>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+              eleifend urna dolor, blandit interdum elit vehicula quis. Morbi
+              quis pharetra felis. Maecenas a consectetur tellus, vitae pharetra
+              lacus. Duis eu est vel massa luctus rutrum. Vestibulum tristique
+              dui vel arcu vestibulum interdum. Donec laoreet lectus id bibendum
+              mattis.
+            </span>
+          </UserPostBody>
+          <UserPostFooter>
+            <a href="#">
+              <i class="far fa-comments"></i>Comments
+            </a>
+            <a href="#" id="counter">
+              <i class="fas fa-arrow-circle-up"></i>Nice
+            </a>
+          </UserPostFooter>
+        </UserPostContainer>
       </FeedContainer>
     </div>
   );

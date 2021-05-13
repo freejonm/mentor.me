@@ -125,9 +125,7 @@ export default function EditProfileForm({
           name="pronouns"
           variant="outlined"
           value={
-            updatedUser.pronouns.length === 0
-              ? user.pronouns
-              : updatedUser.pronouns
+            updatedUser.pronouns
           }
           onChange={handleInputChange}
         />
@@ -141,9 +139,7 @@ export default function EditProfileForm({
           name="username"
           variant="outlined"
           value={
-            updatedUser.username.length === 0
-              ? user.username
-              : updatedUser.username
+            updatedUser.username
           }
           onChange={handleInputChange}
         />
@@ -218,9 +214,7 @@ export default function EditProfileForm({
           name="currentPosition"
           variant="outlined"
           value={
-            updatedUser.currentPosition.length === 0
-              ? user.currentPosition
-              : updatedUser.currentPosition
+            updatedUser.currentPosition
           }
           onChange={handleInputChange}
         />
@@ -234,9 +228,7 @@ export default function EditProfileForm({
           name="yearsExperience"
           variant="outlined"
           value={
-            updatedUser.yearsExperience.length === 0
-              ? user.yearsExperience
-              : updatedUser.yearsExperience
+            updatedUser.yearsExperience
           }
           onChange={handleInputChange}
         />
@@ -250,10 +242,7 @@ export default function EditProfileForm({
           name="education"
           variant="outlined"
           value={
-            updatedUser.education.length === 0
-              ? user.education
-              : updatedUser.education
-          }
+            updatedUser.education}
           onChange={handleInputChange}
         />
         <TextField
@@ -266,10 +255,7 @@ export default function EditProfileForm({
           name="location"
           variant="outlined"
           value={
-            updatedUser.location.length === 0
-              ? user.location
-              : updatedUser.location
-          }
+            updatedUser.location}
           onChange={handleInputChange}
         />
         <Button onClick={handleSave}>Save Changes</Button>

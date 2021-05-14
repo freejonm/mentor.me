@@ -107,7 +107,7 @@ function SignupForm() {
     userObject.commPrefs.push("Video Chat");
   };
   const updateTextChat = () => {
-    setIsVideoChat(!isTextChat);
+    setIsTextChat(!isTextChat);
     userObject.commPrefs.push("Text Chat");
   };
 

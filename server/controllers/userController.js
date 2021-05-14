@@ -96,7 +96,8 @@ module.exports = {
       meetingsAttended,
       mentorStatus,
       timeCommitment,
-      commPrefs
+      commPrefs, 
+      learningAbout
 
     } = req.body;
 

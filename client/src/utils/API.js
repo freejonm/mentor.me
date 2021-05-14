@@ -42,6 +42,12 @@ export default {
         lastName: userName.lastName
       }
     })
+  },
+  sendMentorRequest: (id) => {
+    return axios.put('/api/connections/request/' + id)
+  },
+  approveMentorRequest: (id) => {
+    return axios.put('/api/connections/approve/' + id)
   }
    
 };

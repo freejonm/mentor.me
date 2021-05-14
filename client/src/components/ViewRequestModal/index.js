@@ -78,14 +78,8 @@ const ModalHead = styled.h3`
 `;
 
 
-function ViewRequestModal({avatar,
-  userName,
-  fullName,
-  pronouns,
-  currentPosition,
-  yearsExp,
-  education,
-  location}) {
+function ViewRequestModal({
+user}) {
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleModal(e) {
@@ -101,24 +95,24 @@ function ViewRequestModal({avatar,
         onBackgroundClick={toggleModal}
         onEscapeKeydown={toggleModal}
       >
-        <ModalHead>{(fullName, pronouns)}</ModalHead>
+        <ModalHead>{user.firstName} {user.lastName} ({user.pronouns})</ModalHead>
             
             <img src="https://randomuser.me/api/portraits/women/75.jpg" />
             {/* <EditAvatar>Change Picture</EditAvatar> */}
           
             <Body>
                 <ul>
-                    <li>Name:{fullName}</li>
+                    <li>Name:{user.firstName}</li>
                     <br></br>
-                    <li>Pronouns:{pronouns}</li>
+                    <li>Pronouns:{user.pronouns}</li>
                     <br></br>
-                    <li>Location:{location}</li>
+                    <li>Location:{user.location}</li>
                     <br></br>
-                    <li>Current Position:{currentPosition} </li>
+                    <li>Current Position:{user.currentPosition} </li>
                     <br></br>
-                    <li>Years Experience:{yearsExp}</li>
+                    <li>Years Experience:{user.yearsExp}</li>
                     <br></br>
-                    <li>Education:{education}</li>        
+                    <li>Education:{user.education}</li>        
               </ul>
               </Body>
            

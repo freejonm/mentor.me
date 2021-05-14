@@ -50,16 +50,7 @@ const ViewRequestButton = styled.button`
 `;
 
 export default function Notifications({
-  alerts,
-  avatar,
-  userName,
-  fullName,
-  pronouns,
-  email,
-  currentPosition,
-  yearsExp,
-  education,
-  location
+  user
 }) {
   const classes = useStyles();
 
@@ -76,34 +67,7 @@ export default function Notifications({
               You have a request from Ja Rule.
               <ModalProvider>
                 <ViewRequestModal
-                // handleInputChange={handleInputChange}
-                // handleSave={handleSave}
-                // updatedUser={updatedUser}
-                // user={user}
-                />
-              </ModalProvider>
-            </li>
-            <li className="list-group-item">
-              {/* {alerts} */}
-              You have a request from Ja Rule.
-              <ModalProvider>
-                <ViewRequestModal
-                // handleInputChange={handleInputChange}
-                // handleSave={handleSave}
-                // updatedUser={updatedUser}
-                // user={user}
-                />
-              </ModalProvider>
-            </li>
-            <li className="list-group-item">
-              {/* {alerts} */}
-              You have a request from Ja Rule.
-              <ModalProvider>
-                <ViewRequestModal
-                // handleInputChange={handleInputChange}
-                // handleSave={handleSave}
-                // updatedUser={updatedUser}
-                // user={user}
+              user={user}
                 />
               </ModalProvider>
             </li>

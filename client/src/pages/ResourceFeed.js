@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import API from '../utils/API';
@@ -82,7 +82,8 @@ const UserPostHeader = styled.div`
   background-color: #637f7d;
   h2 {
     font-size: 21px;
-    font-style: italic;
+    font-style: italic
+    margin-right 10px;
   }
 `;
 
@@ -107,30 +108,35 @@ const UserPostFooter = styled.div`
   width: 100%;
   a {
     font-size: 20px;
-    color: #eda320;
+    color: white;
     margin-right: 5px;
+    :hover{
+      text-decoration: none;
+      cursor: pointer;
+      color: #eda320;
+
+    }
   }
   i {
     font-size: 20px;
     color: #eda320;
     margin-right: 5px;
   }
-  p {
-    font-size: 20px;
-    color: #eda320;
-    margin-right: 5px;
-  }
+
 `;
 
 const ResourceFeed = ({ userName, datePosted }) => {
+
+const [count,setCount] = useState(0);
+
   return (
     <div>
       <FeedContainer>
         <h1>Feed</h1>
-        <h4>
+        <h5>
           This is a place to post, share, comment, and create all things coding.
           Please follow the rules and guidelines or face the consequences...
-        </h4>
+        </h5>
         <PostCard>
           <h2> What would you like to share with your fellow coders? </h2>
           <WritePost placeholder="Remember, be nice!" cols="30" rows="5">
@@ -157,7 +163,7 @@ const ResourceFeed = ({ userName, datePosted }) => {
         <UserPostContainer>
           <UserPostHeader>
             <h2>Posted By: jarweav on 01/21/21</h2>
-            <h2>Nice's: 455</h2>
+            <h2>Nice's: {count}</h2>
           </UserPostHeader>
           <UserPostBody>
             <span>
@@ -173,80 +179,12 @@ const ResourceFeed = ({ userName, datePosted }) => {
             <a href="#">
               <i class="far fa-comments"></i>Comments
             </a>
-            <a href="#" id="counter">
+            <a onClick={() => setCount(count + 1)}>
               <i class="fas fa-arrow-circle-up"></i>Nice
             </a>
           </UserPostFooter>
         </UserPostContainer>
-        <UserPostContainer>
-          <UserPostHeader>
-            <h2>Posted By: jarweav on 01/21/21</h2>
-          </UserPostHeader>
-          <UserPostBody>
-            <span>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-              eleifend urna dolor, blandit interdum elit vehicula quis. Morbi
-              quis pharetra felis. Maecenas a consectetur tellus, vitae pharetra
-              lacus. Duis eu est vel massa luctus rutrum. Vestibulum tristique
-              dui vel arcu vestibulum interdum. Donec laoreet lectus id bibendum
-              mattis.
-            </span>
-          </UserPostBody>
-          <UserPostFooter>
-            <a href="#">
-              <i class="far fa-comments"></i>Comments
-            </a>
-            <a href="#" id="counter">
-              <i class="fas fa-arrow-circle-up"></i>Nice
-            </a>
-          </UserPostFooter>
-        </UserPostContainer>
-        <UserPostContainer>
-          <UserPostHeader>
-            <h2>Posted By: jarweav on 01/21/21</h2>
-          </UserPostHeader>
-          <UserPostBody>
-            <span>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-              eleifend urna dolor, blandit interdum elit vehicula quis. Morbi
-              quis pharetra felis. Maecenas a consectetur tellus, vitae pharetra
-              lacus. Duis eu est vel massa luctus rutrum. Vestibulum tristique
-              dui vel arcu vestibulum interdum. Donec laoreet lectus id bibendum
-              mattis.
-            </span>
-          </UserPostBody>
-          <UserPostFooter>
-            <a href="#">
-              <i class="far fa-comments"></i>Comments
-            </a>
-            <a href="#" id="counter">
-              <i class="fas fa-arrow-circle-up"></i>Nice
-            </a>
-          </UserPostFooter>
-        </UserPostContainer>
-        <UserPostContainer>
-          <UserPostHeader>
-            <h2>Posted By: jarweav on 01/21/21</h2>
-          </UserPostHeader>
-          <UserPostBody>
-            <span>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-              eleifend urna dolor, blandit interdum elit vehicula quis. Morbi
-              quis pharetra felis. Maecenas a consectetur tellus, vitae pharetra
-              lacus. Duis eu est vel massa luctus rutrum. Vestibulum tristique
-              dui vel arcu vestibulum interdum. Donec laoreet lectus id bibendum
-              mattis.
-            </span>
-          </UserPostBody>
-          <UserPostFooter>
-            <a href="#">
-              <i class="far fa-comments"></i>Comments
-            </a>
-            <a href="#" id="counter">
-              <i class="fas fa-arrow-circle-up"></i>Nice
-            </a>
-          </UserPostFooter>
-        </UserPostContainer>
+        
       </FeedContainer>
     </div>
   );

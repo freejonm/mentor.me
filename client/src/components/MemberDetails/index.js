@@ -85,7 +85,7 @@ export default function MemberProfile({
                     <br></br>
                     <li><h5>Pronouns: </h5>{pronouns}</li>
                     <br></br>
-                    <li><h5>Email: </h5> {email}</li>
+                    <li><h5>Email: </h5> <a href={`mailto:${email}`}>{email}</a></li>
                     <br></br>
                     <li><h5>Location: </h5>{location}</li>
                     <br></br>

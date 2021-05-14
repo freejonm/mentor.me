@@ -5,7 +5,6 @@
   display: grid;
   place-items: center;
 }
-
 .chat-login {
   width: 600px;
   height: 350px;
@@ -38,12 +37,10 @@ h4 {
   margin-top: 50px !important;
   margin-bottom: 50px;
 }
-
 .Button {
   background-color: #db784d !important;
   margin-top: 50px !important;
 }
-
 .chat-inputs {
   margin: 10px;
   width: 200px;
@@ -51,7 +48,6 @@ h4 {
   background-color: transparent;
   padding-left: 10px;
 }
-
 .chat-container {
   width: 600px;
   height: 350px;
@@ -67,14 +63,12 @@ h4 {
   background-color: #637f7d !important;
   box-shadow: 1px 1px 2px 2px black !important;
 }
-
 .messages {
   flex: 80%;
   width: 100%;
   background-color: white;
   padding-left: 20px;
 }
-
 .message-container {
   color: black;
   display: flex;
@@ -82,17 +76,14 @@ h4 {
   align-items: center;
   width: calc(100%-30px);
 }
-
 #You {
   margin-right: 30px;
   justify-content: flex-end;
 }
-
 #Other {
   justify-content: flex-start;
   /* background-color: antiquewhite; */
 }
-
 #Other .message-individual {
   /* background-color: rgb(124, 226, 90); */
   background-color: #012a2f;
@@ -113,14 +104,12 @@ h4 {
   margin-top: 20px;
   opacity: 0.9;
 }
-
 .message-inputs {
   flex: 20%;
   width: 100%;
   display: flex;
   flex-direction: row;
 }
-
 .chat-inputs button {
   width: 200px;
   height: 50px;
@@ -129,12 +118,10 @@ h4 {
   color: white;
   margin-top: 10%;
 }
-
 .message-container h1 {
   font-weight: 300;
   font-size: 17px;
 }
-
 .message-inputs input {
   flex: 80%;
   height: calc(100%);
@@ -145,7 +132,6 @@ h4 {
   font-size: 20px;
   hover-color:#ffffff;
 }
-
 .message-inputs button {
   background-color: #db784d;
   color: white;

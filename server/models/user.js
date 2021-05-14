@@ -49,24 +49,24 @@ const userSchema = new Schema({
   ],
 
   sentRequests:[{
-    userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", unique: true },
     username: { type: String, default: '' }
   }],
 
   mentorRequests: [{
-    userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User', unique: true},
     username: { type: String, default: '' }
   }],
 
   friendsList: [
     {
-      friendId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+      friendId: { type: mongoose.Schema.Types.ObjectId, ref: "User", unique: true },
       username: { type: String, unique: false},
       firstName: { type: String, unique: false },
       lastName: { type: String, unique: false },
       pronouns: { type: String, unique: false },
       mentorStatus: { type: Boolean, unique: false, default: false },
-      profilePicture: { data: Buffer, contentType: String },
+      profilePicture: { type: String, unique: false },
     },
   ],
   totalRequest: { type: Number, default: 0 },

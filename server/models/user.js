@@ -47,8 +47,9 @@ const userSchema = new Schema({
       username: { type: String, default: "" },
     },
   ],
- 
+
   sentRequests:[{
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     username: { type: String, default: '' }
   }],
 
@@ -60,7 +61,12 @@ const userSchema = new Schema({
   friendsList: [
     {
       friendId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-      friendName: { type: String, default: "" },
+      username: { type: String, unique: false},
+      firstName: { type: String, unique: false },
+      lastName: { type: String, unique: false },
+      pronouns: { type: String, unique: false },
+      mentorStatus: { type: Boolean, unique: false, default: false },
+      profilePicture: { data: Buffer, contentType: String },
     },
   ],
   totalRequest: { type: Number, default: 0 },

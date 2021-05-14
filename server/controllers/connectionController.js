@@ -31,9 +31,39 @@ module.exports = {
   },
 
   approveMentorRequest: (req, res) => {
-    db.User.findOneAndUpdate({ _id: req.params.id }, { $push: { mentorRequests: {  userId: req.user._id, username: req.user.username } },  }, { new: true })
+    db.User.findOneAndUpdate(
+        { _id: req.params.id }, 
+        { 
+            $push: { friendsList: {  
+                friendId: req.user._id, 
+                username: req.user.username, 
+                firstName: req.user.firstName,
+                lastName: req.user.lastName,
+                pronouns: req.uesr.pronouns,
+                mentorStatus: req.user.mentorStatus,
+                profilePicture: mreq.user.profilePicture
+                } 
+            }, 
+            $pull: { sentRequests: { userId: req.user.id } } 
+        },  
+        { new: true })
     .then(dbUser => {
-        db.User.findOneAndUpdate({ _id: req.user._id }, { $push: { sentRequests: { userId: req.params.id, username: dbUser.username } } }, { new: true })
+        db.User.findOneAndUpdate(
+            { _id: req.user._id }, 
+            { 
+                $push: { friendsList: { 
+                    friendId: req.params.id,
+                    username: dbUser.username,
+                    firstName: dbUser.firstName,
+                    lastName: dbUser.lastName,
+                    pronouns: dbUser.pronouns,
+                    mentorStatus: dbUser.mentorStatus,
+                    profilePicture: dbUser.profilePicture
+                    }
+                },
+                $pull: { mentorRequests: { userId: req.params.id } } 
+            }, 
+            { new: true })
         .then( dbCurrent => {
             res.status(200).json(dbCurrent.username + ' sent a friend request to ' + dbUser.username)
         })

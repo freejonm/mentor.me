@@ -96,7 +96,8 @@ module.exports = {
       meetingsAttended,
       mentorStatus,
       timeCommitment,
-      commPrefs
+      commPrefs, 
+      learningAbout
 
     } = req.body;
 
@@ -125,6 +126,7 @@ module.exports = {
         mentorStatus: mentorStatus,
         timeCommitment: timeCommitment,
         commPrefs: commPrefs,
+        learningAbout: learningAbout,
 
         friendsList: [
           {

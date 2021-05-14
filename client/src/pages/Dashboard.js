@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import Calendar from '../components/Calendar';
+import Notifications from '../components/Notifications';
 import UserProfile from '../components/UserProfile';
 // import EditProfileButton from '../components/EditProfileButton';
 // import ConnectionsCard from '../components/ConnectionsCard';
@@ -16,7 +16,7 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import API from '../utils/API';
 import styled from 'styled-components';
-import { ModalProvider, BaseModalBackground } from 'styled-react-modal';
+import { ModalProvider } from 'styled-react-modal';
 import EditModal from '../components/Modal';
 
 const useStyles = makeStyles((theme) => ({
@@ -37,33 +37,15 @@ const ConnectionsName = styled.strong`
   /* background-color: #012a2f; */
 `;
 
-// const StyledModal = Modal.styled`
-//   width: 20rem;
-//   height: 20rem;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   background-color: white;
-// `;
-
 export default function Dashboard({ user, rankedMentors }) {
   const classes = useStyles();
   const [users, setUsers] = useState([]);
   const [connections, setConnections] = useState([]);
   const [potentialMentors, setPotentialMentors] = useState([]);
   const [updatedUser, setUpdatedUser] = useState(user
-    // lastName: '',
-    // pronouns: '',
-    // username: '',
-    // email: '',
-    // showPassword: '',
-    // currentPosition: '',
-    // yearsExperience: '',
-    // education: '',
-    // location: ''
+
   );
-  //  const [formObject, setFormObject] = useState({});
-  //  const formEl = useRef(null);
+
 
   useEffect(() => {
     loadUsers();
@@ -153,7 +135,7 @@ console.log('potentialmentors', potentialMentors)
 
         <Grid item xs={6}>
           <Paper className={classes.paper}>
-            <Calendar />
+            <Notifications />
             <AddtoCalendarButton />
           </Paper>
         </Grid>

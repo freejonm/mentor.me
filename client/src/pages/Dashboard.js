@@ -10,7 +10,6 @@ import {
   PotentialConnectionsItem
 } from '../components/PotentialConnections';
 // import PotentialConnections from '../components/PotentialConnections';
-import AddtoCalendarButton from '../components/AddtoCalendarButton';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
@@ -136,7 +135,6 @@ console.log('potentialmentors', potentialMentors)
         <Grid item xs={6}>
           <Paper className={classes.paper}>
             <Notifications />
-            <AddtoCalendarButton />
           </Paper>
         </Grid>
         <Grid item xs={6}>

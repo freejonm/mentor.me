@@ -6,6 +6,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import styled from 'styled-components';
 
 
 
@@ -26,18 +27,33 @@ const useStyles = makeStyles({
       marginBottom: 12,
     },
   });
-
-  export default function Notifications() {
+  export default function Notifications({alerts}) {
     const classes = useStyles();
-    const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <Card className={classes.root}>
       <CardContent>
-        <Typography variant="h5" component="h2">
+        <Typography variant="h3" component="h3">
          <h3>Notifications</h3>
         </Typography>
-     
+      <ul className="list-overflow-container">
+        <li className="list-group-item">
+              {/* {alerts} */}
+              You have a mentor request from Ashley Smith.
+        </li>
+        <li className="list-group-item">
+              {/* {alerts} */}
+              You have a mentor request from Jim Beam.
+        </li>
+        <li className="list-group-item">
+              {/* {alerts} */}
+              You request from Ja Rule was denied.
+        </li>
+        <li className="list-group-item">
+              {/* {alerts} */}
+              Ja Rule commented on your post.
+        </li>
+      </ul>
        
       </CardContent>
     </Card>

@@ -17,6 +17,7 @@ import API from '../utils/API';
 import styled from 'styled-components';
 import { ModalProvider } from 'styled-react-modal';
 import EditModal from '../components/Modal';
+import ViewRequestModal from '../components/ViewRequestModal'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -135,7 +136,16 @@ console.log('user', user)
 
         <Grid item xs={6}>
           <Paper className={classes.paper}>
-            <Notifications />
+            <Notifications>
+            <ModalProvider>
+              <ViewRequestModal
+                handleInputChange={handleInputChange}
+                handleSave={handleSave}
+                updatedUser={updatedUser}
+                user={user}
+              />
+            </ModalProvider>
+              </Notifications> 
           </Paper>
         </Grid>
         <Grid item xs={6}>

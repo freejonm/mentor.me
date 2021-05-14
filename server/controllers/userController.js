@@ -126,6 +126,7 @@ module.exports = {
         mentorStatus: mentorStatus,
         timeCommitment: timeCommitment,
         commPrefs: commPrefs,
+        learningAbout: learningAbout,
 
         friendsList: [
           {

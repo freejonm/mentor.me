@@ -68,11 +68,20 @@ function SignupForm() {
   const [isQuarterly, setIsQuarterly] = useState(false);
   const [isOnDemand, setIsOnDemand] = useState(false);
 
-  // states for comm preferences checkboxes
-  const [isInPerson, setIsInPerson] = useState(false);
-  const [isVideoChat, setIsVideoChat] = useState(false);
-  const [isTextChat, setIsTextChat] = useState(false);
-  const [isMessageBoards, setIsMessageBoards] = useState(false);
+  // states for learning about checkboxes
+  const [isJavascript, setIsJavascript] = useState(false);
+  const [isRuby, setIsRuby] = useState(false);
+  const [isPython, setIsPython] = useState(false);
+  const [isCsharp, setIsCsharp] = useState(false);
+  const [isNode, setIsNode] = useState(false);
+  const [isReact, setIsReact] = useState(false);
+  const [isSQL, setIsSQL] = useState(false);
+  const [isMongoDB, setIsMongoDB] = useState(false);
+  const [isBash, setIsBash] = useState(false);
+  const [isSalaryNeg, setIsSalaryNeg] = useState(false);
+  const [isCarreerPaths, setIsCareerPaths] = useState(false);
+  const [isWorkplaceEq, setIsWorkplaceEq] = useState(false);
+
 
   // update functions for time commitment checkboxes
   const updateWeekly = () => {

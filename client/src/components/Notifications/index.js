@@ -8,8 +8,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import styled from 'styled-components';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-
-
+import { ModalProvider } from 'styled-react-modal';
+import ViewRequestModal from '../ViewRequestModal';
 
 const useStyles = makeStyles({
   root: {
@@ -28,8 +28,6 @@ const useStyles = makeStyles({
     marginBottom: 12
   }
 });
-
-
 
 const ViewRequestButton = styled.button`
   background-color: #01444c;
@@ -51,24 +49,67 @@ const ViewRequestButton = styled.button`
   }
 `;
 
-export default function Notifications({ alerts }) {
+export default function Notifications({
+  alerts,
+  avatar,
+  userName,
+  fullName,
+  pronouns,
+  email,
+  currentPosition,
+  yearsExp,
+  education,
+  location
+}) {
   const classes = useStyles();
 
   return (
     <>
-    <Card className={classes.root}>
-      <CardContent>
-        <Typography variant="h3" component="h3">
-          <h3>Notifications</h3>
-        </Typography>
-        <ul className="list-overflow-container">
-          <li className="list-group-item">
-            {/* {alerts} */}
-            You have a request from Ja Rule. <ViewRequestButton>Accept Request</ViewRequestButton>
-          </li>
-        </ul>
-      </CardContent>
-    </Card>
+      <Card className={classes.root}>
+        <CardContent>
+          <Typography variant="h3" component="h3">
+            <h3>Notifications</h3>
+          </Typography>
+          <ul className="list-overflow-container">
+            <li className="list-group-item">
+              {/* {alerts} */}
+              You have a request from Ja Rule.
+              <ModalProvider>
+                <ViewRequestModal
+                // handleInputChange={handleInputChange}
+                // handleSave={handleSave}
+                // updatedUser={updatedUser}
+                // user={user}
+                />
+              </ModalProvider>
+            </li>
+            <li className="list-group-item">
+              {/* {alerts} */}
+              You have a request from Ja Rule.
+              <ModalProvider>
+                <ViewRequestModal
+                // handleInputChange={handleInputChange}
+                // handleSave={handleSave}
+                // updatedUser={updatedUser}
+                // user={user}
+                />
+              </ModalProvider>
+            </li>
+            <li className="list-group-item">
+              {/* {alerts} */}
+              You have a request from Ja Rule.
+              <ModalProvider>
+                <ViewRequestModal
+                // handleInputChange={handleInputChange}
+                // handleSave={handleSave}
+                // updatedUser={updatedUser}
+                // user={user}
+                />
+              </ModalProvider>
+            </li>
+          </ul>
+        </CardContent>
+      </Card>
     </>
   );
 }

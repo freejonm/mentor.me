@@ -28,15 +28,18 @@ const Chat = () => {
   //After Login
   const [message, setMessage] = useState('')
   const [messageList, setMessageList] = useState([])
+
   useEffect(() => {
     socket = io(CONNECTION_PORT)
   }, [CONNECTION_PORT])
+
   useEffect(() => {
     socket.on('receive_message', (data) => {
       console.log(data)
       setMessageList([...messageList, data])
     })
   })
+
   const connectToRoom = () => {
     setLoggedIn(true)
     socket.emit('join_room', room)
@@ -49,9 +52,20 @@ const Chat = () => {
         message: message
       }
     }
+
+    socket.on('join_room', function(docs) {
+      console.log('Here are docs' + docs)
+      // docs.map(message, function() {
+      //   if(message.room === room) {
+      //     console.log('room' + message)
+      //   }
+      // })
+    })
+
     socket.emit('send_message', messageContent)
     setMessageList([...messageList, messageContent.content])
     setMessage('')
+
   }
   // const useStyles = makeStyles((theme) => ({
   //   root: {

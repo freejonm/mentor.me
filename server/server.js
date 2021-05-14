@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 3001;
 const cors = require('cors')
 const socket = require('socket.io')
 
-
+const db = require('./models')
 
 // Middlewares
 app.use(cors())
@@ -69,15 +69,39 @@ const io = socket(server, {
 })
 
 io.on('connection', (socket) => {
-	console.log(socket.id)
+	console.log('Your id is: ' + socket.id)
+	
 
 	socket.on('join_room', (data) => {
+		console.log('sending saved messages...')
+		console.log('Data: ' + data)
+		socket.emit('Welcome')
+		db.Message.find({}, function(err, docs) {
+		if(err) throw err;
+		console.log('Here are the saved messages: ' + docs)
+
+		docs.map(message => {
+			socket.emit('')
+		})
+		
+	})
 		socket.join(data)
 		console.log('User Joined Room: ' + data)
 	})
 
 	socket.on('send_message', (data) => {
-		console.log(data)
+		// console.log(data)
+		// console.log(data.content)
+		let newMsg = new db.Message ({ 
+			room: data.room,
+			content: {
+				author: data.content.author,
+				message: data.content.message
+			}
+		})
+		newMsg.save(function(err) {
+			if(err) throw err;
+		})
 		socket.to(data.room).emit('receive_message', data.content)
 	})
 

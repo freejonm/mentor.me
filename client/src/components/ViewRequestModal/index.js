@@ -3,27 +3,58 @@ import Modal from "styled-react-modal";
 import EditProfileForm from '../EditProfileForm';
 import styled from 'styled-components';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 
-const theme = createMuiTheme({
-  overrides: {
-    MuiButton: {
-      text: {
-        // background: 'linear-gradient(45deg, #db784d 30%, #eda320 90%)',
-        background: '#db784d',
-        borderRadius: 3,
-        font: 'Righteous',
-        border: 0,
-        color: 'white',
-        height: 36,
-        padding: '0 20px',
-        margin: '10px',
-        boxShadow: '0 3px 5px 2px rgba((219,120,77, .3)'
-        // width: 100
-      }
-    }
+const ViewRequestButton = styled.button`
+  background-color: #01444c;
+  color: white;
+  border-radius: 3px;
+  font-family: 'Righteous', sans-serif;
+  border: none;
+  height: 36px;
+  padding: 0px 20px;
+  margin: 10px;
+  box-shadow: 0 3px 5px 2px rgba(219, 120, 77, 0.3);
+  font-size: 16px;
+  &:hover {
+    background-color: #637f7d;
+    color: #012a2f;
   }
-});
+`;
+
+const UserProfileTitle = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-family: 'Righteous', sans-serif;
+  font-size: 32px;
+  background-color: #db784d;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  
+
+`;
+
+const Body = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: flex-start;
+font-family: 'Ubuntu';
+width: 100%;
+font-size: 16px;
+ul{
+    list-style-type: none;
+    background: transparent;
+    h5 {
+        font-weight: 'bold';
+        font-size: 22px;
+        font-family: 'Righteous', sans-serif;
+    }
+    li {
+        margin-bottom: 5px;
+        flex-direction: row;
+    }
+}
+`;
 
 const StyledModal = Modal.styled`
 position: fixed;
@@ -51,7 +82,6 @@ function ViewRequestModal({avatar,
   userName,
   fullName,
   pronouns,
-  email,
   currentPosition,
   yearsExp,
   education,
@@ -64,21 +94,41 @@ function ViewRequestModal({avatar,
 
   return (
     <div>
-      <ThemeProvider theme={theme}>
-        <Button onClick={toggleModal}>View Request</Button>
-      </ThemeProvider>
+        <ViewRequestButton onClick={toggleModal}>View Request</ViewRequestButton>
+      
       <StyledModal
         isOpen={isOpen}
         onBackgroundClick={toggleModal}
         onEscapeKeydown={toggleModal}
       >
-        <ModalHead>View Request</ModalHead>
+        <ModalHead>{(fullName, pronouns)}</ModalHead>
+            
+            <img src="https://randomuser.me/api/portraits/women/75.jpg" />
+            {/* <EditAvatar>Change Picture</EditAvatar> */}
+          
+            <Body>
+                <ul>
+                    <li>Name:{fullName}</li>
+                    <br></br>
+                    <li>Pronouns:{pronouns}</li>
+                    <br></br>
+                    <li>Location:{location}</li>
+                    <br></br>
+                    <li>Current Position:{currentPosition} </li>
+                    <br></br>
+                    <li>Years Experience:{yearsExp}</li>
+                    <br></br>
+                    <li>Education:{education}</li>        
+              </ul>
+              </Body>
+           
+       
 
+    
+          <ViewRequestButton onClick={toggleModal}>Accept</ViewRequestButton>
+          <ViewRequestButton onClick={toggleModal}>Deny</ViewRequestButton>
 
-        <ThemeProvider theme={theme}>
-          <Button onClick={toggleModal}>Finish</Button>
-
-        </ThemeProvider>
+      
       </StyledModal>
     </div>
   );

@@ -1,5 +1,4 @@
-import { CalendarContent } from '@fullcalendar/common'
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import io from 'socket.io-client'
 import '../styles/Chat.css'

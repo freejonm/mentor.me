@@ -142,7 +142,7 @@ console.log('potentialmentors', potentialMentors)
             {potentialMentors.length ? (
                 <PotentialConnections>
             {potentialMentors.map((mentor) => (
-                <PotentialConnectionsItem key={mentor._id}>
+                <PotentialConnectionsItem key={mentor._id} mentorId={mentor._id}>
                   <Link to={'memberprofile/' + mentor._id}>
                     <img src={mentor.profilePicture} />
                     <ConnectionsName>

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const RequestButton = styled.button`
+  
   background-color: #db784d;
   border-radius: 3px;
   font-family: 'Righteous', sans-serif;
@@ -11,6 +12,13 @@ const RequestButton = styled.button`
   padding: 0px 20px;
   margin: 10pxl;
   box-shadow: 0 3px 5px 2px rgba(219, 120, 77, 0.3);
+  font-size: 16px;
+  &:hover {
+    background-color: #01444c;
+  }
+  i {
+    margin-right: 10px;
+  }
 `;
 
 const MentorRequestBtn = () => {
@@ -18,7 +26,7 @@ const MentorRequestBtn = () => {
     <div>
       <RequestButton>
         <i class="fas fa-user-plus"></i>
-        Request Mentor
+          Request Mentor
       </RequestButton>
     </div>
   );

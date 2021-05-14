@@ -75,13 +75,14 @@ function SignupForm() {
   const [isCsharp, setIsCsharp] = useState(false);
   const [isNode, setIsNode] = useState(false);
   const [isReact, setIsReact] = useState(false);
+  const [isRails, setIsRails] = useState(false);
   const [isSQL, setIsSQL] = useState(false);
   const [isMongoDB, setIsMongoDB] = useState(false);
-  const [isBash, setIsBash] = useState(false);
   const [isSalaryNeg, setIsSalaryNeg] = useState(false);
   const [isCarreerPaths, setIsCareerPaths] = useState(false);
   const [isWorkplaceEq, setIsWorkplaceEq] = useState(false);
 
+  
 
   // update functions for time commitment checkboxes
   const updateWeekly = () => {
@@ -123,6 +124,61 @@ function SignupForm() {
   const updateMessageBoards = () => {
     setIsMessageBoards(!isMessageBoards);
     userObject.commPrefs.push("Message Boards");
+  };
+
+  // update functions for learningAbout
+  const updateJavascript = () => {
+    setIsJavascript(!isJavascript);
+    userObject.learningAbout.push("Javascript");
+  };
+
+  const updateRuby= () => {
+    setIsRuby(!isRuby);
+    userObject.learningAbout.push("Ruby");
+  };
+  const updatePython = () => {
+    setIsPython(!isPython);
+    userObject.learningAbout.push("Python");
+  };
+
+  const updateCsharp = () => {
+    setIsCsharp(!isCsharp);
+    userObject.learningAbout.push("C#");
+  };
+  const updateNode = () => {
+    setIsNode(!isNode);
+    userObject.learningAbout.push("Node");
+  };
+
+  const updateReact = () => {
+    setIsReact(!isReact);
+    userObject.learningAbout.push("React");
+  };
+  const updateRails = () => {
+    setIsRails (!isRails );
+    userObject.learningAbout.push("Rails");
+  };
+
+  const updateSQL = () => {
+    setIsSQL(!isSQL);
+    userObject.learningAbout.push("SQL");
+  };
+  const updateMongoDB = () => {
+    setIsMongoDB(!isMongoDB);
+    userObject.learningAbout.push("MongoDB");
+  };
+  const updateSalaryNeg = () => {
+    setIsSalaryNeg(!isSalaryNeg);
+    userObject.learningAbout.push("Salary Negotiations");
+  };
+  const updateCareerPaths = () => {
+    setIsCareerPaths(!isCareerPaths);
+    userObject.learningAbout.push("Career Paths");
+  };
+
+  const updateWorkplaceEq = () => {
+    setIsWorkplaceEq(!isWorkplaceEq);
+    userObject.learningAbout.push("Workplace Equity");
   };
 
   // functions for textbox change, updating user, and submitting

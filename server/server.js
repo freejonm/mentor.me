@@ -73,20 +73,28 @@ io.on('connection', (socket) => {
 	
 
 	socket.on('join_room', (data) => {
-		console.log('sending saved messages...')
-		console.log('Data: ' + data)
-		socket.emit('Welcome')
-		db.Message.find({}, function(err, docs) {
-		if(err) throw err;
-		console.log('Here are the saved messages: ' + docs)
-
-		docs.map(message => {
-			socket.emit('')
-		})
+		let prevMessages = [];
 		
-	})
 		socket.join(data)
 		console.log('User Joined Room: ' + data)
+	
+		console.log('sending saved messages...')
+		console.log('Data: ' + data)
+
+		db.Message.find({}, function(err, savedMessages) {
+			if(err) throw err;
+			console.log('Here are the saved messages: ' + savedMessages)
+	
+			savedMessages.map(message => {
+				if(message.room === 'Nuke') {
+				console.log('Nuke content ' + message.content)
+				prevMessages.push(message.content)
+				console.log('Please' + prevMessages)
+				}
+			})
+		})
+				socket.to(data).emit('receive_message', {author: 'Clay', message: 'hello'})
+
 	})
 
 	socket.on('send_message', (data) => {
@@ -102,6 +110,7 @@ io.on('connection', (socket) => {
 		newMsg.save(function(err) {
 			if(err) throw err;
 		})
+
 		socket.to(data.room).emit('receive_message', data.content)
 	})
 

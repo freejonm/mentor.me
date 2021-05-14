@@ -120,12 +120,12 @@ const WelcomeDiv = () => {
           as="a"
           href="/register"
           whileHover={{
-            scale: 1.05,
+            scale: 1,
             color: '#637f7d',
             textDecoration: 'none'
           }}
           whileTap={{
-            scale: 0.85,
+            scale: 0.3,
             backgroundColor: '#637f7d',
             border: 'none',
             color: 'white'

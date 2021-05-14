@@ -12,6 +12,7 @@ import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,17 +23,39 @@ const useStyles = makeStyles((theme) => ({
     border: '3px solid #012a2f'
   },
   margin: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(1)
   },
   withoutLabel: {
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(3)
   },
   textField: {
-    width: '25ch',
+    width: '25ch'
   },
+  overrides: {
+    MuiButton: {
+      text: {
+        // background: 'linear-gradient(45deg, #db784d 30%, #eda320 90%)',
+        background: '#db784d',
+        borderRadius: 3,
+        font: 'Righteous',
+        border: 0,
+        color: 'white',
+        height: 36,
+        padding: '0 20px',
+        margin: '10px',
+        boxShadow: '0 3px 5px 2px rgba((219,120,77, .3)'
+        // width: 100
+      }
+    }
+  }
 }));
 
-export default function EditProfileForm({user, handleInputChange, handleSave, updatedUser}) {
+export default function EditProfileForm({
+  user,
+  handleInputChange,
+  handleSave,
+  updatedUser
+}) {
   const classes = useStyles();
   const [values, setValues] = React.useState({
     firstName: '',
@@ -45,8 +68,7 @@ export default function EditProfileForm({user, handleInputChange, handleSave, up
     currentPosition: '',
     yearsExperience: '',
     education: '',
-    location: '',
-
+    location: ''
   });
 
   const handleChange = (prop) => (event) => {
@@ -63,53 +85,69 @@ export default function EditProfileForm({user, handleInputChange, handleSave, up
 
   return (
     <div className={classes.root}>
- 
-      
-      
       <div>
         <TextField
           label="First Name"
           id="outlined-start-adornment"
           className={clsx(classes.margin, classes.textField)}
           InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
+            startAdornment: <InputAdornment position="start"></InputAdornment>
           }}
-          name='firstName'
+          name="firstName"
           variant="outlined"
-          value={ updatedUser.firstName.length === 0 ? user.firstName : updatedUser.firstName}
+          value={
+            updatedUser.firstName}
           onChange={handleInputChange}
-
         />
-        <TextField
+        {/* <TextField
           label="Last Name"
           id="outlined-start-adornment"
           className={clsx(classes.margin, classes.textField)}
           InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
+            startAdornment: <InputAdornment position="start"></InputAdornment>
           }}
+          name="lastName"
           variant="outlined"
-          
-        />
+          value={
+            updatedUser.lastName.length === 0
+              ? user.lastName
+              : updatedUser.lastName
+          }
+          onChange={handleInputChange}
+        /> */}
         <TextField
           label="Pronouns"
           id="outlined-start-adornment"
           className={clsx(classes.margin, classes.textField)}
           InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
+            startAdornment: <InputAdornment position="start"></InputAdornment>
           }}
+          name="pronouns"
           variant="outlined"
+          value={
+            updatedUser.pronouns
+          }
+          onChange={handleInputChange}
         />
         <TextField
           label="Username"
           id="outlined-start-adornment"
           className={clsx(classes.margin, classes.textField)}
           InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
+            startAdornment: <InputAdornment position="start"></InputAdornment>
           }}
+          name="username"
           variant="outlined"
+          value={
+            updatedUser.username
+          }
+          onChange={handleInputChange}
         />
-        
-        {/* <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
+
+        <FormControl
+          className={clsx(classes.margin, classes.textField)}
+          variant="outlined"
+        >
           <OutlinedInput
             id="outlined-adornment-weight"
             value={values.weight}
@@ -117,14 +155,21 @@ export default function EditProfileForm({user, handleInputChange, handleSave, up
             endAdornment={<InputAdornment position="end">Kg</InputAdornment>}
             aria-describedby="outlined-weight-helper-text"
             inputProps={{
-              'aria-label': 'weight',
+              'aria-label': 'weight'
             }}
             labelWidth={0}
           />
-          <FormHelperText id="outlined-weight-helper-text">Weight</FormHelperText>
-        </FormControl> */}
-        <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+          <FormHelperText id="outlined-weight-helper-text">
+            Weight
+          </FormHelperText>
+        </FormControl>
+        <FormControl
+          className={clsx(classes.margin, classes.textField)}
+          variant="outlined"
+        >
+          <InputLabel htmlFor="outlined-adornment-password">
+            Password
+          </InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
             type={values.showPassword ? 'text' : 'password'}
@@ -150,48 +195,70 @@ export default function EditProfileForm({user, handleInputChange, handleSave, up
           id="outlined-start-adornment"
           className={clsx(classes.margin, classes.textField)}
           InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
+            startAdornment: <InputAdornment position="start"></InputAdornment>
           }}
+          name="email"
           variant="outlined"
+          value={
+            updatedUser.email
+          }
+          onChange={handleInputChange}
         />
         <TextField
           label="Current Position"
           id="outlined-start-adornment"
           className={clsx(classes.margin, classes.textField)}
           InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
+            startAdornment: <InputAdornment position="start"></InputAdornment>
           }}
+          name="currentPosition"
           variant="outlined"
+          value={
+            updatedUser.currentPosition
+          }
+          onChange={handleInputChange}
         />
         <TextField
           label="Years Expierence"
           id="outlined-start-adornment"
           className={clsx(classes.margin, classes.textField)}
           InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
+            startAdornment: <InputAdornment position="start"></InputAdornment>
           }}
+          name="yearsExperience"
           variant="outlined"
+          value={
+            updatedUser.yearsExperience
+          }
+          onChange={handleInputChange}
         />
         <TextField
           label="Education"
           id="outlined-start-adornment"
           className={clsx(classes.margin, classes.textField)}
           InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
+            startAdornment: <InputAdornment position="start"></InputAdornment>
           }}
+          name="education"
           variant="outlined"
+          value={
+            updatedUser.education}
+          onChange={handleInputChange}
         />
         <TextField
           label="Location"
           id="outlined-start-adornment"
           className={clsx(classes.margin, classes.textField)}
           InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
+            startAdornment: <InputAdornment position="start"></InputAdornment>
           }}
+          name="location"
           variant="outlined"
+          value={
+            updatedUser.location}
+          onChange={handleInputChange}
         />
-
-
+        <Button onClick={handleSave}>Save Changes</Button>
       </div>
     </div>
   );

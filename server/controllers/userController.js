@@ -23,7 +23,7 @@ module.exports = {
   },
 
   updateUser: ( req, res ) => {
-    db.User.findOneAndUpdate({ _id: req.params.id }, req.body)
+    db.User.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
       .then(user => {
         res.json(user)
       })
@@ -48,6 +48,26 @@ module.exports = {
         res.json({ users: user });
       })
       .catch((err) => res.status(422).json(err));
+  },
+
+  getUsersByFirstName: (req, res) => {
+    console.log(req.params)
+    db.User.find({ firstName: req.params.firstName})
+      .populate({ path: "users", options: { sort: { lastName: -1 } } })
+      .then(dbUsers => {
+        res.json({ users: dbUsers });
+      })
+  },
+
+  getUsersByFullName: (req, res) => {
+    db.User.find({
+      firstName: req.params.firstName,
+      lastName: req.params.lastName
+    })
+      .populate({ path: "users", options: { sort: { lastName: -1 } } })
+      .then(dbUsers => {
+        res.json({ users: dbUsers })
+      })
   },
 
   findById: function (req, res) {

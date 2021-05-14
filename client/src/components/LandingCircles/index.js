@@ -55,22 +55,7 @@ const LandingCircles = () => {
         }}
         url={imageone}
       >
-        <InnerText
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 10 }}
-        >
-          Step 1: 
-          
-        </InnerText>{' '}
-        <InnerText
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 10 }}
-        >
-          Find mentors 
-          
-        </InnerText>{' '}
+        
       </Circles>
       <Circles
         initial={{ opacity: 0, x: -100 }}
@@ -89,20 +74,7 @@ const LandingCircles = () => {
         }}
         url={imagetwo}
       >
-        <InnerText
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 10 }}
-        >
-          Step 2:
-        </InnerText>
-        <InnerText
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 10 }}
-        >
-          Eat Salad
-        </InnerText>
+        
       </Circles>
       <Circles
         initial={{ opacity: 0, x: -100 }}
@@ -121,20 +93,7 @@ const LandingCircles = () => {
         }}
         url={imagethree}
       >
-        <InnerText
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 10 }}
-        >
-          Step 3:
-        </InnerText>
-        <InnerText
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 10 }}
-        >
-          Profit
-        </InnerText>
+        
       </Circles>
     </Wrapper>
   );

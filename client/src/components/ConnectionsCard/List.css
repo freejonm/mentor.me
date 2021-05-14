@@ -16,7 +16,6 @@
   border-left: none;
   border-right: none;
   display: flex;
-  
 }
 
 .list-overflow-container li * {
@@ -24,7 +23,7 @@
 }
 
 .list-overflow-container li a {
-  color:#01444c;
+  color: #01444c;
 }
 
 /* .list-overflow-container li:first-child {
@@ -35,13 +34,13 @@
   border-bottom: none;
 }
 
-.list-group{
-    justify-content: space-between;
+.list-group {
+  /* justify-content: space-between; */
+  margin-top: 0% !important;
 }
-
 
 .list-group-item {
   align-content: left;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   font-size: 22px;
 }

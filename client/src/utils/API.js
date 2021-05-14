@@ -27,6 +27,21 @@ export default {
   },
   updateUser: (id) => {
     return axios.put('/api/users/' + id)
+  },
+  getUsersByFirstName: (userName) => {
+    return axios.get('/api/users/firstname', {
+      params: {
+        firstName: userName.firstName
+      }
+    })
+  },
+  getUsersByFullName: (userName) => {
+    return axios.get('/api/users/fullname', {
+      params: {
+        firstName: userName.firstName,
+        lastName: userName.lastName
+      }
+    })
   }
    
 };

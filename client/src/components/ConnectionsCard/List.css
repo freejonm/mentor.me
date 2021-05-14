@@ -16,6 +16,7 @@
   border-left: none;
   border-right: none;
   display: flex;
+  justify-content: space-between;
 }
 
 .list-overflow-container li * {

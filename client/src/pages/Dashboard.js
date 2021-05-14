@@ -67,6 +67,7 @@ export default function Dashboard({ user, rankedMentors }) {
   const getConnections = () => {
     API.getConnections(user._id).then((res) => {
       // console.log(res.data.connections);
+
       setConnections(res.data.connections);
     });
   };
@@ -87,8 +88,8 @@ export default function Dashboard({ user, rankedMentors }) {
       })
       .catch((err) => console.log(err));
   }
-// console.log('updated arr', updatedUser)
-console.log('potentialmentors', potentialMentors)
+console.log('user', user)
+// console.log(potentialMentors)
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
@@ -115,12 +116,12 @@ console.log('potentialmentors', potentialMentors)
           <Paper className={classes.paper}>
             {users.length ? (
               <Connections>
-                {users.map((users) => (
-                  <ConnectionsItem key={users._id}>
-                    <Link to={'/memberprofile/' + users._id}>
-                      <img src={users.profilePicture} />
+                {connections.map((connect) => (
+                  <ConnectionsItem key={connect._id}>
+                    <Link to={'/memberprofile/' + connect._id}>
+                      <img src={connect.profilePicture} />
                       <ConnectionsName>
-                        {users.firstName} {users.lastName} ({users.pronouns})
+                        {connect.friendName}
                       </ConnectionsName>
                     </Link>
                   </ConnectionsItem>

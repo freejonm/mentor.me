@@ -42,7 +42,7 @@ const ConnectionsName = styled.strong`
 //   height: 20rem;
 //   display: flex;
 //   align-items: center;
-//   justify-content: center;
+//   justify-content: center;git pull
 //   background-color: white;
 // `;
 

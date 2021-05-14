@@ -58,6 +58,7 @@ function SignupForm() {
     education: '',
     timeCommitment: [],
     commPrefs: [],
+    learningAbout: []
   })
 
   const [redirectTo, setRedirectTo] = useState(null)
@@ -67,6 +68,12 @@ function SignupForm() {
   const [isMonthly, setIsMonthly] = useState(false);
   const [isQuarterly, setIsQuarterly] = useState(false);
   const [isOnDemand, setIsOnDemand] = useState(false);
+
+  // states for comm preferences checkboxes
+  const [isInPerson, setIsInPerson] = useState(false);
+  const [isVideoChat, setIsVideoChat] = useState(false);
+  const [isTextChat, setIsTextChat] = useState(false);
+  const [isMessageBoards, setIsMessageBoards] = useState(false);
 
   // states for learning about checkboxes
   const [isJavascript, setIsJavascript] = useState(false);
@@ -79,7 +86,7 @@ function SignupForm() {
   const [isSQL, setIsSQL] = useState(false);
   const [isMongoDB, setIsMongoDB] = useState(false);
   const [isSalaryNeg, setIsSalaryNeg] = useState(false);
-  const [isCarreerPaths, setIsCareerPaths] = useState(false);
+  const [isCareerPaths, setIsCareerPaths] = useState(false);
   const [isWorkplaceEq, setIsWorkplaceEq] = useState(false);
 
   
@@ -335,7 +342,7 @@ function SignupForm() {
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
-                required
+                // required
                 fullWidth
                 name="pronouns"
                 label="Preferred pronouns"
@@ -494,6 +501,144 @@ function SignupForm() {
               }
               label="Message Boards"
               /> 
+            </FormGroup>
+            <Typography component="p" fontStyle="italic" variant="p">
+              Which of the following topics are you interested in talking to mentors about?
+            </Typography>
+            <FormGroup row>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isJavascript}
+                  onChange={updateJavascript}
+                  name="isJavascript"
+                  color="primary"
+                />
+              }
+              label="Javascript" 
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isRuby}
+                  onChange={updateRuby}
+                  name="isRuby"
+                  color="primary"
+                />
+              }
+              label="Ruby" 
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isPython}
+                  onChange={updatePython}
+                  name="isPython"
+                  color="primary"
+                />
+              }
+              label="Python" 
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isCsharp}
+                  onChange={updateCsharp}
+                  name="isCsharp"
+                  color="primary"
+                />
+              }
+              label="C#" 
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isNode}
+                  onChange={updateNode}
+                  name="isNode"
+                  color="primary"
+                />
+              }
+              label="Node" 
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isReact}
+                  onChange={updateReact}
+                  name="isReact"
+                  color="primary"
+                />
+              }
+              label="React" 
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isRails}
+                  onChange={updateRails}
+                  name="isRails"
+                  color="primary"
+                />
+              }
+              label="Rails" 
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isSQL}
+                  onChange={updateSQL}
+                  name="isSQL"
+                  color="primary"
+                />
+              }
+              label="SQL" 
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isMongoDB}
+                  onChange={updateMongoDB}
+                  name="isSQL"
+                  color="primary"
+                />
+              }
+              label="MongoDB" 
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isCareerPaths}
+                  onChange={updateCareerPaths}
+                  name="isCareerPaths"
+                  color="primary"
+                />
+              }
+              label="Career Paths" 
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isSalaryNeg}
+                  onChange={updateSalaryNeg}
+                  name="isSalaryNeg"
+                  color="primary"
+                />
+              }
+              label="Salary negotiation" 
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isWorkplaceEq}
+                  onChange={updateWorkplaceEq}
+                  name="isWorkplaceEq"
+                  color="primary"
+                />
+              }
+              label="Workplace equity" 
+            />
+
             </FormGroup>
           </Grid>
 

@@ -137,14 +137,7 @@ console.log('user', user)
         <Grid item xs={6}>
           <Paper className={classes.paper}>
             <Notifications>
-            <ModalProvider>
-              <ViewRequestModal
-                handleInputChange={handleInputChange}
-                handleSave={handleSave}
-                updatedUser={updatedUser}
-                user={user}
-              />
-            </ModalProvider>
+            
               </Notifications> 
           </Paper>
         </Grid>

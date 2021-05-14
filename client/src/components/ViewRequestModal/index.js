@@ -36,25 +36,6 @@ border: 3px solid #000;
 border-radius: 5px;
 `;
 
-const EditAvatar = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  font-size: 16px;
-  border: 2px solid #db784d;
-  border-radius: 5px;
-  outline: none;
-  cursor: pointer;
-  background-color: #637f7d;
-  color: white;
-  margin-top: 5px;
-  &:hover {
-    background-color: #db784d;
-    text-decoration: none;
-    color: white;
-  }
-`;
 
 const ModalHead = styled.h3`
   background-color: #637f7d;
@@ -65,21 +46,16 @@ const ModalHead = styled.h3`
   padding: 20px;
 `;
 
-const ModalPicContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 10px;
-  img {
-    height: 130px;
-    width: 110px;
-    border-radius: 5%;
-    box-shadow: 1px 1px 2px 2px black;
-  }
-`;
 
-function EditModal({user, handleInputChange, handleSave, updatedUser}) {
+function ViewRequestModal({avatar,
+  userName,
+  fullName,
+  pronouns,
+  email,
+  currentPosition,
+  yearsExp,
+  education,
+  location}) {
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleModal(e) {
@@ -89,21 +65,16 @@ function EditModal({user, handleInputChange, handleSave, updatedUser}) {
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <Button onClick={toggleModal}>Edit Profile</Button>
+        <Button onClick={toggleModal}>View Request</Button>
       </ThemeProvider>
       <StyledModal
         isOpen={isOpen}
         onBackgroundClick={toggleModal}
         onEscapeKeydown={toggleModal}
       >
-        <ModalHead>Edit Profile</ModalHead>
-        <ModalPicContainer>
-          <img src="https://randomuser.me/api/portraits/women/75.jpg" />
-          <ThemeProvider theme={theme}>
-            <Button>Change Picture</Button>
-          </ThemeProvider>
-        </ModalPicContainer>
-        <EditProfileForm user={user} handleInputChange={handleInputChange}  updatedUser={updatedUser}/>
+        <ModalHead>View Request</ModalHead>
+
+
         <ThemeProvider theme={theme}>
           <Button onClick={toggleModal}>Finish</Button>
 
@@ -113,4 +84,4 @@ function EditModal({user, handleInputChange, handleSave, updatedUser}) {
   );
 }
 
-export default EditModal;
+export default ViewRequestModal;

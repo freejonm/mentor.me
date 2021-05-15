@@ -41,24 +41,32 @@ const userSchema = new Schema({
   // What's the best way to save meetings made with calendar?
   // calendar/meetings?: { type: ?, unique: false, required: false },
   
-  mentor: [
+  mentors: [
     {
       userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
       username: { type: String, default: "" },
     },
   ],
- 
-  sendRequest:[{
+
+  sentRequests:[{
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", unique: true },
     username: { type: String, default: '' }
   }],
-  request: [{
-    userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+
+  mentorRequests: [{
+    userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User', unique: true},
     username: { type: String, default: '' }
   }],
+
   friendsList: [
     {
-      friendId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-      friendName: { type: String, default: "" },
+      friendId: { type: mongoose.Schema.Types.ObjectId, ref: "User", unique: true },
+      username: { type: String, unique: false},
+      firstName: { type: String, unique: false },
+      lastName: { type: String, unique: false },
+      pronouns: { type: String, unique: false },
+      mentorStatus: { type: Boolean, unique: false, default: false },
+      profilePicture: { type: String, unique: false },
     },
   ],
   totalRequest: { type: Number, default: 0 },

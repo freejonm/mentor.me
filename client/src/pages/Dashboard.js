@@ -17,6 +17,7 @@ import API from '../utils/API';
 import styled from 'styled-components';
 import { ModalProvider } from 'styled-react-modal';
 import EditModal from '../components/Modal';
+import ViewRequestModal from '../components/ViewRequestModal'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -67,6 +68,7 @@ export default function Dashboard({ user, rankedMentors }) {
   const getConnections = () => {
     API.getConnections(user._id).then((res) => {
       // console.log(res.data.connections);
+
       setConnections(res.data.connections);
     });
   };
@@ -87,8 +89,8 @@ export default function Dashboard({ user, rankedMentors }) {
       })
       .catch((err) => console.log(err));
   }
-// console.log('updated arr', updatedUser)
-console.log('potentialmentors', potentialMentors)
+console.log('user', user)
+// console.log(potentialMentors)
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
@@ -115,12 +117,12 @@ console.log('potentialmentors', potentialMentors)
           <Paper className={classes.paper}>
             {users.length ? (
               <Connections>
-                {users.map((users) => (
-                  <ConnectionsItem key={users._id}>
-                    <Link to={'/memberprofile/' + users._id}>
-                      <img src={users.profilePicture} />
+                {connections.map((connect) => (
+                  <ConnectionsItem key={connect._id}>
+                    <Link to={'/memberprofile/' + connect._id}>
+                      <img src={connect.profilePicture} />
                       <ConnectionsName>
-                        {users.firstName} {users.lastName} ({users.pronouns})
+                        {connect.friendName}
                       </ConnectionsName>
                     </Link>
                   </ConnectionsItem>
@@ -134,7 +136,9 @@ console.log('potentialmentors', potentialMentors)
 
         <Grid item xs={6}>
           <Paper className={classes.paper}>
-            <Notifications />
+            <Notifications
+              user={user}>
+              </Notifications> 
           </Paper>
         </Grid>
         <Grid item xs={6}>
@@ -142,7 +146,7 @@ console.log('potentialmentors', potentialMentors)
             {potentialMentors.length ? (
                 <PotentialConnections>
             {potentialMentors.map((mentor) => (
-                <PotentialConnectionsItem key={mentor._id}>
+                <PotentialConnectionsItem key={mentor._id} mentorId={mentor._id}>
                   <Link to={'memberprofile/' + mentor._id}>
                     <img src={mentor.profilePicture} />
                     <ConnectionsName>

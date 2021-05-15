@@ -3,6 +3,6 @@ import MentorRequestBtn from '../MentorRequestBtn'
 
 export const PotentialConnectionsItem = props => (
   <li className="list-group-item">
-    {props.children} <MentorRequestBtn/>
+    {props.children} <MentorRequestBtn mentor={props.mentorId}/>
   </li>
 );

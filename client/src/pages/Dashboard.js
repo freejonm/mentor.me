@@ -122,7 +122,9 @@ console.log('user', user)
                     <Link to={'/memberprofile/' + connect._id}>
                       <img src={connect.profilePicture} />
                       <ConnectionsName>
-                        {connect.friendName}
+                        {connect.firstName + ' '} 
+                        {connect.lastName + ' '}
+                        {'(' + connect.pronouns + ')'}
                       </ConnectionsName>
                     </Link>
                   </ConnectionsItem>

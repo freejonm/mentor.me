@@ -46,7 +46,7 @@ const Chat = () => {
   const connectToRoom = () => {
     setLoggedIn(true)
     socket.emit('join_room', room)
-
+    
   }
 
   const sendMessage = async () => {

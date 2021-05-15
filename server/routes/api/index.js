@@ -5,7 +5,7 @@ const userRoutes = require('./user');
 const messageBoardRoutes = require('./messageBoard');
 const connectionsRoutes = require('./connections')
 
-// routes
+// routess
 router.use("/mentor", mentorRoutes);
 router.use("/mentee", menteeRoutes);
 router.use('/users', userRoutes);

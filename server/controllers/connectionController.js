@@ -31,6 +31,7 @@ module.exports = {
   },
 
   approveMentorRequest: (req, res) => {
+    console.log(req.body)
     db.User.findOneAndUpdate(
         { _id: req.params.id }, 
         { 
@@ -39,9 +40,9 @@ module.exports = {
                 username: req.user.username, 
                 firstName: req.user.firstName,
                 lastName: req.user.lastName,
-                pronouns: req.uesr.pronouns,
-                mentorStatus: req.user.mentorStatus,
-                profilePicture: mreq.user.profilePicture
+                pronouns: req.body.pronouns,
+                mentorStatus: req.body.mentorStatus,
+                profilePicture: req.body.profilePicture
                 } 
             }, 
             $pull: { sentRequests: { userId: req.user.id } } 
@@ -65,7 +66,7 @@ module.exports = {
             }, 
             { new: true })
         .then( dbCurrent => {
-            res.status(200).json(dbCurrent.username + ' sent a friend request to ' + dbUser.username)
+            res.status(200).json(dbCurrent.username + ' approved friend request from ' + dbUser.username)
         })
         .catch(err => {
             console.log('current user error')
@@ -76,6 +77,10 @@ module.exports = {
         console.log('mentor request error')
         res.status(422).json(err)
     })
+  },
+
+  denyMentorRequest: (req, res) => {
+      
   }
 
 };

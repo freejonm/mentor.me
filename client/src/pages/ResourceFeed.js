@@ -136,7 +136,9 @@ const [post, setPost] = useState([{}])
   const renderFeed = () => { 
     API.getAllPosts().then(posts => {
       console.log(posts.data.post)
+
       let feedData = posts.data.post
+      
     feedData.map(post => {
       return (
         <UserPostContainer>

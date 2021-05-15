@@ -114,7 +114,7 @@ const WelcomeDiv = () => {
           animate="visible"
           transition={{ duration: 1 }}
         >
-          The tinder of mentorships.
+         the next step for coding bootcamp grads
         </motion.p>
         <Button
           as="a"

@@ -119,10 +119,12 @@ console.log('user', user)
               <Connections>
                 {connections.map((connect) => (
                   <ConnectionsItem key={connect._id}>
-                    <Link to={'/memberprofile/' + connect._id}>
+                    <Link to={'/memberprofile/' + connect.friendId}>
                       <img src={connect.profilePicture} />
                       <ConnectionsName>
-                        {connect.friendName}
+                        {connect.firstName + ' '} 
+                        {connect.lastName + ' '}
+                        {'(' + connect.pronouns + ')'}
                       </ConnectionsName>
                     </Link>
                   </ConnectionsItem>

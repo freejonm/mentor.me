@@ -18,6 +18,7 @@ module.exports = {
 
     getAllPosts: (req, res) => {
         db.Board.find({})
+        .populate({ path: 'post'})
         .then(dbPost => {
             res.json({ post: dbPost})
         })
@@ -40,7 +41,9 @@ module.exports = {
     },
 
     createPost: (req, res) => {
+        console.log(req.body)
         db.Board.create(req.body)
+        console.log(req.body)
         .then(dbPost => {
             res.json({ post: dbPost})
         })

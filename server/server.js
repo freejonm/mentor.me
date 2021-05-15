@@ -68,12 +68,14 @@ const io = socket(server, {
 	}
 })
 
+let prevMessages = [];
+
 io.on('connection', (socket) => {
 	console.log('Your id is: ' + socket.id)
 	
 
 	socket.on('join_room', (data) => {
-		let prevMessages = [];
+		
 		
 		socket.join(data)
 		console.log('User Joined Room: ' + data)
@@ -86,15 +88,14 @@ io.on('connection', (socket) => {
 			console.log('Here are the saved messages: ' + savedMessages)
 	
 			savedMessages.map(message => {
-				if(message.room === 'Nuke') {
+				if(message.room) {
 				console.log('Nuke content ' + message.content)
 				prevMessages.push(message.content)
 				console.log('Please' + prevMessages)
 				}
 			})
 		})
-				socket.to(data).emit('receive_message', {author: 'Clay', message: 'hello'})
-
+				socket.to(data).emit('receive_message', prevMessages)
 	})
 
 	socket.on('send_message', (data) => {

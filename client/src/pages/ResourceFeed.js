@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import API from '../utils/API';
 
+
 const FeedContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -128,6 +129,23 @@ const UserPostFooter = styled.div`
 const ResourceFeed = ({ userName, datePosted }) => {
 
 const [count,setCount] = useState(0);
+const [feed, setFeed] = useState('')
+const [post, setPost] = useState({})
+
+
+const handleChange = (event) => {
+  setFeed(event.target.value);
+  console.log(feed)
+  setPost({ body: feed })
+},
+
+handleClick = (e) => {
+  e.preventDefault()
+  console.log(feed)
+  console.log(post)
+  API.createPost(post)
+}
+
 
   return (
     <div>
@@ -139,10 +157,11 @@ const [count,setCount] = useState(0);
         </h5>
         <PostCard>
           <h2> What would you like to share with your fellow coders? </h2>
-          <WritePost placeholder="Remember, be nice!" cols="30" rows="5">
-            {' '}
+          <WritePost value={feed} onChange={handleChange} placeholder="Remember, be nice!" cols="30" rows="5">
+            
           </WritePost>
-          <Button
+          <Button 
+          onClick={handleClick}
             whileHover={{
               scale: 1.05,
               color: '#637f7d',

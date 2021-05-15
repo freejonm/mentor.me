@@ -130,7 +130,39 @@ const ResourceFeed = ({ userName, datePosted }) => {
 
 const [count,setCount] = useState(0);
 const [feed, setFeed] = useState('')
-const [post, setPost] = useState({})
+const [post, setPost] = useState([{}])
+
+
+  const renderFeed = () => { 
+    API.getAllPosts().then(posts => {
+      console.log(posts.data.post)
+      let feedData = posts.data.post
+    feedData.map(post => {
+      return (
+        <UserPostContainer>
+          <UserPostHeader>
+            <h2>Posted By: {post._id}{post.date}</h2>
+            <h2>Nice's: {count}</h2>
+          </UserPostHeader>
+          <UserPostBody>
+            <span>
+              {post.body}
+            </span>
+          </UserPostBody>
+          <UserPostFooter>
+            <a href="#">
+              <i class="far fa-comments"></i>Comments
+            </a>
+            <a onClick={() => setCount(count + 1)}>
+              <i class="fas fa-arrow-circle-up"></i>Nice
+            </a>
+          </UserPostFooter>
+        </UserPostContainer>
+      )
+    })
+
+  })
+}
 
 
 const handleChange = (event) => {
@@ -202,9 +234,11 @@ handleClick = (e) => {
               <i class="fas fa-arrow-circle-up"></i>Nice
             </a>
           </UserPostFooter>
+         
         </UserPostContainer>
-        
+        {renderFeed}
       </FeedContainer>
+       
     </div>
   );
 };

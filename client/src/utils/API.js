@@ -45,5 +45,8 @@ export default {
   },
    createPost: (feed) => {
      return axios.post('/api/messageboard', feed)
+   },
+   getAllPosts: () => {
+     return axios.get('api/messageboard')
    }
 };

@@ -42,6 +42,8 @@ export default {
         lastName: userName.lastName
       }
     })
-  }
-   
+  },
+   createPost: (feed) => {
+     return axios.post('/api/messageboard', feed)
+   }
 };

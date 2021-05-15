@@ -4,7 +4,7 @@ import Nav from './components/Nav';
 import LoginForm from './pages/Auth/LoginForm';
 import Landing from './pages/Landing';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import Register from './pages/Auth/Register';
 import StickyFooter from './components/StickyFooter';
 
@@ -80,7 +80,7 @@ function App() {
         <div className="content">
           <Route exact path="/" component={Landing} />
           {loggedIn && (
-            <Router>
+            <Switch>
               <Route
                 exact
                 path="/dashboard"
@@ -94,18 +94,18 @@ function App() {
                 component={MemberProfile}
               />
               <Route exact path="/chat" component={Chat} />
-              <Route exact path='/resourcefeed' component={ResourceFeed}/>
-            </Router>
+              <Route exact path="/resourcefeed" component={ResourceFeed} />
+            </Switch>
           )}
           {!loggedIn && (
-            <Router>
+            <Switch>
               <Route
                 exact
                 path="/login"
                 component={() => <LoginForm login={login} />}
               />
               <Route exact path="/register" component={Register} />
-            </Router>
+            </Switch>
           )}
         </div>
         <StickyFooter />

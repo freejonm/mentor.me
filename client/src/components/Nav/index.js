@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Auth from '../../utils/AUTH';
+import { Link } from 'react-router-dom';
 
 const NavContainer = styled.nav`
   display: inline-flex;
@@ -15,7 +16,7 @@ const NavContainer = styled.nav`
   z-index: 100;
 `;
 
-const NavBrand = styled.a`
+const NavBrand = styled(Link)`
   font-size: 60px;
   color: white;
   font-family: 'Righteous', sans-serif;
@@ -33,7 +34,7 @@ const NavLinkGroup = styled.ul`
   padding-top: 5px;
 `;
 
-const NavLink = styled.a`
+const StyledLink = styled(Link)`
   font-family: 'Righteous', sans-serif;
   display: flex;
   justify-content: space-between;
@@ -62,7 +63,6 @@ const NavP = styled.a`
   color: white;
   font-size: 30px;
   margin-right: 15px;
-
   &:hover {
     color: #637f7d;
     text-decoration: none;
@@ -80,26 +80,23 @@ const Nav = ({ loggedIn }) => {
   return (
     <div>
       <NavContainer>
-        <NavBrand href="/">mentor me</NavBrand>
+        <NavBrand to='/'>mentor me</NavBrand>
         <NavLinkGroup>
           {loggedIn ? (
             <>
-              <NavLink href="/dashboard"> Dashboard </NavLink>
-              {/* <NavPipe /> */}
-              <NavLink href="/chat"> Chat </NavLink>
-              {/* <NavPipe /> */}
-              <NavLink href="/resourcefeed"> Feed </NavLink>
-              {/* <NavPipe /> */}
-              <NavLink href="/" onClick={handleSubmit}>
+              <StyledLink to='/dashboard'> Dashboard </StyledLink>
+              <StyledLink to='/chat'> Chat </StyledLink>
+              <StyledLink to='/resourcefeed'> Feed </StyledLink>
+              <StyledLink to='/' onClick={handleSubmit}>
                 {' '}
                 <NavP>Logout</NavP>
-              </NavLink>
+              </StyledLink>
             </>
           ) : (
             <>
-              <NavLink href="/register"> Getting Started </NavLink>
+              <StyledLink to='/register'> Getting Started </StyledLink>
               {/* <NavPipe /> */}
-              <NavLink href="/login"> Login </NavLink>
+              <StyledLink to='/login'> Login </StyledLink>
             </>
           )}
         </NavLinkGroup>

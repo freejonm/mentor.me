@@ -39,12 +39,12 @@ app.use(passport.session()); // will call the deserializeUser
 // If its production environment!
 if (process.env.NODE_ENV === 'production') {
 	const path = require('path');
-	// console.log('YOU ARE IN THE PRODUCTION ENV');
+	console.log('YOU ARE IN THE PRODUCTION ENV');
 	app.use(express.static("client/build"));
-	// app.use('/static', express.static(path.join(__dirname, '../client/build/static')));
-	// app.get('/', (req, res) => {
-	// 	res.sendFile(path.join(__dirname, '../client/build/'))
-	// });
+	app.use('/static', express.static(path.join(__dirname, '../client/build/static')));
+	app.get('/', (req, res) => {
+		res.sendFile(path.join(__dirname, '../client/build/'))
+	});
 }
 
 // Add routes, both API and view

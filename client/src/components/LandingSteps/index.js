@@ -24,17 +24,17 @@ export default function CenteredGrid() {
        
         <Grid item xs={4}>
 
+              <h2>Sign Up</h2>
+
+        </Grid>
+        <Grid item xs={4}>
+
               <h2>Find Mentors</h2>
 
         </Grid>
         <Grid item xs={4}>
 
-              <h2>Eat Salad</h2>
-
-        </Grid>
-        <Grid item xs={4}>
-
-              <h2>Profit</h2>
+              <h2>Grow</h2>
 
         </Grid>
         

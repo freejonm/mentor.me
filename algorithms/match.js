@@ -12,15 +12,11 @@ const rankAndSort = (currentUser, mentors) => {
 
         currentUser.friendsList.map(map => {
             if (mentor._id == map.friendId) {
-                console.log('already a friend')
             } else {
                 sortedMentors.push(mentor)
             }
         })
-
     });
-
-    console.log('sorted' + sortedMentors)
     
     sortedMentors.sort((a, b) => (a.score > b.score) ? -1 : 1);
     return sortedMentors

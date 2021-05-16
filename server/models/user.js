@@ -60,6 +60,7 @@ const userSchema = new Schema({
 
   friendsList: [
     {
+      _id: { type: ObjectId },
       friendId: { type: mongoose.Schema.Types.ObjectId, ref: "User", unique: true },
       username: { type: String, unique: false},
       firstName: { type: String, unique: false },

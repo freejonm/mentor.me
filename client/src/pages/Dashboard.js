@@ -40,7 +40,6 @@ const ConnectionsName = styled.strong`
 export default function Dashboard({ user, rankedMentors }) {
   const classes = useStyles();
   const [users, setUsers] = useState([]);
-  const [connections, setConnections] = useState([]);
   const [potentialMentors, setPotentialMentors] = useState([]);
   const [updatedUser, setUpdatedUser] = useState(user
 
@@ -49,7 +48,6 @@ export default function Dashboard({ user, rankedMentors }) {
 
   useEffect(() => {
     loadUsers();
-    getConnections();
     getMatches();
   }, []);
 
@@ -62,14 +60,6 @@ export default function Dashboard({ user, rankedMentors }) {
     e.preventDefault();
     API.updateUser(updatedUser).then((res) => {
       console.log(res.data.user);
-    });
-  };
-
-  const getConnections = () => {
-    API.getConnections(user._id).then((res) => {
-      // console.log(res.data.connections);
-
-      setConnections(res.data.connections);
     });
   };
 
@@ -117,9 +107,9 @@ console.log('user', user)
           <Paper className={classes.paper}>
             {users.length ? (
               <Connections>
-                {connections.map((connect) => (
+                {user.friendsList.map((connect) => (
                   <ConnectionsItem key={connect._id}>
-                    <Link to={'/memberprofile/' + connect.friendId}>
+                    <Link to={'/memberprofile/' + connect._id}>
                       <img src={connect.profilePicture} />
                       <ConnectionsName>
                         {connect.firstName + ' '} 

@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: 'center',
-    backgroundColor: theme.palette.secondary
+    backgroundColor: theme.palette.secondary.main
   }
 }));
 
@@ -45,7 +45,7 @@ export default function Dashboard({ user, rankedMentors }) {
   const [updatedUser, setUpdatedUser] = useState(user
 
   );
-
+ 
 
   useEffect(() => {
     loadUsers();

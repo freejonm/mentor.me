@@ -31,8 +31,11 @@ const UserProfileTitle = styled.div`
 
 `;
 const Pic = styled.div`
- width: 60%auto;
-  height:300px;
+img {
+  width: 200px;
+  height:200px;
+}
+
   `;
 
 const Body = styled.div`
@@ -82,9 +85,9 @@ export default function MemberProfile({
         <UserProfileTitle>{userName}'s Profile</UserProfileTitle>
             {(fullName, pronouns)}
         <Pic> 
-            <img src={avatar} /> </Pic>
+            <img src={avatar} /> 
             {/* <EditAvatar>Change Picture</EditAvatar> */}
-          
+            </Pic>
             <Body>
                 <ul>
                     <li><h5>Name: </h5>{fullName}</li>

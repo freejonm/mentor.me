@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
 function SignupForm() {
 
   const [userObject, setUSerObject] = useState({
-    profilePicture: 'https://www.pikpng.com/pngl/m/80-805523_default-avatar-svg-png-icon-free-download-264157.png',
+    profilePicture: '',
     firstName: '',
     lastName: '',
     username: '',

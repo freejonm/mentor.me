@@ -46,10 +46,12 @@ module.exports = {
                 profilePicture: req.body.profilePicture
                 } 
             }, 
-            $pull: { sentRequests: { userId: req.user.id } } 
+            $pull: { sentRequests: { userId: req.user._id } } 
         },  
         { new: true })
     .then(dbUser => {
+        // console.log(dbUser);
+        // console.log(req.params, req.user)
         db.User.findOneAndUpdate(
             { _id: req.user._id }, 
             { 

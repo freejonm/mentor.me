@@ -10,9 +10,6 @@ export default {
   getAllUsers: function () {
     return axios.get("api/users");
   },
-  getMentors: function () {
-    return axios.get("api/mentor");
-  },
   getMentees: function () {
     return axios.get("api/mentee");
   },
@@ -22,8 +19,8 @@ export default {
   getConnections: (id) => {
     return axios.get("/api/users/connections/" + id);
   },
-  getMatches: (id) => {
-    return axios.get("/api/mentor/" + id);
+  getMatches: (userData) => {
+    return axios.put("/api/mentor/", userData);
   },
   updateUser: (id) => {
     return axios.put("/api/users/" + id);

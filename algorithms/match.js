@@ -1,4 +1,5 @@
 const rankAndSort = (currentUser, mentors) => {
+    let sortedMentors = []
     
     mentors.map((mentor) => {
         let score = 0
@@ -8,10 +9,21 @@ const rankAndSort = (currentUser, mentors) => {
             }
         })
         mentor.score = score;
+
+        currentUser.friendsList.map(map => {
+            if (mentor._id == map.friendId) {
+                console.log('already a friend')
+            } else {
+                sortedMentors.push(mentor)
+            }
+        })
+
     });
+
+    console.log('sorted' + sortedMentors)
     
-    mentors.sort((a, b) => (a.score > b.score) ? -1 : 1);
-    return mentors
+    sortedMentors.sort((a, b) => (a.score > b.score) ? -1 : 1);
+    return sortedMentors
 }
 
 module.exports = rankAndSort;

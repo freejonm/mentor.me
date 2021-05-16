@@ -3,6 +3,7 @@ import Modal from "styled-react-modal";
 import EditProfileForm from '../EditProfileForm';
 import styled from 'styled-components';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import API from '../../utils/API'
 
 const ViewRequestButton = styled.button`
   background-color: #01444c;
@@ -79,11 +80,28 @@ const ModalHead = styled.h3`
 
 
 function ViewRequestModal({
-user}) {
+user, request}) {
   const [isOpen, setIsOpen] = useState(false);
+  const [userInfo, setUserInfo] = useState({});
 
   function toggleModal(e) {
-    setIsOpen(!isOpen);
+    if (!isOpen) {
+      setIsOpen(true);
+      API.getUserByID(request.userId).then(res => setUserInfo(res.data.users));
+    } else {
+      setIsOpen(false);
+      setUserInfo({});
+    }
+  }
+
+  const acceptRequest = (e) => {
+    API.approveMentorRequest(userInfo._id, user).then(res => {
+      console.log(res.data);
+    })
+  }
+
+  const denyRequest = (e) => {
+
   }
 
   return (
@@ -95,31 +113,23 @@ user}) {
         onBackgroundClick={toggleModal}
         onEscapeKeydown={toggleModal}
       >
-        <ModalHead>{user.firstName} {user.lastName} ({user.pronouns})</ModalHead>
-            
+        <ModalHead>{userInfo.firstName} {userInfo.lastName} ({userInfo.pronouns})</ModalHead>
+            <br></br>
             <img src="https://randomuser.me/api/portraits/women/75.jpg" />
             {/* <EditAvatar>Change Picture</EditAvatar> */}
           
             <Body>
                 <ul>
-                    <li>Name:{user.firstName}</li>
                     <br></br>
-                    <li>Pronouns:{user.pronouns}</li>
+                    <li>Location:{userInfo.location}</li>
                     <br></br>
-                    <li>Location:{user.location}</li>
+                    <li>Current Position:{userInfo.currentPosition} </li>
                     <br></br>
-                    <li>Current Position:{user.currentPosition} </li>
-                    <br></br>
-                    <li>Years Experience:{user.yearsExp}</li>
-                    <br></br>
-                    <li>Education:{user.education}</li>        
+                    <li>Education:{userInfo.education}</li>        
               </ul>
               </Body>
-           
-       
-
-    
-          <ViewRequestButton onClick={toggleModal}>Accept</ViewRequestButton>
+            
+          <ViewRequestButton onClick={acceptRequest}>Accept</ViewRequestButton>
           <ViewRequestButton onClick={toggleModal}>Deny</ViewRequestButton>
 
       

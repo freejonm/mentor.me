@@ -43,7 +43,7 @@ module.exports = {
   },
 
   getRankedMentors: (req, res, next) => {
-    console.log(req.user);
+    // console.log(req.user);
     let currentUser;
     // let currentMentors;
     db.User
@@ -57,7 +57,7 @@ module.exports = {
 
           const ranked = algo(currentUser[0], mentors);
 
-          console.log('ranked list: '+ ranked);
+          // console.log('ranked list: '+ ranked);
 
           res.json({rankedMentors: ranked});
         })

@@ -45,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
 function SignupForm() {
 
   const [userObject, setUSerObject] = useState({
+    profilePicture: '',
     firstName: '',
     lastName: '',
     username: '',
@@ -206,8 +207,9 @@ function SignupForm() {
     console.log(userObject)
   
     AUTH.signup({
+      profilePicture: userObject.profilePicture,
       firstName: userObject.firstName,
-      lastname: userObject.lastName,
+      lastName: userObject.lastName,
       pronouns: userObject.pronouns,
       username: userObject.username,
       password: userObject.password,

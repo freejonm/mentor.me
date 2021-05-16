@@ -147,7 +147,9 @@ console.log('user', user)
           <Paper className={classes.paper}>
             {potentialMentors.length ? (
                 <PotentialConnections>
-            {potentialMentors.map((mentor) => (
+            {potentialMentors.map((mentor) => {
+              if (mentor._id !== user._id) {
+                return (
                 <PotentialConnectionsItem key={mentor._id} mentorId={mentor._id}>
                   <Link to={'memberprofile/' + mentor._id}>
                     <img src={mentor.profilePicture} />
@@ -155,9 +157,9 @@ console.log('user', user)
                       {mentor.firstName} {mentor.lastName} ({mentor.pronouns})
                     </ConnectionsName>
                   </Link>
-
                 </PotentialConnectionsItem>
-            ))}
+                )}
+            })}
             </PotentialConnections>
             ) : (
               <h3>No Results to Display</h3>

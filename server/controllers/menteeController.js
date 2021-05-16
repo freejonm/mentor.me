@@ -34,7 +34,7 @@ module.exports = {
     db.Mentee
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbMentee => {
-        console.log(dbMentee);
+        // console.log(dbMentee);
         res.json(dbMentee);
       })
       .catch(err => res.status(422).json(err));

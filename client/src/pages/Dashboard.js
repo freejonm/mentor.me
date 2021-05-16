@@ -74,7 +74,7 @@ export default function Dashboard({ user, rankedMentors }) {
   };
 
   const getMatches = () => {
-    API.getMatches(user._id).then((res) => {
+    API.getMatches(user).then((res) => {
       console.log('ranked',res.data.rankedMentors);
       const matches = res.data.rankedMentors;
       setPotentialMentors(matches);
@@ -148,7 +148,7 @@ console.log('user', user)
             {potentialMentors.length ? (
                 <PotentialConnections>
             {potentialMentors.map((mentor) => {
-              if (mentor._id !== user._id) {
+              if (mentor._id !== user._id || user.friendsList.includes(mentor._id)) {
                 return (
                 <PotentialConnectionsItem key={mentor._id} mentorId={mentor._id}>
                   <Link to={'memberprofile/' + mentor._id}>

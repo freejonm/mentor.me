@@ -1,4 +1,38 @@
+const mongoose = require('mongoose')
 const users = [
+  {
+    _id: mongoose.Types.ObjectId("6095aee05516bd0f04679db3"),
+    profilePicture: "https://i.imgur.com/BMPCuLG.png",
+    firstName: "Erik",
+    lastName: "Brown",
+    pronouns: "he/him",
+    location: "Huntsville, Al",
+    email: "ejbrownlf@gmail.com",
+    password: "$2a$10$kxOeupAgV.isgsbRmwgF0.IIdG77zp1nK0CtepMY9TDUiFWBAg9mG",
+    meetingsAttended: 5,
+    username: "ejbrownlf",
+    unHashedPassword: "water",
+    mentorStatus: true,
+    description:
+      "Looking to eat some salad",
+    desire: "looking to eat even more salad",
+    gradyear: 2021,
+    isLookingForMentor: true,
+    education: "UNC Coding Bootcamp",
+    hoursSpentWithMentor: 11,
+    details: [
+      "Python",
+      "C",
+      "WordPress",
+      "ASP.NET",
+      "Data Structures",
+      "Alogrithms",
+      "Management",
+    ],
+    currentPosition: "Developer",
+    friendsList: [],
+    fieldOfInterest: "Web Development",
+  },
   {
     profilePicture: "https://randomuser.me/api/portraits/thumb/women/77.jpg",
     firstName: "Judith",

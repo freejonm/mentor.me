@@ -76,7 +76,7 @@ export default function MemberProfile({
         <UserContainer>
         <UserProfileTitle>{userName}'s Profile</UserProfileTitle>
             {(fullName, pronouns)}
-            <img src="https://randomuser.me/api/portraits/women/75.jpg" />
+            <img src={avatar} />
             {/* <EditAvatar>Change Picture</EditAvatar> */}
           
             <Body>

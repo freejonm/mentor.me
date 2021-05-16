@@ -31,6 +31,7 @@ return (
         {/* <Grid item xs={9}>
           <Paper className={classes.paper}> */}
           <MemberDetails 
+          avatar={userData.profilePicture}
           userName={userData.username}
           email={userData.email} 
           location={userData.location} 

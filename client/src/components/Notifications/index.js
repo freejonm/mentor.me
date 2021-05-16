@@ -74,7 +74,7 @@ export default function Notifications({
              return ( <li className="list-group-item">
                 you have a request from {request.username}
                 <ModalProvider>
-                  <ViewRequestModal user={request}/>
+                  <ViewRequestModal request={request} user={user}/>
                 </ModalProvider>
               </li>)
             })}

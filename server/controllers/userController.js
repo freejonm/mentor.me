@@ -1,5 +1,6 @@
 const ObjectId = require("mongoose").Types.ObjectId;
 const db = require("../models");
+const path = require('path')
 
 // Defining methods for the userController
 module.exports = {
@@ -31,7 +32,7 @@ module.exports = {
   },
 
   getConnections: (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     db.User.find({ _id: req.user._id })
       .populate("friendsList")
       .then((user) => {
@@ -51,7 +52,7 @@ module.exports = {
   },
 
   getUsersByFirstName: (req, res) => {
-    console.log(req.params)
+    // console.log(req.params)
     db.User.find({ firstName: req.params.firstName})
       .populate({ path: "users", options: { sort: { lastName: -1 } } })
       .then(dbUsers => {
@@ -79,7 +80,7 @@ module.exports = {
   },
 
   register: (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     const {
       profilePicture,
       firstName,
@@ -130,8 +131,14 @@ module.exports = {
 
         friendsList: [
           {
+            _id: "6095aee05516bd0f04679db3",
             friendID: "6095aee05516bd0f04679db3",
-            friendName: "Erik",
+            username: "ejbrownlf",
+            firstName: "Erik",
+            lastName: "Brown",
+            pronouns: "he/him",
+            mentorStatus: true,
+            profilePicture: "https://imgur.com/a/ZfK9CXv"
           },
         ],
       });

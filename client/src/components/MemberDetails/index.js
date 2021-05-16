@@ -30,6 +30,13 @@ const UserProfileTitle = styled.div`
   
 
 `;
+const Pic = styled.div`
+img {
+  width: 200px;
+  height:200px;
+}
+
+  `;
 
 const Body = styled.div`
 display: flex;
@@ -38,6 +45,7 @@ justify-content: flex-start;
 font-family: 'Ubuntu';
 width: 100%;
 font-size: 16px;
+
 ul{
     list-style-type: none;
     h5 {
@@ -76,9 +84,10 @@ export default function MemberProfile({
         <UserContainer>
         <UserProfileTitle>{userName}'s Profile</UserProfileTitle>
             {(fullName, pronouns)}
-            <img src={avatar} />
+        <Pic> 
+            <img src={avatar} /> 
             {/* <EditAvatar>Change Picture</EditAvatar> */}
-          
+            </Pic>
             <Body>
                 <ul>
                     <li><h5>Name: </h5>{fullName}</li>

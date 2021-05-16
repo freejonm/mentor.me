@@ -32,6 +32,8 @@ return (
           <Paper className={classes.paper}> */}
           <MemberDetails 
           avatar={userData.profilePicture}
+          fullName={userData.firstName + " " + userData.lastName}
+          pronouns={userData.pronouns}
           userName={userData.username}
           email={userData.email} 
           location={userData.location} 

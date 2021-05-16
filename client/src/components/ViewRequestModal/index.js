@@ -80,14 +80,14 @@ const ModalHead = styled.h3`
 
 
 function ViewRequestModal({
-user}) {
+user, request}) {
   const [isOpen, setIsOpen] = useState(false);
   const [userInfo, setUserInfo] = useState({});
 
   function toggleModal(e) {
     if (!isOpen) {
       setIsOpen(true);
-      API.getUserByID(user.userId).then(res => setUserInfo(res.data.users));
+      API.getUserByID(request.userId).then(res => setUserInfo(res.data.users));
     } else {
       setIsOpen(false);
       setUserInfo({});
@@ -95,7 +95,13 @@ user}) {
   }
 
   const acceptRequest = (e) => {
-    API.approveMentorRequest(user.userId).then(res => console.log(res.data))
+    API.approveMentorRequest(userInfo._id, user).then(res => {
+      console.log(res.data);
+    })
+  }
+
+  const denyRequest = (e) => {
+
   }
 
   return (
@@ -122,8 +128,8 @@ user}) {
                     <li>Education:{userInfo.education}</li>        
               </ul>
               </Body>
-           
-          <ViewRequestButton onClick={toggleModal}>Accept</ViewRequestButton>
+            
+          <ViewRequestButton onClick={acceptRequest}>Accept</ViewRequestButton>
           <ViewRequestButton onClick={toggleModal}>Deny</ViewRequestButton>
 
       

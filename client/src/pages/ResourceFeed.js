@@ -130,54 +130,33 @@ const ResourceFeed = ({ userName, datePosted }) => {
 
 const [count,setCount] = useState(0);
 const [feed, setFeed] = useState('')
-const [post, setPost] = useState([{}])
-
+const [posts, setPosts] = useState([])
+const [post, setPost] = useState({
+  username: userName
+})
 
   const renderFeed = () => { 
-    API.getAllPosts().then(posts => {
-      console.log(posts.data.post)
 
+  API.getAllPosts().then(posts => {
       let feedData = posts.data.post
-      
-    feedData.map(post => {
-      return (
-        <UserPostContainer>
-          <UserPostHeader>
-            <h2>Posted By: {post._id}{post.date}</h2>
-            <h2>Nice's: {count}</h2>
-          </UserPostHeader>
-          <UserPostBody>
-            <span>
-              {post.body}
-            </span>
-          </UserPostBody>
-          <UserPostFooter>
-            <a href="#">
-              <i class="far fa-comments"></i>Comments
-            </a>
-            <a onClick={() => setCount(count + 1)}>
-              <i class="fas fa-arrow-circle-up"></i>Nice
-            </a>
-          </UserPostFooter>
-        </UserPostContainer>
-      )
-    })
-
+      setPosts(feedData)
   })
 }
 
 
 const handleChange = (event) => {
-  setFeed(event.target.value);
-  console.log(feed)
-  setPost({ body: feed })
+  const {name, value} = event.target
+  console.log(name, value)
+  setPost({...post, [name]: value })
 },
 
-handleClick = (e) => {
+handleCreatePost = (e) => {
   e.preventDefault()
-  console.log(feed)
-  console.log(post)
-  API.createPost(post)
+  // console.log(feed)
+  // console.log(post)
+  API.createPost(post).then(() => {
+    renderFeed()
+  })
 }
 
 
@@ -191,11 +170,11 @@ handleClick = (e) => {
         </h5>
         <PostCard>
           <h2> What would you like to share with your fellow coders? </h2>
-          <WritePost value={feed} onChange={handleChange} placeholder="Remember, be nice!" cols="30" rows="5">
+          <WritePost name="body" value={post.body} onChange={handleChange} placeholder="Remember, be nice!" cols="30" rows="5">
             
           </WritePost>
           <Button 
-          onClick={handleClick}
+          onClick={handleCreatePost}
             whileHover={{
               scale: 1.05,
               color: '#637f7d',
@@ -238,7 +217,31 @@ handleClick = (e) => {
           </UserPostFooter>
          
         </UserPostContainer>
-        {renderFeed}
+        {renderFeed()}
+        {posts.map(post => {
+          return (
+            <UserPostContainer>
+          <UserPostHeader>
+            <h2>Posted By: {post._id}{post.date}</h2>
+            <h2>Nice's: {count}</h2>
+          </UserPostHeader>
+          <UserPostBody>
+            <span>
+              {post.body}
+            </span>
+          </UserPostBody>
+          <UserPostFooter>
+            <a href="#">
+              <i class="far fa-comments"></i>Comments
+            </a>
+            <a onClick={() => setCount(count + 1)}>
+              <i class="fas fa-arrow-circle-up"></i>Nice
+            </a>
+          </UserPostFooter>
+        </UserPostContainer>
+          )
+        })}
+
       </FeedContainer>
        
     </div>

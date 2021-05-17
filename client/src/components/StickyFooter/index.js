@@ -21,9 +21,8 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
-    flexDirection: 'column',
-    minHeight: '100vh'
+    marginTop:'calc(5% + 60px)',
+    bottom:0
   },
   main: {
     marginTop: theme.spacing(8),
@@ -33,21 +32,11 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(3, 2),
     marginTop: 'auto',
     backgroundColor:
-      theme.palette.type === 'light'
-        ? theme.palette.grey[200]
-        : theme.palette.grey[800]
+    '#db784d',
   }
 }));
 
-const Footer = styled.div`
-  margin-top: 1rem;
-  padding: 1rem;
-  background-color: rgb(235, 195, 64);
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-`;
+
 
 export default function StickyFooter() {
   const classes = useStyles();

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.scss';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -54,6 +54,14 @@ export default function Notifications({
 }) {
   const classes = useStyles();
 
+  const [notifications, setNotifications] = useState([])
+
+  useEffect(() => {
+    if (user) { 
+      setNotifications(user.mentorRequests)
+    }
+  }, [])
+
   return (
     <>
       <Card className={classes.root}>
@@ -62,15 +70,14 @@ export default function Notifications({
             <h3>Notifications</h3>
           </Typography>
           <ul className="list-overflow-container">
-            <li className="list-group-item">
-              {/* {alerts} */}
-              You have a request from Ja Rule.
-              <ModalProvider>
-                <ViewRequestModal
-              user={user}
-                />
-              </ModalProvider>
-            </li>
+            {notifications.map(request => {
+             return ( <li className="list-group-item">
+                you have a request from {request.username}
+                <ModalProvider>
+                  <ViewRequestModal request={request} user={user}/>
+                </ModalProvider>
+              </li>)
+            })}
           </ul>
         </CardContent>
       </Card>

@@ -8,7 +8,7 @@ let ObjectId = Schema.ObjectId;
 // Define userSchema
 const userSchema = new Schema({
   personId: { type: ObjectId },
-  profilePicture: { data: Buffer, contentType: String },
+  profilePicture: { type: String, unique: false },
   firstName: { type: String, unique: false },
   lastName: { type: String, unique: false },
   pronouns: { type: String, unique: false, required: false },
@@ -60,6 +60,7 @@ const userSchema = new Schema({
 
   friendsList: [
     {
+      _id: { type: ObjectId },
       friendId: { type: mongoose.Schema.Types.ObjectId, ref: "User", unique: true },
       username: { type: String, unique: false},
       firstName: { type: String, unique: false },

@@ -27,7 +27,7 @@ const MentorRequestBtn = ({ mentor }) => {
   return (
     <div>
       <RequestButton onClick={() => { API.sendMentorRequest(mentor).then(res => { console.log(res.data) }) }}>
-        <i class="fas fa-user-plus"></i>
+        <i className="fas fa-user-plus"></i>
         Request Mentor
       </RequestButton>
     </div>

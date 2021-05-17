@@ -45,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
 function SignupForm() {
 
   const [userObject, setUSerObject] = useState({
+    profilePicture: '',
     firstName: '',
     lastName: '',
     username: '',
@@ -206,8 +207,9 @@ function SignupForm() {
     console.log(userObject)
   
     AUTH.signup({
+      profilePicture: userObject.profilePicture,
       firstName: userObject.firstName,
-      lastname: userObject.lastName,
+      lastName: userObject.lastName,
       pronouns: userObject.pronouns,
       username: userObject.username,
       password: userObject.password,
@@ -308,37 +310,18 @@ function SignupForm() {
                 onChange={handleChange}
               />
             </Grid>
-            <CheckboxLabels 
-          name='mentorStatus'
-          handleUpdateUser={updateUser}
-          />
+            
             <Grid item xs={12}>
               <Divider variant="middle" />
             </Grid>
 
             <Grid item xs={12}>
-              <Divider variant="middle" />
-            </Grid>
-
-            <Grid item xs={12}>
-              <Divider variant="middle" />
-            </Grid>
-
-             {/* not-required info below  */}
-            <Typography component="p" fontStyle="italic" variant="p">
-              Let us know a little more about you before you set up your account. You will be able to edit these settings at any time.
+              {/* not-required info below  */}
+              <Typography component="body1"  variant="body1">
+              Let us know a little more about you before you set up your account.
             </Typography>
-            <Grid item xs={12}>
-              <Divider variant="middle" />
             </Grid>
-
-            <Grid item xs={12}>
-              <Divider variant="middle" />
-            </Grid>
-
-            <Grid item xs={12}>
-              <Divider variant="middle" />
-            </Grid>
+         
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -404,9 +387,12 @@ function SignupForm() {
                 onChange={handleChange}
               />
             </Grid>
-            <Typography component="p" fontStyle="italic" variant="p">
+            <Grid item xs={12}>
+              <Typography component="body1" variant="body1">
               How often would you like to meet with your mentors?
-            </Typography>
+              </Typography>
+            </Grid>
+            <Grid item xs={12}>
             <FormGroup row>        
               <FormControlLabel
                 control={
@@ -453,9 +439,13 @@ function SignupForm() {
             label="On Demand"
           /> 
         </FormGroup>
-        <Typography component="p" fontStyle="italic" variant="p">
+        </Grid>
+        <Grid item xs={12}>
+          <Typography component="body1" variant="body1">
               How would you like to communicate with your mentors?
             </Typography>
+        </Grid>
+        <Grid item xs={12}>
             <FormGroup row>
               <FormControlLabel
               control={
@@ -502,9 +492,13 @@ function SignupForm() {
               label="Message Boards"
               /> 
             </FormGroup>
-            <Typography component="p" fontStyle="italic" variant="p">
+          </Grid> 
+            <Grid item xs={12}>
+            <Typography component="body1"  variant="body1">
               Which of the following topics are you interested in talking to mentors about?
             </Typography>
+            </Grid>
+            <Grid item xs={12}>
             <FormGroup row>
             <FormControlLabel
               control={
@@ -640,8 +634,14 @@ function SignupForm() {
             />
 
             </FormGroup>
+            </Grid>
+            <Grid item xs={12}>
+              <CheckboxLabels 
+          name='mentorStatus'
+          handleUpdateUser={updateUser}
+          />
+            </Grid>
           </Grid>
-
           <Grid container spacing={4}>
             
             <Grid item xs={12}>
@@ -652,10 +652,6 @@ function SignupForm() {
             </Grid>
 
           </Grid>
-
-        
-         
-          
           <Button
             type="submit"
             fullWidth

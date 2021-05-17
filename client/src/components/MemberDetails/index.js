@@ -11,7 +11,7 @@ const UserContainer = styled.div`
   align-items: center;
   margin: auto;
   margin-top: 150px; 
-  background-color: #012a2f;
+  background-color: white;
   border-radius: 5px;
   border: 4px solid #637f7d;
   box-shadow: 3px 3px 5px 5px black;

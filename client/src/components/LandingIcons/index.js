@@ -2,20 +2,19 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import "./index.scss";
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
+import GroupAddIcon from '@material-ui/icons/GroupAdd';
+import CodeIcon from '@material-ui/icons/Code';
+// import "./index.scss";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
+
 }));
 
-export default function CenteredGrid() {
+export default function LandingIcons() {
   const classes = useStyles();
 
   return (
@@ -24,17 +23,17 @@ export default function CenteredGrid() {
        
         <Grid item xs={4}>
 
-              <h2>create an account</h2>
+        <AccountBoxIcon style={{ fontSize: 150 }} />
 
         </Grid>
         <Grid item xs={4}>
 
-              <h2>connect with mentors</h2>
+        <GroupAddIcon style={{ fontSize: 150 }} />
 
         </Grid>
         <Grid item xs={4}>
 
-              <h2>grow as a developer</h2>
+        <CodeIcon style={{ fontSize: 150 }} />
 
         </Grid>
         
@@ -42,3 +41,5 @@ export default function CenteredGrid() {
     </div>
   );
 }
+
+

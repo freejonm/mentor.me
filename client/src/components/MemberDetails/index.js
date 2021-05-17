@@ -48,6 +48,7 @@ font-size: 16px;
 
 ul{
     list-style-type: none;
+    color: black;
     h5 {
         font-weight: 'bold';
         font-size: 22px;

@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
 
 
 const theme = createMuiTheme({
@@ -22,6 +24,19 @@ const theme = createMuiTheme({
     },
   },
 });
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    marginTop: theme.spacing(15)
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    backgroundColor: theme.palette.secondary.main
+  }
+}));
+
 
 
 const UserContainer = styled.div`
@@ -99,11 +114,12 @@ export default function MemberProfile({
   education,
   location
 }) {
-//   const classes = useStyles();
+  const classes = useStyles();
 
   return (
     
     <div>
+      <Paper className={classes.paper}>
         <UserContainer>
         <UserProfileTitle>{userName}'s Profile</UserProfileTitle>
             {(fullName, pronouns)}
@@ -132,6 +148,7 @@ export default function MemberProfile({
               <Button type="button" onclick='/chat'>Chat with Mentor</Button>
             </ThemeProvider>
         </UserContainer>
+        </Paper>
         </div>
   );
 }

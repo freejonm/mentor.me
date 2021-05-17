@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import GroupAddIcon from '@material-ui/icons/GroupAdd';
 import CodeIcon from '@material-ui/icons/Code';
-// import "./index.scss";
+import "./index.scss";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,29 +21,28 @@ export default function LandingIcons() {
     <div className={classes.root}>
       <Grid container spacing={3}>
        
-        <Grid item xs={1}>
+        
+        <Grid item xs={4}>
+          <div class="icons">
+            <AccountBoxIcon textAlign="center" style={{ fontSize: 150 }} />
+          </div>
         </Grid>
 
-        <Grid item xs={2}>
-        <AccountBoxIcon textAlign="center" style={{ fontSize: 150 }} />
+        
+        <Grid item xs={4}>
+          <div class="icons">
+            <GroupAddIcon style={{ fontSize: 150 }} />
+          </div>
         </Grid>
 
-        <Grid item xs={2}>
-        </Grid>
-
-        <Grid item xs={2}>
-        <GroupAddIcon style={{ fontSize: 150 }} />
-        </Grid>
-
-        <Grid item xs={2}>
-        </Grid>
-
-        <Grid item xs={2}>
-        <CodeIcon style={{ fontSize: 150 }} />
+        
+        <Grid item xs={4}>
+          <div class="icons">
+            <CodeIcon style={{ fontSize: 150 }} />
+          </div>
         </Grid>
         
-        <Grid item xs={1}>
-        </Grid>
+        
         
       </Grid>
     </div>

@@ -16,7 +16,7 @@ const theme = createMuiTheme({
         color: 'white',
         height: 36,
         padding: '0 20px',
-        margin: '10px',
+        margin: '20px',
         boxShadow: '0 3px 5px 2px rgba((219,120,77, .3)',
       },
     },
@@ -70,7 +70,7 @@ font-size: 16px;
 
 ul{
     list-style-type: none;
-    color: black;
+    color: #012a2f;
     h5 {
         font-weight: 'bold';
         font-size: 22px;
@@ -112,25 +112,25 @@ export default function MemberProfile({
             {/* <EditAvatar>Change Picture</EditAvatar> */}
             </Pic>
             <Body>
-                <ul>
-                    <li><h5>Name: </h5>{fullName}</li>
-                    <br></br>
-                    <li><h5>Pronouns: </h5>{pronouns}</li>
-                    <br></br>
-                    <li><h5>Email: </h5> <a href={`mailto:${email}`}>{email}</a></li>
-                    <br></br>
-                    <li><h5>Location: </h5>{location}</li>
-                    <br></br>
-                    <li><h5>Current Position: </h5> {currentPosition} </li>
-                    <br></br>
-                    <li><h5>Years Experience: </h5>{yearsExp}</li>
-                    <br></br>
-                    <li><h5>Education: </h5>{education}</li>        
+              <ul>
+                <li><h5>Name: </h5>{fullName}</li>
+                <br></br>
+                <li><h5>Pronouns: </h5>{pronouns}</li>
+                <br></br>
+                <li><h5>Email: </h5> <a href={`mailto:${email}`}>{email}</a></li>
+                <br></br>
+                <li><h5>Location: </h5>{location}</li>
+                <br></br>
+                <li><h5>Current Position: </h5> {currentPosition} </li>
+                <br></br>
+                <li><h5>Years Experience: </h5>{yearsExp}</li>
+                <br></br>
+                <li><h5>Education: </h5>{education}</li>        
               </ul>
-              </Body>
-              <ThemeProvider theme={theme}>
-                <Button>Chat with Mentor</Button>
-              </ThemeProvider>
+            </Body>
+            <ThemeProvider theme={theme}>
+              <Button type="button" onclick='/chat'>Chat with Mentor</Button>
+            </ThemeProvider>
         </UserContainer>
         </div>
   );

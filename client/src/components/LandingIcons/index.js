@@ -21,20 +21,28 @@ export default function LandingIcons() {
     <div className={classes.root}>
       <Grid container spacing={3}>
        
-        <Grid item xs={4}>
-
-        <AccountBoxIcon style={{ fontSize: 150 }} />
-
+        <Grid item xs={1}>
         </Grid>
-        <Grid item xs={4}>
 
+        <Grid item xs={2}>
+        <AccountBoxIcon textAlign="center" style={{ fontSize: 150 }} />
+        </Grid>
+
+        <Grid item xs={2}>
+        </Grid>
+
+        <Grid item xs={2}>
         <GroupAddIcon style={{ fontSize: 150 }} />
-
         </Grid>
-        <Grid item xs={4}>
 
+        <Grid item xs={2}>
+        </Grid>
+
+        <Grid item xs={2}>
         <CodeIcon style={{ fontSize: 150 }} />
-
+        </Grid>
+        
+        <Grid item xs={1}>
         </Grid>
         
       </Grid>

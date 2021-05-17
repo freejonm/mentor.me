@@ -24,7 +24,7 @@ export default function LandingIcons() {
         
         <Grid item xs={4}>
           <div class="icons">
-            <AccountBoxIcon textAlign="center" style={{ fontSize: 150 }} />
+            <AccountBoxIcon style={{ fontSize: 150 }} />
           </div>
         </Grid>
 

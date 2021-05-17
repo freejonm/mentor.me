@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
@@ -129,7 +128,9 @@ export default function MemberProfile({
                     <li><h5>Education: </h5>{education}</li>        
               </ul>
               </Body>
-           
+              <ThemeProvider theme={theme}>
+                <Button>Chat with Mentor</Button>
+              </ThemeProvider>
         </UserContainer>
         </div>
   );

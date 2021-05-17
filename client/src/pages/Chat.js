@@ -21,6 +21,9 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff';
 let socket
 
 const CONNECTION_PORT = 'localhost:3001/'
+
+//const CONNECTION_PORT = '/^http/'
+
 const Chat = () => {
   // console.log('chat')
   //Before Login
@@ -177,6 +180,7 @@ const theme = createMuiTheme({
           // flex: '90%', 
           // width: '100%'
         }}>
+        <h1>Live Help</h1>
         <div className='messages' 
          style={{
           //  flex: '80%', 

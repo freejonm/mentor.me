@@ -1,7 +1,7 @@
 import React from 'react';
 import WelcomeDiv from '../components/WelcomeDiv';
 import LandingCircles from '../components/LandingCircles';
-import LandingPaper from '../components/LandingIcons';
+import LandingIcons from '../components/LandingIcons';
 import LandingSteps from '../components/LandingSteps'
 import styled from 'styled-components';
 
@@ -10,7 +10,7 @@ const Landing = () => {
     <div>
       <WelcomeDiv />
       {/* <LandingCircles /> */}
-      <LandingPaper />
+      <LandingIcons />
       <LandingSteps />
     </div>
   );

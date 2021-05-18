@@ -10,59 +10,6 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 
-// const StyledBadge = withStyles((theme) => ({
-//   badge: {
-//     backgroundColor: '#44b700',
-//     color: '#44b700',
-//     boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
-//     '&::after': {
-//       position: 'absolute',
-//       top: 0,
-//       left: 0,
-//       width: '100%',
-//       height: '100%',
-//       borderRadius: '50%',
-//       animation: '$ripple 1.2s infinite ease-in-out',
-//       border: '1px solid currentColor',
-//       content: '""'
-//     }
-//   },
-//   '@keyframes ripple': {
-//     '0%': {
-//       transform: 'scale(.8)',
-//       opacity: 1
-//     },
-//     '100%': {
-//       transform: 'scale(2.4)',
-//       opacity: 0
-//     }
-//   }
-// }))(Badge);
-
-// const SmallAvatar = withStyles((theme) => ({
-//   root: {
-//     width: 600,
-//     height: 600,
-//     border: `2px solid ${theme.palette.background.paper}`
-//   }
-// }))(Avatar);
-
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     display: 'flex',
-//     '& > *': {
-//       margin: theme.spacing(1)
-//     }
-//   }
-// }));
-
-// const UserContainer = styled.div`
-//   display: grid;
-//   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-//   height: 254px;
-//   margin: 0;
-//   padding: 0;
-// `;
 
 const ColLeft = styled.div`
   position: relative;
@@ -82,25 +29,10 @@ const ColRight = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  /* position: relative; */
   width: auto;
-// `;
+`;
 
-// const UserProfileTitle = styled.h1`
-//   display: flex;
-//   justify-content: flex-start;
-//   font-family: 'Righteous', sans-serif;
-//   font-size: 32px;
-// `;
 
-// const UserInfoContainer = styled.div`
-//   display: grid;
-//   grid-auto-columns: 1fr;
-//   height: auto;
-//   width: 100%;
-//   margin: 0px;
-//   padding: 0px;
-// `;
 
 const ListGroup = styled.ul`
   display: flex;

@@ -31,9 +31,12 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(15)
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     textAlign: 'center',
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: theme.palette.secondary.main,
+    marginTop: '100px',
+    marginLeft: '100px',
+    marginRight: '100px'
   }
 }));
 
@@ -143,11 +146,11 @@ export default function MemberProfile({
                 <br></br>
                 <li><h5>Education: </h5>{education}</li>        
               </ul>
-            </Body>
+            </Body>            
+        </UserContainer>
             <ThemeProvider theme={theme}>
               <Button type="button" onclick='/chat'>Chat with Mentor</Button>
             </ThemeProvider>
-        </UserContainer>
         </Paper>
         </div>
   );

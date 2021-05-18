@@ -27,6 +27,11 @@ body {
   margin-top: 10%;
 }
 
+.MuiCardContent-root {
+  padding: 0 !important;
+
+}
+
 button {
   font-family: 'Righteous', sans-serif !important;
   box-shadow: 1px 1px 2px 2px black !important;

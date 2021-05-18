@@ -1,14 +1,7 @@
 import React from 'react';
-import Badge from '@material-ui/core/Badge';
-import Avatar from '@material-ui/core/Avatar';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
 import './index.scss';
 import styled from 'styled-components';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Paper from '@material-ui/core/Paper';
+
 
 
 const ColLeft = styled.div`
@@ -30,13 +23,11 @@ const ColRight = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   width: auto;
+  /* border-left: 2px solid #01444c; */
 `;
-
-
 
 const ListGroup = styled.ul`
   display: flex;
-
   flex-direction: column;
   justify-content: flex-start;
   list-style-type: none;
@@ -50,22 +41,6 @@ const ListGroup = styled.ul`
     border-right: 0;
   }
 `;
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    marginTop: theme.spacing(15)
-  },
-  paper: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    backgroundColor: theme.palette.secondary.main,
-    marginTop: '100px',
-    marginLeft: '100px',
-    marginRight: '100px'
-  }
-}));
-
 
 const UserContainer = styled.div`
   display: flex;
@@ -152,7 +127,6 @@ export default function BadgeAvatars({
                   <li><h5>Email: </h5> {email}</li>
                   <li><h5>Location: </h5>{location} </li>
                   <li><h5>Current Position:</h5>  {currentPosition}</li>
-              
                 </ListGroup>
               </ColRight> 
             </ul>

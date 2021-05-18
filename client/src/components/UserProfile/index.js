@@ -39,12 +39,10 @@ const ListGroup = styled.ul`
 
   flex-direction: column;
   justify-content: flex-start;
-  /* justify-content:space-evenly; */
   list-style-type: none;
   width: 100%;
 
   li {
-    /* border: 2px solid #01444c; */
     font-size: 16px;
     padding: 2px;
     border-left: 0;
@@ -57,7 +55,6 @@ const theme = createMuiTheme({
   overrides: {
     MuiButton: {
       text: {
-        // background: 'linear-gradient(45deg, #db784d 30%, #eda320 90%)',
         background: '#db784d',
         borderRadius: 3,
         font: 'Righteous', 

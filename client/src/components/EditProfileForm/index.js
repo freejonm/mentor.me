@@ -99,22 +99,7 @@ export default function EditProfileForm({
             updatedUser.firstName}
           onChange={handleInputChange}
         />
-        {/* <TextField
-          label="Last Name"
-          id="outlined-start-adornment"
-          className={clsx(classes.margin, classes.textField)}
-          InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>
-          }}
-          name="lastName"
-          variant="outlined"
-          value={
-            updatedUser.lastName.length === 0
-              ? user.lastName
-              : updatedUser.lastName
-          }
-          onChange={handleInputChange}
-        /> */}
+      
         <TextField
           label="Pronouns"
           id="outlined-start-adornment"
@@ -144,25 +129,6 @@ export default function EditProfileForm({
           onChange={handleInputChange}
         />
 
-        <FormControl
-          className={clsx(classes.margin, classes.textField)}
-          variant="outlined"
-        >
-          <OutlinedInput
-            id="outlined-adornment-weight"
-            value={values.weight}
-            onChange={handleChange('weight')}
-            endAdornment={<InputAdornment position="end">Kg</InputAdornment>}
-            aria-describedby="outlined-weight-helper-text"
-            inputProps={{
-              'aria-label': 'weight'
-            }}
-            labelWidth={0}
-          />
-          <FormHelperText id="outlined-weight-helper-text">
-            Weight
-          </FormHelperText>
-        </FormControl>
         <FormControl
           className={clsx(classes.margin, classes.textField)}
           variant="outlined"

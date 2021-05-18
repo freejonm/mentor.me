@@ -149,7 +149,7 @@ export default function MemberProfile({
             </Body>            
         </UserContainer>
             <ThemeProvider theme={theme}>
-              <Button type="button" onclick='/chat'>Chat with Mentor</Button>
+              <Button type="button" onclick='/chat'>Chat with {userName}</Button>
             </ThemeProvider>
         </Paper>
         </div>

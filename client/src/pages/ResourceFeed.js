@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
-import API from '../utils/API';
-
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import API from "../utils/API";
 
 const FeedContainer = styled.div`
   display: flex;
@@ -31,7 +30,7 @@ const WritePost = styled.textarea`
   width: 100%;
   border: 3px solid #cccccc;
   padding: 5px;
-  font-family: 'Righteous', sans-serif;
+  font-family: "Righteous", sans-serif;
   background-color: #012a2f;
   color: white;
   outline: none;
@@ -83,8 +82,7 @@ const UserPostHeader = styled.div`
   background-color: #637f7d;
   h2 {
     font-size: 21px;
-    font-style: italic
-    margin-right 10px;
+    font-style: italic margin-right 10px;
   }
 `;
 
@@ -111,11 +109,10 @@ const UserPostFooter = styled.div`
     font-size: 20px;
     color: white;
     margin-right: 5px;
-    :hover{
+    :hover {
       text-decoration: none;
       cursor: pointer;
       color: #eda320;
-
     }
   }
   i {
@@ -123,42 +120,40 @@ const UserPostFooter = styled.div`
     color: #eda320;
     margin-right: 5px;
   }
-
 `;
 
 const ResourceFeed = ({ userName, datePosted }) => {
+  const [count, setCount] = useState(0);
+  const [feed, setFeed] = useState("");
+  const [posts, setPosts] = useState([]);
+  const [post, setPost] = useState({
+    username: userName,
+  });
 
-const [count,setCount] = useState(0);
-const [feed, setFeed] = useState('')
-const [posts, setPosts] = useState([])
-const [post, setPost] = useState({
-  username: userName
-})
+  const renderFeed = () => {
+    API.getAllPosts().then((posts) => {
+      let feedData = posts.data.post;
+      setPosts(feedData);
+    });
+  };
 
-  const renderFeed = () => { 
+  useEffect(() => {
+    renderFeed();
+  }, []);
 
-  API.getAllPosts().then(posts => {
-      let feedData = posts.data.post
-      setPosts(feedData)
-  })
-}
-
-
-const handleChange = (event) => {
-  const {name, value} = event.target
-  console.log(name, value)
-  setPost({...post, [name]: value })
-},
-
-handleCreatePost = (e) => {
-  e.preventDefault()
-  // console.log(feed)
-  // console.log(post)
-  API.createPost(post).then(() => {
-    renderFeed()
-  })
-}
-
+  const handleChange = (event) => {
+      const { name, value } = event.target;
+      console.log(name, value);
+      setPost({ ...post, [name]: value });
+    },
+    handleCreatePost = (e) => {
+      e.preventDefault();
+      // console.log(feed)
+      // console.log(post)
+      API.createPost(post).then(() => {
+        renderFeed();
+      });
+    };
 
   return (
     <div>
@@ -170,21 +165,26 @@ handleCreatePost = (e) => {
         </h5>
         <PostCard>
           <h2> What would you like to share with your fellow coders? </h2>
-          <WritePost name="body" value={post.body} onChange={handleChange} placeholder="Remember, be nice!" cols="30" rows="5">
-            
-          </WritePost>
-          <Button 
-          onClick={handleCreatePost}
+          <WritePost
+            name="body"
+            value={post.body}
+            onChange={handleChange}
+            placeholder="Remember, be nice!"
+            cols="30"
+            rows="5"
+          ></WritePost>
+          <Button
+            onClick={handleCreatePost}
             whileHover={{
               scale: 1.05,
-              color: '#637f7d',
-              textDecoration: 'none'
+              color: "#637f7d",
+              textDecoration: "none",
             }}
             whileTap={{
               scale: 0.85,
-              backgroundColor: '#637f7d',
-              border: 'none',
-              color: 'white'
+              backgroundColor: "#637f7d",
+              border: "none",
+              color: "white",
             }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, transition: { duration: 1.5 } }}
@@ -215,35 +215,32 @@ handleCreatePost = (e) => {
               <i class="fas fa-arrow-circle-up"></i>Nice
             </a>
           </UserPostFooter>
-         
         </UserPostContainer>
-        {renderFeed()}
-        {posts.map(post => {
+        {posts.map((post) => {
           return (
             <UserPostContainer>
-          <UserPostHeader>
-            <h2>Posted By: {post._id}{post.date}</h2>
-            <h2>Nice's: {count}</h2>
-          </UserPostHeader>
-          <UserPostBody>
-            <span>
-              {post.body}
-            </span>
-          </UserPostBody>
-          <UserPostFooter>
-            <a href="#">
-              <i class="far fa-comments"></i>Comments
-            </a>
-            <a onClick={() => setCount(count + 1)}>
-              <i class="fas fa-arrow-circle-up"></i>Nice
-            </a>
-          </UserPostFooter>
-        </UserPostContainer>
-          )
+              <UserPostHeader>
+                <h2>
+                  Posted By: {post._id}
+                  {post.date}
+                </h2>
+                <h2>Nice's: {count}</h2>
+              </UserPostHeader>
+              <UserPostBody>
+                <span>{post.body}</span>
+              </UserPostBody>
+              <UserPostFooter>
+                <a href="#">
+                  <i class="far fa-comments"></i>Comments
+                </a>
+                <a onClick={() => setCount(count + 1)}>
+                  <i class="fas fa-arrow-circle-up"></i>Nice
+                </a>
+              </UserPostFooter>
+            </UserPostContainer>
+          );
         })}
-
       </FeedContainer>
-       
     </div>
   );
 };

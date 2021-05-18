@@ -87,6 +87,7 @@ console.log('user', user)
         <Grid item xs={6}>
           <Paper className={classes.paper}>
             <UserProfile 
+            avatar={updatedUser.profilePicture}
             userName={updatedUser.username} 
             email={updatedUser.email} 
             location={updatedUser.location} currentPosition={updatedUser.currentPosition} 

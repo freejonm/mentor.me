@@ -4,6 +4,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 
 
 const theme = createMuiTheme({
@@ -149,7 +150,8 @@ export default function MemberProfile({
             </Body>            
         </UserContainer>
             <ThemeProvider theme={theme}>
-              <Button type="button" onclick='/chat'>Chat with {userName}</Button>
+              <Button type="button" onclick={'/chat'}>Chat with {fullName}</Button>
+              {/* <Link to={'/chat'}></Link> */}
             </ThemeProvider>
         </Paper>
         </div>

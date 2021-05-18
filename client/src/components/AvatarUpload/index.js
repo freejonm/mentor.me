@@ -12,10 +12,11 @@ const AvatarUpload = props => {
       {...props}
       withIcon={true}
       onChange={onDrop}
-      imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+      imgExtension={[".jpg",".png"]}
       maxFileSize={5242880}
       name={props}
       withPreview={true}
+      buttonText={'Select Your Profile Picture'}
     />
   );
 };

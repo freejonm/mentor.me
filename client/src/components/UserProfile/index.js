@@ -112,9 +112,9 @@ const ListGroup = styled.ul`
   width: 100%;
 
   li {
-    border: 2px solid #01444c;
+    /* border: 2px solid #01444c; */
     font-size: 16px;
-    padding: 10px;
+    padding: 2px;
     border-left: 0;
     border-top: 0;
     border-right: 0;
@@ -165,6 +165,8 @@ const UserContainer = styled.div`
   margin: auto;
   background-color: white;
   border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   `;
   
   /* border: 4px solid #637f7d; */
@@ -191,6 +193,7 @@ img {
   width: 200px;
   height:200px;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
   `;
@@ -208,11 +211,12 @@ ul{
     color: #012a2f;
     h5 {
         font-weight: 'bold';
-        font-size: 22px;
+        font-size: 18px;
         font-family: 'Righteous', sans-serif;
+        margin-top: 0px;
     }
     li {
-        margin-bottom: 5px;
+        /* margin-bottom: 5px; */
         flex-direction: row;
     }
 }
@@ -238,7 +242,7 @@ export default function BadgeAvatars({
     
     <div>
   
-       <UserProfileTitle>{userName}'s Profile</ UserProfileTitle>
+       <UserProfileTitle>{fullName}'s Profile</ UserProfileTitle>
         <UserContainer >
         
 
@@ -250,21 +254,13 @@ export default function BadgeAvatars({
               <ul>
               <ColRight>
              <ListGroup>
-           <li>Email</li>
-               <li>Location: {location} </li>
-               <li>Current Position</li>
-               <li>Years Experience</li>
+              <li><h5>Email: </h5> {email}</li>
+               <li><h5>Location: </h5>{location} </li>
+               <li><h5>Current Position:</h5>  {currentPosition}</li>
+              
              </ListGroup>
            </ColRight> 
-           <ListGroup>
-           <ColRight>
-               <li>{email}</li>
-               <li>{location}</li>
-               <li>{currentPosition}</li>
-               <li>{yearsExp}</li>
-             
-             </ColRight> 
-             </ListGroup>
+          
               
               
               

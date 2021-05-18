@@ -98,11 +98,6 @@ const UserContainer = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   `;
   
-  /* border: 4px solid #637f7d; */
-  /* /* box-shadow: 3px 3px 5px 5px black; */
-
-
-
 const UserProfileTitle = styled.div`
   display: flex;
   justify-content: center;
@@ -114,8 +109,6 @@ const UserProfileTitle = styled.div`
   border-radius: 5px;
   margin-bottom: 0px;
   font-weight: bold;
-  
-
 `;
 const Pic = styled.div`
 img {
@@ -125,7 +118,6 @@ img {
   margin-bottom: 15px;
   border-radius: 5px;
 }
-
   `;
 
 const Body = styled.div`

@@ -1,65 +1,8 @@
 import React from 'react';
-import Badge from '@material-ui/core/Badge';
-import Avatar from '@material-ui/core/Avatar';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
 import './index.scss';
 import styled from 'styled-components';
 
-const StyledBadge = withStyles((theme) => ({
-  badge: {
-    backgroundColor: '#44b700',
-    color: '#44b700',
-    boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
-    '&::after': {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-      borderRadius: '50%',
-      animation: '$ripple 1.2s infinite ease-in-out',
-      border: '1px solid currentColor',
-      content: '""'
-    }
-  },
-  '@keyframes ripple': {
-    '0%': {
-      transform: 'scale(.8)',
-      opacity: 1
-    },
-    '100%': {
-      transform: 'scale(2.4)',
-      opacity: 0
-    }
-  }
-}))(Badge);
 
-const SmallAvatar = withStyles((theme) => ({
-  root: {
-    width: 600,
-    height: 600,
-    border: `2px solid ${theme.palette.background.paper}`
-  }
-}))(Avatar);
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    '& > *': {
-      margin: theme.spacing(1)
-    }
-  }
-}));
-
-const UserContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  height: 254px;
-  margin: 0;
-  padding: 0;
-`;
 
 const ColLeft = styled.div`
   position: relative;
@@ -79,47 +22,83 @@ const ColRight = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  /* position: relative; */
   width: auto;
-`;
-
-const UserProfileTitle = styled.h1`
-  display: flex;
-  justify-content: flex-start;
-  font-family: 'Righteous', sans-serif;
-  font-size: 32px;
-`;
-
-const UserInfoContainer = styled.div`
-  display: grid;
-  grid-auto-columns: 1fr;
-  height: auto;
-  width: 100%;
-  margin: 0px;
-  padding: 0px;
+  /* border-left: 2px solid #01444c; */
 `;
 
 const ListGroup = styled.ul`
   display: flex;
-
   flex-direction: column;
   justify-content: flex-start;
-  /* justify-content:space-evenly; */
   list-style-type: none;
   width: 100%;
 
   li {
-    border: 2px solid #01444c;
     font-size: 16px;
-    padding: 10px;
+    padding: 2px;
     border-left: 0;
     border-top: 0;
     border-right: 0;
   }
 `;
 
+const UserContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: auto;
+  align-items: center;
+  margin: auto;
+  background-color: white;
+  border-radius: 3px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  `;
+  
+const UserProfileTitle = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-family: 'Righteous', sans-serif;
+  font-size: 30px;
+  color: white;
+  background-color: #db784d;
+  border-radius: 3px;
+  margin-bottom: 0px;
+  font-weight: bold;
+`;
+const Pic = styled.div`
+img {
+  width: 200px;
+  height:200px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+  `;
 
+const Body = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: center;
+font-family: 'Ubuntu';
+width: 100%;
+font-size: 16px;
 
+ul{
+    list-style-type: none;
+    color: #012a2f;
+    h5 {
+        font-weight: 'bold';
+        font-size: 18px;
+        font-family: 'Righteous', sans-serif;
+        margin-top: 0px;
+    }
+    li {
+        flex-direction: row;
+    }
+}
+`;
 
 
 export default function BadgeAvatars({
@@ -133,38 +112,26 @@ export default function BadgeAvatars({
   education,
   location
 }) {
-  const classes = useStyles();
-
-  return (
-    <Card>
-      <h3>{userName}'s Profile</h3>
-      <br></br>
-      <CardContent>
-        <UserContainer>
-          <ColLeft>
-            <UserProfileTitle>{(fullName, pronouns)}</UserProfileTitle>
-            <img src="https://randomuser.me/api/portraits/women/75.jpg" />
-            {/* <EditAvatar>Change Picture</EditAvatar> */}
-          </ColLeft>
-
-          <ColRight>
-            <ListGroup>
-              <li>Email</li>
-              <li>Location</li>
-              <li>Current Position</li>
-              <li>Years Experience</li>
-            </ListGroup>
-          </ColRight>
-          <ColRight>
-            <ListGroup>
-              <li>{email}</li>
-              <li>{location}</li>
-              <li>{currentPosition}</li>
-              <li>{yearsExp}</li>
-            </ListGroup>
-          </ColRight>
+   return (
+    
+    <div>
+       <UserProfileTitle>{fullName}'s Profile</ UserProfileTitle>
+        <UserContainer >
+          <Pic> 
+            <img src={avatar} /> 
+          </Pic>
+          <Body>
+            <ul>
+              <ColRight>
+                <ListGroup>
+                  <li><h5>Email: </h5> {email}</li>
+                  <li><h5>Location: </h5>{location} </li>
+                  <li><h5>Current Position:</h5>  {currentPosition}</li>
+                </ListGroup>
+              </ColRight> 
+            </ul>
+          </Body>            
         </UserContainer>
-      </CardContent>
-    </Card>
+        </div>
   );
 }

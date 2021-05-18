@@ -1,6 +1,6 @@
 .chat-application {
   border-radius: 5px;
-  margin: 6%;
+  /* margin: 6%; */
   height: 50rem;
   display: grid;
   place-items: center;
@@ -14,30 +14,29 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 10px;
-  padding: 16px;
+  /* margin: 10px; */
+  /* padding: 16px; */
   text-align: center;
-  background-color: #637f7d;
+  background-color: white;
   box-shadow: 1px 1px 2px 2px black !important;
 }
 h4 {
+  display: flex;
   background-color: #db784d;
   color: white;
   font-family: "Righteous", sans-serif;
-  font: Ubuntu;
   margin-top: 0px !important;
   margin-bottom: 30px !important;
-  padding: 10px;
   border-radius: 5px;
 }
-#input {
-  border-radius: 10px;
-  width: 200px;
-  height: 50px;
-  margin-top: 50px !important;
-  margin-bottom: 50px;
+#outlined-start-adornment {
+  border-radius: 5px;
+  width: 100%;
+  height: auto;
+  margin:  0 !important;
+  background-color: white;
 }
-.Button {
+#chatBtn {
   background-color: #db784d !important;
   margin-top: 50px !important;
 }
@@ -45,8 +44,7 @@ h4 {
   margin: 10px;
   width: 200px;
   height: 40px;
-  background-color: transparent;
-  padding-left: 10px;
+  background: transparent;
 }
 .chat-container {
   width: 600px;
@@ -140,3 +138,4 @@ h4 {
   border: none;
   font-size: 18px;
 }
+

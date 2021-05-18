@@ -64,26 +64,26 @@ import Paper from '@material-ui/core/Paper';
 //   padding: 0;
 // `;
 
-// const ColLeft = styled.div`
-//   position: relative;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: flex-start;
-//   align-items: flex-start;
-//   img {
-//     height: 220px;
-//     width: 200px;
-//     border-radius: 5%;
-//     box-shadow: 1px 1px 2px 2px black;
-//   }
-// `;
+const ColLeft = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  img {
+    height: 220px;
+    width: 200px;
+    border-radius: 5%;
+    box-shadow: 1px 1px 2px 2px black;
+  }
+`;
 
-// const ColRight = styled.div`
-//   display: flex;
-//   justify-content: flex-start;
-//   align-items: flex-start;
-//   /* position: relative; */
-//   width: auto;
+const ColRight = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* position: relative; */
+  width: auto;
 // `;
 
 // const UserProfileTitle = styled.h1`
@@ -102,24 +102,24 @@ import Paper from '@material-ui/core/Paper';
 //   padding: 0px;
 // `;
 
-// const ListGroup = styled.ul`
-//   display: flex;
+const ListGroup = styled.ul`
+  display: flex;
 
-//   flex-direction: column;
-//   justify-content: flex-start;
-//   /* justify-content:space-evenly; */
-//   list-style-type: none;
-//   width: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* justify-content:space-evenly; */
+  list-style-type: none;
+  width: 100%;
 
-//   li {
-//     border: 2px solid #01444c;
-//     font-size: 16px;
-//     padding: 10px;
-//     border-left: 0;
-//     border-top: 0;
-//     border-right: 0;
-//   }
-// `;
+  li {
+    border: 2px solid #01444c;
+    font-size: 16px;
+    padding: 10px;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+  }
+`;
 
 const theme = createMuiTheme({
   overrides: {
@@ -155,33 +155,37 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-
+const wrap = styled.div`
+border: 2px solid #01444c;
+`;
 
 const UserContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
   height: auto;
-  /* width: 70%; */
   align-items: center;
   margin: auto;
-  /* margin-top: 150px;  */
   background-color: white;
   border-radius: 5px;
-  border: 4px solid #637f7d;
-  /* box-shadow: 3px 3px 5px 5px black; */
+  `;
+  
+  /* border: 4px solid #637f7d; */
+  /* /* box-shadow: 3px 3px 5px 5px black; */
 
-`;
+
 
 const UserProfileTitle = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
   font-family: 'Righteous', sans-serif;
-  font-size: 32px;
+  font-size: 30px;
+  color: white;
   background-color: #db784d;
   border-radius: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
+  font-weight: bold;
   
 
 `;
@@ -189,6 +193,7 @@ const Pic = styled.div`
 img {
   width: 200px;
   height:200px;
+  margin-top: 10px;
 }
 
   `;
@@ -235,16 +240,38 @@ export default function BadgeAvatars({
   return (
     
     <div>
-       <h3>{userName}'s Profile</ h3>
-        <UserContainer>
-       
+    <wrap>
+       <UserProfileTitle>{userName}'s Profile</ UserProfileTitle>
+        <UserContainer >
+        
 
         <Pic> 
             <img src={avatar} /> 
-            {/* <EditAvatar>Change Picture</EditAvatar> */}
+           
             </Pic>
             <Body>
               <ul>
+              <ColRight>
+             <ListGroup>
+           <li>Email</li>
+               <li>Location: {location} </li>
+               <li>Current Position</li>
+               <li>Years Experience</li>
+             </ListGroup>
+           </ColRight> 
+           <ListGroup>
+           <ColRight>
+               <li>{email}</li>
+               <li>{location}</li>
+               <li>{currentPosition}</li>
+               <li>{yearsExp}</li>
+             
+             </ColRight> 
+             </ListGroup>
+              
+              
+              
+                {/* <tr></tr>
                 <li><h5>Name: </h5>{fullName}</li>
                 <br></br>
                 <li><h5>Pronouns: </h5>{pronouns}</li>
@@ -257,10 +284,11 @@ export default function BadgeAvatars({
                 <br></br>
                 <li><h5>Years Experience: </h5>{yearsExp}</li>
                 <br></br>
-                <li><h5>Education: </h5>{education}</li>        
+                <li><h5>Education: </h5>{education}</li>         */}
               </ul>
             </Body>            
         </UserContainer>
+        </wrap>
         </div>
   );
 }

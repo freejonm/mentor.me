@@ -406,9 +406,23 @@ function SignupForm() {
               />
             </Grid>
             <Grid item xs={12}>
-              <Typography component="body1" variant="body1">
-              How often would you like to meet with your mentors?
-              </Typography>
+              <CheckboxLabels 
+              name='mentorStatus'
+              handleUpdateUser={updateUser}
+             />
+            </Grid>
+            <Grid item xs={12}>
+              {userObject.mentorStatus === false &&
+                <Typography component="body1" variant="body1">
+                How often would you like to meet with your mentors?
+                </Typography>
+              }
+              {userObject.mentorStatus === true &&
+                <Typography component="body1" variant="body1">
+                How often would you like to meet with your mentees?
+                </Typography>
+              }
+              
             </Grid>
             <Grid item xs={12}>
             <FormGroup row>        
@@ -459,9 +473,16 @@ function SignupForm() {
         </FormGroup>
         </Grid>
         <Grid item xs={12}>
-          <Typography component="body1" variant="body1">
-              How would you like to communicate with your mentors?
-            </Typography>
+          {userObject.mentorStatus === false && 
+              <Typography component="body1" variant="body1">
+                How would you like to communicate with your mentors?
+              </Typography>
+          }
+          {userObject.mentorStatus === true && 
+              <Typography component="body1" variant="body1">
+                How would you like to communicate with your mentees?
+              </Typography>
+          }
         </Grid>
         <Grid item xs={12}>
             <FormGroup row>
@@ -653,12 +674,7 @@ function SignupForm() {
 
             </FormGroup>
             </Grid>
-            <Grid item xs={12}>
-              <CheckboxLabels 
-          name='mentorStatus'
-          handleUpdateUser={updateUser}
-          />
-            </Grid>
+            
             {userObject.mentorStatus === true &&
             <div>
             <Grid item xs={12}>
@@ -672,7 +688,7 @@ function SignupForm() {
               control={
                 <Checkbox
                   checked={isMentorJavascript}
-                  onChange={updateMentorJavascript}
+                  onChange={updateJavascript}
                   name="isJavascript"
                   color="primary"
                 />
@@ -683,7 +699,7 @@ function SignupForm() {
               control={
                 <Checkbox
                   checked={isMentorRuby}
-                  onChange={updateMentorRuby}
+                  onChange={updateRuby}
                   name="isRuby"
                   color="primary"
                 />
@@ -694,7 +710,7 @@ function SignupForm() {
               control={
                 <Checkbox
                   checked={isMentorPython}
-                  onChange={updateMentorPython}
+                  onChange={updatePython}
                   name="isPython"
                   color="primary"
                 />

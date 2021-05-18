@@ -70,7 +70,7 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 // multer routes
-app.post("/api/profile", upload.single("avatar"), function (req, res, next) {
+app.post("/profile", upload.single("avatar"), function (req, res, next) {
 	console.log(req.file);
 
 	db.User.findOneAndUpdate({_id: req.user._id}, { $set: { profilePicture: `/uploads/${req.file.originalname}` } }, { new: true })

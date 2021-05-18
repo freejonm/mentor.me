@@ -22,7 +22,8 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   root: {
     marginTop:'calc(5% + 60px)',
-    bottom:0
+    bottom:0,
+    width: '100%'
   },
   main: {
     marginTop: theme.spacing(8),

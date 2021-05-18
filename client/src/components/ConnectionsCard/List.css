@@ -1,6 +1,5 @@
 .list-overflow-container {
   max-height: 400px;
-  border: 1px #dddddd solid;
   border-radius: 4px;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -9,6 +8,7 @@
 .list-overflow-container ul {
   margin: 0;
   background-color: white;
+  padding: 0;
 }
 
 .list-overflow-container li {
@@ -44,5 +44,5 @@
   align-content: left;
   /* justify-content: space-between; */
   font-size: 22px;
-  border:1px black solid ;
+  /* border:1px black solid ; */
 }

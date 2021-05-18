@@ -21,10 +21,11 @@
   box-shadow: 1px 1px 2px 2px black !important;
 }
 h4 {
+  display: flex;
+
   background-color: #db784d;
   color: white;
   font-family: "Righteous", sans-serif;
-  font: Ubuntu;
   margin-top: 0px !important;
   margin-bottom: 30px !important;
   padding: 10px;
@@ -36,8 +37,9 @@ h4 {
   height: 50px;
   margin-top: 50px !important;
   margin-bottom: 50px;
+  background-color: white;
 }
-.Button {
+#chatBtn {
   background-color: #db784d !important;
   margin-top: 50px !important;
 }

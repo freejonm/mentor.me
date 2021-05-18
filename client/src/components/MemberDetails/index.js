@@ -125,7 +125,7 @@ export default function MemberProfile({
       <Paper className={classes.paper}>
         <UserContainer>
         <UserProfileTitle>{userName}'s Profile</UserProfileTitle>
-            {(fullName, pronouns)}
+
         <Pic> 
             <img src={avatar} /> 
             {/* <EditAvatar>Change Picture</EditAvatar> */}

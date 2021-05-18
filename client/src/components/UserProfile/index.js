@@ -75,7 +75,7 @@ const UserContainer = styled.div`
   align-items: center;
   margin: auto;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 3px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   `;
@@ -88,7 +88,7 @@ const UserProfileTitle = styled.div`
   font-size: 30px;
   color: white;
   background-color: #db784d;
-  border-radius: 5px;
+  border-radius: 3px;
   margin-bottom: 0px;
   font-weight: bold;
 `;
@@ -161,61 +161,3 @@ export default function BadgeAvatars({
         </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//   return (
-//     <Card>
-//       <h3>{userName}'s Profile</h3>
-//       <br></br>
-//       <CardContent>
-//         <UserContainer>
-//           <ColLeft>
-//             <UserProfileTitle>{(fullName, pronouns)}</UserProfileTitle>
-//             <img src="https://randomuser.me/api/portraits/women/75.jpg" />
-//             {/* <EditAvatar>Change Picture</EditAvatar> */}
-//           </ColLeft>
-
-//           <ColRight>
-//             <ListGroup>
-//               <li>Email</li>
-//               <li>Location</li>
-//               <li>Current Position</li>
-//               <li>Years Experience</li>
-//             </ListGroup>
-//           </ColRight>
-//           <ColRight>
-//             <ListGroup>
-//               <li>{email}</li>
-//               <li>{location}</li>
-//               <li>{currentPosition}</li>
-//               <li>{yearsExp}</li>
-//             </ListGroup>
-//           </ColRight>
-//         </UserContainer>
-//       </CardContent>
-//     </Card>
-//   );
-// }

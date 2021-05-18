@@ -111,16 +111,20 @@ const Chat = () => {
     >
       {!loggedIn ? (
         <div className="chat-login">
-          <h3
+          <h1
             style={{
+              display: 'flex',
+              justifyContent: 'center',
               color: 'white',
               backgroundColor: '#db784d',
-              marginTop: '10px !important',
-              marginBottom: '10px'
+              marginBottom: '30px',
+              padding: '30px',
+              width: '100%',
+              fontFamily: 'Righteous'
             }}
           >
             Chat Application
-          </h3>
+          </h1>
           <div>
             <TextField
               label="Username"

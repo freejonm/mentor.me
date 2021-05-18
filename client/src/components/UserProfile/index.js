@@ -51,24 +51,6 @@ const ListGroup = styled.ul`
   }
 `;
 
-// const theme = createMuiTheme({
-//   overrides: {
-//     MuiButton: {
-//       text: {
-//         background: '#db784d',
-//         borderRadius: 3,
-//         font: 'Righteous', 
-//         border: 0,
-//         color: 'white',
-//         height: 36,
-//         padding: '0 20px',
-//         margin: '20px',
-//         boxShadow: '0 3px 5px 2px rgba((219,120,77, .3)',
-//       },
-//     },
-//   },
-// });
-
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -155,52 +137,27 @@ export default function BadgeAvatars({
   education,
   location
 }) {
-  const classes = useStyles();
-
-  return (
+   return (
     
     <div>
-  
        <UserProfileTitle>{fullName}'s Profile</ UserProfileTitle>
         <UserContainer >
-        
-
-        <Pic> 
+          <Pic> 
             <img src={avatar} /> 
-           
-            </Pic>
-            <Body>
-              <ul>
+          </Pic>
+          <Body>
+            <ul>
               <ColRight>
-             <ListGroup>
-              <li><h5>Email: </h5> {email}</li>
-               <li><h5>Location: </h5>{location} </li>
-               <li><h5>Current Position:</h5>  {currentPosition}</li>
+                <ListGroup>
+                  <li><h5>Email: </h5> {email}</li>
+                  <li><h5>Location: </h5>{location} </li>
+                  <li><h5>Current Position:</h5>  {currentPosition}</li>
               
-             </ListGroup>
-           </ColRight> 
-          
-              
-              
-              
-                {/* <tr></tr>
-                <li><h5>Name: </h5>{fullName}</li>
-                <br></br>
-                <li><h5>Pronouns: </h5>{pronouns}</li>
-                <br></br>
-                <li><h5>Email: </h5> <a href={`mailto:${email}`}>{email}</a></li>
-                <br></br>
-                <li><h5>Location: </h5>{location}</li>
-                <br></br>
-                <li><h5>Current Position: </h5> {currentPosition} </li>
-                <br></br>
-                <li><h5>Years Experience: </h5>{yearsExp}</li>
-                <br></br>
-                <li><h5>Education: </h5>{education}</li>         */}
-              </ul>
-            </Body>            
+                </ListGroup>
+              </ColRight> 
+            </ul>
+          </Body>            
         </UserContainer>
- 
         </div>
   );
 }

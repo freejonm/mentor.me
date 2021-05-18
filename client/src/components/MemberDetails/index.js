@@ -125,7 +125,7 @@ export default function MemberProfile({
       <Paper className={classes.paper}>
         <UserContainer>
         <UserProfileTitle>{userName}'s Profile</UserProfileTitle>
-            {(fullName, pronouns)}
+
         <Pic> 
             <img src={avatar} /> 
             {/* <EditAvatar>Change Picture</EditAvatar> */}
@@ -149,7 +149,7 @@ export default function MemberProfile({
             </Body>            
         </UserContainer>
             <ThemeProvider theme={theme}>
-              <Button type="button" onclick='/chat'>Chat with Mentor</Button>
+              <Button type="button" onclick='/chat'>Chat with {userName}</Button>
             </ThemeProvider>
         </Paper>
         </div>

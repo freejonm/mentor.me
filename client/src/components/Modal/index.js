@@ -98,8 +98,12 @@ function EditModal({user, handleInputChange, handleSave, updatedUser}) {
       >
         <ModalHead>Edit Profile</ModalHead>
         <ModalPicContainer>
-          <img src="https://randomuser.me/api/portraits/women/75.jpg" />
+          <img  />
           <ThemeProvider theme={theme}>
+          <form action="/profile" method="post" enctype="multipart/form-data">
+              <input type="file" name="avatar" />
+              <input type="submit" value="Submit"></input>
+            </form>
             <Button>Change Picture</Button>
           </ThemeProvider>
         </ModalPicContainer>

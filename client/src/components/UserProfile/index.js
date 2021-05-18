@@ -143,7 +143,7 @@ export default function BadgeAvatars({
         <UserContainer>
           <ColLeft>
             <UserProfileTitle>{(fullName, pronouns)}</UserProfileTitle>
-            <img src="https://randomuser.me/api/portraits/women/75.jpg" />
+            <img src={avatar}/>
             {/* <EditAvatar>Change Picture</EditAvatar> */}
           </ColLeft>
 

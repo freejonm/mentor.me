@@ -407,7 +407,7 @@ const users = [
     fieldOfInterest: "Web Development",
   },
   {
-    profilePicture: "https://randomuser.me/api/portraits/thumb/women/37.jpg",
+    profilePicture: "https://randomuser.me/api/portraits/women/37.jpg",
     firstName: "Francelina",
     lastName: "Porto",
     pronouns: "she/her",

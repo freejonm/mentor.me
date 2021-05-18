@@ -92,7 +92,7 @@ const Chat = () => {
           border: 0,
           color: 'white',
           height: 36,
-          padding: '0 20px',
+          padding: '20px',
           margin: '10px',
           boxShadow: '0 3px 5px 2px rgba((219,120,77, .3)'
         }

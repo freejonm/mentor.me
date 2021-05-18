@@ -59,8 +59,12 @@ function SignupForm() {
     education: '',
     timeCommitment: [],
     commPrefs: [],
-    learningAbout: []
+    learningAbout: [],
   })
+
+  const [mentorObject, setMentorObject] = useState({
+    hasExperienceIn: []
+  });
 
   const [redirectTo, setRedirectTo] = useState(null)
 
@@ -236,6 +240,7 @@ function SignupForm() {
       timeCommitment: userObject.timeCommitment,
       commPrefs: userObject.commPrefs,
       learningAbout: userObject.learningAbout,
+      hasExperienceIn: mentorObject.hasExperienceIn
     }).then(response => {
       console.log(response)
       setRedirectTo('/login')

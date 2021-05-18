@@ -81,7 +81,7 @@ img {
 const Body = styled.div`
 display: flex;
 flex-direction: row;
-justify-content: flex-start;
+justify-content: center;
 font-family: 'Ubuntu';
 width: 100%;
 font-size: 16px;

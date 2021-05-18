@@ -1,5 +1,45 @@
 import React from 'react';
 import styled from 'styled-components';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
+
+
+const theme = createMuiTheme({
+  overrides: {
+    MuiButton: {
+      text: {
+        // background: 'linear-gradient(45deg, #db784d 30%, #eda320 90%)',
+        background: '#db784d',
+        borderRadius: 3,
+        font: 'Righteous', 
+        border: 0,
+        color: 'white',
+        height: 36,
+        padding: '0 20px',
+        margin: '20px',
+        boxShadow: '0 3px 5px 2px rgba((219,120,77, .3)',
+      },
+    },
+  },
+});
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    marginTop: theme.spacing(15)
+  },
+  paper: {
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    backgroundColor: theme.palette.secondary.main,
+    marginTop: '100px',
+    marginLeft: '100px',
+    marginRight: '100px'
+  }
+}));
+
 
 
 const UserContainer = styled.div`
@@ -11,7 +51,7 @@ const UserContainer = styled.div`
   align-items: center;
   margin: auto;
   margin-top: 150px; 
-  background-color: #012a2f;
+  background-color: white;
   border-radius: 5px;
   border: 4px solid #637f7d;
   box-shadow: 3px 3px 5px 5px black;
@@ -30,16 +70,25 @@ const UserProfileTitle = styled.div`
   
 
 `;
+const Pic = styled.div`
+img {
+  width: 200px;
+  height:200px;
+}
+
+  `;
 
 const Body = styled.div`
 display: flex;
 flex-direction: row;
-justify-content: flex-start;
+justify-content: center;
 font-family: 'Ubuntu';
 width: 100%;
 font-size: 16px;
+
 ul{
     list-style-type: none;
+    color: #012a2f;
     h5 {
         font-weight: 'bold';
         font-size: 22px;
@@ -68,36 +117,41 @@ export default function MemberProfile({
   education,
   location
 }) {
-//   const classes = useStyles();
+  const classes = useStyles();
 
   return (
     
     <div>
+      <Paper className={classes.paper}>
         <UserContainer>
         <UserProfileTitle>{userName}'s Profile</UserProfileTitle>
-            {(fullName, pronouns)}
-            <img src="https://randomuser.me/api/portraits/women/75.jpg" />
+
+        <Pic> 
+            <img src={avatar} /> 
             {/* <EditAvatar>Change Picture</EditAvatar> */}
-          
+            </Pic>
             <Body>
-                <ul>
-                    <li><h5>Name: </h5>{fullName}</li>
-                    <br></br>
-                    <li><h5>Pronouns: </h5>{pronouns}</li>
-                    <br></br>
-                    <li><h5>Email: </h5> <a href={`mailto:${email}`}>{email}</a></li>
-                    <br></br>
-                    <li><h5>Location: </h5>{location}</li>
-                    <br></br>
-                    <li><h5>Current Position: </h5> {currentPosition} </li>
-                    <br></br>
-                    <li><h5>Years Experience: </h5>{yearsExp}</li>
-                    <br></br>
-                    <li><h5>Education: </h5>{education}</li>        
+              <ul>
+                <li><h5>Name: </h5>{fullName}</li>
+                <br></br>
+                <li><h5>Pronouns: </h5>{pronouns}</li>
+                <br></br>
+                <li><h5>Email: </h5> <a href={`mailto:${email}`}>{email}</a></li>
+                <br></br>
+                <li><h5>Location: </h5>{location}</li>
+                <br></br>
+                <li><h5>Current Position: </h5> {currentPosition} </li>
+                <br></br>
+                <li><h5>Years Experience: </h5>{yearsExp}</li>
+                <br></br>
+                <li><h5>Education: </h5>{education}</li>        
               </ul>
-              </Body>
-           
+            </Body>            
         </UserContainer>
+            <ThemeProvider theme={theme}>
+              <Button type="button" onclick='/chat'>Chat with {userName}</Button>
+            </ThemeProvider>
+        </Paper>
         </div>
   );
 }

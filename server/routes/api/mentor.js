@@ -3,7 +3,7 @@ const mentorController = require("../../controllers/mentorController");
 
 // Matches with "/api/mentors"
 router.route("/")
-  .get(mentorController.findAll)
+  .put(mentorController.getRankedMentors)
 
   // .post(mentorController.register);
 
@@ -15,7 +15,5 @@ router.route("/matches")
 router
   .route("/:id")
   .get(mentorController.getRankedMentors)
-  .put(mentorController.update)
-  .delete(mentorController.remove);
 
 module.exports = router;

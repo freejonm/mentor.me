@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: 'center',
-    backgroundColor: theme.palette.secondary
+    backgroundColor: theme.palette.secondary.main
   }
 }));
 
@@ -40,16 +40,14 @@ const ConnectionsName = styled.strong`
 export default function Dashboard({ user, rankedMentors }) {
   const classes = useStyles();
   const [users, setUsers] = useState([]);
-  const [connections, setConnections] = useState([]);
   const [potentialMentors, setPotentialMentors] = useState([]);
   const [updatedUser, setUpdatedUser] = useState(user
 
   );
-
+ 
 
   useEffect(() => {
     loadUsers();
-    getConnections();
     getMatches();
   }, []);
 
@@ -65,16 +63,8 @@ export default function Dashboard({ user, rankedMentors }) {
     });
   };
 
-  const getConnections = () => {
-    API.getConnections(user._id).then((res) => {
-      // console.log(res.data.connections);
-
-      setConnections(res.data.connections);
-    });
-  };
-
   const getMatches = () => {
-    API.getMatches(user._id).then((res) => {
+    API.getMatches(user).then((res) => {
       console.log('ranked',res.data.rankedMentors);
       const matches = res.data.rankedMentors;
       setPotentialMentors(matches);
@@ -117,7 +107,7 @@ console.log('user', user)
           <Paper className={classes.paper}>
             {users.length ? (
               <Connections>
-                {connections.map((connect) => (
+                {user.friendsList.map((connect) => (
                   <ConnectionsItem key={connect._id}>
                     <Link to={'/memberprofile/' + connect._id}>
                       <img src={connect.profilePicture} />
@@ -147,7 +137,9 @@ console.log('user', user)
           <Paper className={classes.paper}>
             {potentialMentors.length ? (
                 <PotentialConnections>
-            {potentialMentors.map((mentor) => (
+            {potentialMentors.map((mentor) => {
+              if (mentor._id !== user._id || user.friendsList.includes(mentor._id)) {
+                return (
                 <PotentialConnectionsItem key={mentor._id} mentorId={mentor._id}>
                   <Link to={'memberprofile/' + mentor._id}>
                     <img src={mentor.profilePicture} />
@@ -155,9 +147,9 @@ console.log('user', user)
                       {mentor.firstName} {mentor.lastName} ({mentor.pronouns})
                     </ConnectionsName>
                   </Link>
-
                 </PotentialConnectionsItem>
-            ))}
+                )}
+            })}
             </PotentialConnections>
             ) : (
               <h3>No Results to Display</h3>

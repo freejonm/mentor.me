@@ -13,9 +13,9 @@ module.exports = {
 //   },
 
   sendMentorRequest: (req, res) => {
-    db.User.findOneAndUpdate({ _id: req.params.id }, { $push: { mentorRequests: {  userId: req.user._id, username: req.user.username } },  }, { new: true })
+    db.User.findOneAndUpdate({ _id: req.params.id }, { $addToSet: { mentorRequests: {  _id: req.user._id, userId: req.user._id, username: req.user.username } },  }, { new: true })
     .then(dbUser => {
-        db.User.findOneAndUpdate({ _id: req.user._id }, { $push: { sentRequests: { userId: req.params.id, username: dbUser.username } } }, { new: true })
+        db.User.findOneAndUpdate({ _id: req.user._id }, { $addToSet: { sentRequests: { _id: req.params.id, userId: req.params.id, username: dbUser.username } } }, { new: true })
         .then( dbCurrent => {
             res.status(200).json(dbCurrent.username + ' sent a friend request to ' + dbUser.username)
         })
@@ -31,11 +31,12 @@ module.exports = {
   },
 
   approveMentorRequest: (req, res) => {
-    console.log(req.body)
+    // console.log(req.body)
     db.User.findOneAndUpdate(
         { _id: req.params.id }, 
         { 
-            $push: { friendsList: {  
+            $addToSet: { friendsList: {  
+                _id: req.user._id,
                 friendId: req.user._id, 
                 username: req.user.username, 
                 firstName: req.user.firstName,
@@ -45,14 +46,17 @@ module.exports = {
                 profilePicture: req.body.profilePicture
                 } 
             }, 
-            $pull: { sentRequests: { userId: req.user.id } } 
+            $pull: { sentRequests: { userId: req.user._id } } 
         },  
         { new: true })
     .then(dbUser => {
+        // console.log(dbUser);
+        // console.log(req.params, req.user)
         db.User.findOneAndUpdate(
             { _id: req.user._id }, 
             { 
-                $push: { friendsList: { 
+                $addToSet: { friendsList: { 
+                    _id: req.params.id,
                     friendId: req.params.id,
                     username: dbUser.username,
                     firstName: dbUser.firstName,
@@ -80,7 +84,7 @@ module.exports = {
   },
 
   denyMentorRequest: (req, res) => {
-      
+
   }
 
 };

@@ -91,7 +91,8 @@ console.log('user', user)
             userName={updatedUser.username} 
             email={updatedUser.email} 
             location={updatedUser.location} currentPosition={updatedUser.currentPosition} 
-            yearsExp={updatedUser.yearsExperience}  />
+            yearsExp={updatedUser.yearsExperience}
+            fullName={updatedUser.firstName + " " + updatedUser.lastName}  />
             <ModalProvider>
               <EditModal
                 handleInputChange={handleInputChange}

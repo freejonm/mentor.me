@@ -155,9 +155,6 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const wrap = styled.div`
-border: 2px solid #01444c;
-`;
 
 const UserContainer = styled.div`
   display: flex;
@@ -240,7 +237,7 @@ export default function BadgeAvatars({
   return (
     
     <div>
-    <wrap>
+  
        <UserProfileTitle>{userName}'s Profile</ UserProfileTitle>
         <UserContainer >
         
@@ -288,7 +285,7 @@ export default function BadgeAvatars({
               </ul>
             </Body>            
         </UserContainer>
-        </wrap>
+ 
         </div>
   );
 }

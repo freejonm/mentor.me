@@ -51,23 +51,23 @@ const ListGroup = styled.ul`
   }
 `;
 
-const theme = createMuiTheme({
-  overrides: {
-    MuiButton: {
-      text: {
-        background: '#db784d',
-        borderRadius: 3,
-        font: 'Righteous', 
-        border: 0,
-        color: 'white',
-        height: 36,
-        padding: '0 20px',
-        margin: '20px',
-        boxShadow: '0 3px 5px 2px rgba((219,120,77, .3)',
-      },
-    },
-  },
-});
+// const theme = createMuiTheme({
+//   overrides: {
+//     MuiButton: {
+//       text: {
+//         background: '#db784d',
+//         borderRadius: 3,
+//         font: 'Righteous', 
+//         border: 0,
+//         color: 'white',
+//         height: 36,
+//         padding: '0 20px',
+//         margin: '20px',
+//         boxShadow: '0 3px 5px 2px rgba((219,120,77, .3)',
+//       },
+//     },
+//   },
+// });
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -138,13 +138,10 @@ ul{
         margin-top: 0px;
     }
     li {
-        /* margin-bottom: 5px; */
         flex-direction: row;
     }
 }
 `;
-
-
 
 
 export default function BadgeAvatars({

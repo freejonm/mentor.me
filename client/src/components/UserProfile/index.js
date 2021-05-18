@@ -194,6 +194,7 @@ img {
   height:200px;
   margin-top: 10px;
   margin-bottom: 15px;
+  border-radius: 5px;
 }
 
   `;

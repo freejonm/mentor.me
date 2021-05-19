@@ -10,7 +10,7 @@ import TextField from '@material-ui/core/TextField';
 
 let socket;
 
-const CONNECTION_PORT = 'localhost:3001/';
+const CONNECTION_PORT = 'http://mentorme3000.herokuapp.com/'
 
 const Chat = () => {
  

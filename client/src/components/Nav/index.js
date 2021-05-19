@@ -45,7 +45,6 @@ const StyledLink = styled(Link)`
   padding-right: 10px;
   padding-left: 10px;
   border-radius: 5px;
-  /* border-left: 5px solid #01444c; */
   border: 2px solid #01444c;
   background-color: #012a2f;
 
@@ -54,8 +53,6 @@ const StyledLink = styled(Link)`
     text-decoration: none;
     cursor: pointer;
     background-color: #637f7d;
-    /* border-right:none; */
-    /* border-left:none; */
   }
 `;
 
@@ -95,7 +92,6 @@ const Nav = ({ loggedIn }) => {
           ) : (
             <>
               <StyledLink to='/register'> Sign Up </StyledLink>
-              {/* <NavPipe /> */}
               <StyledLink to='/login'> Login </StyledLink>
             </>
           )}

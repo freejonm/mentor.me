@@ -2,14 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Notifications from '../components/Notifications';
 import UserProfile from '../components/UserProfile';
-// import EditProfileButton from '../components/EditProfileButton';
-// import ConnectionsCard from '../components/ConnectionsCard';
 import { Connections, ConnectionsItem } from '../components/ConnectionsCard';
 import {
   PotentialConnections,
   PotentialConnectionsItem
 } from '../components/PotentialConnections';
-// import PotentialConnections from '../components/PotentialConnections';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
@@ -17,7 +14,6 @@ import API from '../utils/API';
 import styled from 'styled-components';
 import { ModalProvider } from 'styled-react-modal';
 import EditModal from '../components/Modal';
-import ViewRequestModal from '../components/ViewRequestModal'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
 const ConnectionsName = styled.strong`
   font-size: 22px;
   margin-left: 10px;
-  /* background-color: #012a2f; */
 `;
 
 export default function Dashboard({ user, rankedMentors }) {
@@ -43,7 +38,6 @@ export default function Dashboard({ user, rankedMentors }) {
   const [users, setUsers] = useState([]);
   const [potentialMentors, setPotentialMentors] = useState([]);
   const [updatedUser, setUpdatedUser] = useState(user
-
   );
  
 
@@ -55,18 +49,15 @@ export default function Dashboard({ user, rankedMentors }) {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUpdatedUser({ ...updatedUser, [name]: value });
-    // console.log('value', value);
   };
   const handleSave = (e) => {
     e.preventDefault();
     API.updateUser(updatedUser).then((res) => {
-      console.log(res.data.user);
     });
   };
 
   const getMatches = () => {
     API.getMatches(user).then((res) => {
-      console.log('ranked',res.data.rankedMentors);
       const matches = res.data.rankedMentors;
       setPotentialMentors(matches);
     });
@@ -75,13 +66,11 @@ export default function Dashboard({ user, rankedMentors }) {
   function loadUsers() {
     API.getAllUsers()
       .then((res) => {
-        // console.log(res.data.users);
         setUsers(res.data.users);
       })
       .catch((err) => console.log(err));
   }
-console.log('user', user)
-// console.log(potentialMentors)
+
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
@@ -101,8 +90,6 @@ console.log('user', user)
                 user={user}
               />
             </ModalProvider>
-
-            {/* <EditProfileButton/>  */}
           </Paper>
         </Grid>
         <Grid item xs={6}>

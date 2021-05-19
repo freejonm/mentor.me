@@ -3,27 +3,12 @@ import './index.scss';
 import styled from 'styled-components';
 
 
-
-const ColLeft = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  img {
-    height: 220px;
-    width: 200px;
-    border-radius: 5%;
-    box-shadow: 1px 1px 2px 2px black;
-  }
-`;
-
 const ColRight = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   width: auto;
-  /* border-left: 2px solid #01444c; */
+
 `;
 
 const ListGroup = styled.ul`

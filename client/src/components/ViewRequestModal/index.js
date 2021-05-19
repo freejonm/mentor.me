@@ -54,6 +54,7 @@ ul{
     li {
         margin-bottom: 5px;
         flex-direction: row;
+        color:white;
     }
 }
 `;

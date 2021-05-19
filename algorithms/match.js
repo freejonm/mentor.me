@@ -15,11 +15,17 @@ const rankAndSort = (currentUser, mentors) => {
         if (currentUser.friendsList.length === 0) {
             sortedMentors.push(mentor);
         } else {
-            currentUser.friendsList.map(map => {
-                if (mentor._id == map.friendId) {  } else {
+
+            for (let index = 0; index < currentUser.friendsList.length; index++) {
+                let friend = currentUser.friendsList[index];
+
+                if (mentor._id == friend.friendId) {  } else {
                 sortedMentors.push(mentor);
+                break
                 }
-            })
+                
+            }
+            
         }
     });
 

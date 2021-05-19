@@ -1,8 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import Modal from "styled-react-modal";
-import EditProfileForm from '../EditProfileForm';
 import styled from 'styled-components';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import API from '../../utils/API'
 
 const ViewRequestButton = styled.button`
@@ -102,9 +100,6 @@ user, request}) {
     })
   }
 
-  const denyRequest = (e) => {
-
-  }
 
   return (
     <div>

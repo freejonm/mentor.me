@@ -7,6 +7,7 @@ import CodeImg from '../../assets/icons/icons8-code-100.png';
 import CLIImg from '../../assets/icons/icons8-command-line-100.png';
 import MergeImg from '../../assets/icons/icons8-merge-git-100.png';
 import RespImg from '../../assets/icons/icons8-responsive-100.png';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   display: grid;
@@ -76,7 +77,7 @@ const ColumnRight = styled.div`
   }
 `;
 
-const Button = styled(motion.button)`
+const Button = styled(Link)`
   padding: 2rem 3rem;
   font-size: 26px;
   border: 2px solid #637f7d;

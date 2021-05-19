@@ -26,8 +26,8 @@ export default {
   getMatches: (userData) => {
     return axios.put("/api/mentor/", userData);
   },
-  updateUser: (id) => {
-    return axios.put('/api/users/' + id)
+  updateUser: (userData) => {
+    return axios.put('/api/users/', userData)
   },
   getUsersByFirstName: (userName) => {
     return axios.get('/api/users/firstname', {

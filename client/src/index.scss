@@ -1,11 +1,11 @@
 @import "./styles/_variables.scss";
 
 body {
-  height:100%;
-  margin: 0;
-  padding: 0;
+  height:100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
   font-family: "Ubuntu", sans-serif !important;
-  background: linear-gradient(10deg, $darkturq 60%, $turq 60%) !important;
+  background-color: $darkturq  !important;
   
 }
 
@@ -22,10 +22,14 @@ body {
 }
 
 .makeStyles-root-7 {
-  display: flex;
-  flex-wrap: wrap;
+  // display: flex;
   // background-color:white !important;
   margin-top: 10%;
+}
+
+.MuiCardContent-root {
+  padding: 0 !important;
+
 }
 
 button {

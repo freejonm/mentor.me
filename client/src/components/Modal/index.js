@@ -71,6 +71,7 @@ const ModalPicContainer = styled.div`
   align-items: center;
   flex-direction: column;
   margin: 10px;
+  padding: 20px;
   img {
     height: 130px;
     width: 110px;
@@ -79,8 +80,32 @@ const ModalPicContainer = styled.div`
   }
 `;
 
+const UploadPicForm = styled.form`
+padding:12px;
+
+input {
+  background-color:white;
+}
+
+`;
+
 function EditModal({user, handleInputChange, handleSave, updatedUser}) {
   const [isOpen, setIsOpen] = useState(false);
+  const [picture, setPicture] = useState(null);
+  const [imgData, setImgData] = useState(null);
+
+  const onChangePicture = e => {
+    if (e.target.files[0]) {
+      console.log('picture', e.target.files);
+      setPicture(e.target.files[0]);
+      const reader = new FileReader();
+      reader.addEventListener('load', () => {
+        setImgData(reader.result)
+      });
+      reader.readAsDataURL(e.target.files[0]);
+    }
+
+  }
 
   function toggleModal(e) {
     setIsOpen(!isOpen);
@@ -98,9 +123,12 @@ function EditModal({user, handleInputChange, handleSave, updatedUser}) {
       >
         <ModalHead>Edit Profile</ModalHead>
         <ModalPicContainer>
-          <img src="https://randomuser.me/api/portraits/women/75.jpg" />
+          <img src={imgData} />
           <ThemeProvider theme={theme}>
-            <Button>Change Picture</Button>
+          <UploadPicForm action="/profile" method="post" enctype="multipart/form-data">
+              <input type="file" name="avatar" onChange={onChangePicture}/>
+              <input type="submit" value="Submit"></input>
+            </UploadPicForm>
           </ThemeProvider>
         </ModalPicContainer>
         <EditProfileForm user={user} handleInputChange={handleInputChange}  updatedUser={updatedUser}/>

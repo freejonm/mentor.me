@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
-import io from 'socket.io-client'
-import '../styles/Chat.css'
+import io from 'socket.io-client';
+import '../styles/Chat.css';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
@@ -17,6 +17,8 @@ import TextField from '@material-ui/core/TextField';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
+let socket;
+
 
 let socket
 
@@ -27,30 +29,29 @@ const CONNECTION_PORT = 'http://mentorme3000.herokuapp.com/'
 const Chat = () => {
   // console.log('chat')
   //Before Login
-  const [loggedIn, setLoggedIn] = useState(false)
-  const [room, setRoom] = useState('')
-  const [userName, setUserName] = useState('')
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [room, setRoom] = useState('');
+  const [userName, setUserName] = useState('');
   //After Login
-  const [message, setMessage] = useState('')
-  const [messageList, setMessageList] = useState([])
+  const [message, setMessage] = useState('');
+  const [messageList, setMessageList] = useState([]);
 
   useEffect(() => {
-    socket = io(CONNECTION_PORT)
-  }, [CONNECTION_PORT])
+    socket = io(CONNECTION_PORT);
+  }, [CONNECTION_PORT]);
 
   useEffect(() => {
     socket.on('receive_message', (data) => {
-      console.log('message data' + data)
+      console.log('message data' + data);
 
-      setMessageList([...messageList, data])
-    })
-  })
+      setMessageList([...messageList, data]);
+    });
+  });
 
   const connectToRoom = () => {
-    setLoggedIn(true)
-    socket.emit('join_room', room)
-    
-  }
+    setLoggedIn(true);
+    socket.emit('join_room', room);
+  };
 
   const sendMessage = async () => {
     let messageContent = {
@@ -59,14 +60,12 @@ const Chat = () => {
         author: userName,
         message: message
       }
-    }
+    };
 
-
-    socket.emit('send_message', messageContent)
-    setMessageList([...messageList, messageContent.content])
-    setMessage('')
-
-  }
+    socket.emit('send_message', messageContent);
+    setMessageList([...messageList, messageContent.content]);
+    setMessage('');
+  };
   // const useStyles = makeStyles((theme) => ({
   //   root: {
   //     display: 'flex',
@@ -85,57 +84,67 @@ const Chat = () => {
   //     width: '25ch',
   //   },
   // }));
-const theme = createMuiTheme({
-  overrides: {
-    MuiButton: {
-      text: {
-        // background: 'linear-gradient(45deg, #db784d 30%, #eda320 90%)',
-        background: '#db784d',
-        borderRadius: 3,
-        font: 'Righteous', 
-        border: 0,
-        color: 'white',
-        height: 36,
-        padding: '0 20px',
-        margin: '10px',
-        boxShadow: '0 3px 5px 2px rgba((219,120,77, .3)',
-      },
-    },
-  },
-});
- return (
-    <div className='chat-application' 
-    // style={{ 
-    //   borderRadius: '5px', 
-    //   margin: '6%', 
-    //   height: '50rem', 
-    //   display: 'grid', 
-    //   placeItems: 'center'}}
+  const theme = createMuiTheme({
+    overrides: {
+      MuiButton: {
+        text: {
+          // background: 'linear-gradient(45deg, #db784d 30%, #eda320 90%)',
+          background: '#db784d',
+          borderRadius: 3,
+          font: 'Righteous',
+          border: 0,
+          color: 'white',
+          height: 36,
+          padding: '20px',
+          margin: '10px',
+          boxShadow: '0 3px 5px 2px rgba((219,120,77, .3)'
+        }
+      }
+    }
+  });
+  return (
+    <div
+      className="chat-application"
+      // style={{
+      //   borderRadius: '5px',
+      //   margin: '6%',
+      //   height: '50rem',
+      //   display: 'grid',
+      //   placeItems: 'center'}}
     >
-   {!loggedIn ? (
-    <div className='chat-login'>
-          <h3 
+      {!loggedIn ? (
+        <div className="chat-login">
+          <h1
             style={{
-              color: 'white', 
+              display: 'flex',
+              justifyContent: 'center',
+              color: 'white',
               backgroundColor: '#db784d',
-              marginTop: '10px !important',
-              marginBottom: '10px',
-            }}>
+              marginBottom: '30px',
+              padding: '30px',
+              width: '100%',
+              fontFamily: 'Righteous'
+            }}
+          >
             Chat Application
-          </h3>
-        <div>
-        <TextField
-          label="Username"
-          id="outlined-start-adornment"
-          // className={clsx(classes.margin, classes.textField)}
-          InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
-          }}
-          variant="outlined"
-          onChange={(e) => {setUserName(e.target.value)}}
-        />
-          <br></br>
-          {/* <input type='text' placeholder='Username...' style={{
+          </h1>
+          <div>
+            <TextField
+              label="Username"
+              id="outlined-start-adornment"
+              // className={clsx(classes.margin, classes.textField)}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start"></InputAdornment>
+                )
+              }}
+              variant="outlined"
+              onChange={(e) => {
+                setUserName(e.target.value);
+              }}
+            />
+            <br></br>
+            {/* <input type='text' placeholder='Username...' style={{
             borderRadius: '10px',
             width: '200px',
             height: '50px',
@@ -150,109 +159,138 @@ const theme = createMuiTheme({
             marginTop: '50px !important',
             marginBottom: '30px'
             }} onChange={(e) => {setRoom(e.target.value)}}/> */}
-          <br></br>
-          <TextField
-          label="room"
-          id="outlined-start-adornment"
-          // className={clsx(classes.margin, classes.textField)}
-          InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
-          }}
-          variant="outlined"
-          onChange={(e) => {setRoom(e.target.value)}}></TextField>
-        </div>
-        <ThemeProvider>
-          <Button onClick={connectToRoom}>
-              Enter Chat
-          </Button>
+            <br></br>
+            <TextField
+              label="room"
+              id="outlined-start-adornment"
+              // className={clsx(classes.margin, classes.textField)}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start"></InputAdornment>
+                )
+              }}
+              variant="outlined"
+              onChange={(e) => {
+                setRoom(e.target.value);
+              }}
+            ></TextField>
+          </div>
+          <ThemeProvider>
+            <Button id='chatBtn' onClick={connectToRoom}>Enter Chat</Button>
           </ThemeProvider>
-    </div>
-    ) : ( 
-      <div className='chat-container' 
-        style={{
-          // width:'600px', 
-          // height: '350px', 
-          // border: '5px solid #0091ff', 
-          // borderRadius: '10px', 
-          // display: 'flex', 
-          // flexDirection:'column', 
-          // margin: '10px', 
-          // flex: '90%', 
-          // width: '100%'
-        }}>
-        <h1>Live Help</h1>
-        <div className='messages' 
-         style={{
-          //  flex: '80%', 
-          //  width: '100%', 
-          //  backgroundColor: 'white',
-          //  paddingLeft: '20px'
-          }}>
+        </div>
+      ) : (
+        <div
+          className="chat-container"
+          style={
             {
-              console.log(messageList),
+              // width:'600px',
+              // height: '350px',
+              // border: '5px solid #0091ff',
+              // borderRadius: '10px',
+              // display: 'flex',
+              // flexDirection:'column',
+              // margin: '10px',
+              // flex: '90%',
+              // width: '100%'
+            }
+          }
+        >
+          <h1>Live Help</h1>
+          <div
+            className="messages"
+            style={
+              {
+                //  flex: '80%',
+                //  width: '100%',
+                //  backgroundColor: 'white',
+                //  paddingLeft: '20px'
+              }
+            }
+          >
+            {
+              (console.log(messageList),
               messageList.map((val, key) => {
-              return ( 
-                <div className='message-container'  
-                  style={{
-                    // color: 'black', 
-                    // display: 'flex', 
-                    // flexDirection: 'row', 
-                    // alignItems: 'center'
-                  }} 
-                  id={val.author == userName ? 'You' : 'Other'}>
-                <div className='message-individual'  
-                  style={{
-                    // color: 'black', 
-                    // width: '200px', 
-                    // height: '60px', 
-                    // backgroundColor: '#0091ff', 
-                    // margin: '20px', 
-                    // borderRadius: '10px', 
-                    // display: 'grid', 
-                    // placeItems: 'center', 
-                    // marginRight: '10px', 
-                    // marginTop: '20px'
-                  }}>
-                  {' '} {val.message}
-                </div> 
-                <h1 
-                  style={{
-                    fontWeight: '300', 
-                    fontSize: '17px'
-                  }}>
-                  {val.author}
-                  </h1>
-                </div>
-              )
-            })}
+                return (
+                  <div
+                    className="message-container"
+                    style={
+                      {
+                        // color: 'black',
+                        // display: 'flex',
+                        // flexDirection: 'row',
+                        // alignItems: 'center'
+                      }
+                    }
+                    id={val.author == userName ? 'You' : 'Other'}
+                  >
+                    <div
+                      className="message-individual"
+                      style={
+                        {
+                          // color: 'black',
+                          // width: '200px',
+                          // height: '60px',
+                          // backgroundColor: '#0091ff',
+                          // margin: '20px',
+                          // borderRadius: '10px',
+                          // display: 'grid',
+                          // placeItems: 'center',
+                          // marginRight: '10px',
+                          // marginTop: '20px'
+                        }
+                      }
+                    >
+                      {' '}
+                      {val.message}
+                    </div>
+                    <h1
+                      style={{
+                        fontWeight: '300',
+                        fontSize: '17px'
+                      }}
+                    >
+                      {val.author}
+                    </h1>
+                  </div>
+                );
+              }))
+            }
+          </div>
+          <div
+            className="message-inputs"
+            style={
+              {
+                // flex: '20%',
+                // width: '100%',
+                // display: 'flex',
+                // flexDirection: 'row'
+              }
+            }
+          >
+            <input
+              onChange={(e) => setMessage(e.target.value)}
+              type="text"
+              placeholder="Message..."
+              style={
+                {
+                  // flex: '80%',
+                  // height: 'calc(100% -5px)',
+                  // border: 'none',
+                  // borderTop: '5px solid #0091ff',
+                  // backgroundColor: 'lightgray',
+                  // paddingLeft: '20px',
+                  // fontSize: '20px'
+                }
+              }
+            ></input>
+            <ThemeProvider>
+              <Button onClick={sendMessage}>Send</Button>
+            </ThemeProvider>
+          </div>
         </div>
-        <div className='message-inputs' 
-          style={{
-            // flex: '20%', 
-            // width: '100%', 
-            // display: 'flex', 
-            // flexDirection: 'row'
-          }}>
-          <input onChange={(e) => setMessage(e.target.value)} type='text' placeholder='Message...' 
-            style={{ 
-              // flex: '80%', 
-              // height: 'calc(100% -5px)', 
-              // border: 'none', 
-              // borderTop: '5px solid #0091ff', 
-              // backgroundColor: 'lightgray', 
-              // paddingLeft: '20px', 
-              // fontSize: '20px'
-            }}></input>
-        <ThemeProvider>
-          <Button 
-            onClick={sendMessage}>
-            Send
-          </Button>
-          </ThemeProvider>
-        </div>
-      </div>
-    )}
-   </div>
- )
-}  
-export default Chat
+      )}
+    </div>
+  );
+};
+export default Chat;

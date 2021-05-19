@@ -5,25 +5,19 @@ import MemberDetails from '../components/MemberDetails';
 
 
 function MemberProfile({ match }) {
-
   const { params: { userId } } = match;
-
   const [userData, setUserData] = useState({});
 
   useEffect(() => {
     API.getUserByID(userId).then(res => {
-      console.log(res.data)
       setUserData(res.data.users);
-      // console.log(userData);
     })
-    
   }, [userId])
 
  
 
 return (
   <>
-     
           <MemberDetails 
           avatar={userData.profilePicture}
           fullName={userData.firstName + " " + userData.lastName}

@@ -142,13 +142,10 @@ const ResourceFeed = ({ userName, datePosted }) => {
 
   const handleChange = (event) => {
       const { name, value } = event.target;
-      console.log(name, value);
       setPost({ ...post, [name]: value });
     },
     handleCreatePost = (e) => {
       e.preventDefault();
-      // console.log(feed)
-      // console.log(post)
       API.createPost(post).then(() => {
         renderFeed();
       });

@@ -1,5 +1,4 @@
 import React from "react";
-// import "./List.css";
 import "./index.scss"
 
 export const PotentialConnections = ({ children }) => {

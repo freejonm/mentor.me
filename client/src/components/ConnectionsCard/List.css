@@ -41,4 +41,11 @@
 .list-group-item {
   align-content: left;
   font-size: 22px;
+  padding: 0px;
 }
+
+.list-group-item img {
+height: 90px;
+width: 90px;
+}
+

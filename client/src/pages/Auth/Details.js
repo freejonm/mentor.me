@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import UserDetails from "../../components/UserDetails"  
+import UserDetails from '../../components/UserDetails';
 
 function Details() {
-    return (
-        <div>
-          
-          <UserDetails />
-        </div>
-);
-
-       
-
+  return (
+    <div>
+      <UserDetails />
+    </div>
+  );
 }
 
 export default Details;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import API from '../../utils/API'
+import API from '../../utils/API';
 
 const RequestButton = styled.button`
   background-color: #01444c;
@@ -23,10 +23,15 @@ const RequestButton = styled.button`
 `;
 
 const MentorRequestBtn = ({ mentor }) => {
-
   return (
     <div>
-      <RequestButton onClick={() => { API.sendMentorRequest(mentor).then(res => { console.log(res.data) }) }}>
+      <RequestButton
+        onClick={() => {
+          API.sendMentorRequest(mentor).then((res) => {
+            console.log(res.data);
+          });
+        }}
+      >
         <i className="fas fa-user-plus"></i>
         Request Mentor
       </RequestButton>

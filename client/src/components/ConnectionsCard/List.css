@@ -27,24 +27,18 @@
   color: #01444c;
 }
 
-/* .list-overflow-container li:first-child {
-  border-top: none;
-} */
-
 .list-overflow-container li:last-child {
   border-bottom: none;
 }
 
 .list-group {
-  /* justify-content: space-between; */
   margin-top: 0% !important;
   max-height: 300px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
- 
 
 .list-group-item {
   align-content: left;
-  /* justify-content: space-between; */
   font-size: 22px;
-  /* border:1px black solid ; */
 }

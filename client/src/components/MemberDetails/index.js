@@ -4,14 +4,12 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from 'react-router-dom';
 
 
 const theme = createMuiTheme({
   overrides: {
     MuiButton: {
       text: {
-        // background: 'linear-gradient(45deg, #db784d 30%, #eda320 90%)',
         background: '#db784d',
         borderRadius: 3,
         font: 'Righteous', 
@@ -101,11 +99,6 @@ ul{
     }
 }
 `;
- 
-
-
-
-
 
 export default function MemberProfile({
   avatar,
@@ -129,7 +122,6 @@ export default function MemberProfile({
 
         <Pic> 
             <img src={avatar} /> 
-            {/* <EditAvatar>Change Picture</EditAvatar> */}
             </Pic>
             <Body>
               <ul>
@@ -151,7 +143,6 @@ export default function MemberProfile({
         </UserContainer>
             <ThemeProvider theme={theme}>
               <Button type="button" onclick={'/chat'}>Chat with {fullName}</Button>
-              {/* <Link to={'/chat'}></Link> */}
             </ThemeProvider>
         </Paper>
         </div>

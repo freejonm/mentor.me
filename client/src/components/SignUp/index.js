@@ -59,8 +59,12 @@ function SignupForm() {
     education: '',
     timeCommitment: [],
     commPrefs: [],
-    learningAbout: []
+    learningAbout: [],
   })
+
+  const [mentorObject, setMentorObject] = useState({
+    hasExperienceIn: []
+  });
 
   const [redirectTo, setRedirectTo] = useState(null)
 
@@ -90,6 +94,19 @@ function SignupForm() {
   const [isCareerPaths, setIsCareerPaths] = useState(false);
   const [isWorkplaceEq, setIsWorkplaceEq] = useState(false);
 
+  // states for experience in checkboxes
+  const [isMentorJavascript, setIsMentorJavascript] = useState(false);
+  const [isMentorRuby, setIsMentorRuby] = useState(false);
+  const [isMentorPython, setIsMentorPython] = useState(false);
+  const [isMentorCsharp, setIsMentorCsharp] = useState(false);
+  const [isMentorNode, setIsMentorNode] = useState(false);
+  const [isMentorReact, setIsMentorReact] = useState(false);
+  const [isMentorRails, setIsMentorRails] = useState(false);
+  const [isMentorSQL, setIsMentorSQL] = useState(false);
+  const [isMentorMongoDB, setIsMentorMongoDB] = useState(false);
+  const [isMentorSalaryNeg, setIsMentorSalaryNeg] = useState(false);
+  const [isMentorCareerPaths, setIsMentorCareerPaths] = useState(false);
+  const [isMentorWorkplaceEq, setIsMentorWorkplaceEq] = useState(false);
   
 
   // update functions for time commitment checkboxes
@@ -223,6 +240,7 @@ function SignupForm() {
       timeCommitment: userObject.timeCommitment,
       commPrefs: userObject.commPrefs,
       learningAbout: userObject.learningAbout,
+      hasExperienceIn: mentorObject.hasExperienceIn
     }).then(response => {
       console.log(response)
       setRedirectTo('/login')
@@ -388,9 +406,23 @@ function SignupForm() {
               />
             </Grid>
             <Grid item xs={12}>
-              <Typography component="body1" variant="body1">
-              How often would you like to meet with your mentors?
-              </Typography>
+              <CheckboxLabels 
+              name='mentorStatus'
+              handleUpdateUser={updateUser}
+             />
+            </Grid>
+            <Grid item xs={12}>
+              {userObject.mentorStatus === false &&
+                <Typography component="body1" variant="body1">
+                How often would you like to meet with your mentors?
+                </Typography>
+              }
+              {userObject.mentorStatus === true &&
+                <Typography component="body1" variant="body1">
+                How often would you like to meet with your mentees?
+                </Typography>
+              }
+              
             </Grid>
             <Grid item xs={12}>
             <FormGroup row>        
@@ -441,9 +473,16 @@ function SignupForm() {
         </FormGroup>
         </Grid>
         <Grid item xs={12}>
-          <Typography component="body1" variant="body1">
-              How would you like to communicate with your mentors?
-            </Typography>
+          {userObject.mentorStatus === false && 
+              <Typography component="body1" variant="body1">
+                How would you like to communicate with your mentors?
+              </Typography>
+          }
+          {userObject.mentorStatus === true && 
+              <Typography component="body1" variant="body1">
+                How would you like to communicate with your mentees?
+              </Typography>
+          }
         </Grid>
         <Grid item xs={12}>
             <FormGroup row>
@@ -635,13 +674,155 @@ function SignupForm() {
 
             </FormGroup>
             </Grid>
+            
+            {userObject.mentorStatus === true &&
+            <div>
             <Grid item xs={12}>
-              <CheckboxLabels 
-          name='mentorStatus'
-          handleUpdateUser={updateUser}
-          />
+              <Typography component="body1"  variant="body1"> 
+              Which of the following topics should we add to your experience? Mentees will be able to find you based on their interest in these topcis.
+              </Typography>
             </Grid>
-          </Grid>
+            <Grid item xs={12}>
+            <FormGroup row>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isMentorJavascript}
+                  onChange={updateJavascript}
+                  name="isJavascript"
+                  color="primary"
+                />
+              }
+              label="Javascript" 
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isMentorRuby}
+                  onChange={updateRuby}
+                  name="isRuby"
+                  color="primary"
+                />
+              }
+              label="Ruby" 
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isMentorPython}
+                  onChange={updatePython}
+                  name="isPython"
+                  color="primary"
+                />
+              }
+              label="Python" 
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isMentorCsharp}
+                  onChange={updateCsharp}
+                  name="isCsharp"
+                  color="primary"
+                />
+              }
+              label="C#" 
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isMentorNode}
+                  onChange={updateNode}
+                  name="isNode"
+                  color="primary"
+                />
+              }
+              label="Node" 
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isMentorReact}
+                  onChange={updateReact}
+                  name="isReact"
+                  color="primary"
+                />
+              }
+              label="React" 
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isMentorRails}
+                  onChange={updateRails}
+                  name="isRails"
+                  color="primary"
+                />
+              }
+              label="Rails" 
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isMentorSQL}
+                  onChange={updateSQL}
+                  name="isSQL"
+                  color="primary"
+                />
+              }
+              label="SQL" 
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isMentorMongoDB}
+                  onChange={updateMongoDB}
+                  name="isSQL"
+                  color="primary"
+                />
+              }
+              label="MongoDB" 
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isMentorCareerPaths}
+                  onChange={updateCareerPaths}
+                  name="isCareerPaths"
+                  color="primary"
+                />
+              }
+              label="Career Paths" 
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isMentorSalaryNeg}
+                  onChange={updateSalaryNeg}
+                  name="isSalaryNeg"
+                  color="primary"
+                />
+              }
+              label="Salary negotiation" 
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isMentorWorkplaceEq}
+                  onChange={updateWorkplaceEq}
+                  name="isWorkplaceEq"
+                  color="primary"
+                />
+              }
+              label="Workplace equity" 
+            />
+
+            </FormGroup>
+            </Grid>
+            </div>
+            }
+            
+
           <Grid container spacing={4}>
             
             <Grid item xs={12}>
@@ -670,6 +851,7 @@ function SignupForm() {
               </Link>
             </Grid>
           </Grid>
+        </Grid>
         </form>
       </div>
       <Box mt={5}>

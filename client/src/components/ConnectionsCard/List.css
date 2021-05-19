@@ -38,7 +38,9 @@
 .list-group {
   /* justify-content: space-between; */
   margin-top: 0% !important;
+  max-height: 300px;
 }
+ 
 
 .list-group-item {
   align-content: left;

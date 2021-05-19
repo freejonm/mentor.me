@@ -94,7 +94,7 @@ const Nav = ({ loggedIn }) => {
             </>
           ) : (
             <>
-              <StyledLink to='/register'> Getting Started </StyledLink>
+              <StyledLink to='/register'> Sign Up </StyledLink>
               {/* <NavPipe /> */}
               <StyledLink to='/login'> Login </StyledLink>
             </>

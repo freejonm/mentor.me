@@ -9,7 +9,6 @@ const theme = createMuiTheme({
   overrides: {
     MuiButton: {
       text: {
-        // background: 'linear-gradient(45deg, #db784d 30%, #eda320 90%)',
         background: '#db784d',
         borderRadius: 3,
         font: 'Righteous',
@@ -19,7 +18,6 @@ const theme = createMuiTheme({
         padding: '0 20px',
         margin: '10px',
         boxShadow: '0 3px 5px 2px rgba((219,120,77, .3)'
-        // width: 100
       }
     }
   }
@@ -80,14 +78,7 @@ const ModalPicContainer = styled.div`
   }
 `;
 
-const UploadPicForm = styled.form`
-padding:12px;
 
-input {
-  background-color:white;
-}
-
-`;
 
 function EditModal({user, handleInputChange, handleSave, updatedUser}) {
   const [isOpen, setIsOpen] = useState(false);
@@ -125,10 +116,10 @@ function EditModal({user, handleInputChange, handleSave, updatedUser}) {
         <ModalPicContainer>
           <img src={imgData} />
           <ThemeProvider theme={theme}>
-          <UploadPicForm action="/profile" method="post" enctype="multipart/form-data">
+          <form action="/profile" method="post" enctype="multipart/form-data">
               <input type="file" name="avatar" onChange={onChangePicture}/>
               <input type="submit" value="Submit"></input>
-            </UploadPicForm>
+            </form>
           </ThemeProvider>
         </ModalPicContainer>
         <EditProfileForm user={user} handleInputChange={handleInputChange}  updatedUser={updatedUser}/>

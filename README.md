@@ -33,9 +33,9 @@ If running locally, this will start both React and Express servers. The React wi
 
 
 ## Screenshots
-![Landing Page](assets/images/landingpage.png)  
-![Dashboard](assets/images/dashboard.png)
-![Feed](assets/images/feed.png)
+![Landing Page](assets/images/landingpage.PNG)  
+![Dashboard](assets/images/dashboard.PNG)
+![Feed](assets/images/feed.PNG)
 
 ## Deployment
 This application has been deployed on Heroku at https://mentorme3000.herokuapp.com/

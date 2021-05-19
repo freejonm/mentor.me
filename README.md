@@ -56,5 +56,5 @@ This application has been deployed on Heroku at https://mentorme3000.herokuapp.c
 [Create-React-App](https://www.npmjs.com/package/create-react-app)  
 [Express](https://www.npmjs.com/package/express)  
 [Mongoose](https://www.npmjs.com/package/mongoose)  
-[Materil-io](https://material-ui.com/)  
+[Material-io](https://material-ui.com/)  
 [Socket.io](https://www.npmjs.com/package/socket.io)  

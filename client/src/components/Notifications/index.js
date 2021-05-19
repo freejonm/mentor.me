@@ -4,7 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import styled from 'styled-components';
 import { ModalProvider } from 'styled-react-modal';
 import ViewRequestModal from '../ViewRequestModal';
 
@@ -26,25 +25,6 @@ const useStyles = makeStyles({
   }
 });
 
-const ViewRequestButton = styled.button`
-  background-color: #01444c;
-  color: white;
-  border-radius: 3px;
-  font-family: 'Righteous', sans-serif;
-  border: none;
-  height: 36px;
-  padding: 0px 20px;
-  margin: 10px;
-  box-shadow: 0 3px 5px 2px rgba(219, 120, 77, 0.3);
-  font-size: 16px;
-  &:hover {
-    background-color: #637f7d;
-    color: #012a2f;
-  }
-  i {
-    margin-right: 10px;
-  }
-`;
 
 export default function Notifications({
   user

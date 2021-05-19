@@ -10,7 +10,6 @@ font-size: 22px;
     height:100px;
     width:100px;
   }
-
 `;
 
 export const PotentialConnectionsItem = props => (

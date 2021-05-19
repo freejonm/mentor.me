@@ -1,7 +1,7 @@
 # mentor.me
 
 ## Description 
-An application designed to match recent coding bootcamp graduates with mentors to help them transition and excell in a web developement career
+An application designed to match recent coding bootcamp graduates with mentors to help them transition and excel in a web developement career
 
 ## Table of Contents
 * [Installation](#Installation)

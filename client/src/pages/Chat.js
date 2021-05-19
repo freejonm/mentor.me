@@ -19,9 +19,6 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
 let socket;
 
-
-let socket
-
 const CONNECTION_PORT = 'http://mentorme3000.herokuapp.com/'
 
 //const CONNECTION_PORT = '/^http/'

@@ -123,7 +123,6 @@ const UserPostFooter = styled.div`
 `;
 
 const ResourceFeed = ({ userName, datePosted }) => {
-  const [count, setCount] = useState(0);
   const [feed, setFeed] = useState("");
   const [posts, setPosts] = useState([]);
   const [post, setPost] = useState({
@@ -195,7 +194,6 @@ const ResourceFeed = ({ userName, datePosted }) => {
         <UserPostContainer>
           <UserPostHeader>
             <h2>Posted By: jarweav on 01/21/21</h2>
-            <h2>Nice's: {count}</h2>
           </UserPostHeader>
           <UserPostBody>
             <span>
@@ -211,9 +209,6 @@ const ResourceFeed = ({ userName, datePosted }) => {
             <a href="#">
               <i class="far fa-comments"></i>Comments
             </a>
-            <a onClick={() => setCount(count + 1)}>
-              <i class="fas fa-arrow-circle-up"></i>Nice
-            </a>
           </UserPostFooter>
         </UserPostContainer>
         {posts.map((post) => {
@@ -224,7 +219,7 @@ const ResourceFeed = ({ userName, datePosted }) => {
                   Posted By: {post._id}
                   {post.date}
                 </h2>
-                <h2>Nice's: {count}</h2>
+                
               </UserPostHeader>
               <UserPostBody>
                 <span>{post.body}</span>
@@ -232,9 +227,6 @@ const ResourceFeed = ({ userName, datePosted }) => {
               <UserPostFooter>
                 <a href="#">
                   <i class="far fa-comments"></i>Comments
-                </a>
-                <a onClick={() => setCount(count + 1)}>
-                  <i class="fas fa-arrow-circle-up"></i>Nice
                 </a>
               </UserPostFooter>
             </UserPostContainer>

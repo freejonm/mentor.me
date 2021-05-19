@@ -24,7 +24,8 @@ module.exports = {
   },
 
   updateUser: ( req, res ) => {
-    db.User.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+    console.log(req.body)
+    db.User.findOneAndUpdate({ _id: req.body._id }, req.body, { new: true })
       .then(user => {
         res.json(user)
       })
@@ -138,7 +139,7 @@ module.exports = {
             lastName: "Brown",
             pronouns: "he/him",
             mentorStatus: true,
-            profilePicture: "https://imgur.com/a/ZfK9CXv"
+            profilePicture: "https://i.imgur.com/BMPCuLG.png"
           },
         ],
       });

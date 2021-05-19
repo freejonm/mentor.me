@@ -38,7 +38,7 @@ const UserProfileTitle = styled.div`
 const Body = styled.div`
 display: flex;
 flex-direction: row;
-justify-content: flex-start;
+justify-content: center;
 font-family: 'Ubuntu';
 width: 100%;
 font-size: 16px;
@@ -47,8 +47,9 @@ ul{
     background: transparent;
     h5 {
         font-weight: 'bold';
-        font-size: 22px;
+        font-size: 32px;
         font-family: 'Righteous', sans-serif;
+        color: white;
     }
     li {
         margin-bottom: 5px;
@@ -126,8 +127,8 @@ user, request}) {
                     <li>Current Position:{userInfo.currentPosition} </li>
                     <br></br>
                     <li>Education:{userInfo.education}</li>        
-              </ul>
-              </Body>
+                </ul>
+            </Body>
             
           <ViewRequestButton onClick={acceptRequest}>Accept</ViewRequestButton>
           <ViewRequestButton onClick={toggleModal}>Deny</ViewRequestButton>

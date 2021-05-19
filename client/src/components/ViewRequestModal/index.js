@@ -118,7 +118,6 @@ user, request}) {
         <ModalHead>{userInfo.firstName} {userInfo.lastName} ({userInfo.pronouns})</ModalHead>
             <br></br>
             <img src="https://randomuser.me/api/portraits/women/75.jpg" />
-            {/* <EditAvatar>Change Picture</EditAvatar> */}
           
             <Body>
                 <ul>

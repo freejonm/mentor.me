@@ -74,7 +74,6 @@ app.post("/profile", upload.single("avatar"), function (req, res, next) {
 	console.log(req.file);
 
 	db.User.findOneAndUpdate({_id: req.user._id}, { $set: { profilePicture: `/uploads/${req.file.originalname}` } }, { new: true })
-		.then(dbUser => res.json(dbUser))
 		.catch(err => res.status(422).json(err))
 	
   // req.file is the `avatar` file

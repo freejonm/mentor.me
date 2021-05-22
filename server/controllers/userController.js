@@ -110,7 +110,7 @@ module.exports = {
           error: `Sorry, already a user with the username: ${username}`,
         });
       }
-      console.log("made it here");
+      
       const newUser = new db.User({
         profilePicture: profilePicture,
         firstName: firstName,
@@ -143,15 +143,14 @@ module.exports = {
           },
         ],
       });
-      console.log("and here!");
-      console.log(newUser);
+      
+     
       newUser.save((err, savedUser) => {
         if (err){ 
-          console.log("oh no it broke")
           console.log(err);
           return res.json(err);
         }
-        console.log("success!");
+        
         return res.json(savedUser);
       });
     });

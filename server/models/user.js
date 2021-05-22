@@ -49,12 +49,12 @@ const userSchema = new Schema({
   ],
 
   sentRequests:[{
-    userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", unique: true },
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", unique: false },
     username: { type: String, default: '' }
   }],
 
   mentorRequests: [{
-    userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User', unique: true},
+    userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User', unique: false},
     username: { type: String, default: '' }
   }],
 

@@ -143,6 +143,7 @@ module.exports = {
           },
         ],
       });
+      console.log(newUser);
       newUser.save((err, savedUser) => {
         if (err){ 
           console.log("oh no it broke")

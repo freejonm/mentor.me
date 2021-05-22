@@ -60,8 +60,8 @@ const userSchema = new Schema({
 
   friendsList: [
     {
-      _id: { type: ObjectId },
-      friendId: { type: mongoose.Schema.Types.ObjectId, ref: "User", unique: true },
+      // _id: { type: ObjectId },
+      friendId: { type: mongoose.Schema.Types.ObjectId, ref: "User", unique: false },
       username: { type: String, unique: false},
       firstName: { type: String, unique: false },
       lastName: { type: String, unique: false },

@@ -144,7 +144,11 @@ module.exports = {
         ],
       });
       newUser.save((err, savedUser) => {
-        if (err) return res.json(err);
+        if (err){ 
+          console.log("oh no it broke")
+          console.log(err);
+          return res.json(err);
+        }
         console.log("success!");
         return res.json(savedUser);
       });

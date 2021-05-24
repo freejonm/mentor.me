@@ -63,7 +63,7 @@ function App() {
       console.log(response.data);
       if (response.status === 200) {
         // update the state
-        window.location.href = '/dashboard';
+        window.location.href = ('/dashboard');
         setLoggedIn(true);
         setUser(response.data.user);
       }
@@ -71,6 +71,7 @@ function App() {
   };
 
   return (
+    <Router>
     <div>
       <ThemeProvider theme={theme}>
         <CssBaseline />
@@ -111,6 +112,7 @@ function App() {
         <StickyFooter />
       </ThemeProvider>
     </div>
+    </Router>
   );
 }
 

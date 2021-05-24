@@ -34,7 +34,7 @@ export default function Notifications({
   const [notifications, setNotifications] = useState([])
 
   useEffect(() => {
-    if (user) { 
+    if (user.mentorRequests) { 
       setNotifications(user.mentorRequests)
     }
   }, [])

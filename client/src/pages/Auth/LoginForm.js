@@ -57,7 +57,7 @@ function LoginForm({ login }) {
   };
 
   if (redirectTo) {
-    return <Redirect to={{ pathname: redirectTo }} />;
+    return <Redirect to='/dashboard' />;
   } else {
     return (
       <Container component="main" maxWidth="xs" id="login-form">

@@ -75,7 +75,7 @@ function EditModal({user, handleInputChange, handleSave, updatedUser}) {
       reader.addEventListener('load', () => {
         setImgData(reader.result)
       });
-      // reader.readAsDataURL(e.target.files[0]);
+      reader.readAsDataURL(e.target.files[0]);
     }
 
   }

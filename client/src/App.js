@@ -63,7 +63,7 @@ function App() {
       console.log(response.data);
       if (response.status === 200) {
         // update the state
-        window.location.href = ('/dashboard');
+        // window.location.href = ('/');
         setLoggedIn(true);
         setUser(response.data.user);
       }
@@ -85,8 +85,10 @@ function App() {
               <Route
                 exact
                 path="/dashboard"
-                component={() => <Dashboard user={user}></Dashboard>}
-              />
+            > 
+            {console.log('user', user)}
+            <Dashboard user={user}></Dashboard>
+            </Route>
               <Route exact path="/details" component={Details} />
               <Route exact path="/editprofile" component={EditProfile} />
               <Route

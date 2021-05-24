@@ -71,6 +71,7 @@ function App() {
   };
 
   return (
+    <Router>
     <div>
       <ThemeProvider theme={theme}>
         <CssBaseline />
@@ -111,6 +112,7 @@ function App() {
         <StickyFooter />
       </ThemeProvider>
     </div>
+    </Router>
   );
 }
 

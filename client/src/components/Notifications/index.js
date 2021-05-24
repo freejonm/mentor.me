@@ -10,7 +10,7 @@ import ViewRequestModal from '../ViewRequestModal';
 const useStyles = makeStyles({
   root: {
     minWidth: 275
-    },
+  },
   bullet: {
     display: 'inline-block',
     margin: '0 2px',
@@ -25,19 +25,18 @@ const useStyles = makeStyles({
   }
 });
 
-
-export default function Notifications({
-  user
-}) {
+export default function Notifications({ user }) {
   const classes = useStyles();
 
-  const [notifications, setNotifications] = useState([])
+  const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
-    if (user.mentorRequests) { 
-      setNotifications(user.mentorRequests)
+    if (user) {
+      if (user.mentorRequests) {
+        setNotifications(user.mentorRequests);
+      }
     }
-  }, [])
+  }, []);
 
   return (
     <>
@@ -47,13 +46,15 @@ export default function Notifications({
             <h3>Notifications</h3>
           </Typography>
           <ul className="list-overflow-container">
-            {notifications.map(request => {
-             return ( <li className="list-group-item">
-                you have a request from {request.username}
-                <ModalProvider>
-                  <ViewRequestModal request={request} user={user}/>
-                </ModalProvider>
-              </li>)
+            {notifications.map((request) => {
+              return (
+                <li className="list-group-item">
+                  you have a request from {request.username}
+                  <ModalProvider>
+                    <ViewRequestModal request={request} user={user} />
+                  </ModalProvider>
+                </li>
+              );
             })}
           </ul>
         </CardContent>

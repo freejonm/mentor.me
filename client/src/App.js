@@ -63,7 +63,7 @@ function App() {
       console.log(response.data);
       if (response.status === 200) {
         // update the state
-        window.location.href = '/dashboard';
+        window.location.href = ('/dashboard');
         setLoggedIn(true);
         setUser(response.data.user);
       }

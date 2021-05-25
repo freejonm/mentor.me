@@ -101,7 +101,7 @@ export default function Dashboard({ user, rankedMentors }) {
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
-            {users.length ? (
+            {user.friendsList ? (
               <Connections>
                 {user.friendsList.map((connect) => (
                   <ConnectionsItem key={connect._id}>

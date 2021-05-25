@@ -118,8 +118,7 @@ const WelcomeDiv = () => {
          the next step for coding bootcamp grads
         </motion.p>
         <Button
-          as="a"
-          href="/register"
+          to={"/register"}
           whileHover={{
             scale: 1,
             color: '#637f7d',

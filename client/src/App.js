@@ -62,9 +62,7 @@ function App() {
     AUTH.login(username, password).then((response) => {
       console.log(response.data);
       if (response.status === 200) {
-        // update the state
-        // window.location.href = ('/');
-        setLoggedIn(true);
+          setLoggedIn(true);
         setUser(response.data.user);
       }
     });
@@ -80,7 +78,7 @@ function App() {
 
         <div className="content">
           <Route exact path="/" component={Landing} />
-          {loggedIn && (
+          {/* {loggedIn && ( */}
             <Switch>
               <Route
                 exact
@@ -98,18 +96,18 @@ function App() {
               />
               <Route exact path="/chat" component={Chat} />
               <Route exact path="/resourcefeed" component={ResourceFeed} />
-            </Switch>
+            {/* </Switch>
           )}
           {!loggedIn && (
-            <Switch>
+            <Switch> */}
               <Route
                 exact
                 path="/login"
-                component={() => <LoginForm login={login} />}
+                component={() => <LoginForm login={login} user={user} />}
               />
               <Route exact path="/register" component={Register} />
             </Switch>
-          )}
+          {/* )} */}
         </div>
         <StickyFooter />
       </ThemeProvider>

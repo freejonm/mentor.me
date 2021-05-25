@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Modal from "styled-react-modal";
+import Modal from 'styled-react-modal';
 import EditProfileForm from '../EditProfileForm';
 import styled from 'styled-components';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-
-
 
 const theme = createMuiTheme({
   overrides: {
@@ -60,25 +58,22 @@ const ModalPicContainer = styled.div`
   }
 `;
 
-
-
-function EditModal({user, handleInputChange, handleSave, updatedUser}) {
+function EditModal({ user, handleInputChange, handleSave, updatedUser }) {
   const [isOpen, setIsOpen] = useState(false);
   const [picture, setPicture] = useState(null);
   const [imgData, setImgData] = useState(null);
 
-  const onChangePicture = e => {
+  const onChangePicture = (e) => {
     if (e.target.files[0]) {
       console.log('picture', e.target.files);
       setPicture(e.target.files[0]);
       const reader = new FileReader();
       reader.addEventListener('load', () => {
-        setImgData(reader.result)
+        setImgData(reader.result);
       });
       reader.readAsDataURL(e.target.files[0]);
     }
-
-  }
+  };
 
   function toggleModal(e) {
     setIsOpen(!isOpen);
@@ -98,16 +93,19 @@ function EditModal({user, handleInputChange, handleSave, updatedUser}) {
         <ModalPicContainer>
           <img src={imgData} />
           <ThemeProvider theme={theme}>
-          <form action="/profile" method="post" enctype="multipart/form-data">
-              <input type="file" name="avatar" onChange={onChangePicture}/>
+            <form action="/profile" method="post" enctype="multipart/form-data">
+              <input type="file" name="avatar" onChange={onChangePicture} />
               <input type="submit" value="Submit"></input>
             </form>
           </ThemeProvider>
         </ModalPicContainer>
-        <EditProfileForm user={user} handleInputChange={handleInputChange}  updatedUser={updatedUser}/>
+        <EditProfileForm
+          user={user}
+          handleInputChange={handleInputChange}
+          updatedUser={updatedUser}
+        />
         <ThemeProvider theme={theme}>
           <Button onClick={toggleModal}>Finish</Button>
-
         </ThemeProvider>
       </StyledModal>
     </div>

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -33,7 +33,8 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function LoginForm({ login }) {
+function LoginForm({ login, user }) {
+  const history = useHistory();
   const classes = useStyles();
 
   const [userObject, setUserObject] = useState({
@@ -41,7 +42,12 @@ function LoginForm({ login }) {
     password: ''
   });
 
-  const [redirectTo, setRedirectTo] = useState(null);
+  useEffect(() => {
+    console.log('user',user)
+    if(user){
+      history.push('/dashboard')
+    }
+  }, [user])
 
   const handleChange = (event) => {
     setUserObject({
@@ -52,13 +58,9 @@ function LoginForm({ login }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    login(userObject.username, userObject.password);
-    setRedirectTo('/dashboard');
+    login(userObject.username, userObject.password)
   };
 
-  if (redirectTo) {
-    return <Redirect to='/dashboard' />;
-  } else {
     return (
       <Container component="main" maxWidth="xs" id="login-form">
         <CssBaseline />
@@ -127,6 +129,6 @@ function LoginForm({ login }) {
       </Container>
     );
   }
-}
+
 
 export default LoginForm;

@@ -7,7 +7,6 @@ const theme = createMuiTheme({
   overrides: {
     MuiButton: {
       text: {
-        // background: 'linear-gradient(45deg, #db784d 30%, #eda320 90%)',
         background: '#db784d',
         borderRadius: 3,
         font: 'Righteous', 

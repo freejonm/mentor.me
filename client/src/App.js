@@ -16,8 +16,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from './theme';
 import Item from './components/Theme/item';
 
-// import SignupForm from './pages/Auth/SignupForm';
-// import NoMatch from "./pages/NoMatch";
 import AUTH from './utils/AUTH';
 import EditProfile from './pages/EditProfile';
 import MemberProfile from './pages/MemberProfile';
@@ -30,7 +28,6 @@ function App() {
 
   useEffect(() => {
     AUTH.getUser().then((response) => {
-      // console.log(response.data);
       if (!!response.data.user) {
         setLoggedIn(true);
         setUser(response.data.user);
@@ -50,7 +47,6 @@ function App() {
     event.preventDefault();
 
     AUTH.logout().then((response) => {
-      // console.log(response.data);
       if (response.status === 200) {
         setLoggedIn(false);
         setUser(null);

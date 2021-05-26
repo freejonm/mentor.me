@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     marginTop:'calc(5% + 60px)',
     bottom:0,
+    
     width: '100%'
   },
   main: {
@@ -31,6 +32,8 @@ const useStyles = makeStyles((theme) => ({
   },
   footer: {
     padding: theme.spacing(3, 2),
+    left: 0,
+    right:0,
     marginTop: 'auto',
     backgroundColor:
     '#db784d',
